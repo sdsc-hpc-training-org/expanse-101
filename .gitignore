@@ -1,5 +1,9 @@
-# Prerequisites
-*.d
+$*.out
+*/.DS_Store
+*pycache*
+*checkpoints*
+
+*.exe
 
 # Object files
 *.o

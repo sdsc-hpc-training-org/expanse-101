@@ -3,17 +3,17 @@
 ## NOTES:
 
 ## Interactive Video Link:
-This material was presented as part of a webinar presented on xxxxx.
-The link to the presentation can be found here:
+This material was presented as part of a webinar presented on October 8th, 2020.
+The link to the presentation will be posted soon:
 
-https://education.sdsc.edu/training/interactive/202004_intro_to_expanse/index.php
+*Video Link To be Posted within 1 week of the webinar*
 
-## Hands-on Self-guided Tutorial:
+## Hands-on Self-guided Tutorial (using markdown file):
 
 https://github.com/sdsc-hpc-training-org/expanse-101/blob/master/running_jobs_on_expanse.md
 
 ## Link to GitHub Repo
-https://github.com/sdsc-hpc-training-org/webinars/tree/master/202004_expanse_101
+https://github.com/sdsc-hpc-training-org/expanse-101
 
 ### Expanse User Guide
 Please read the Expanse user guide and familiarize yourself with the hardware, file systems, batch job submission, compilers and modules. The guide can be found here:
@@ -21,6 +21,6 @@ Please read the Expanse user guide and familiarize yourself with the hardware, f
 http://www.sdsc.edu/support/user_guides/expanse.html
 
 ### Basic Skills
-You must be familiar with running basic Unix commands, connecting to Expanse via SSH, and other basic skills. See:
+You should be familiar with running basic Unix commands, connecting to Expanse via SSH, and other basic skills. See:
 https://github.com/sdsc-hpc-training/basic_skills
 

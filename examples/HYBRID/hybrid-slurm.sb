@@ -9,7 +9,7 @@
 #SBATCH --export=ALL
 #SBATCH -t 01:30:00
 
-#Environment
+#Load Module Environment
 module purge
 module load slurm
 module load cpu

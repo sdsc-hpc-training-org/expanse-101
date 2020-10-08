@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH --job-name="hellompi"
+#SBATCH --output="hellompi.%j.%N.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=128
+#SBATCH --export=ALL
+#SBATCH -t 00:10:00
+
+#This job runs with 2 nodes, 128 cores per node for a total of 256 cores.
+## Environment
+module purge
+module load slurm
+module load cpu
+module load aocc
+module load openmpi/4.0.4
+
+## Use srun to run the job
+
+srun --mpi=pmi2 -n 256 --cpu-bind=rank ./hello_mpi_aocc
+

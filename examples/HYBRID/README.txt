@@ -1,5 +1,6 @@
 [1] Compile:
 
+# Load module environment
 module purge
 module load slurm
 module load cpu

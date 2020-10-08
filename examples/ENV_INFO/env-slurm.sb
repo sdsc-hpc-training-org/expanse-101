@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH --job-name="envinfo"
+#SBATCH --output="envinfo.%j.%N.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --export=ALL
+#SBATCH -t 00:1:00
+
+## Environment
+module purge
+module load slurm
+module load cpu
+
+##  just perform some basic unix commands
+
+echo "----------------------------------"
+echo "hostname= " `hostname` 
+echo "date= " `date` 
+echo "whoami= " `whoami` 
+echo "pwd= " `pwd` 
+echo "module list= " `module list` 
+echo "----------------------------------"
+echo "env= " `env` 
+echo "----------------------------------"
+

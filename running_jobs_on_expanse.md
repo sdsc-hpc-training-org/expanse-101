@@ -131,21 +131,3 @@ Systems <#file-systems>`__
          Output <#hybrid-mpi-omp-batch-output>`__
 
 `Back to Top <#top>`__
-
-.. raw:: html
-
-   <hr>
-Expanse Overview:
------------------
-HPC for the “long tail of science:”
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--  Designed and operated on the principle that the majority of
-   computational research is performed at modest scale: large number
-   jobs that run for less than 48 hours, but can be computationally
-   intensvie and generate large amounts of data.
--  An NSF-funded system available through the eXtreme Science and
-   Engineering Discovery Environment (XSEDE) program.
--  Also supports science gateways.
- \* 2.76 Pflop/s peak \* 48,784 CPU cores \* 288 NVIDIA GPUs \* 247 TB
-total memory \* 634 TB total flash memory
-`Back to Top <#top>`__

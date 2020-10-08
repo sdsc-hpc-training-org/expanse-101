@@ -1,4 +1,4 @@
-# Expanse 101: Introduction to Running Jobs on Expanse Supercomputer
+# Expanse 101: Introduction to Running Jobs on [E X P A N S E](https://expanse.sdsc.edu) 
 
 ### 10/8/2020:  Contents of this hands-on tutorial will be posted after the webinar.
 
@@ -13,10 +13,7 @@ The commands below can be cut & pasted into the terminal window, which is connec
     * To obtain a trial account:  http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
 * You must be familiar with running basic Unix commands: see the following tutorials at:
     * https://github.com/sdsc-hpc-training/basic_skills
-* The `hostname` for Expanse is `expanse.sdsc.edu`
-* The operating system for Expanse was changed to CentOS in December, 2019. As a result, you will need to recompile all code, some modules and libraries are no longer needed, and the locations of some libraries and applications have changed. For details, see the transition guide here:
-   * https://www.sdsc.edu/services/hpc/expanse_upgrade.html
-* Our next HPC system, [E X P A N S E](https://expanse.sdsc.edu), will be coming online for early users in September. Keep an eye on the E X P A N S E pages for training information and other updates
+* The `hostname` for E X P A N S E is `expanse.sdsc.edu`
 
 <em>If you have any difficulties completing these tasks, please contact SDSC Consulting group at <consult@sdsc.edu>.</em>
 <hr>

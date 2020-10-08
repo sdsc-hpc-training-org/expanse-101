@@ -8,7 +8,9 @@ Welcome to Expanse-101's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   
+   README
+   running_jobs_on_expanse
 
 
 

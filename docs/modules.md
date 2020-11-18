@@ -246,7 +246,8 @@ Place the following in your ```~/.bashrc``` file:
                    # module load hdf5
                 fi
 ```
-To verify:
+
+* First edit your ```.bashrc``` and ```.bash_profile``` files:
 ```
 [username@login02 ~]$ cat .bash_profile 
 # .bash_profile
@@ -268,14 +269,16 @@ if [ -z "$BASHRC_READ" ]; then
    module load hdf5
 Fi
 [SNIP]
-
-LOUGOUT and LOG BACK IN:
-(base) quantum:~ username$ expanse
-Last login: Wed Oct  7 17:13:52 2020 from 76.176.117.51
-[username@login02 ~]$ env | grep -i hdf5
-LD_LIBRARY_PATH=/cm/shared/apps/hdf5/1.10.1/lib
-__LMOD_REF_COUNT_PATH=/cm/shared/apps/hdf5/1.10.1/bin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/dell/srvadmin/bin:1
-__LMOD_REF_COUNT__LMFILES_=/cm/local/modulefiles/shared:1;/cm/local/modulefiles/cpu/1.0.lua:1;/usr/share/modulefiles/DefaultModules.lua:1;/cm/shared/modulefiles/hdf5/1.10.1:1
+```
+* Next LOGOUT and LOG BACK IN:
+```
+(base) [username@login02 ~]$ env | grep slurm
+[snip]
+MANPATH=/cm/shared/apps/slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
+PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/username/miniconda3/bin/conda:/home/username/miniconda3/bin:/home/username/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/username/.local/bin:/home/username/bin
+[snip]
+(base) [username@login02 ~]$ which squeue
+/cm/shared/apps/slurm/current/bin/squeue
 ```
 
 

@@ -1,6 +1,7 @@
 # Expanse 101: Introduction to Running Jobs on Expanse Supercomputer
 
 ## Presented by Mary Thomas (SDSC, mpthomas@ucsd.edu )
+*Thursday, October 8, 2020*
 
 <hr>
 In this tutorial, you will learn how to compile and run jobs on Expanse,
@@ -26,7 +27,22 @@ Transition Workshpo](https://education.sdsc.edu/training/interactive/202010_come
 If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at help@xsede.org.
 
+<a name="top">Contents:
+* Expanse Overview & Innovative Features
+* Getting Started
+* Modules
+* Account Management
+* Compiling and Linking Code
+* Running Jobs
+* Hands-on Examples
+* MPI Jobs
+* OpenMP Jobs
+* GPU/CUDA Jobs
+* Hybrid MPI-OpenMP Jobs 
+* Data and Storage, Globus Endpoints, Data Movers, Mount Points
+* Final Comments
 
+<!-----
 <a name="top">Contents:
 * [Expanse Overview](#overview)
     * [Expanse Architecture](#network-arch)
@@ -91,3 +107,4 @@ Consulting group at help@xsede.org.
 
 [Back to Top](#top)
 <hr>
+----->

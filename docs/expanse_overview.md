@@ -16,6 +16,9 @@
 
 ### System Summary
 
+| A | B |
+| --- | --- |
+
 * 13 SDSC Scalable Compute Units (SSCU)
 * 728 x 2s Standard Compute Nodes
 * 93,184 Compute Cores

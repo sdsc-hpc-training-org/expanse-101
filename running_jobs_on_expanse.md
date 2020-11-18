@@ -28,7 +28,7 @@ If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at help@xsede.org.
 
 <a name="top">Contents:
-* Expanse Overview & Innovative Features
+* [Expanse Overview & Innovative Features](/docs/expanse_overview.md)
 * Getting Started
 * Modules
 * Account Management
@@ -38,7 +38,7 @@ Consulting group at help@xsede.org.
 * MPI Jobs
 * OpenMP Jobs
 * GPU/CUDA Jobs
-* Hybrid MPI-OpenMP Jobs 
+* Hybrid MPI-OpenMP Jobs
 * Data and Storage, Globus Endpoints, Data Movers, Mount Points
 * Final Comments
 

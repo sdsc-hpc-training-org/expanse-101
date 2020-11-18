@@ -28,7 +28,9 @@ ssh -l <your_username> login.expanse.sdsc.edu
 Details about how to access Expanse under different circumstances are described in the Expanse User Guide:
 https://www.sdsc.edu/support/user_guides/expanse.html#access
 
-For instructions on how to use SSH, see [Connecting to SDSC HPC Systems Guide](https://github.com/sdsc-hpc-training-org/hpc-security/tree/master/connecting-to-hpc-systems)
+For instructions on how to use SSH,
+see [Connecting to SDSC HPC Systems Guide](https://github.com/sdsc-hpc-training-org/hpc-security/tree/master/connecting-to-hpc-systems). Below is the logon message – often called the *MOTD* (message of the day, located in /etc/motd). This has not been implemented at this point on Expanse
+
 ```
 [username@localhost:~] ssh -Y expanse.sdsc.edu
 Welcome to Bright release         9.0
@@ -57,24 +59,82 @@ Use the following commands to adjust your environment:
 Last login: Fri Nov 1 11:16:02 2020 from 76.176.117.51
 ```
 
+####
+Example of a terminal connection/Unix login session:
+```(base) quantum:~ mthomas$ ssh -l mthomas login.expanse.sdsc.edu
+Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
+[mthomas@login02 ~]$ 
+[mthomas@login02 ~]$ whoami
+mthomas
+[mthomas@login02 ~]$ 
+[mthomas@login02 ~]$ pwd
+/home/mthomas
+[mthomas@login02 ~]$ 
+[mthomas@login02 ~]$ 
+```
+
 [Back to Top](#top)
 <hr>
 
-### Obtaining Example Code<a name="example-code"></a>
+### Obtaining Tutorial Example Code<a name="example-code"></a>
+We will be clone the example code from GitHub repository located here:
+https://github.com/sdsc-hpc-training-org/expanse-101
+
+The example below will be for anonymous HTTPS downloads
+
 * Create a test directory hold the expanse example files:
 ```
-hhhh
+quantum:hpctrain mthomas$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
+Cloning into 'expanse-101'...
+remote: Enumerating objects: 79, done.
+remote: Counting objects: 100% (79/79), done.
+remote: Compressing objects: 100% (52/52), done.
+remote: Total 302 (delta 36), reused 39 (delta 15), pack-reused 223
+Receiving objects: 100% (302/302), 3.70 MiB | 4.66 MiB/s, done.
+Resolving deltas: 100% (130/130), done.
+quantum:hpctrain mthomas$ ll
+total 0
+drwxr-xr-x   3 mthomas  staff   96 Nov 18 08:12 .
+drwxr-xr-x  11 mthomas  staff  352 Nov 18 08:11 ..
+drwxr-xr-x  10 mthomas  staff  320 Nov 18 08:12 expanse-101
+quantum:hpctrain mthomas$ cd expanse-101/
+quantum:expanse-101 mthomas$ ls -al
+total 48
+drwxr-xr-x  10 mthomas  staff   320 Nov 18 08:12 .
+drwxr-xr-x   3 mthomas  staff    96 Nov 18 08:12 ..
+-rw-r--r--   1 mthomas  staff  6148 Nov 18 08:12 .DS_Store
+drwxr-xr-x  12 mthomas  staff   384 Nov 18 08:12 .git
+-rw-r--r--   1 mthomas  staff   459 Nov 18 08:12 .gitignore
+-rw-r--r--   1 mthomas  staff  1005 Nov 18 08:12 README.md
+drwxr-xr-x   4 mthomas  staff   128 Nov 18 08:12 docs
+drwxr-xr-x   7 mthomas  staff   224 Nov 18 08:12 examples
+drwxr-xr-x  12 mthomas  staff   384 Nov 18 08:12 images
+-rw-r--r--   1 mthomas  staff  5061 Nov 18 08:12 running_jobs_on_expanse.md
 ```
-* Copy the `/share/apps/examples/expanse101/` directory to your local (`/home/username/expanse-examples`) directory. Note: you can learn to create and modify directories as part of the *Getting Started* and *Basic Skills* preparation work:
-https://github.com/sdsc/sdsc-summer-institute-2020/tree/master/0_preparation
+*Note*: you can learn to create and modify directories as part of the *Getting Started* and *Basic Skills* preparation found here:
+https://github.com/sdsc-hpc-training-org/basic_skills
+
+The examples directory contains the code we will cover in this tutorial:
 ```
-hhhh
+[mthomas@login01 examples]$ ls -al examples
+total 88
+drwxr-xr-x 6 mthomas use300 6 Oct  7 14:15 .
+drwxr-xr-x 5 mthomas use300 8 Oct  7 14:15 ..
+drwxr-xr-x 2 mthomas use300 6 Oct  7 14:15 HYBRID
+drwxr-xr-x 2 mthomas use300 6 Oct  7 14:15 MPI
+drwxr-xr-x 2 mthomas use300 6 Oct  7 14:15 OpenACC
+drwxr-xr-x 2 mthomas use300 6 Oct  7 14:15 OPENMP
+[mthomas@login01 examples]$ ls -al examples/MPI
+total 63
+drwxr-xr-x 2 mthomas use300     6 Oct  7 14:15 .
+drwxr-xr-x 6 mthomas use300     6 Oct  7 14:15 ..
+-rwxr-xr-x 1 mthomas use300 21576 Oct  7 14:15 hello_mpi
+-rw-r--r-- 1 mthomas use300   329 Oct  7 14:15 hello_mpi.f90
+-rw-r--r-- 1 mthomas use300   464 Oct  7 14:15 hellompi-slurm.sb
+-rw-r--r-- 1 mthomas use300   181 Oct  7 14:15 README.txt
+
 ```
-Copy the 'expanse101' directory into your `expanse-examples` directory:
-```
-hhhh
-```
-Most examples will contain source code, along with a batch script example so you can run the example, and compilation examples (e.g. see the MKL example).
+All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
 
 ### Expanse User Portal<a name="user-portal"></a>
 <img src="../images/expanse_usesr_portal.png" alt="Expanse User Portal" width="400px" />

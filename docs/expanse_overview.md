@@ -5,7 +5,7 @@
 * An NSF-funded system available through the eXtreme Science and Engineering Discovery Environment (XSEDE) program.
 * Also supports science gateways.
 
-<img src="/images/expanse-overview.png" alt="Expanse Overview" width="500px" />
+<img src="../images/expanse-overview.png" alt="Expanse Overview" width="500px" />
 ### System Summary
 * 13 SDSC Scalable Compute Units (SSCU)
 * 728 x 2s Standard Compute Nodes

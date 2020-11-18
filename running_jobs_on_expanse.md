@@ -29,8 +29,8 @@ Consulting group at help@xsede.org.
 
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](/docs/expanse_overview.md)
-* [Getting Started](/docs/getting_started.md) 
-* Modules
+* [Getting Started](/docs/getting_started.md)
+* [Modules](/docs/modules.md)
 * Account Management
 * Compiling and Linking Code
 * Running Jobs

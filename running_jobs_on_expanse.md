@@ -1,4 +1,4 @@
-# Expanse 101: Introduction to Running Jobs on Expanse Supercomputer
+# Expanse 101:  Introduction to Running Jobs on Expanse Supercomputer
 
 ## Presented by Mary Thomas (SDSC, mpthomas@ucsd.edu )
 *Thursday, October 8, 2020*

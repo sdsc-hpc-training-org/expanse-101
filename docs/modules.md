@@ -160,7 +160,7 @@ Currently Loaded Modules:
   1) shared   2) cpu/1.0   3) DefaultModules
 ```
 
-* Check environment looking for SLURM commands
+* Note that SLURM is not in the environment. Check environment looking for SLURM commands
 ```
 (base) [username@login01 ~]$ which squeue
 /usr/bin/which: no squeue in (/home/username/miniconda3/bin/conda:/home/username/miniconda3/bin:/home/username/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/username/.local/bin:/home/username/bin)
@@ -226,8 +226,60 @@ xxx
 [Back to Top](#top)
 <hr>
 
+### Loading Modules During Login <a name="module-login-load"></a>
+You can override, and add to the standard set of login modules in two ways.
+1. The first is adding module commands to your personal startup files.
+2. The second way is through the “module save” command.
+*Note: make sure that you always want the module loaded at login*
 
-### <a name="module-error"></a>Troubleshooting:Module Error
+For Bash:  put the following block into your ```~/.bash_profile``` file:
+```
+           if [ -f ~/.bashrc ]; then
+                            . ~/.bashrc
+                    fi
+```
+Place the following in your ```~/.bashrc``` file:
+```
+           if [ -z "$BASHRC_READ" ]; then
+                        export BASHRC_READ=1
+                        # Place any module commands here
+                   # module load hdf5
+                fi
+```
+To verify:
+```
+[username@login02 ~]$ cat .bash_profile 
+# .bash_profile
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+. ~/.bashrc
+fi
+[SNIP]
+[username@login01 ~]$
+[username@login02 ~]$ cat .bashrc
+# .bashrc
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+. /etc/bashrc
+fi
+if [ -z "$BASHRC_READ" ]; then
+   export BASHRC_READ=1
+   # Place any module commands here
+   module load hdf5
+Fi
+[SNIP]
+
+LOUGOUT and LOG BACK IN:
+(base) quantum:~ username$ expanse
+Last login: Wed Oct  7 17:13:52 2020 from 76.176.117.51
+[username@login02 ~]$ env | grep -i hdf5
+LD_LIBRARY_PATH=/cm/shared/apps/hdf5/1.10.1/lib
+__LMOD_REF_COUNT_PATH=/cm/shared/apps/hdf5/1.10.1/bin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/dell/srvadmin/bin:1
+__LMOD_REF_COUNT__LMFILES_=/cm/local/modulefiles/shared:1;/cm/local/modulefiles/cpu/1.0.lua:1;/usr/share/modulefiles/DefaultModules.lua:1;/cm/shared/modulefiles/hdf5/1.10.1:1
+```
+
+
+### Troubleshooting:Module Error<a name="module-error"></a>
 
 Sometimes this error is encountered when switching from one shell to another or attempting to run the module command from within a shell script or batch job. The module command may not be inherited between the shells.  To keep this from happening, execute the following command:
 ```

@@ -30,9 +30,8 @@ Consulting group at help@xsede.org.
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/docs/expanse_overview.md)
 * [Getting Started](https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/docs/getting_started.md)
-* <a href="https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/docs/modules.md" target="_blank">Modules</a>
- <!----
 * [Modules](https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/docs/modules.md)
+ <!----
 * [Account Management](https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/docs/accounts.md)
 ---->
 * Account Management

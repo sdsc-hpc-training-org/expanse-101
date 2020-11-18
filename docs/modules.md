@@ -12,14 +12,14 @@ https://www.sdsc.edu/support/user_guides/expanse.html#modules
 
 ### Introduction to the Lua Lmod Module System<a name="module-lmod-intro"></a>
 * Expanse uses Lmod, a Lua based module system.
-* See: https://lmod.readthedocs.io/en/latest/010_user.html
+   * See: https://lmod.readthedocs.io/en/latest/010_user.html
 * Users setup custom environments by loading available modules into the shell environment, including needed compilers and libraries and the batch scheduler. 
 * What’s the same as Comet:
   * Dynamic modification of your shell environment
   * User can set, change, or delete environment variables
   * User chooses between different versions of the same software or different combinations of related codes.
 * Modules: What’s Different?
-  * Users will need to load the scheduler (e.g. slurm)
+  * *Users will need to load the scheduler (e.g. slurm)*
   * Users will not see all available modules when they run command "module available" without loading a compiler.
   * Use the command "module spider" option to see if a particular package exists and can be loaded, run command
       * module spider <package>
@@ -62,87 +62,166 @@ Lmod commands support *short-hand* notation, for example:
 
 * Default environment: `list`, `li`
 ```
-[mthomas@expanse-ln3:~] module list
-Currently Loaded Modulefiles:
-1) intel/2018.1.163    2) mvapich2_ib/2.3.2
+(base) [username@login01 expanse-101]$ module list
+Currently Loaded Modules:
+  1) shared   2) cpu/1.0   3) DefaultModules
 ```
 * List available modules:  `available`, `avail`, `av`
 
 ```
 $ module av
-[mthomas@expanse-ln3:~] module av
+[username@expanse-ln3:~] module av
+(base) [username@login01 expanse-101]$ module available
 
-------------------------- /opt/modulefiles/mpi/.intel --------------------------
-mvapich2_gdr/2.3.2(default)
-[snip]
+--------------- /cm/shared/apps/spack/cpu/lmod/linux-centos8-x86_64/Core ----------------
+   abaqus/2018     gaussian/16.C.01        gmp/6.1.2           mpfr/4.0.2
+   aocc/2.2.0      gcc/7.5.0               intel/19.1.1.217    openjdk/11.0.2
+   cmake/3.18.2    gcc/9.2.0               libtirpc/1.2.6      parallel/20200822
+   emboss/6.6.0    gcc/10.2.0       (D)    matlab/2020b        subversion/1.14.0
 
------------------------- /opt/modulefiles/applications -------------------------
-abaqus/6.11.2                      lapack/3.8.0(default)
-abaqus/6.14.1(default)             mafft/7.427(default)
-abinit/8.10.2(default)             matlab/2019b(default)
-abyss/2.2.3(default)               matt/1.00(default)
-amber/18(default)                  migrate/3.6.11(default)
-. . .
-eos/3.7.1(default)                spark/1.2.0
-globus/6.0                         spark/1.5.2(default)
-. . .
+--------------------------------- /cm/local/modulefiles ---------------------------------
+   cluster-tools-dell/9.0        gcc/9.2.0                    null
+   cluster-tools/9.0             gpu/1.0                      openldap
+   cmd                           ipmitool/1.8.18              python3
+   cmjob                         kubernetes/expanse/1.18.8    python37
+   cpu/1.0                (L)    lua/5.3.5                    shared                (L)
+   docker/19.03.5                luajit                       singularitypro/3.5
+   dot                           module-git                   slurm/expanse/20.02.3
+   freeipmi/1.6.4                module-info
+
+-------------------------------- /usr/share/modulefiles ---------------------------------
+   DefaultModules (L)    gct/6.2    globus/6.0
+
+-------------------------------- /cm/shared/modulefiles ---------------------------------
+   bonnie++/1.98                default-environment           netperf/2.7.0
+   cm-pmix3/3.1.4               gdb/8.3.1                     openblas/dynamic/0.3.7
+   cuda10.2/blas/10.2.89        hdf5/1.10.1                   openmpi/gcc/64/1.10.7
+   cuda10.2/fft/10.2.89         hdf5_18/1.8.21                sdsc/1.0
+   cuda10.2/nsight/10.2.89      hwloc/1.11.11                 ucx/1.6.1
+   cuda10.2/profiler/10.2.89    iozone/3_487
+   cuda10.2/toolkit/10.2.89     netcdf/gcc/64/gcc/64/4.7.3
+
+  Where:
+   L:  Module is loaded
+   D:  Default Module
+
+```
+*Note:* Module defaults are chosen based on Find First Rules due to Name/Version/Version modules found in the module tree.
+See https://lmod.readthedocs.io/en/latest/060_locating.html for details.
+
+Use ```module spider``` to find all possible modules and extensions.
+```
+(base) [username@login02 ~]$ module spider MPI
+-------------------------------------------------------------------------------------
+  intel-mpi: intel-mpi/2019.8.254
+-------------------------------------------------------------------------------------
+    You will need to load all module(s) on any one of the lines below before the "intel-mpi/2019.8.254" module is available to load.
+
+      cpu/1.0  gcc/10.2.0
+      cpu/1.0  intel/19.1.1.217
+      gpu/1.0
+      gpu/1.0  intel/19.0.5.281
+      gpu/1.0  pgi/20.4
+
+    Help:
+      Intel MPI
+-------------------------------------------------------------------------------------
+  openmpi:
+-------------------------------------------------------------------------------------
+     Versions:
+        openmpi/3.1.6
+        openmpi/4.0.4-nocuda
+        openmpi/4.0.4
+-------------------------------------------------------------------------------------
+  For detailed information about a specific "openmpi" package (including how to load the modules) use the module's full name. Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider openmpi/4.0.4
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+  openmpi/gcc/64: openmpi/gcc/64/1.10.7
+-------------------------------------------------------------------------------------
+    You will need to load all module(s) on any one of the lines below before the "openmpi/gcc/64/1.10.7" module is available to load.
+      shared
+    Help:
+        Adds OpenMPI to your environment variables,      
 ```
 
 [Back to Top](#top)
 <hr>
 
 ### <a name="load-and-check-module-env"></a>Load and Check Modules and Environment
-
-* Load modules:
+In this example, we will add the SLURM library, and and verify that it is in your environment
+* Check login module environment
 ```
-[mthomas@expanse-ln3:~] module list
-Currently Loaded Modulefiles:
-1) intel/2018.1.163    2) mvapich2_ib/2.3.2
-[mthomas@expanse-ln3:~] module add spark/1.2.0
-[mthomas@expanse-ln3:~] module list
-Currently Loaded Modulefiles:
-1) intel/2018.1.163    3) hadoop/2.6.0
-2) mvapich2_ib/2.3.2   4) spark/1.2.0
+(base) [username@login01 ~]$ module li
 
+Currently Loaded Modules:
+  1) shared   2) cpu/1.0   3) DefaultModules
 ```
 
-Show loaded module details:
+* Check environment looking for SLURM commands
 ```
-$ module show fftw/3.3.4
-[mthomas@expanse-ln3:~] module show spark/1.2.0
--------------------------------------------------------------------
-/opt/modulefiles/applications/spark/1.2.0:
+(base) [username@login01 ~]$ which squeue
+/usr/bin/which: no squeue in (/home/username/miniconda3/bin/conda:/home/username/miniconda3/bin:/home/username/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/username/.local/bin:/home/username/bin)
+```
+* SLURM commands do not exist, so we need to load that module.
+```
+(base) [username@login01 ~]$ module load slurm
+(base) [username@login01 ~]$ which squeue
+/cm/shared/apps/slurm/current/bin/squeue
+```
 
-module-whatis     Spark
-module-whatis     Version: 1.2.0
-module         load hadoop/2.6.0
-prepend-path     PATH /opt/spark/1.2.0/bin
-setenv         SPARK_HOME /opt/spark/1.2.0
--------------------------------------------------------------------
+* Display loaded module details:
+```
+(base) [username@login02 ~]$ module display slurm
+-------------------------------------------------------------------------------------
+   /cm/local/modulefiles/slurm/expanse/20.02.3:
+-------------------------------------------------------------------------------------
+whatis("Adds Slurm to your environment ")
+setenv("CMD_WLM_CLUSTER_NAME","expanse")
+setenv("SLURM_CONF","/cm/shared/apps/slurm/var/etc/expanse/slurm.conf")
+prepend_path("PATH","/cm/shared/apps/slurm/current/bin")
+prepend_path("PATH","/cm/shared/apps/slurm/current/sbin")
+prepend_path("MANPATH","/cm/shared/apps/slurm/current/man")
+prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64")
+prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64/slurm")
+prepend_path("LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64")
+prepend_path("LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64/slurm")
+prepend_path("CPATH","/cm/shared/apps/slurm/current/include")
+help([[ Adds Slurm to your environment
+]])
 ```
 
 Once you have loaded the modules, you can check the system variables that are available for you to use.
 * To see all variable, run the <b>`env`</b> command. Typically, you will see more than 60 lines containing information such as your login name, shell, your home directory:
 ```
-[mthomas@expanse-ln3 IBRUN]$ env
-SPARK_HOME=/opt/spark/1.2.0
-HOSTNAME=expanse-ln3.sdsc.edu
-INTEL_LICENSE_FILE=/opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/licenses:/opt/intel/licenses:/root/intel/licenses
-SHELL=/bin/bash
-USER=mthomas
-PATH=/opt/spark/1.2.0/bin:/opt/hadoop/2.6.0/sbin:/opt/hadoop/contrib/myHadoop/bin:/opt/hadoop/2.6.0/bin:/home/mthomas/miniconda3/bin:/home/mthomas/miniconda3/condabin:/opt/mvapich2/intel/ib/bin:/opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/bin/intel64:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/sdsc/bin:/opt/sdsc/sbin:/opt/ibutils/bin:/opt/pdsh/bin:/opt/rocks/bin:/opt/rocks/sbin:/home/mthomas/bin
-PWD=/home/mthomas
-LOADEDMODULES=intel/2018.1.163:mvapich2_ib/2.3.2:hadoop/2.6.0:spark/1.2.0
-JUPYTER_CONFIG_DIR=/home/mthomas/.jupyter
-MPIHOME=/opt/mvapich2/intel/ib
-MODULESHOME=/usr/share/Modules
-MKL_ROOT=/opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/mkl
+[username@expanse-ln3 IBRUN]$ env
+CONDA_EXE=/home/username/miniconda3/bin/conda
+__LMOD_REF_COUNT_PATH=/cm/shared/apps/slurm/current/sbin:1;/cm/shared/apps/slurm/current/bin:1;/home/username/miniconda3/bin/conda:1;/home/username/miniconda3/bin:1;/home/username/miniconda3/condabin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/dell/srvadmin/bin:1;/home/username/.local/bin:1;/home/username/bin:1
+HOSTNAME=login02
+USER=username
+HOME=/home/username
+CONDA_PYTHON_EXE=/home/username/miniconda3/bin/python
+BASH_ENV=/usr/share/lmod/lmod/init/bash
+BASHRC_READ=1
+LIBRARY_PATH=/cm/shared/apps/slurm/current/lib64/slurm:/cm/shared/apps/slurm/current/lib64
+SLURM_CONF=/cm/shared/apps/slurm/var/etc/expanse/slurm.conf
+LOADEDMODULES=shared:cpu/1.0:DefaultModules:slurm/expanse/20.02.3
+__LMOD_REF_COUNT_MANPATH=/cm/shared/apps/slurm/current/man:1;/usr/share/lmod/lmod/share/man:1;/usr/local/. . . .
+MANPATH=/cm/shared/apps/slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
+MODULEPATH=/cm/shared/apps/spack/cpu/lmod/linux-centos8-x86_64/Core:/cm/local/modulefiles:/etc/modulefiles:/usr/share/modulefiles:/usr/share/Modules/modulefiles:/cm/shared/modulefiles
+MODULEPATH_ROOT=/usr/share/modulefiles
+PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/username/miniconda3/bin/conda:/home/username/miniconda3/bin:/home/username/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/username/.local/bin:/home/username/bin
+_LMFILES_=/cm/local/modulefiles/shared:/cm/local/modulefiles/cpu/1.0.lua:/usr/share/modulefiles/DefaultModules.lua:/cm/local/modulefiles/slurm/expanse/20.02.3
+MODULESHOME=/usr/share/lmod/lmod
+CONDA_DEFAULT_ENV=base
+
 ```
 
 To see the value for any of these variables, use the `echo` command:
 ```
-[mthomas@expanse-ln3 IBRUN]$ echo $PATH
-PATH=/opt/gnu/gcc/bin:/opt/gnu/bin:/opt/mvapich2/intel/ib/bin:/opt/intel/composer_xe_2013_sp1.2.144/bin/intel64:/opt/intel/composer_xe_2013_sp1.2.144/mpirt/bin/intel64:/opt/intel/composer_xe_2013_sp1.2.144/debugger/gdb/intel64_mic/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/ibutils/bin:/usr/java/latest/bin:/opt/pdsh/bin:/opt/rocks/bin:/opt/rocks/sbin:/opt/sdsc/bin:/opt/sdsc/sbin:/home/username/bin
+xxx
 ```
 [Back to Top](#top)
 <hr>

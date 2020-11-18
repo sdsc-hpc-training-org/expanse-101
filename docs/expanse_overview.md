@@ -16,23 +16,23 @@
 
 ### System Summary
 
-| A | B |
-| --- | --- |
-
-* 13 SDSC Scalable Compute Units (SSCU)
+| * 13 SDSC Scalable Compute Units (SSCU)
 * 728 x 2s Standard Compute Nodes
 * 93,184 Compute Cores
 * 200 TB DDR4 Memory
 * 52x 4-way GPU Nodes w/NVLINK
-* 208 V100s
-* 4x 2TB Large Memory Nodes
+* 208 V100s | * 4x 2TB Large Memory Nodes
 * HDR 100 non-blocking Fabric
 * 12 PB Lustre High Performance
 * Storage
   * 7 PB Ceph Object Storage
   * 1.2 PB on-node NVMe
 * Dell EMC PowerEdge
-* Direct Liquid Cooled
+* Direct Liquid Cooled |
+| --- | --- |
+
+
+
 
 
 <hr>

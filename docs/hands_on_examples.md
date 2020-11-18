@@ -1,11 +1,3 @@
----
-layout: default
-title: Hands-on Examples
-parent: Expanse 101
-nav_order: 6
-has_children: true
-permalink: /docs/expanse/examples
----
 
 ## <a name="hands-on"></a>Hands-on Examples
 * [Compiling and Running GPU/CUDA Jobs](#comp-and-run-cuda-jobs)
@@ -16,4 +8,3 @@ permalink: /docs/expanse/examples
 * [Hello World (MPI)](#hello-world-mpi)
 * [Hello World (OpenMPI)](#hello-world-omp)
 * [Compiling and Running Hybrid (MPI + OpenMP) Jobs](#hybrid-mpi-omp)
-

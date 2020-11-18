@@ -1,4 +1,4 @@
-<img src="../images/expanse_overview.png" alt="Expanse Overview" width="500px" />
+<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_overview.png" alt="Expanse Overview" width="500px" />
 
 ## Expanse Overview:
 
@@ -12,7 +12,7 @@
 
 <hr>
 
-<img src="../images/expanse_heterogeneous_arch.png" alt="Expanse Heterogeneous Architecture" width="500px" />
+<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_heterogeneous_arch.png" alt="Expanse Heterogeneous Architecture" width="500px" />
 
 ### System Summary
 
@@ -35,18 +35,18 @@
 
 ### Expanse Scaleable Compute Unit
 
-<img src="../images/expanse_sccu.png" alt="Expanse Scaleable Compute Unit" width="700px" />
+<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_sccu.png" alt="Expanse Scaleable Compute Unit" width="700px" />
 
 <hr>
 
 ### Expanse Connectivity Fabric
 
-<img src="../images/expanse_connectivity_fabric.png" alt="Expanse Connectivity Fabric" width="700px" />
+<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_connectivity_fabric.png" alt="Expanse Connectivity Fabric" width="700px" />
 
 <hr>
 
 ### AMD EPYC 7742 Processor Architecture
-<img src="../images/amd-epyc-7742-processor-arch.png" alt="AMD EPYC 7742 Processor Architecture" width="300px" />
+<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/amd-epyc-7742-processor-arch.png" alt="AMD EPYC 7742 Processor Architecture" width="300px" />
 
 
 * 8 Core Complex Dies (CCDs).
@@ -63,7 +63,7 @@
 
 ### New Expanse Feature: Composable Systems
 
-<img src="../images/expanse_composable_systems.png" alt="Expanse Composable Systems" width="400px" />
+<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_composable_systems.png" alt="Expanse Composable Systems" width="400px" />
 Composable Systems will support complex, distributed, workflows – making Expanse part of a larger CI ecosystem.
 
 * Bright Cluster Manager + Kubernetes
@@ -76,7 +76,7 @@ Composable Systems will support complex, distributed, workflows – making Expan
 ### New Expanse Feature: Cloud Bursting
 Expanse will support integration with public clouds:
 
-  <img src="../images/expanse_cloud_burst_aws.png" alt="Expanse Cloud Bursting to AWS" width="400px" />
+  <img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_cloud_burst_aws.png" alt="Expanse Cloud Bursting to AWS" width="400px" />
 
 * Supports projects that share data, need access to novel technologies, and integrate cloud resources into workflows
 * Slurm + in-house developed software + Terraform (Hashicorp)

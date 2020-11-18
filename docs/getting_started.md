@@ -61,16 +61,16 @@ Last login: Fri Nov 1 11:16:02 2020 from 76.176.117.51
 
 ####
 Example of a terminal connection/Unix login session:
-```(base) quantum:~ mthomas$ ssh -l mthomas login.expanse.sdsc.edu
+```(base) localhost:~ username$ ssh -l username login.expanse.sdsc.edu
 Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
-[mthomas@login02 ~]$ 
-[mthomas@login02 ~]$ whoami
-mthomas
-[mthomas@login02 ~]$ 
-[mthomas@login02 ~]$ pwd
-/home/mthomas
-[mthomas@login02 ~]$ 
-[mthomas@login02 ~]$ 
+[username@login02 ~]$ 
+[username@login02 ~]$ whoami
+username
+[username@login02 ~]$ 
+[username@login02 ~]$ pwd
+/home/username
+[username@login02 ~]$ 
+[username@login02 ~]$ 
 ```
 
 [Back to Top](#top)
@@ -84,7 +84,7 @@ The example below will be for anonymous HTTPS downloads
 
 * Create a test directory hold the expanse example files:
 ```
-quantum:hpctrain mthomas$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
+localhost:hpctrain username$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
 Cloning into 'expanse-101'...
 remote: Enumerating objects: 79, done.
 remote: Counting objects: 100% (79/79), done.
@@ -92,46 +92,46 @@ remote: Compressing objects: 100% (52/52), done.
 remote: Total 302 (delta 36), reused 39 (delta 15), pack-reused 223
 Receiving objects: 100% (302/302), 3.70 MiB | 4.66 MiB/s, done.
 Resolving deltas: 100% (130/130), done.
-quantum:hpctrain mthomas$ ll
+localhost:hpctrain username$ ll
 total 0
-drwxr-xr-x   3 mthomas  staff   96 Nov 18 08:12 .
-drwxr-xr-x  11 mthomas  staff  352 Nov 18 08:11 ..
-drwxr-xr-x  10 mthomas  staff  320 Nov 18 08:12 expanse-101
-quantum:hpctrain mthomas$ cd expanse-101/
-quantum:expanse-101 mthomas$ ls -al
+drwxr-xr-x   3 username  staff   96 Nov 18 08:12 .
+drwxr-xr-x  11 username  staff  352 Nov 18 08:11 ..
+drwxr-xr-x  10 username  staff  320 Nov 18 08:12 expanse-101
+localhost:hpctrain username$ cd expanse-101/
+localhost:expanse-101 username$ ls -al
 total 48
-drwxr-xr-x  10 mthomas  staff   320 Nov 18 08:12 .
-drwxr-xr-x   3 mthomas  staff    96 Nov 18 08:12 ..
--rw-r--r--   1 mthomas  staff  6148 Nov 18 08:12 .DS_Store
-drwxr-xr-x  12 mthomas  staff   384 Nov 18 08:12 .git
--rw-r--r--   1 mthomas  staff   459 Nov 18 08:12 .gitignore
--rw-r--r--   1 mthomas  staff  1005 Nov 18 08:12 README.md
-drwxr-xr-x   4 mthomas  staff   128 Nov 18 08:12 docs
-drwxr-xr-x   7 mthomas  staff   224 Nov 18 08:12 examples
-drwxr-xr-x  12 mthomas  staff   384 Nov 18 08:12 images
--rw-r--r--   1 mthomas  staff  5061 Nov 18 08:12 running_jobs_on_expanse.md
+drwxr-xr-x  10 username  staff   320 Nov 18 08:12 .
+drwxr-xr-x   3 username  staff    96 Nov 18 08:12 ..
+-rw-r--r--   1 username  staff  6148 Nov 18 08:12 .DS_Store
+drwxr-xr-x  12 username  staff   384 Nov 18 08:12 .git
+-rw-r--r--   1 username  staff   459 Nov 18 08:12 .gitignore
+-rw-r--r--   1 username  staff  1005 Nov 18 08:12 README.md
+drwxr-xr-x   4 username  staff   128 Nov 18 08:12 docs
+drwxr-xr-x   7 username  staff   224 Nov 18 08:12 examples
+drwxr-xr-x  12 username  staff   384 Nov 18 08:12 images
+-rw-r--r--   1 username  staff  5061 Nov 18 08:12 running_jobs_on_expanse.md
 ```
 *Note*: you can learn to create and modify directories as part of the *Getting Started* and *Basic Skills* preparation found here:
 https://github.com/sdsc-hpc-training-org/basic_skills
 
 The examples directory contains the code we will cover in this tutorial:
 ```
-[mthomas@login01 examples]$ ls -al examples
+[username@login01 examples]$ ls -al examples
 total 88
-drwxr-xr-x 6 mthomas use300 6 Oct  7 14:15 .
-drwxr-xr-x 5 mthomas use300 8 Oct  7 14:15 ..
-drwxr-xr-x 2 mthomas use300 6 Oct  7 14:15 HYBRID
-drwxr-xr-x 2 mthomas use300 6 Oct  7 14:15 MPI
-drwxr-xr-x 2 mthomas use300 6 Oct  7 14:15 OpenACC
-drwxr-xr-x 2 mthomas use300 6 Oct  7 14:15 OPENMP
-[mthomas@login01 examples]$ ls -al examples/MPI
+drwxr-xr-x 6 username use300 6 Oct  7 14:15 .
+drwxr-xr-x 5 username use300 8 Oct  7 14:15 ..
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 HYBRID
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 MPI
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 OpenACC
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 OPENMP
+[username@login01 examples]$ ls -al examples/MPI
 total 63
-drwxr-xr-x 2 mthomas use300     6 Oct  7 14:15 .
-drwxr-xr-x 6 mthomas use300     6 Oct  7 14:15 ..
--rwxr-xr-x 1 mthomas use300 21576 Oct  7 14:15 hello_mpi
--rw-r--r-- 1 mthomas use300   329 Oct  7 14:15 hello_mpi.f90
--rw-r--r-- 1 mthomas use300   464 Oct  7 14:15 hellompi-slurm.sb
--rw-r--r-- 1 mthomas use300   181 Oct  7 14:15 README.txt
+drwxr-xr-x 2 username use300     6 Oct  7 14:15 .
+drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
+-rwxr-xr-x 1 username use300 21576 Oct  7 14:15 hello_mpi
+-rw-r--r-- 1 username use300   329 Oct  7 14:15 hello_mpi.f90
+-rw-r--r-- 1 username use300   464 Oct  7 14:15 hellompi-slurm.sb
+-rw-r--r-- 1 username use300   181 Oct  7 14:15 README.txt
 
 ```
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.

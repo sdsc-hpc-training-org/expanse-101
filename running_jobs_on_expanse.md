@@ -1,6 +1,7 @@
-==================================================================
 Expanse 101: Introduction to Running Jobs on Expanse Supercomputer
+
 ==================================================================
+
 Presented by Mary Thomas (SDSC, mpthomas@ucsd.edu )
 .. raw:: html
    <hr>

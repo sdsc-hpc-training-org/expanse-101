@@ -29,6 +29,7 @@ system: https://github.com/sdsc-hpc-training-org/basic_skills.
 * Data and Storage, Globus Endpoints, Data Movers, Mount Points
 * Final Comments
 
+<hr>
 ## Misc Notes/Updates:
 
 *  You must have a expanse account in order to access the system.

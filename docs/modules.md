@@ -1,6 +1,5 @@
 ## <a name="modules"></a>Expanse Environment Modules: Customizing Your User Environment
-The Environment Modules package provides for dynamic modification of your shell environment. Module commands set, change, or delete environment variables, typically in support of a particular application. They also let the user choose between different versions of the same software or different combinations of related codes. See:
-https://www.sdsc.edu/support/user_guides/expanse.html#modules
+The Environment Modules package provides for dynamic modification of your shell environment. Module commands set, change, or delete environment variables, typically in support of a particular application. They also let the user choose between different versions of the same software or different combinations of related codes. See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#modules).
 
 <a name="top"> In this Section:
 * [Introduction to the Lua Lmod Module System](#module-lmod-intro)

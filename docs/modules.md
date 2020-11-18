@@ -50,8 +50,6 @@ Here are some common module commands and their descriptions:
 |module help|get a list of all the commands that module knows about do:
 
 Lmod commands support *short-hand* notation, for example:
-
-* Shorthand notation:   
 ```
    ml foo == module load foo
    ml -bar”  == module unload bar

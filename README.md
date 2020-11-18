@@ -2,17 +2,17 @@
 
 ## NOTES:
 
-## Interactive Video Link:
+### Interactive Video Link:
 This material was presented as part of a webinar presented on October 8th, 2020.
 The link to the presentation will be posted soon:
 
-*Video Link To be Posted within 1 week of the webinar*
+[Interactive Video](https://education.sdsc.edu/training/interactive/202009_expanse_101/index.php)
 
-## Hands-on Self-guided Tutorial (using markdown file):
+### Hands-on Self-guided Tutorial (using markdown file):
 
 https://github.com/sdsc-hpc-training-org/expanse-101/blob/master/running_jobs_on_expanse.md
 
-## Link to GitHub Repo
+### Link to GitHub Repo
 https://github.com/sdsc-hpc-training-org/expanse-101
 
 ### Expanse User Guide

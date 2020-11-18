@@ -6,7 +6,9 @@
 * Also supports science gateways.
 
 <img src="../images/expanse-overview.png" alt="Expanse Overview" width="500px" />
+
 ### System Summary
+
 * 13 SDSC Scalable Compute Units (SSCU)
 * 728 x 2s Standard Compute Nodes
 * 93,184 Compute Cores
@@ -22,10 +24,10 @@
 * Dell EMC PowerEdge
 * Direct Liquid Cooled
 
+<img src="../images/expanse-heterogeneous-architecture.png" alt="Expanse Heterogeneous Architecture" width="500px" />
 <!----
-<img src="images/expanse-heterogeneous-architecture.png" alt="Expanse Heterogeneous Architecture" width="500px" />
----->
 [Expanse Architecture](https://github.com/sdsc-hpc-training-org/expanse-101/images/expanse-heterogeneous-architecture.png)
+---->
 
 
 [Back to Top](#top)

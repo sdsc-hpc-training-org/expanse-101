@@ -16,7 +16,7 @@
 
 ### System Summary
 
-| * 13 SDSC Scalable Compute Units (SSCU)
+* 13 SDSC Scalable Compute Units (SSCU)
 * 728 x 2s Standard Compute Nodes
 * 93,184 Compute Cores
 * 200 TB DDR4 Memory
@@ -28,14 +28,37 @@
   * 7 PB Ceph Object Storage
   * 1.2 PB on-node NVMe
 * Dell EMC PowerEdge
-* Direct Liquid Cooled |
-| --- | --- |
-
-
-
+* Direct Liquid Cooled 
 
 
 <hr>
+
+### Expanse Scaleable Compute Unit
+
+<img src="../images/expanse_sccu.png" alt="Expanse Scaleable Compute Unit" width="500px" />
+
+<hr>
+
+### Expanse Connectivity Fabric
+
+<img src="../images/expanse_connectivity_fabric.png" alt="Expanse Connectivity Fabric" width="500px" />
+
+<hr>
+
+### AMD EPYC 7742 Processor Architecture
+<img src="../images/amd-epyc-7742-processor-arch.png" alt="AMD EPYC 7742 Processor Architecture" width="300px" />
+
+
+* 8 Core Complex Dies (CCDs). 
+* CCDs connect to memory, I/O, and each other through the I/O Die. 
+* 8 memory channels per socket. 
+* DDR4 memory at 3200MHz. 
+* PCI Gen4, up to 128 lanes of high speed I/O. 
+* Memory and I/O can be abstracted into separate quadrants each with 2 DIMM channels and 32 I/O lanes. 
+* 2 Core Complexes (CCXs) per CCD 
+* 4 Zen2 cores in each CCX share a16ML3 cache. Total of 16x16=256MB L3 cache.
+* Each core includes a private 512KB L2 cache.  
+
 
 
 [Back to Top](#top)

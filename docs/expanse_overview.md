@@ -74,7 +74,7 @@ Composable Systems will support complex, distributed, workflows – making Expan
 
 
 ### New Expanse Feature: Cloud Bursting
-Expanse will support integration with public cloud:
+Expanse will support integration with public clouds:
 
   <img src="../images/expanse_cloud_burst_aws.png" alt="Expanse Cloud Bursting to AWS" width="400px" />
 

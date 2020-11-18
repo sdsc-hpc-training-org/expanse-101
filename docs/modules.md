@@ -4,11 +4,11 @@ https://www.sdsc.edu/support/user_guides/expanse.html#modules
 
 <a name="top"> In this Section:
 * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
-
-
 * [Common module commands](#module-commands)
+<!----
 * [Load and Check Modules and Environment](#load-and-check-module-env)
 * [Module Error: command not found](#module-error)
+---->
 
 ### Introduction to the Lua Lmod Module System<a name="module-lmod-intro"></a>
 * Expanse uses Lmod, a Lua based module system.
@@ -31,12 +31,12 @@ https://www.sdsc.edu/support/user_guides/expanse.html#modules
       * module load gpu  (for gpu nodes)  
       * note: avoid loading both modules
 
-### Modules: Popular commands<a name="module-commands"></a>
+### Modules: Popular Lmod Commands<a name="module-commands"></a>
 
 
 Here are some common module commands and their descriptions:
 
-| Command | Description |
+| Lmod Command | Description |
 |:--- | :--- |
 |module list|List the modules that are currently loaded|
 |module avail|List the modules that are available in environment|
@@ -49,12 +49,13 @@ Here are some common module commands and their descriptions:
 <module two> in the environment|
 |module help|get a list of all the commands that module knows about do:
 
+Lmod commands support *short-hand* notation, for example:
 
-Shorthand notation:    ml foo
-                                   ml -bar
-“ml” == module load foo
-“ml -bar”  == module unload bar
-
+* Shorthand notation:   
+```
+   ml foo == module load foo
+   ml -bar”  == module unload bar
+```
 *SDSC Guidance:   add module calls to your environment and batch scripts*
 
 

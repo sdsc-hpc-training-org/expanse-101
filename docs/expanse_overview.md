@@ -11,6 +11,8 @@
 <img src="../images/expanse-overview.png" alt="Expanse Overview" width="500px" />
 
 <hr>
+<img src="../images/expanse-heterogeneous-arch.png" alt="Expanse Heterogeneous Architecture" width="500px" />
+
 ### System Summary
 
 * 13 SDSC Scalable Compute Units (SSCU)
@@ -28,7 +30,6 @@
 * Dell EMC PowerEdge
 * Direct Liquid Cooled
 
-<img src="../images/expanse-heterogeneous-arch.png" alt="Expanse Heterogeneous Architecture" width="500px" />
 
 <hr>
 

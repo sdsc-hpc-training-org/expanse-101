@@ -1,7 +1,6 @@
-## Expanse 101: Introduction to Running Jobs on Expanse Supercomputer
+# Expanse 101: Introduction to Running Jobs on Expanse Supercomputer
 
-<hr>
-Presented by Mary Thomas (SDSC, mpthomas@ucsd.edu )
+## Presented by Mary Thomas (SDSC, mpthomas@ucsd.edu )
 
 <hr>
 In this tutorial, you will learn how to compile and run jobs on Expanse,
@@ -11,8 +10,8 @@ expanse.sdsc.edu. For instructions on how to do this, see the tutorial
 on how to use a terminal application and SSH go connect to an SDSC HPC
 system: https://github.com/sdsc-hpc-training-org/basic_skills.
 
-Misc Notes/Updates:
-<hr>
+## Misc Notes/Updates:
+
 *  You must have a expanse account in order to access the system.
   * To obtain a trial account:
       http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
@@ -26,15 +25,12 @@ Misc Notes/Updates:
    libraries and applications have changed. For details, see the
    transition guide here:
   *  https://www.sdsc.edu/services/hpc/expanse_upgrade.html
-*  Our next HPC system, `E X P A N S E <https://expanse.sdsc.edu>`__,
-   will be coming online for early users in September. Keep an eye on
-   the E X P A N S E pages for training information and other updates
+
 If you have any difficulties completing these tasks, please contact SDSC
-Consulting group at consult@sdsc.edu.
+Consulting group at help@xsede.org.
 
 
 
-   <hr>
 
 Contents: \* `Expanse Overview <#overview>`__ \* `Expanse
 Architecture <#network-arch>`__ \* `Expanse File
@@ -119,14 +115,14 @@ Systems <#file-systems>`__
       -  `Hello World (OpenMP): Batch Script
          Output <#hello-world-omp-batch-output>`__
 
-   -  `Compiling and Running Hybrid (MPI + OpenMP)
+*  Compiling and Running Hybrid (MPI + OpenMP)
       Jobs <#hybrid-mpi-omp>`__
 
-      -  `Hybrid (MPI + OpenMP): Source Code <#hybrid-mpi-omp-source>`__
+   * Hybrid (MPI + OpenMP): Source Code <#hybrid-mpi-omp-source>`
       -  `Hybrid (MPI + OpenMP): Compiling <#hybrid-mpi-omp-compile>`__
       -  `Hybrid (MPI + OpenMP): Batch Script
-         Submission <#hybrid-mpi-omp-batch-submit>`__
+         Submission <#hybrid-mpi-omp-batch-submit>`
       -  `Hybrid (MPI + OpenMP): Batch Script
-         Output <#hybrid-mpi-omp-batch-output>`__
+         Output <#hybrid-mpi-omp-batch-output>`
 
-`Back to Top <#top>`__
+Back to Top <#top>`

@@ -30,99 +30,67 @@ If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at help@xsede.org.
 
 
+<a name="top">Contents:
+* [Comet Overview](#overview)
+    * [Comet Architecture](#network-arch)
+    * [Comet File Systems](#file-systems)
 
+* [Getting Started - Comet System Environment](#sys-env)
+    * [Comet Accounts](#comet-accounts)
+    * [Logging Onto Comet](#comet-logon)
+    * [Obtaining Example Code](#example-code)
 
-Contents: \* `Expanse Overview <#overview>`__ \* `Expanse
-Architecture <#network-arch>`__ \* `Expanse File
-Systems <#file-systems>`__
+* [Modules: Managing User Environments](#modules)
+    * [Common module commands](#module-commands)
+    * [Load and Check Modules and Environment](#load-and-check-module-env)
+    * [Module Error: command not found](#module-error)
 
--  `Getting Started - Expanse System Environment <#sys-env>`__
+* [Compiling & Linking](#compilers)
+    * [Supported Compiler Types](#compilers-supported)
+    * [Using the Intel Compilers](#compilers-intel)
+    * [Using the PGI Compilers](#compilers-pgi)
+    * [Using the GNU Compilers](#compilers-gnu)
 
-   -  `Expanse Accounts <#expanse-accounts>`__
-   -  `Logging Onto Expanse <#expanse-logon>`__
-   -  `Obtaining Example Code <#example-code>`__
+* [Running Jobs on Comet](#running-jobs)
+    * [The SLURM Resource Manager](#running-jobs-slurm)
+      * [Common Slurm Commands](#running-jobs-slurm-commands)
+      * [Slurm Partitions](#running-jobs-slurm-partitions)
+    * [Interactive Jobs using SLURM](#running-jobs-slurm-interactive)
+    * [Batch Jobs using SLURM](#running-jobs-slurm-batch-submit)
+    * [Command Line Jobs](#running-jobs-cmdline)
 
--  `Modules: Managing User Environments <#modules>`__
+* [Hands-on Examples](#hands-on)
+* [Compiling and Running GPU/CUDA Jobs](#comp-and-run-cuda-jobs)
+    * [GPU Hello World (GPU) ](#hello-world-gpu)
+        * [GPU Hello World: Compiling](#hello-world-gpu-compile)
+        * [GPU Hello World: Batch Script Submission](#hello-world-gpu-batch-submit)
+        * [GPU Hello World: Batch Job Output](#hello-world-gpu-batch-output)
+    * [GPU Enumeration ](#enum-gpu)
+        * [GPU Enumeration: Compiling](#enum-gpu-compile)
+        * [GPU Enumeration: Batch Script Submission](#enum-gpu-batch-submit)
+        * [GPU Enumeration: Batch Job Output](#enum-gpu-batch-output)
+    * [CUDA Mat-Mult](#mat-mul-gpu)
+        * [Matrix Mult. (GPU): Compiling](#mat-mul-gpu-compile)
+        * [Matrix Mult. (GPU): Batch Script Submission](#mat-mul-gpu-batch-submit)
+        * [Matrix Mult. (GPU): Batch Job Output](#mat-mul-gpu-batch-output)
 
-   -  `Common module commands <#module-commands>`__
-   -  `Load and Check Modules and
-      Environment <#load-and-check-module-env>`__
-   -  `Module Error: command not found <#module-error>`__
+* [Compiling and Running CPU Jobs](#comp-and-run-cpu-jobs)
+    * [Hello World (MPI)](#hello-world-mpi)
+        * [Hello World (MPI): Source Code](#hello-world-mpi-source)
+        * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
+        * [Hello World (MPI): Interactive Jobs](#hello-world-mpi-interactive)
+        * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
+        * [Hello World (MPI): Batch Script Output](#hello-world-mpi-batch-output)
+    * [Hello World (OpenMP)](#hello-world-omp)
+        * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
+        * [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
+        * [Hello World (OpenMP): Batch Script Submission](#hello-world-omp-batch-submit)
+        * [Hello World (OpenMP): Batch Script Output](#hello-world-omp-batch-output)
+    * [Compiling and Running Hybrid (MPI + OpenMP) Jobs](#hybrid-mpi-omp)
+        * [Hybrid (MPI + OpenMP): Source Code](#hybrid-mpi-omp-source)
+        * [Hybrid (MPI + OpenMP): Compiling](#hybrid-mpi-omp-compile)
+        * [Hybrid (MPI + OpenMP): Batch Script Submission](#hybrid-mpi-omp-batch-submit)
+        * [Hybrid (MPI + OpenMP): Batch Script Output](#hybrid-mpi-omp-batch-output)
 
--  `Compiling & Linking <#compilers>`__
-
-   -  `Supported Compiler Types <#compilers-supported>`__
-   -  `Using the Intel Compilers <#compilers-intel>`__
-   -  `Using the PGI Compilers <#compilers-pgi>`__
-   -  `Using the GNU Compilers <#compilers-gnu>`__
-
--  `Running Jobs on Expanse <#running-jobs>`__
-
-   -  `The SLURM Resource Manager <#running-jobs-slurm>`__
-
-      -  `Common Slurm Commands <#running-jobs-slurm-commands>`__
-      -  `Slurm Partitions <#running-jobs-slurm-partitions>`__
-
-   -  `Interactive Jobs using SLURM <#running-jobs-slurm-interactive>`__
-   -  `Batch Jobs using SLURM <#running-jobs-slurm-batch-submit>`__
-   -  `Command Line Jobs <#running-jobs-cmdline>`__
-
--  `Hands-on Examples <#hands-on>`__
--  `Compiling and Running GPU/CUDA Jobs <#comp-and-run-cuda-jobs>`__
-
-   -  `GPU Hello World (GPU) <#hello-world-gpu>`__
-
-      -  `GPU Hello World: Compiling <#hello-world-gpu-compile>`__
-      -  `GPU Hello World: Batch Script
-         Submission <#hello-world-gpu-batch-submit>`__
-      -  `GPU Hello World: Batch Job
-         Output <#hello-world-gpu-batch-output>`__
-
-   -  `GPU Enumeration <#enum-gpu>`__
-
-      -  `GPU Enumeration: Compiling <#enum-gpu-compile>`__
-      -  `GPU Enumeration: Batch Script
-         Submission <#enum-gpu-batch-submit>`__
-      -  `GPU Enumeration: Batch Job Output <#enum-gpu-batch-output>`__
-
-   -  `CUDA Mat-Mult <#mat-mul-gpu>`__
-
-      -  `Matrix Mult. (GPU): Compiling <#mat-mul-gpu-compile>`__
-      -  `Matrix Mult. (GPU): Batch Script
-         Submission <#mat-mul-gpu-batch-submit>`__
-      -  `Matrix Mult. (GPU): Batch Job
-         Output <#mat-mul-gpu-batch-output>`__
-
--  `Compiling and Running CPU Jobs <#comp-and-run-cpu-jobs>`__
-
-   -  `Hello World (MPI) <#hello-world-mpi>`__
-
-      -  `Hello World (MPI): Source Code <#hello-world-mpi-source>`__
-      -  `Hello World (MPI): Compiling <#hello-world-mpi-compile>`__
-      -  `Hello World (MPI): Interactive
-         Jobs <#hello-world-mpi-interactive>`__
-      -  `Hello World (MPI): Batch Script
-         Submission <#hello-world-mpi-batch-submit>`__
-      -  `Hello World (MPI): Batch Script
-         Output <#hello-world-mpi-batch-output>`__
-
-   -  `Hello World (OpenMP) <#hello-world-omp>`__
-
-      -  `Hello World (OpenMP): Source Code <#hello-world-omp-source>`__
-      -  `Hello World (OpenMP): Compiling <#hello-world-omp-compile>`__
-      -  `Hello World (OpenMP): Batch Script
-         Submission <#hello-world-omp-batch-submit>`__
-      -  `Hello World (OpenMP): Batch Script
-         Output <#hello-world-omp-batch-output>`__
-
-*  Compiling and Running Hybrid (MPI + OpenMP)
-      Jobs <#hybrid-mpi-omp>`__
-
-   * Hybrid (MPI + OpenMP): Source Code <#hybrid-mpi-omp-source>`
-      -  `Hybrid (MPI + OpenMP): Compiling <#hybrid-mpi-omp-compile>`__
-      -  `Hybrid (MPI + OpenMP): Batch Script
-         Submission <#hybrid-mpi-omp-batch-submit>`
-      -  `Hybrid (MPI + OpenMP): Batch Script
-         Output <#hybrid-mpi-omp-batch-output>`
-
-Back to Top <#top>`
+[Back to Top](#top)
+<hr>

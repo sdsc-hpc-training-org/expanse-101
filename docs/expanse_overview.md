@@ -1,4 +1,4 @@
-<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_overview.png" alt="Expanse Overview" width="500px" />
+<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_overview.png" alt="Expanse Overview" width="500px">
 
 ## Expanse Overview:
 
@@ -12,7 +12,7 @@
 
 <hr>
 
-<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_heterogeneous_arch.png" alt="Expanse Heterogeneous Architecture" width="500px" />
+<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_heterogeneous_arch.png" alt="Expanse Heterogeneous Architecture" width="500px">
 
 ### System Summary
 
@@ -35,7 +35,7 @@
 
 ### Expanse Scaleable Compute Unit
 
-<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_sccu.png" alt="Expanse Scaleable Compute Unit" width="700px" />
+<img src="https://github.com/sdsc-hpc-training-org/expanse-101/tree/main/images/expanse_sccu.png" alt="Expanse Scaleable Compute Unit" width="700px">
 
 <hr>
 

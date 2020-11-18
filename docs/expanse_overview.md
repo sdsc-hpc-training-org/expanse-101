@@ -1,4 +1,4 @@
-<img src="../images/expanse-overview.png" alt="Expanse Overview" width="500px" />
+<img src="../images/expanse_overview.png" alt="Expanse Overview" width="500px" />
 
 ## Expanse Overview:
 
@@ -12,7 +12,7 @@
 
 <hr>
 
-<img src="../images/expanse-heterogeneous-arch.png" alt="Expanse Heterogeneous Architecture" width="500px" />
+<img src="../images/expanse_heterogeneous_arch.png" alt="Expanse Heterogeneous Architecture" width="500px" />
 
 ### System Summary
 

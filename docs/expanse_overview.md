@@ -35,13 +35,13 @@
 
 ### Expanse Scaleable Compute Unit
 
-<img src="../images/expanse_sccu.png" alt="Expanse Scaleable Compute Unit" width="500px" />
+<img src="../images/expanse_sccu.png" alt="Expanse Scaleable Compute Unit" width="700px" />
 
 <hr>
 
 ### Expanse Connectivity Fabric
 
-<img src="../images/expanse_connectivity_fabric.png" alt="Expanse Connectivity Fabric" width="500px" />
+<img src="../images/expanse_connectivity_fabric.png" alt="Expanse Connectivity Fabric" width="700px" />
 
 <hr>
 

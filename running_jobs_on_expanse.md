@@ -19,25 +19,22 @@ system: https://github.com/sdsc-hpc-training-org/basic_skills.
    following tutorials at:
    *  https://github.com/sdsc-hpc-training/basic_skills
 *  The ``hostname`` for Expanse is ``expanse.sdsc.edu``
-*  The operating system for Expanse was changed to CentOS in December,
-   2019. As a result, you will need to recompile all code, some modules
-   and libraries are no longer needed, and the locations of some
-   libraries and applications have changed. For details, see the
-   transition guide here:
-  *  https://www.sdsc.edu/services/hpc/expanse_upgrade.html
+*  The operating system for Expanse is CentOS
+*  For information on moving from Comet to Expanse, see the [Comet to Expanse
+Transition Workshpo](https://education.sdsc.edu/training/interactive/202010_comet_to_expanse/index.html)
 
 If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at help@xsede.org.
 
 
 <a name="top">Contents:
-* [Comet Overview](#overview)
-    * [Comet Architecture](#network-arch)
-    * [Comet File Systems](#file-systems)
+* [Expanse Overview](#overview)
+    * [Expanse Architecture](#network-arch)
+    * [Expanse File Systems](#file-systems)
 
-* [Getting Started - Comet System Environment](#sys-env)
-    * [Comet Accounts](#comet-accounts)
-    * [Logging Onto Comet](#comet-logon)
+* [Getting Started - Expanse System Environment](#sys-env)
+    * [Expanse Accounts](#expanse-accounts)
+    * [Logging Onto Expanse](#expanse-logon)
     * [Obtaining Example Code](#example-code)
 
 * [Modules: Managing User Environments](#modules)
@@ -51,7 +48,7 @@ Consulting group at help@xsede.org.
     * [Using the PGI Compilers](#compilers-pgi)
     * [Using the GNU Compilers](#compilers-gnu)
 
-* [Running Jobs on Comet](#running-jobs)
+* [Running Jobs on Expanse](#running-jobs)
     * [The SLURM Resource Manager](#running-jobs-slurm)
       * [Common Slurm Commands](#running-jobs-slurm-commands)
       * [Slurm Partitions](#running-jobs-slurm-partitions)

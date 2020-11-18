@@ -24,6 +24,7 @@
 
 
 <img src="images/expanse-heterogeneous-architecture.png" alt="Expanse Heterogeneous Architecture" width="500px" />
+[this image](../images/expanse-heterogeneous-architecture.png)
 
 
 [Back to Top](#top)

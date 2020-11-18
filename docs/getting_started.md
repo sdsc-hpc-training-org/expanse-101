@@ -28,7 +28,7 @@ ssh -l <your_username> login.expanse.sdsc.edu
 Details about how to access Expanse under different circumstances are described in the Expanse User Guide:
 https://www.sdsc.edu/support/user_guides/expanse.html#access
 
-For instructions on how to use SSH, see [here](https://github.com/sdsc/sdsc-summer-institute-2020/tree/master/0_preparation/connecting-to-hpc-systems)
+For instructions on how to use SSH, see [Connecting to SDSC HPC Systems Guide](https://github.com/sdsc-hpc-training-org/hpc-security/tree/master/connecting-to-hpc-systems)
 ```
 [username@localhost:~] ssh -Y expanse.sdsc.edu
 Welcome to Bright release         9.0

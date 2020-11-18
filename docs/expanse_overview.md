@@ -22,9 +22,10 @@
 * Dell EMC PowerEdge
 * Direct Liquid Cooled
 
-
+<!----
 <img src="images/expanse-heterogeneous-architecture.png" alt="Expanse Heterogeneous Architecture" width="500px" />
-[this image](../images/expanse-heterogeneous-architecture.png)
+---->
+[Expanse Architecture](https://github.com/sdsc-hpc-training-org/expanse-101/images/expanse-heterogeneous-architecture.png)
 
 
 [Back to Top](#top)

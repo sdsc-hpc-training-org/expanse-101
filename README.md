@@ -2,8 +2,7 @@
 
 See:  [expanse.sdsc.edu](https://expanse.sdsc.edu)
 
-
-[[embed url=https://github.com/sdsc-hpc-training-org/reverse-proxy/blob/master/README.md]]
+<https://github.com/sdsc-hpc-training-org/reverse-proxy/blob/master/README.md>
 [[embed url=http://www.youtube.com/watch?v=6YbBmqUnoQM]]
 
 ## NOTES:

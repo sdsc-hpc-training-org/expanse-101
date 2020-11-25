@@ -39,9 +39,9 @@ system: https://github.com/sdsc-hpc-training-org/basic_skills.
 
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](./docs/expanse_overview.md)
-* [Getting Started](./docs/getting_started.md)
-* [Modules](./docs/modules.md)
-* [Account Management](./docs/accounts.md)
+* [Getting Started](./getting_started.md)
+* [Modules](./modules.md)
+* [Account Management](./accounts.md)
 * Compiling and Linking Code
 * Running Jobs
 * Hands-on Examples

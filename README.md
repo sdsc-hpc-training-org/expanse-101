@@ -1,4 +1,4 @@
-# Expanse 101 Tutorial
+# [Expanse 101 Tutorial](https://github.com/sdsc-hpc-training-org/reverse-proxy/blob/master/README.md)
 
 See:  [expanse.sdsc.edu](https://expanse.sdsc.edu)
 

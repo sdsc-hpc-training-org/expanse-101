@@ -1,3 +1,4 @@
+
 # Expanse 101:  Introduction to Running Jobs on the Expanse Supercomputer <V2>
 
 ## Presented by:
@@ -204,15 +205,15 @@ Last login: Fri Nov 1 11:16:02 2020 from 76.176.117.51
 ####
 Example of a terminal connection/Unix login session:
 ```(base) localhost:~ username$ ssh -l username login.expanse.sdsc.edu
-Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
-[username@login02 ~]$ 
+Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
+[username@login02 ~]$ 
 [username@login02 ~]$ whoami
 username
-[username@login02 ~]$ 
+[username@login02 ~]$ 
 [username@login02 ~]$ pwd
 /home/username
-[username@login02 ~]$ 
-[username@login02 ~]$ 
+[username@login02 ~]$ 
+[username@login02 ~]$ 
 ```
 
 [Back to Top](#top)
@@ -261,20 +262,20 @@ The examples directory contains the code we will cover in this tutorial:
 ```
 [username@login01 examples]$ ls -al examples
 total 88
-drwxr-xr-x 6 username use300 6 Oct  7 14:15 .
-drwxr-xr-x 5 username use300 8 Oct  7 14:15 ..
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 HYBRID
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 MPI
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 OpenACC
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 OPENMP
+drwxr-xr-x 6 username use300 6 Oct  7 14:15 .
+drwxr-xr-x 5 username use300 8 Oct  7 14:15 ..
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 HYBRID
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 MPI
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 OpenACC
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 OPENMP
 [username@login01 examples]$ ls -al examples/MPI
 total 63
-drwxr-xr-x 2 username use300     6 Oct  7 14:15 .
-drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
--rwxr-xr-x 1 username use300 21576 Oct  7 14:15 hello_mpi
--rw-r--r-- 1 username use300   329 Oct  7 14:15 hello_mpi.f90
--rw-r--r-- 1 username use300   464 Oct  7 14:15 hellompi-slurm.sb
--rw-r--r-- 1 username use300   181 Oct  7 14:15 README.txt
+drwxr-xr-x 2 username use300     6 Oct  7 14:15 .
+drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
+-rwxr-xr-x 1 username use300 21576 Oct  7 14:15 hello_mpi
+-rw-r--r-- 1 username use300   329 Oct  7 14:15 hello_mpi.f90
+-rw-r--r-- 1 username use300   464 Oct  7 14:15 hellompi-slurm.sb
+-rw-r--r-- 1 username use300   181 Oct  7 14:15 README.txt
 
 ```
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
@@ -283,10 +284,10 @@ All examples will contain source code, along with a batch script example so you 
 <img src="../images/expanse_usesr_portal.png" alt="Expanse User Portal" width="400px" />
 
 * See: https://portal.expanse.sdsc.edu
-* Quick and easy way for Expanse users to login, transfer and edit files and submit and monitor jobs. 
-* Gateway for launching interactive applications such as MATLAB, Rstudio
+* Quick and easy way for Expanse users to login, transfer and edit files and submit and monitor jobs. 
+* Gateway for launching interactive applications such as MATLAB, Rstudio
 * Integrated web-based environment for file management and job submission.
-* All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
+* All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
 
 
 [Back to Top](#top)
@@ -306,9 +307,9 @@ The Environment Modules package provides for dynamic modification of your shell 
 ---->
 
 ### Introduction to the Lua Lmod Module System<a name="module-lmod-intro"></a>
-* Expanse uses Lmod, a Lua based module system.
+* Expanse uses Lmod, a Lua based module system.
    * See: https://lmod.readthedocs.io/en/latest/010_user.html
-* Users setup custom environments by loading available modules into the shell environment, including needed compilers and libraries and the batch scheduler. 
+* Users setup custom environments by loading available modules into the shell environment, including needed compilers and libraries and the batch scheduler. 
 * What’s the same as Comet:
   * Dynamic modification of your shell environment
   * User can set, change, or delete environment variables
@@ -316,10 +317,10 @@ The Environment Modules package provides for dynamic modification of your shell 
 * Modules: What’s Different?
   * *Users will need to load the scheduler (e.g. slurm)*
   * Users will not see all available modules when they run command "module available" without loading a compiler.
-  * Use the command "module spider" option to see if a particular package exists and can be loaded, run command
+  * Use the command "module spider" option to see if a particular package exists and can be loaded, run command
       * module spider <package>
       * module keywords <term>
-  * For additional details, and to identify module dependencies modules, use the command
+  * For additional details, and to identify module dependencies modules, use the command
       * module spider <application_name>
   * The module paths are different for the CPU and GPU nodes. Users can enable the paths by loading the following modules:               
       * module load cpu  (for cpu nodes)
@@ -334,7 +335,7 @@ Here are some common module commands and their descriptions:
 | Lmod Command | Description |
 |:--- | :--- |
 |module list|List the modules that are currently loaded|
-|module avail|List the modules that are available in environment|
+|module avail|List the modules that are available in environment|
 |module spider|List of the modules and extensions currently available|
 |module display <module_name>|Show the environment variables used by
 <module name> and how they are affected|
@@ -347,7 +348,7 @@ Here are some common module commands and their descriptions:
 Lmod commands support *short-hand* notation, for example:
 ```
    ml foo == module load foo
-   ml -bar”  == module unload bar
+   ml -bar”  == module unload bar
 ```
 *SDSC Guidance:   add module calls to your environment and batch scripts*
 
@@ -527,13 +528,13 @@ You can override, and add to the standard set of login modules in two ways.
 2. The second way is through the “module save” command.
 *Note: make sure that you always want the module loaded at login*
 
-For Bash:  put the following block into your ```~/.bash_profile``` file:
+For Bash:  put the following block into your ```~/.bash_profile``` file:
 ```
            if [ -f ~/.bashrc ]; then
                             . ~/.bashrc
                     fi
 ```
-Place the following in your ```~/.bashrc``` file:
+Place the following in your ```~/.bashrc``` file:
 ```
            if [ -z "$BASHRC_READ" ]; then
                         export BASHRC_READ=1
@@ -544,7 +545,7 @@ Place the following in your ```~/.bashrc``` file:
 
 * First edit your ```.bashrc``` and ```.bash_profile``` files:
 ```
-[username@login02 ~]$ cat .bash_profile 
+[username@login02 ~]$ cat .bash_profile 
 # .bash_profile
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
@@ -559,9 +560,9 @@ if [ -f /etc/bashrc ]; then
 . /etc/bashrc
 fi
 if [ -z "$BASHRC_READ" ]; then
-   export BASHRC_READ=1
-   # Place any module commands here
-   module load hdf5
+   export BASHRC_READ=1
+   # Place any module commands here
+   module load hdf5
 Fi
 [SNIP]
 ```
@@ -583,7 +584,7 @@ Sometimes this error is encountered when switching from one shell to another or 
 ```
 [expanse-ln3:~]source /etc/profile.d/modules.sh
 ```
-OR add this command to your shell script (including Slurm batch scripts)
+OR add this command to your shell script (including Slurm batch scripts)
 
 
 [Back to Top](#top)
@@ -615,6 +616,7 @@ login.expanse.sdsc.edu
 ```
 
 The following are examples of Secure Shell (ssh) commands that may be used to log in to Expanse:
+
 ```
 ssh <your_username>@login.expanse.sdsc.edu
 ssh -l <your_username> login.expanse.sdsc.edu
@@ -656,16 +658,18 @@ Last login: Fri Nov 1 11:16:02 2020 from 76.176.117.51
 
 ####
 Example of a terminal connection/Unix login session:
-```(base) localhost:~ username$ ssh -l username login.expanse.sdsc.edu
-Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
-[username@login02 ~]$ 
+
+```
+(base) localhost:~ username$ ssh -l username login.expanse.sdsc.edu
+Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
+[username@login02 ~]$ 
 [username@login02 ~]$ whoami
 username
-[username@login02 ~]$ 
+[username@login02 ~]$ 
 [username@login02 ~]$ pwd
 /home/username
-[username@login02 ~]$ 
-[username@login02 ~]$ 
+[username@login02 ~]$ 
+[username@login02 ~]$ 
 ```
 
 [Back to Top](#top)
@@ -678,6 +682,7 @@ https://github.com/sdsc-hpc-training-org/expanse-101
 The example below will be for anonymous HTTPS downloads
 
 * Create a test directory hold the expanse example files:
+* 
 ```
 localhost:hpctrain username$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
 Cloning into 'expanse-101'...
@@ -706,27 +711,30 @@ drwxr-xr-x   7 username  staff   224 Nov 18 08:12 examples
 drwxr-xr-x  12 username  staff   384 Nov 18 08:12 images
 -rw-r--r--   1 username  staff  5061 Nov 18 08:12 running_jobs_on_expanse.md
 ```
+
 *Note*: you can learn to create and modify directories as part of the *Getting Started* and *Basic Skills* preparation found here:
 https://github.com/sdsc-hpc-training-org/basic_skills
 
 The examples directory contains the code we will cover in this tutorial:
+
 ```
+
 [username@login01 examples]$ ls -al examples
 total 88
-drwxr-xr-x 6 username use300 6 Oct  7 14:15 .
-drwxr-xr-x 5 username use300 8 Oct  7 14:15 ..
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 HYBRID
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 MPI
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 OpenACC
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 OPENMP
+drwxr-xr-x 6 username use300 6 Oct  7 14:15 .
+drwxr-xr-x 5 username use300 8 Oct  7 14:15 ..
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 HYBRID
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 MPI
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 OpenACC
+drwxr-xr-x 2 username use300 6 Oct  7 14:15 OPENMP
 [username@login01 examples]$ ls -al examples/MPI
 total 63
-drwxr-xr-x 2 username use300     6 Oct  7 14:15 .
-drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
--rwxr-xr-x 1 username use300 21576 Oct  7 14:15 hello_mpi
--rw-r--r-- 1 username use300   329 Oct  7 14:15 hello_mpi.f90
--rw-r--r-- 1 username use300   464 Oct  7 14:15 hellompi-slurm.sb
--rw-r--r-- 1 username use300   181 Oct  7 14:15 README.txt
+drwxr-xr-x 2 username use300     6 Oct  7 14:15 .
+drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
+-rwxr-xr-x 1 username use300 21576 Oct  7 14:15 hello_mpi
+-rw-r--r-- 1 username use300   329 Oct  7 14:15 hello_mpi.f90
+-rw-r--r-- 1 username use300   464 Oct  7 14:15 hellompi-slurm.sb
+-rw-r--r-- 1 username use300   181 Oct  7 14:15 README.txt
 
 ```
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
@@ -735,10 +743,10 @@ All examples will contain source code, along with a batch script example so you 
 <img src="../images/expanse_usesr_portal.png" alt="Expanse User Portal" width="400px" />
 
 * See: https://portal.expanse.sdsc.edu
-* Quick and easy way for Expanse users to login, transfer and edit files and submit and monitor jobs. 
-* Gateway for launching interactive applications such as MATLAB, Rstudio
+* Quick and easy way for Expanse users to login, transfer and edit files and submit and monitor jobs. 
+* Gateway for launching interactive applications such as MATLAB, Rstudio
 * Integrated web-based environment for file management and job submission.
-* All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
+* All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
 
 
 [Back to Top](#top)
@@ -767,9 +775,9 @@ Expanse CPU and GPU nodes have different compiler libraries.
 
 #### CPU Nodes
 * GNU, Intel, AOCC (AMD) compilers
-* Multiple MPI implementations (OpenMPI, MVAPICH2, and IntelMPI). 
+* Multiple MPI implementations (OpenMPI, MVAPICH2, and IntelMPI). 
 * A majority of applications have been built using gcc/10.2.0 which features AMD Rome specific optimization flags (-march=znver2).
-* Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2). 
+* Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2). 
 
 Users should evaluate their application for best compiler and library selection. GNU, Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2). Using AVX2, up to eight floating point operations can be executed per cycle per core, potentially doubling the performance relative to non-AVX2 processors running at the same clock speed. Note that AVX2 support is not enabled by default and compiler flags must be set as described below.
 
@@ -791,11 +799,13 @@ In this tutorial, we include several hands-on examples that cover many of the ca
 ### <a name="compilers-amd"></a>Using the AMD compilers
 
 The AMD Optimizing C/C++ Compiler (AOCC) is only available on CPU nodes. AMD compilers can be loaded by executing the following commands at the Linux prompt:
+
 ```
 module load aocc
 ```
 
 For more information on the AMD compilers run:
+
 ```
 [flang | clang ] -help
 ```
@@ -814,6 +824,7 @@ Suggested Compilers to used based on programming model and languages:
 ### <a name="compilers-intel"></a>Using the Intel Compilers:
 
 The Intel compilers and the MVAPICH2 MPI implementation will be loaded by default. If you have modified your environment, you can reload by executing the following commands at the Linux prompt or placing in your startup file (~/.cshrc or ~/.bashrc) or into a module load script (see above).
+
 ```
 module purge
 module load intel mvapich2_ib
@@ -823,6 +834,7 @@ For AVX2 support, compile with the -xHOST option. Note that -xHOST alone does no
 Intel MKL libraries are available as part of the "intel" modules on Expanse. Once this module is loaded, the environment variable MKL_ROOT points to the location of the mkl libraries. The MKL link advisor can be used to ascertain the link line (change the MKL_ROOT aspect appropriately).
 
 In the example below, we are working with the HPC examples that can be found in
+
 ```
 [user@expanse-14-01:~/expanse-examples/expanse101/MKL] pwd
 /home/user/expanse-examples/expanse101/MKL
@@ -838,15 +850,19 @@ drwxr-xr-x 16 user use300       16 Aug  5 19:02 ..
 ```
 
 The file `compile.txt` contains the full command to compile the `pdpttr.c` program statically linking 64 bit scalapack libraries on Expanse:
+
 ```
 [user@expanse-14-01:~/expanse-examples/expanse101/MKL] cat compile.txt
 mpicc -o pdpttr.exe pdpttr.c /opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64/libmkl_scalapack_lp64.a -Wl,--start-group /opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64/libmkl_intel_lp64.a /opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64/libmkl_sequential.a /opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64/libmkl_core.a /opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64/libmkl_blacs_intelmpi_lp64.a -Wl,--end-group -lpthread -lm -ldl
 ```
 
 Run the command:
+
+
 ```
 [user@expanse-14-01:~/expanse-examples/expanse101/MKL] mpicc -o pdpttr.exe pdpttr.c  -I$MKL_ROOT/include ${MKL_ROOT}/lib/intel64/libmkl_scalapack_lp64.a -Wl,--start-group ${MKL_ROOT}/lib/intel64/libmkl_intel_lp64.a ${MKL_ROOT}/lib/intel64/libmkl_core.a ${MKL_ROOT}/lib/intel64/libmkl_sequential.a -Wl,--end-group ${MKL_ROOT}/lib/intel64/libmkl_blacs_intelmpi_lp64.a -lpthread -lm
 ```
+
 For more information on the Intel compilers run: [ifort | icc | icpc] -help
 
 [Back to Top](#top)
@@ -875,6 +891,7 @@ For more information on the PGI compilers: man [pgf90 | pgcc | pgCC]
 
 ### <a name="compilers-gnu"></a>Using the GNU Compilers
 The GNU compilers can be loaded by executing the following commands at the Linux prompt or placing in your startup files (~/.cshrc or ~/.bashrc)
+
 ```
 module purge
 module load gnu openmpi_ib

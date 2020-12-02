@@ -1,4 +1,5 @@
 
+
 # Expanse 101:  Introduction to Running Jobs on the Expanse Supercomputer <V2>
 Presented by Mary Thomas (SDSC,  <mpthomas@ucsd.edu> )
 <hr>
@@ -160,6 +161,7 @@ login.expanse.sdsc.edu
 ```
 
 The following are examples of Secure Shell (ssh) commands that may be used to log in to Expanse:
+
 ```
 ssh <your_username>@login.expanse.sdsc.edu
 ssh -l <your_username> login.expanse.sdsc.edu
@@ -198,8 +200,7 @@ Use the following commands to adjust your environment:
 Last login: Fri Nov 1 11:16:02 2020 from 76.176.117.51
 ```
 
-####
-Example of a terminal connection/Unix login session:
+#### Example of a terminal connection/Unix login session:
 ```(base) localhost:~ username$ ssh -l username login.expanse.sdsc.edu
 Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
 [username@login02 ~]$ 
@@ -222,6 +223,7 @@ https://github.com/sdsc-hpc-training-org/expanse-101
 The example below will be for anonymous HTTPS downloads
 
 * Create a test directory hold the expanse example files:
+* 
 ```
 localhost:hpctrain username$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
 Cloning into 'expanse-101'...
@@ -250,6 +252,7 @@ drwxr-xr-x   7 username  staff   224 Nov 18 08:12 examples
 drwxr-xr-x  12 username  staff   384 Nov 18 08:12 images
 -rw-r--r--   1 username  staff  5061 Nov 18 08:12 running_jobs_on_expanse.md
 ```
+
 *Note*: you can learn to create and modify directories as part of the *Getting Started* and *Basic Skills* preparation found here:
 https://github.com/sdsc-hpc-training-org/basic_skills
 

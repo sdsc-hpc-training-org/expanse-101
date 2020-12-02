@@ -347,6 +347,7 @@ Here are some common module commands and their descriptions:
 |module help|get a list of all the commands that module knows about do:
 
 Lmod commands support *short-hand* notation, for example:
+
 ```
    ml foo == module load foo
    ml -bar”  == module unload bar
@@ -358,11 +359,13 @@ Lmod commands support *short-hand* notation, for example:
 <b> A few module command examples:</b>
 
 * Default environment: `list`, `li`
+
 ```
 (base) [username@login01 expanse-101]$ module list
 Currently Loaded Modules:
   1) shared   2) cpu/1.0   3) DefaultModules
 ```
+
 * List available modules:  `available`, `avail`, `av`
 
 ```
@@ -403,10 +406,12 @@ $ module av
    D:  Default Module
 
 ```
+
 *Note:* Module defaults are chosen based on Find First Rules due to Name/Version/Version modules found in the module tree.
 See https://lmod.readthedocs.io/en/latest/060_locating.html for details.
 
 Use ```module spider``` to find all possible modules and extensions.
+
 ```
 (base) [username@login02 ~]$ module spider MPI
 -------------------------------------------------------------------------------------
@@ -450,6 +455,8 @@ Use ```module spider``` to find all possible modules and extensions.
 ### <a name="load-and-check-module-env"></a>Load and Check Modules and Environment
 In this example, we will add the SLURM library, and and verify that it is in your environment
 * Check login module environment
+
+
 ```
 (base) [username@login01 ~]$ module li
 
@@ -458,11 +465,16 @@ Currently Loaded Modules:
 ```
 
 * Note that SLURM is not in the environment. Check environment looking for SLURM commands
+
+
 ```
 (base) [username@login01 ~]$ which squeue
 /usr/bin/which: no squeue in (/home/username/miniconda3/bin/conda:/home/username/miniconda3/bin:/home/username/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/username/.local/bin:/home/username/bin)
 ```
+
 * SLURM commands do not exist, so we need to load that module.
+
+
 ```
 (base) [username@login01 ~]$ module load slurm
 (base) [username@login01 ~]$ which squeue
@@ -470,6 +482,8 @@ Currently Loaded Modules:
 ```
 
 * Display loaded module details:
+
+
 ```
 (base) [username@login02 ~]$ module display slurm
 -------------------------------------------------------------------------------------
@@ -492,6 +506,8 @@ help([[ Adds Slurm to your environment
 
 Once you have loaded the modules, you can check the system variables that are available for you to use.
 * To see all variable, run the <b>`env`</b> command. Typically, you will see more than 60 lines containing information such as your login name, shell, your home directory:
+
+
 ```
 [username@expanse-ln3 IBRUN]$ env
 CONDA_EXE=/home/username/miniconda3/bin/conda
@@ -513,13 +529,14 @@ PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/
 _LMFILES_=/cm/local/modulefiles/shared:/cm/local/modulefiles/cpu/1.0.lua:/usr/share/modulefiles/DefaultModules.lua:/cm/local/modulefiles/slurm/expanse/20.02.3
 MODULESHOME=/usr/share/lmod/lmod
 CONDA_DEFAULT_ENV=base
-
 ```
 
 To see the value for any of these variables, use the `echo` command:
+
 ```
 xxx
 ```
+
 [Back to Top](#top)
 <hr>
 
@@ -530,12 +547,15 @@ You can override, and add to the standard set of login modules in two ways.
 *Note: make sure that you always want the module loaded at login*
 
 For Bash:  put the following block into your ```~/.bash_profile``` file:
+
 ```
            if [ -f ~/.bashrc ]; then
                             . ~/.bashrc
                     fi
 ```
+
 Place the following in your ```~/.bashrc``` file:
+
 ```
            if [ -z "$BASHRC_READ" ]; then
                         export BASHRC_READ=1
@@ -545,6 +565,7 @@ Place the following in your ```~/.bashrc``` file:
 ```
 
 * First edit your ```.bashrc``` and ```.bash_profile``` files:
+
 ```
 [username@login02 ~]$ cat .bash_profile 
 # .bash_profile
@@ -567,7 +588,9 @@ if [ -z "$BASHRC_READ" ]; then
 Fi
 [SNIP]
 ```
+
 * Next LOGOUT and LOG BACK IN:
+
 ```
 (base) [username@login02 ~]$ env | grep slurm
 [snip]
@@ -582,6 +605,8 @@ PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/
 ### Troubleshooting:Module Error<a name="module-error"></a>
 
 Sometimes this error is encountered when switching from one shell to another or attempting to run the module command from within a shell script or batch job. The module command may not be inherited between the shells.  To keep this from happening, execute the following command:
+
+
 ```
 [expanse-ln3:~]source /etc/profile.d/modules.sh
 ```
@@ -622,6 +647,8 @@ The following are examples of Secure Shell (ssh) commands that may be used to lo
 ssh <your_username>@login.expanse.sdsc.edu
 ssh -l <your_username> login.expanse.sdsc.edu
 ```
+
+
 * Details about how to access Expanse under different circumstances are described in the Expanse User Guide:  https://www.sdsc.edu/support/user_guides/expanse.html#access
 
 * For instructions on how to use SSH,
@@ -683,7 +710,8 @@ https://github.com/sdsc-hpc-training-org/expanse-101
 The example below will be for anonymous HTTPS downloads
 
 * Create a test directory hold the expanse example files:
-* 
+
+
 ```
 localhost:hpctrain username$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
 Cloning into 'expanse-101'...

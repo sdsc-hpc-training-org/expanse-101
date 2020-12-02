@@ -201,7 +201,9 @@ Last login: Fri Nov 1 11:16:02 2020 from 76.176.117.51
 ```
 
 #### Example of a terminal connection/Unix login session:
-```(base) localhost:~ username$ ssh -l username login.expanse.sdsc.edu
+
+```
+localhost:~ username$ ssh -l username login.expanse.sdsc.edu
 Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
 [username@login02 ~]$ 
 [username@login02 ~]$ whoami

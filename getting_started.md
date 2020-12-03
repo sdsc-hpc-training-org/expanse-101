@@ -1,3 +1,6 @@
+---
+nav_order: 1
+---
 ## <a name="sys-env"></a>Getting Started on Expanse
 
 <a name="top"> In this Section:

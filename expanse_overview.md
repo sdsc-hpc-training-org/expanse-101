@@ -4,7 +4,7 @@ nav_order: 1
 
 <img src="https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/images/expanse_overview.png" alt="Expanse Overview" width="500px">
 
-## Expanse Overview:
+## Expanse Overview abc:
 
 ### HPC for the *long tail* of science:
 * Designed by Dell and SDSC delivering 5.16 peak petaflops

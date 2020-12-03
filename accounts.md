@@ -1,3 +1,6 @@
+---
+nav_order: 3
+---
 ## <a name="sys-env"></a>Managing Accounts on Expanse
 This section focuses on how to manage your allocations on Expanse. For full details, see the [Expanse User Guide.](https://www.sdsc.edu/support/user_guides/expanse.html#accounts)
 

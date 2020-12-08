@@ -46,7 +46,7 @@ Consulting group at help@xsede.org.
 
 
 
-<img src="https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/images/expanse_overview.png" alt="Expanse Overview" width="500px">
+<img src="images/expanse_overview.png" alt="Expanse Overview" width="500px">
 
 ## Expanse Overview:
 
@@ -60,7 +60,7 @@ Consulting group at help@xsede.org.
 
 <hr>
 
-<img src="https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/images/expanse_heterogeneous_arch.png" alt="Expanse Heterogeneous Architecture" width="500px">
+<img src="images/expanse_heterogeneous_arch.png" alt="Expanse Heterogeneous Architecture" width="500px">
 
 ### System Summary
 
@@ -83,18 +83,18 @@ Consulting group at help@xsede.org.
 
 ### Expanse Scaleable Compute Unit
 
-<img src="https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/images/expanse_sccu.png" alt="Expanse Scaleable Compute Unit" width="700px">
+<img src="images/expanse_sccu.png" alt="Expanse Scaleable Compute Unit" width="700px">
 
 <hr>
 
 ### Expanse Connectivity Fabric
 
-<img src="https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/images/expanse_connectivity_fabric.png" alt="Expanse Connectivity Fabric" width="700px" />
+<img src="images/expanse_connectivity_fabric.png" alt="Expanse Connectivity Fabric" width="700px" />
 
 <hr>
 
 ### AMD EPYC 7742 Processor Architecture
-<img src="https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/images/amd-epyc-7742-processor-arch.png" alt="AMD EPYC 7742 Processor Architecture" width="300px" />
+<img src="images/amd-epyc-7742-processor-arch.png" alt="AMD EPYC 7742 Processor Architecture" width="300px" />
 
 
 * 8 Core Complex Dies (CCDs).
@@ -111,7 +111,7 @@ Consulting group at help@xsede.org.
 
 ### New Expanse Feature: Composable Systems
 
-<img src="https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/images/expanse_composable_systems.png" alt="Expanse Composable Systems" width="400px" />
+<img src="images/expanse_composable_systems.png" alt="Expanse Composable Systems" width="400px" />
 Composable Systems will support complex, distributed, workflows – making Expanse part of a larger CI ecosystem.
 
 * Bright Cluster Manager + Kubernetes
@@ -124,7 +124,7 @@ Composable Systems will support complex, distributed, workflows – making Expan
 ### New Expanse Feature: Cloud Bursting
 Expanse will support integration with public clouds:
 
-  <img src="https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/images/expanse_cloud_burst_aws.png" alt="Expanse Cloud Bursting to AWS" width="400px" />
+  <img src="images/expanse_cloud_burst_aws.png" alt="Expanse Cloud Bursting to AWS" width="400px" />
 
 * Supports projects that share data, need access to novel technologies, and integrate cloud resources into workflows
 * Slurm + in-house developed software + Terraform (Hashicorp)
@@ -205,14 +205,14 @@ Last login: Fri Nov 1 11:16:02 2020 from 76.176.117.51
 ```
 localhost:~ username$ ssh -l username login.expanse.sdsc.edu
 Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
-[username@login02 ~]$ 
+[username@login02 ~]$
 [username@login02 ~]$ whoami
 username
-[username@login02 ~]$ 
+[username@login02 ~]$
 [username@login02 ~]$ pwd
 /home/username
-[username@login02 ~]$ 
-[username@login02 ~]$ 
+[username@login02 ~]$
+[username@login02 ~]$
 ```
 
 [Back to Top](#top)
@@ -225,7 +225,7 @@ https://github.com/sdsc-hpc-training-org/expanse-101
 The example below will be for anonymous HTTPS downloads
 
 * Create a test directory hold the expanse example files:
-* 
+*
 ```
 localhost:hpctrain username$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
 Cloning into 'expanse-101'...
@@ -282,10 +282,10 @@ drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
 
 ### Expanse User Portal<a name="user-portal"></a>
-<img src="../images/expanse_usesr_portal.png" alt="Expanse User Portal" width="400px" />
+<img src="images/expanse_usesr_portal.png" alt="Expanse User Portal" width="400px" />
 
 * See: https://portal.expanse.sdsc.edu
-* Quick and easy way for Expanse users to login, transfer and edit files and submit and monitor jobs. 
+* Quick and easy way for Expanse users to login, transfer and edit files and submit and monitor jobs.
 * Gateway for launching interactive applications such as MATLAB, Rstudio
 * Integrated web-based environment for file management and job submission.
 * All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
@@ -310,7 +310,7 @@ The Environment Modules package provides for dynamic modification of your shell 
 ### Introduction to the Lua Lmod Module System<a name="module-lmod-intro"></a>
 * Expanse uses Lmod, a Lua based module system.
    * See: https://lmod.readthedocs.io/en/latest/010_user.html
-* Users setup custom environments by loading available modules into the shell environment, including needed compilers and libraries and the batch scheduler. 
+* Users setup custom environments by loading available modules into the shell environment, including needed compilers and libraries and the batch scheduler.
 * What’s the same as Comet:
   * Dynamic modification of your shell environment
   * User can set, change, or delete environment variables
@@ -567,7 +567,7 @@ Place the following in your ```~/.bashrc``` file:
 * First edit your ```.bashrc``` and ```.bash_profile``` files:
 
 ```
-[username@login02 ~]$ cat .bash_profile 
+[username@login02 ~]$ cat .bash_profile
 # .bash_profile
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
@@ -690,14 +690,14 @@ Example of a terminal connection/Unix login session:
 ```
 (base) localhost:~ username$ ssh -l username login.expanse.sdsc.edu
 Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
-[username@login02 ~]$ 
+[username@login02 ~]$
 [username@login02 ~]$ whoami
 username
-[username@login02 ~]$ 
+[username@login02 ~]$
 [username@login02 ~]$ pwd
 /home/username
-[username@login02 ~]$ 
-[username@login02 ~]$ 
+[username@login02 ~]$
+[username@login02 ~]$
 ```
 
 [Back to Top](#top)
@@ -769,10 +769,10 @@ drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
 
 ### Expanse User Portal<a name="user-portal"></a>
-<img src="../images/expanse_usesr_portal.png" alt="Expanse User Portal" width="400px" />
+<img src="images/expanse_usesr_portal.png" alt="Expanse User Portal" width="400px" />
 
 * See: https://portal.expanse.sdsc.edu
-* Quick and easy way for Expanse users to login, transfer and edit files and submit and monitor jobs. 
+* Quick and easy way for Expanse users to login, transfer and edit files and submit and monitor jobs.
 * Gateway for launching interactive applications such as MATLAB, Rstudio
 * Integrated web-based environment for file management and job submission.
 * All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
@@ -804,9 +804,9 @@ Expanse CPU and GPU nodes have different compiler libraries.
 
 #### CPU Nodes
 * GNU, Intel, AOCC (AMD) compilers
-* Multiple MPI implementations (OpenMPI, MVAPICH2, and IntelMPI). 
+* Multiple MPI implementations (OpenMPI, MVAPICH2, and IntelMPI).
 * A majority of applications have been built using gcc/10.2.0 which features AMD Rome specific optimization flags (-march=znver2).
-* Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2). 
+* Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2).
 
 Users should evaluate their application for best compiler and library selection. GNU, Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2). Using AVX2, up to eight floating point operations can be executed per cycle per core, potentially doubling the performance relative to non-AVX2 processors running at the same clock speed. Note that AVX2 support is not enabled by default and compiler flags must be set as described below.
 

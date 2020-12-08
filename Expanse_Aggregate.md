@@ -282,7 +282,7 @@ drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
 
 ### Expanse User Portal<a name="user-portal"></a>
-<img src="images/expanse_usesr_portal.png" alt="Expanse User Portal" width="400px" />
+<img src="images/expanse_user_portal.png" alt="Expanse User Portal" width="400px" />
 
 * See: https://portal.expanse.sdsc.edu
 * Quick and easy way for Expanse users to login, transfer and edit files and submit and monitor jobs.

@@ -35,6 +35,9 @@ Consulting group at help@xsede.org.
   * [Obtaining Example Code](#example-code)
   * [Expanse User Portal](#user-portal)
 * [Modules](#modules)
+   * [Loading Modules During Login](module-login-load)
+   * [Modules: Popular Lmod Commands](module-commands)
+
 * [Account Management](#accounts)
 * Compiling and Linking Code
 * Running Jobs
@@ -143,19 +146,17 @@ Expanse will support integration with public clouds:
 
 
 ## <a name="getting-started"></a>Getting Started on Expanse
-
+In this Section:
 * [Expanse Accounts](#expanse-accounts)
 * [Logging Onto Expanse](#expanse-logon)
 * [Obtaining Example Code](#example-code)
 * [Expanse User Portal](#user-portal)
+[Back to Top](#top)
 
 ### Expanse Accounts<a name="expanse-accounts"></a>
 You must have a expanse account in order to access the system.
 * Obtain a trial account here:  http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
 * You can use your XSEDE account.
-
-[Back to Getting Started](#getting-started) <br>
-[Back to Top](#top)
 
 
 ### Logging Onto Expanse<a name="expanse-logon"></a>
@@ -286,6 +287,10 @@ drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
 
 ```
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
+<br>
+[Back to Getting Started](#getting-started) <br>
+[Back to Top](#top)
+
 
 ### Expanse User Portal<a name="user-portal"></a>
 <img src="images/expanse_user_portal.png" alt="Expanse User Portal" width="400px" />
@@ -297,21 +302,27 @@ All examples will contain source code, along with a batch script example so you 
 * All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
 
 
+[Back to Getting Started](#getting-started) <br>
 [Back to Top](#top)
 <hr>
-
 
 
 ## <a name="modules"></a>Expanse Environment Modules: Customizing Your User Environment
 The Environment Modules package provides for dynamic modification of your shell environment. Module commands set, change, or delete environment variables, typically in support of a particular application. They also let the user choose between different versions of the same software or different combinations of related codes. See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#modules).
 
-<a name="top"> In this Section:
+In this Section:
 * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
 * [Common module commands](#module-commands)
+* [Modules: Popular Lmod Commands](module-commands)
+
 <!----
 * [Load and Check Modules and Environment](#load-and-check-module-env)
 * [Module Error: command not found](#module-error)
 ---->
+
+[Back to Modules](#modules) <br>
+[Back to Top](#top)
+<br>
 
 ### Introduction to the Lua Lmod Module System<a name="module-lmod-intro"></a>
 * Expanse uses Lmod, a Lua based module system.
@@ -334,8 +345,11 @@ The Environment Modules package provides for dynamic modification of your shell 
       * module load gpu  (for gpu nodes)  
       * note: avoid loading both modules
 
-### Modules: Popular Lmod Commands<a name="module-commands"></a>
+[Back to Modules](#modules) <br>
+[Back to Top](#top)
+<br>
 
+### Modules: Popular Lmod Commands<a name="module-commands"></a>
 
 Here are some common module commands and their descriptions:
 
@@ -455,8 +469,9 @@ Use ```module spider``` to find all possible modules and extensions.
         Adds OpenMPI to your environment variables,      
 ```
 
-[Back to Top](#top)
-<hr>
+[Back to Modules](#modules) <br>
+[Back to Top](#top)<br>
+
 
 ### <a name="load-and-check-module-env"></a>Load and Check Modules and Environment
 In this example, we will add the SLURM library, and and verify that it is in your environment
@@ -543,8 +558,9 @@ To see the value for any of these variables, use the `echo` command:
 xxx
 ```
 
+[Back to Modules](#modules) <br>
 [Back to Top](#top)
-<hr>
+<br>
 
 ### Loading Modules During Login <a name="module-login-load"></a>
 You can override, and add to the standard set of login modules in two ways.
@@ -606,7 +622,8 @@ PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/
 (base) [username@login02 ~]$ which squeue
 /cm/shared/apps/slurm/current/bin/squeue
 ```
-
+[Back to Modules](#modules) <br>
+[Back to Top](#top)
 
 ### Troubleshooting:Module Error<a name="module-error"></a>
 
@@ -618,7 +635,7 @@ Sometimes this error is encountered when switching from one shell to another or 
 ```
 OR add this command to your shell script (including Slurm batch scripts)
 
-
+[Back to Modules](#modules) <br>
 [Back to Top](#top)
 <hr>
 

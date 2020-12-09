@@ -140,6 +140,8 @@ Expanse will support integration with public clouds:
 * Users submit directly via Slurm, or as part of a composed system.
 * Options for data movement: data in the cloud; remote mounting of file systems; cached filesystems (e.g., StashCache), and data transfer during the job.
 * Funding for users cloud resources is not part of an Expanse award: the researcher must have access to cloud computing credits via other NSF awards and funding.
+
+<br>
 [Back to Top](#top)
 <hr>
 
@@ -151,9 +153,11 @@ In this Section:
 * [Logging Onto Expanse](#expanse-logon)
 * [Obtaining Example Code](#example-code)
 * [Expanse User Portal](#user-portal)
+
 <br>
 [Back to Top](#top)
 <hr>
+
 ### Expanse Accounts<a name="expanse-accounts"></a>
 You must have a expanse account in order to access the system.
 * Obtain a trial account here:  http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts

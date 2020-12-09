@@ -47,25 +47,19 @@ Consulting group at help@xsede.org.
    * [Supported Compilers](#compilers-supported")
    * [AMD Optimizing C/C++ Compiler (AOCC)](#compilers-amd)
    * [Intel Compilers](#compilers-intel) 
-   * [GNU Compilers<](#compilers-gnu)
-   * [PGI Compilers<](#compilers-pgi)
-
+   * [GNU Compilers<\](#compilers-gnu)
+   * [PGI Compilers<\](#compilers-pgi)
 * [Running Jobs]($y)
    * [X]($y)
    * [X]($y)
-
 * Hands-on Examples
    * [X]($y)
-
 * MPI Jobs
    * [X]($y)
-
 * OpenMP Jobs
    * [X]($y)
-
 * GPU/CUDA Jobs
    * [X]($y)
-
 * Hybrid MPI-OpenMP Jobs
    * [X]($y)
 

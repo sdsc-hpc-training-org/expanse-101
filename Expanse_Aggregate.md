@@ -154,6 +154,9 @@ You must have a expanse account in order to access the system.
 * Obtain a trial account here:  http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
 * You can use your XSEDE account.
 
+[Back to Getting Started](#getting-started) <br>
+[Back to Top](#top)
+
 
 ### Logging Onto Expanse<a name="expanse-logon"></a>
 
@@ -217,7 +220,7 @@ username
 [username@login02 ~]$
 [username@login02 ~]$
 ```
-
+[Back to Getting Started](#getting-started) <br>
 [Back to Top](#top)
 <hr>
 

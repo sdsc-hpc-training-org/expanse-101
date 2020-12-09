@@ -152,7 +152,7 @@ In this Section:
 * [Expanse Accounts](#expanse-accounts)
 * [Logging Onto Expanse](#expanse-logon)
 * [Obtaining Example Code](#example-code)
-* [Expanse User Portal](#user-portal)
+* [Expanse User Portal](#user-portal) 
 
 <br>
 [Back to Top](#top)

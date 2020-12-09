@@ -1,6 +1,6 @@
 
 
-# Expanse 101:  Introduction to Running Jobs on the Expanse Supercomputer xx
+# Expanse 101:  Introduction to Running Jobs on the Expanse Supercomputer
 Presented by Mary Thomas (SDSC,  <mpthomas@ucsd.edu> )
 <hr>
 In this tutorial, you will learn how to compile and run jobs on Expanse,
@@ -25,29 +25,52 @@ Transition Workshpo](https://education.sdsc.edu/training/interactive/202010_come
 If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at help@xsede.org.
 
-
+   * [X]($y)
 
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](#overview)
+ 
 * [Getting Started](#getting-started)
   * [Expanse Accounts](#expanse-accounts)
   * [Logging Onto Expanse](#expanse-logon)
   * [Obtaining Example Code](#example-code)
   * [Expanse User Portal](#user-portal)
+ 
 * [Modules](#modules)
    * [Loading Modules During Login](#module-login-load)
    * [Modules: Popular Lmod Commands](#module-commands)
    * [Loading Modules During Login](#module-login-load)
    * [Troubleshooting:Module Error](#module-error)
+ 
 * [Account Management](#accounts)
-* Compiling and Linking Code
-* Running Jobs
+   * [Expanse Accounts](#expanse-accounts)
+   * [Logging Onto Expanse](#expanse-logon)
+   * [Obtaining Example Code](#example-code)
+
+* [Compiling and Linking Code]($y)
+* [Running Jobs]($y)
+   * [X]($y)
+   * [X]($y)
+
 * Hands-on Examples
+   * [X]($y)
+
 * MPI Jobs
+   * [X]($y)
+
 * OpenMP Jobs
+   * [X]($y)
+
 * GPU/CUDA Jobs
+   * [X]($y)
+
 * Hybrid MPI-OpenMP Jobs
+   * [X]($y)
+
+
 * Data and Storage, Globus Endpoints, Data Movers, Mount Points
+   * [X]($y)
+
 * Final Comments
 
 <hr>
@@ -306,7 +329,6 @@ All examples will contain source code, along with a batch script example so you 
 * Gateway for launching interactive applications such as MATLAB, Rstudio
 * Integrated web-based environment for file management and job submission.
 * All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
-
 
 [Back to Getting Started](#getting-started) <br>
 [Back to Top](#top)
@@ -650,11 +672,9 @@ OR add this command to your shell script (including Slurm batch scripts)
 ## <a name="accounts"></a>Managing Accounts on Expanse
 This section focuses on how to manage your allocations on Expanse. For full details, see the [Expanse User Guide.](https://www.sdsc.edu/support/user_guides/expanse.html#accounts)
 
-<a name="top"> In this Section:
 * [Expanse Accounts](#expanse-accounts)
 * [Logging Onto Expanse](#expanse-logon)
 * [Obtaining Example Code](#example-code)
-* [Expanse User Portal](#user-portal)
 
 ### Expanse Accounts<a name="expanse-accounts"></a>
 You must have a expanse account in order to access the system.
@@ -797,14 +817,6 @@ drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
 ```
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
 
-### Expanse User Portal<a name="user-portal"></a>
-<img src="images/expanse_usesr_portal.png" alt="Expanse User Portal" width="400px" />
-
-* See: https://portal.expanse.sdsc.edu
-* Quick and easy way for Expanse users to login, transfer and edit files and submit and monitor jobs.
-* Gateway for launching interactive applications such as MATLAB, Rstudio
-* Integrated web-based environment for file management and job submission.
-* All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
 
 
 [Back to Top](#top)

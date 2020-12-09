@@ -43,7 +43,13 @@ Consulting group at help@xsede.org.
    * [Expanse Accounts](#expanse-accounts)
    * [Logging Onto Expanse](#expanse-logon)
    * [Obtaining Example Code](#example-code)
-* [Compiling and Linking Code]($y)
+* [Compiling & Linking](#compilers)
+   * [Supported Compilers](#compilers-supported")
+   * [AMD Optimizing C/C++ Compiler (AOCC)](#compilers-amd)
+   * [Intel Compilers](#compilers-intel) 
+   * [GNU Compilers<](#compilers-gnu)
+   * [PGI Compilers<](#compilers-pgi)
+
 * [Running Jobs]($y)
    * [X]($y)
    * [X]($y)
@@ -820,21 +826,19 @@ All examples will contain source code, along with a batch script example so you 
 
 ## <a name="compilers"></a>Compiling & Linking Code
 
-<a name="top"> In this Section:
-* [Compiling & Linking](#compilers)
-    * [Supported Compiler Types](#compilers-supported)
-    * [Using the AMD Compilers](#compilers-intel)
-    * [Using the Intel Compilers](#compilers-intel)
-    * [Using the PGI Compilers](#compilers-pgi)
-    * [Using the GNU Compilers](#compilers-gnu)
-
-
-### <a name="compilers"></a>Expanse Compilers
-
 Expanse provides the Intel, Portland Group (PGI), and GNU compilers along with multiple MPI implementations (MVAPICH2, MPICH2, OpenMPI). Most applications will achieve the best performance on Expanse using the Intel compilers and MVAPICH2 and the majority of libraries installed on Expanse have been built using this combination.
 
 Other compilers and versions can be installed by Expanse staff on request. For more information, see the [Expanse User Guide.]
 (https://www.sdsc.edu/support/user_guides/expanse.html#compiling)
+
+<a name="top"> In this Section:
+* [Compiling & Linking](#compilers)
+    * [Supported Compilers](#compilers-supported")
+    * [AMD Optimizing C/C++ Compiler (AOCC)](#compilers-amd)
+    * [Intel Compilers](#compilers-intel)
+    * [GNU Compilers<](#compilers-gnu)
+    * [PGI Compilers<](#compilers-pgi)
+
 
 ### <a name="compilers-supported"></a>Supported Compilers
 Expanse CPU and GPU nodes have different compiler libraries.
@@ -846,6 +850,7 @@ Expanse CPU and GPU nodes have different compiler libraries.
 * Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2).
 
 Users should evaluate their application for best compiler and library selection. GNU, Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2). Using AVX2, up to eight floating point operations can be executed per cycle per core, potentially doubling the performance relative to non-AVX2 processors running at the same clock speed. Note that AVX2 support is not enabled by default and compiler flags must be set as described below.
+
 
 #### GPU Nodes
 Expanse GPU nodes have GNU, Intel, and PGI compilers available along with multiple MPI implementations (OpenMPI, IntelMPI, and MVAPICH2). The gcc/10.2.0, Intel, and PGI compilers have specific flags for the Cascade Lake architecture. Users should evaluate their application for best compiler and library selections.
@@ -859,8 +864,12 @@ In this tutorial, we include several hands-on examples that cover many of the ca
 * GPU
 * Local scratch
 
+[Back to Compilers](#compilers)<br>
 [Back to Top](#top)
 <hr>
+
+
+
 
 ### <a name="compilers-amd"></a>Using the AMD compilers
 

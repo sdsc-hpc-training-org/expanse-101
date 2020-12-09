@@ -141,7 +141,7 @@ Expanse will support integration with public clouds:
 * Options for data movement: data in the cloud; remote mounting of file systems; cached filesystems (e.g., StashCache), and data transfer during the job.
 * Funding for users cloud resources is not part of an Expanse award: the researcher must have access to cloud computing credits via other NSF awards and funding.
 
-<br>
+
 [Back to Top](#top)
 <hr>
 
@@ -154,7 +154,7 @@ In this Section:
 * [Obtaining Example Code](#example-code)
 * [Expanse User Portal](#user-portal) 
 
-<br>
+
 [Back to Top](#top)
 <hr>
 

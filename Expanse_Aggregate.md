@@ -25,8 +25,6 @@ Transition Workshpo](https://education.sdsc.edu/training/interactive/202010_come
 If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at help@xsede.org.
 
-   * [X]($y)
-
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](#overview)
 * [Getting Started](#getting-started)
@@ -47,8 +45,8 @@ Consulting group at help@xsede.org.
    * [Supported Compilers](#compilers-supported")
    * [AMD Optimizing C/C++ Compiler (AOCC)](#compilers-amd)
    * [Intel Compilers](#compilers-intel) 
-   * [GNU Compilers<\](#compilers-gnu)
-   * [PGI Compilers<\](#compilers-pgi)
+   * [GNU Compilers](#compilers-gnu)
+   * [PGI Compilers](#compilers-pgi)
 * [Running Jobs]($y)
    * [X]($y)
    * [X]($y)

@@ -1,6 +1,6 @@
 
 
-# Expanse 101:  Introduction to Running Jobs on the Expanse Supercomputer <V2>
+# Expanse 101:  Introduction to Running Jobs on the Expanse Supercomputer <V0>
 Presented by Mary Thomas (SDSC,  <mpthomas@ucsd.edu> )
 <hr>
 In this tutorial, you will learn how to compile and run jobs on Expanse,

@@ -30,6 +30,10 @@ Consulting group at help@xsede.org.
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](#overview)
 * [Getting Started](#getting-started)
+  * [Expanse Accounts](#expanse-accounts)
+  * [Logging Onto Expanse](#expanse-logon)
+  * [Obtaining Example Code](#example-code)
+  * [Expanse User Portal](#user-portal)
 * [Modules](#modules)
 * [Account Management](#accounts)
 * Compiling and Linking Code
@@ -140,7 +144,6 @@ Expanse will support integration with public clouds:
 
 ## <a name="getting-started"></a>Getting Started on Expanse
 
-<a name="top"> In this Section:
 * [Expanse Accounts](#expanse-accounts)
 * [Logging Onto Expanse](#expanse-logon)
 * [Obtaining Example Code](#example-code)

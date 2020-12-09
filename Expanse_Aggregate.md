@@ -35,9 +35,10 @@ Consulting group at help@xsede.org.
   * [Obtaining Example Code](#example-code)
   * [Expanse User Portal](#user-portal)
 * [Modules](#modules)
-   * [Loading Modules During Login](module-login-load)
-   * [Modules: Popular Lmod Commands](module-commands)
-
+   * [Loading Modules During Login](#module-login-load)
+   * [Modules: Popular Lmod Commands](#module-commands)
+   * [Loading Modules During Login](#module-login-load)
+   * [Troubleshooting:Module Error](#module-error)
 * [Account Management](#accounts)
 * Compiling and Linking Code
 * Running Jobs
@@ -295,7 +296,7 @@ All examples will contain source code, along with a batch script example so you 
 <br>
 [Back to Getting Started](#getting-started) <br>
 [Back to Top](#top)
-
+<hr>
 
 ### Expanse User Portal<a name="user-portal"></a>
 <img src="images/expanse_user_portal.png" alt="Expanse User Portal" width="400px" />
@@ -317,17 +318,15 @@ The Environment Modules package provides for dynamic modification of your shell 
 
 In this Section:
 * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
-* [Common module commands](#module-commands)
 * [Modules: Popular Lmod Commands](module-commands)
+* [Load and Check Modules and Environment](#load-and-check-module-env)
 
 <!----
-* [Load and Check Modules and Environment](#load-and-check-module-env)
 * [Module Error: command not found](#module-error)
 ---->
 
-[Back to Modules](#modules) <br>
 [Back to Top](#top)
-<br>
+<hr>
 
 ### Introduction to the Lua Lmod Module System<a name="module-lmod-intro"></a>
 * Expanse uses Lmod, a Lua based module system.
@@ -352,7 +351,7 @@ In this Section:
 
 [Back to Modules](#modules) <br>
 [Back to Top](#top)
-<br>
+<hr>
 
 ### Modules: Popular Lmod Commands<a name="module-commands"></a>
 
@@ -475,7 +474,8 @@ Use ```module spider``` to find all possible modules and extensions.
 ```
 
 [Back to Modules](#modules) <br>
-[Back to Top](#top)<br>
+[Back to Top](#top)
+<hr>
 
 
 ### <a name="load-and-check-module-env"></a>Load and Check Modules and Environment
@@ -565,7 +565,7 @@ xxx
 
 [Back to Modules](#modules) <br>
 [Back to Top](#top)
-<br>
+<hr>
 
 ### Loading Modules During Login <a name="module-login-load"></a>
 You can override, and add to the standard set of login modules in two ways.
@@ -629,6 +629,7 @@ PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/
 ```
 [Back to Modules](#modules) <br>
 [Back to Top](#top)
+
 
 ### Troubleshooting:Module Error<a name="module-error"></a>
 

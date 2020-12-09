@@ -28,10 +28,10 @@ Consulting group at help@xsede.org.
 
 
 <a name="top">Contents:
-* [Expanse Overview & Innovative Features](./docs/expanse_overview.md)
-* [Getting Started](./docs/getting_started.md)
-* [Modules](./docs/modules.md)
-* [Account Management](./docs/accounts.md)
+* [Expanse Overview & Innovative Features](#overview)
+* [Getting Started](#getting-started)
+* [Modules](#modules)
+* [Account Management](#accounts)
 * Compiling and Linking Code
 * Running Jobs
 * Hands-on Examples
@@ -48,7 +48,7 @@ Consulting group at help@xsede.org.
 
 <img src="images/expanse_overview.png" alt="Expanse Overview" width="500px">
 
-## Expanse Overview:
+## Expanse Overview: <a name="overview"></a>
 
 ### HPC for the *long tail* of science:
 * Designed by Dell and SDSC delivering 5.16 peak petaflops
@@ -138,7 +138,7 @@ Expanse will support integration with public clouds:
 
 
 
-## <a name="sys-env"></a>Getting Started on Expanse
+## <a name="getting-started"></a>Getting Started on Expanse
 
 <a name="top"> In this Section:
 * [Expanse Accounts](#expanse-accounts)
@@ -618,7 +618,7 @@ OR add this command to your shell script (including Slurm batch scripts)
 
 
 
-## <a name="sys-env"></a>Managing Accounts on Expanse
+## <a name="accounts"></a>Managing Accounts on Expanse
 This section focuses on how to manage your allocations on Expanse. For full details, see the [Expanse User Guide.](https://www.sdsc.edu/support/user_guides/expanse.html#accounts)
 
 <a name="top"> In this Section:

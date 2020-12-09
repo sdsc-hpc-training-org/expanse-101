@@ -29,24 +29,20 @@ Consulting group at help@xsede.org.
 
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](#overview)
- 
 * [Getting Started](#getting-started)
   * [Expanse Accounts](#expanse-accounts)
   * [Logging Onto Expanse](#expanse-logon)
   * [Obtaining Example Code](#example-code)
   * [Expanse User Portal](#user-portal)
- 
 * [Modules](#modules)
    * [Loading Modules During Login](#module-login-load)
    * [Modules: Popular Lmod Commands](#module-commands)
    * [Loading Modules During Login](#module-login-load)
    * [Troubleshooting:Module Error](#module-error)
- 
 * [Account Management](#accounts)
    * [Expanse Accounts](#expanse-accounts)
    * [Logging Onto Expanse](#expanse-logon)
    * [Obtaining Example Code](#example-code)
-
 * [Compiling and Linking Code]($y)
 * [Running Jobs]($y)
    * [X]($y)

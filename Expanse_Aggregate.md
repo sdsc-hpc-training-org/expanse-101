@@ -828,9 +828,11 @@ Other compilers and versions can be installed by Expanse staff on request. For m
     * [Supported Compilers](#compilers-supported")
     * [AMD Optimizing C/C++ Compiler (AOCC)](#compilers-amd)
     * [Intel Compilers](#compilers-intel)
-    * [GNU Compilers<](#compilers-gnu)
-    * [PGI Compilers<](#compilers-pgi)
+    * [GNU Compilers](#compilers-gnu)
+    * [PGI Compilers](#compilers-pgi)
 
+[Back to Top](#top)
+<hr>
 
 ### <a name="compilers-supported"></a>Supported Compilers
 Expanse CPU and GPU nodes have different compiler libraries.
@@ -842,7 +844,6 @@ Expanse CPU and GPU nodes have different compiler libraries.
 * Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2).
 
 Users should evaluate their application for best compiler and library selection. GNU, Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2). Using AVX2, up to eight floating point operations can be executed per cycle per core, potentially doubling the performance relative to non-AVX2 processors running at the same clock speed. Note that AVX2 support is not enabled by default and compiler flags must be set as described below.
-
 
 #### GPU Nodes
 Expanse GPU nodes have GNU, Intel, and PGI compilers available along with multiple MPI implementations (OpenMPI, IntelMPI, and MVAPICH2). The gcc/10.2.0, Intel, and PGI compilers have specific flags for the Cascade Lake architecture. Users should evaluate their application for best compiler and library selections.
@@ -860,10 +861,7 @@ In this tutorial, we include several hands-on examples that cover many of the ca
 [Back to Top](#top)
 <hr>
 
-
-
-
-### <a name="compilers-amd"></a>Using the AMD compilers
+### <a name="compilers-amd"></a>MD Optimizing C/C++ Compiler (AOCC)
 
 The AMD Optimizing C/C++ Compiler (AOCC) is only available on CPU nodes. AMD compilers can be loaded by executing the following commands at the Linux prompt:
 
@@ -885,10 +883,11 @@ Suggested Compilers to used based on programming model and languages:
 |C         | clang | mpiclang | icc -fopenmp | mpicc -fopenmp |
 | C++     | clang++ | mpiclang | icpc -fopenmp | mpicxx -fopenmp |
 
+[Back to Compilers](#compilers)<br>
 [Back to Top](#top)
 <hr>
 
-### <a name="compilers-intel"></a>Using the Intel Compilers:
+### <a name="compilers-intel"></a>Intel Compilers:
 
 The Intel compilers and the MVAPICH2 MPI implementation will be loaded by default. If you have modified your environment, you can reload by executing the following commands at the Linux prompt or placing in your startup file (~/.cshrc or ~/.bashrc) or into a module load script (see above).
 
@@ -932,31 +931,11 @@ Run the command:
 
 For more information on the Intel compilers run: [ifort | icc | icpc] -help
 
+[Back to Compilers](#compilers)<br>
 [Back to Top](#top)
 <hr>
 
-### <a name="compilers-pgi"></a>Using the PGI Compilers
-The PGI compilers can be loaded by executing the following commands at the Linux prompt or placing in your startup file (~/.cshrc or ~/.bashrc)
-
-```
-module purge
-module load pgi mvapich2_ib
-```
-
-For AVX support, compile with -fast
-
-For more information on the PGI compilers: man [pgf90 | pgcc | pgCC]
-
-| |Serial | MPI | OpenMP | MPI+OpenMP|
-|---|---|---|---|---|
-|pgf90 | mpif90 | pgf90 -mp | mpif90 -mp|
-|C | pgcc | mpicc | pgcc -mp | mpicc -mp|
-|C++ | pgCC | mpicxx | pgCC -mp | mpicxx -mp|
-
-[Back to Top](#top)
-<hr>
-
-### <a name="compilers-gnu"></a>Using the GNU Compilers
+### <a name="compilers-gnu"></a>GNU Compilers
 The GNU compilers can be loaded by executing the following commands at the Linux prompt or placing in your startup files (~/.cshrc or ~/.bashrc)
 
 ```
@@ -975,5 +954,30 @@ For more information on the GNU compilers: man [gfortran | gcc | g++]
 |C++ | g++ | mpicxx | g++ -fopenmp | mpicxx -fopenmp|
 
 
+[Back to Compilers](#compilers)<br>
 [Back to Top](#top)
 <hr>
+
+### <a name="compilers-pgi"></a>PGI Compilers
+The PGI compilers can be loaded by executing the following commands at the Linux prompt or placing in your startup file (~/.cshrc or ~/.bashrc)
+
+```
+module purge
+module load pgi mvapich2_ib
+```
+
+For AVX support, compile with -fast
+
+For more information on the PGI compilers: man [pgf90 | pgcc | pgCC]
+
+| |Serial | MPI | OpenMP | MPI+OpenMP|
+|---|---|---|---|---|
+|pgf90 | mpif90 | pgf90 -mp | mpif90 -mp|
+|C | pgcc | mpicc | pgcc -mp | mpicc -mp|
+|C++ | pgCC | mpicxx | pgCC -mp | mpicxx -mp|
+
+[Back to Compilers](#compilers)<br>
+[Back to Top](#top)
+<hr>
+
+

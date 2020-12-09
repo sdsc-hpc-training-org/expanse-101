@@ -151,8 +151,9 @@ In this Section:
 * [Logging Onto Expanse](#expanse-logon)
 * [Obtaining Example Code](#example-code)
 * [Expanse User Portal](#user-portal)
+<br>
 [Back to Top](#top)
-
+<hr>
 ### Expanse Accounts<a name="expanse-accounts"></a>
 You must have a expanse account in order to access the system.
 * Obtain a trial account here:  http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts

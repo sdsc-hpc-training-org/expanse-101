@@ -1325,8 +1325,7 @@ Batch Script Submission
 ### Hello World (MPI): Batch Script Output<a name="hello-world-mpi-batch-output</a>
 Batch Script Output
 
-[Back to Hello World MPI](#hello-world-mpi)<br>
-[Back to Hands-on](#hands-on)<br>
+[  [Back to Hello World MPI](#hello-world-mpi)  ] [  [Back to Hands-on](#hands-on)  ]<br>
 [Back to Top](#top)
 <hr>
 
@@ -1338,24 +1337,24 @@ Interactive Jobs
 [Back to Top](#top)
 <hr>
 
-## Hello World (OpenMP)<a name="hello-world-omp</a>
+## Hello World (OpenMP)<a name="hello-world-omp"></a>
 **Subsections:**
-* [Hello World (OpenMP): Source Code<a name="hello-world-omp-source</a>
-* [Hello World (OpenMP): Compiling<a name="hello-world-omp-compile</a>
-* [Hello World (OpenMP): Batch Script Submission<a name="hello-world-omp-batch-submit</a>
-* [Hello World (OpenMP): Batch Script Output<a name="hello-world-omp-batch-output</a>
+* [Hello World (OpenMP): Source Code<a name="hello-world-omp-source"></a>
+* [Hello World (OpenMP): Compiling<a name="hello-world-omp-compile"></a>
+* [Hello World (OpenMP): Batch Script Submission<a name="hello-world-omp-batch-submit"></a>
+* [Hello World (OpenMP): Batch Script Output<a name="hello-world-omp-batch-output"></a>
 
 [Back to Hello World MPI](#hello-world-omp)<br>
 [Back to Hands-on](#hands-on)<br>
 [Back to Top](#top)
 <hr><hr>
 
-## Compiling and Running Hybrid (MPI + OpenMP) Jobs <a name="hybrid-mpi-omp</a>
+## Compiling and Running Hybrid (MPI + OpenMP) Jobs <a name="hybrid-mpi-omp"></a>
 **Subsections:**
-* [Hybrid (MPI + OpenMP): Source Code<a name="hybrid-mpi-omp-source</a>
-* [Hybrid (MPI + OpenMP): Compiling<a name="hybrid-mpi-omp-compile</a>
-* [Hybrid (MPI + OpenMP): Batch Script Submission<a name="hybrid-mpi-omp-batch-submit</a>
-* [Hybrid (MPI + OpenMP): Batch Script Output<a name="hybrid-mpi-omp-batch-output</a>
+* [Hybrid (MPI + OpenMP): Source Code<a name="hybrid-mpi-omp-source"></a>
+* [Hybrid (MPI + OpenMP): Compiling<a name="hybrid-mpi-omp-compile"></a>
+* [Hybrid (MPI + OpenMP): Batch Script Submission<a name="hybrid-mpi-omp-batch-submit"></a>
+* [Hybrid (MPI + OpenMP): Batch Script Output<a name="hybrid-mpi-omp-batch-output"></a>
 
 [Back to Hello World hybrid<a name="hybrid-mpi-omp)<br>
 [Back to Hands-on](#hands-on)<br>

@@ -47,24 +47,24 @@ Consulting group at help@xsede.org.
    * [Intel Compilers](#compilers-intel) 
    * [GNU Compilers](#compilers-gnu)
    * [PGI Compilers](#compilers-pgi)
-* [Running Jobs]($y)
-   * [X]($y)
-   * [X]($y)
-* Hands-on Examples
-   * [X]($y)
-* MPI Jobs
-   * [X]($y)
-* OpenMP Jobs
-   * [X]($y)
-* GPU/CUDA Jobs
-   * [X]($y)
-* Hybrid MPI-OpenMP Jobs
-   * [X]($y)
-
-
+* [Running Jobs](#running-jobs)
+   * [Parallel Models](#run-jobs-par-models)
+   * [Ways to Run Jobs on Expanse](#run-jobs-ways)
+   * [SLURM Resource Manager](#run-jobs-slurm)
+   * [SLURM Partitions](#run-jobs-slurm-partition)
+   * [SLURM Commands](#run-jobs-slurm-commands)
+   * [SLURM Batch Script Example](#run-jobs-slurm-batch)
+* Hands-on Examples(#hands-on)
+   * [X](#y)
+* MPI Jobs(#mpi-jobs)
+   * [X](#y)
+* OpenMP Jobs(#omp-jobs)
+   * [X](#y)
+* GPU/CUDA Jobs(#gpu-jobs)
+   * [X](#y)
+ * Hybrid MPI-OpenMP Jobs(#hybrid-mpi-omp-jobs)
+   * [X](#y)
 * Data and Storage, Globus Endpoints, Data Movers, Mount Points
-   * [X]($y)
-
 * Final Comments
 
 <hr>
@@ -1009,4 +1009,62 @@ For more information on the PGI compilers: man [pgf90 | pgcc | pgCC]
 [Back to Top](#top)
 <hr>
 
+## Running Jobs on Expanse <a name="run-jobs"></a>
+In this Section:
+   * [SLURM Partitions](#run-jobs-slurm-partition)
+   * [SLURM Commands](#run-jobs-slurm-commands)
+   * [SLURM Batch Script Example](#run-jobs-slurm-batch)
 
+[Back to Top](#top)
+<hr>
+
+### Parallel Models <a name="run-jobs-par-models"></a>
+#### Parallel Models: Distributed Memory
+[IMG]
+<img src="images/distr-mem.png" alt="Distributed Memory architecture" width="300px" />
+* Programs that run asynchronously, pass messages for communication and coordination between resources.
+* Examples include: SOA-based systems, massively multiplayer online games, peer-to-peer apps.
+* Different types of implementations for the message passing mechanism: HTTP, RPC-like connectors, message queues
+* HPC historically uses the Message Passing Interface (MPI)
+
+#### Parallel Models: Shared Memory
+<img src="images/distr-mem.png" alt="Shared Memory architecture" width="300px" />
+* CPUs all share same localized memory (SHMEM); 
+   * Coordination and communication between tasks via interprocessor communication (IPC) or virtual memory mappings.
+* May use: uniform or non-uniform memory access (UMA or NUMA); cache-only memory architecture (COMA).
+* Most common HPC API’s for using SHMEM: 
+   * Portable Operating System Interface (POSIX); Open Multi-Processing (OpenMP) designed for parallel computing – best for multi-core computing.
+
+### Advice about Running Jobs on Expanse <a name="run-jobs-ways"></a>
+About Ways to Run Jobs
+
+
+[Back to Running Jobs](#run-jobs)<br>
+[Back to Top](#top)
+<hr>
+ ### SLURM Resource Manager <a name="run-jobs-slurm"></a>
+About SLURM
+
+[Back to Running Jobs](#run-jobs)<br>
+[Back to Top](#top)
+<hr>
+ ### SLURM Partitions <a name="run-jobs-slurm-partition"></a>
+About Partitions
+
+[Back to Running Jobs](#run-jobs)<br>
+[Back to Top](#top)
+<hr>
+ 
+### SLURM Commands <a name="run-jobs-slurm-commands"></a>
+About SKURM Commands
+
+[Back to Running Jobs](#run-jobs)<br>
+[Back to Top](#top)
+<hr>
+
+### SLURM Batch Script Example <a name="run-jobs-slurm-batch"></a>
+About BATCH scripts
+
+[Back to Running Jobs](#run-jobs)<br>
+[Back to Top](#top)
+<hr>

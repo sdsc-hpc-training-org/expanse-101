@@ -1279,7 +1279,7 @@ sbatch hello_mpi_slurm.sb
 <hr>
 
 
-### Hello World (MPI)<a name="hello-world-mpi"></a>
+## Hello World (MPI)<a name="hello-world-mpi"></a>
 
 **Subsections:**
 * [Hello World (MPI): Source Code](#hello-world-mpi-source)

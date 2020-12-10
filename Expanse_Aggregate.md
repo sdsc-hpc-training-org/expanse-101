@@ -379,8 +379,7 @@ In this Section:
       * module load gpu  (for gpu nodes)  
       * note: avoid loading both modules
 
-[Back to Modules](#modules) <br>
-[Back to Top](#top)
+[ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Modules: Popular Lmod Commands<a name="module-commands"></a>
@@ -503,10 +502,8 @@ Use ```module spider``` to find all possible modules and extensions.
         Adds OpenMPI to your environment variables,      
 ```
 
-[Back to Modules](#modules) <br>
-[Back to Top](#top)
+[ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
-
 
 ### <a name="load-and-check-module-env"></a>Load and Check Modules and Environment
 In this example, we will add the SLURM library, and and verify that it is in your environment
@@ -587,14 +584,23 @@ MODULESHOME=/usr/share/lmod/lmod
 CONDA_DEFAULT_ENV=base
 ```
 
-To see the value for any of these variables, use the `echo` command:
+To see the value for any of these variables, use the `echo` command. In this example we show how to activate your miniconda environment so you can run Jupyter Notebooks:
 
 ```
-xxx
+(base) [mthomas@login02 ~]$ echo $CONDA_PYTHON_EXE
+[mthomas@login02 ~]$
+[mthomas@login02 ~]$ conda activate
+-bash: conda: command not found
+[mthomas@login02 ~]$ . /home/$USER/miniconda3/etc/profile.d/conda.sh
+[mthomas@login02 ~]$ conda activate
+(base) [mthomas@login02 ~]$ which jupyter
+~/miniconda3/bin/jupyter
+(base) [mthomas@login02 ~]$ echo $CONDA_PYTHON_EXE
+/home/mthomas/miniconda3/bin/python
+(base) [mthomas@login02 ~]$
 ```
 
-[Back to Modules](#modules) <br>
-[Back to Top](#top)
+[ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Loading Modules During Login <a name="module-login-load"></a>

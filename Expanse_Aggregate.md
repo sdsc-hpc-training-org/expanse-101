@@ -1021,14 +1021,14 @@ In this Section:
 ### Parallel Models <a name="run-jobs-par-models"></a>
 #### Parallel Models: Distributed Memory
 [IMG]
-<img src="images/distr-mem.png" alt="Distributed Memory architecture" width="300px" />
+<img src="images/distr-memory.png" alt="Distributed Memory architecture" width="300px" />
 * Programs that run asynchronously, pass messages for communication and coordination between resources.
 * Examples include: SOA-based systems, massively multiplayer online games, peer-to-peer apps.
 * Different types of implementations for the message passing mechanism: HTTP, RPC-like connectors, message queues
 * HPC historically uses the Message Passing Interface (MPI)
 
 #### Parallel Models: Shared Memory
-<img src="images/distr-mem.png" alt="Shared Memory architecture" width="300px" />
+<img src="images/shared-memory.png" alt="Shared Memory architecture" width="300px" />
 * CPUs all share same localized memory (SHMEM); 
    * Coordination and communication between tasks via interprocessor communication (IPC) or virtual memory mappings.
 * May use: uniform or non-uniform memory access (UMA or NUMA); cache-only memory architecture (COMA).

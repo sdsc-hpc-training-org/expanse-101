@@ -1390,7 +1390,7 @@ aaaaa
 ### Hello World Hybrid (MPI + OpenMP): Compiling]<a name="hybrid-mpi-omp-compile"></a>
 Compiling.
 
-[[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Hands-on](#hands-on) ] [ [Back to Top](#top) ]
+[[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ]  [ [Back to Hands-on](#hands-on) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World Hybrid (MPI + OpenMP): Batch Script Submission<a name="hybrid-mpi-omp-batch-submit"></a>

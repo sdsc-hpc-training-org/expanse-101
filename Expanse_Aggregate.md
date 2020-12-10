@@ -26,11 +26,11 @@ Consulting group at help@xsede.org.
 
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](#overview)
-* [Getting Started](#getting-started)
-  * [Expanse Accounts](#expanse-accounts)
-  * [Logging Onto Expanse](#expanse-logon)
-  * [Obtaining Example Code](#example-code)
-  * [Expanse User Portal](#user-portal)
+* [Getting Started](#get-start)
+  * [System Access](#get-start-system-access)
+  * [Logging Onto Expanse](#get-start-expanse-logon)
+  * [Obtaining Example Code](#get-start-example-code)
+  * [Expanse User Portal](#get-start-user-portal)
 * [Modules](#modules)
    * [Loading Modules During Login](#module-login-load)
    * [Modules: Popular Lmod Commands](#module-commands)
@@ -182,24 +182,24 @@ Expanse will support integration with public clouds:
 
 
 
-## <a name="getting-started"></a>Getting Started on Expanse
+## <a name="get-start"></a>Getting Started on Expanse
 In this Section:
-* [Expanse Accounts](#expanse-accounts)
-* [Logging Onto Expanse](#expanse-logon)
-* [Obtaining Example Code](#example-code)
-* [Expanse User Portal](#user-portal)
+* [System Access](#get-start-system-access)
+* [Logging Onto Expanse](#get-start-expanse-logon)
+* [Obtaining Example Code](#get-start-example-code)
+* [Expanse User Portal](#get-start-user-portal)
 
 
 [Back to Top](#top)
 <hr>ba
 
-### Expanse Accounts<a name="expanse-accounts"></a>
+### Expanse Accounts<a name="get-start-expanse-accounts"></a>
 You must have a expanse account in order to access the system.
 * Obtain a trial account here:  http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
 * You can use your XSEDE account.
 
 
-### Logging Onto Expanse<a name="expanse-logon"></a>
+### Logging Onto Expanse<a name="get-start-expanse-logon"></a>
 
 Expanse supports Single Sign-On through the [XSEDE User Portal](https://portal.xsede.org), from the command line using an XSEDE-wide password (coming soon, the Expanse User Portal). While CPU and GPU resources are allocated separately, the login nodes are the same. To log in to Expanse from the command line, use the hostname:
 
@@ -261,10 +261,10 @@ username
 [username@login02 ~]$
 [username@login02 ~]$
 ```
-[ [Back to Getting Started](#getting-started) ] [ [Back to Top](#top) ]
+[ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
 <hr>
 
-### Obtaining Tutorial Example Code<a name="example-code"></a>
+### Obtaining Tutorial Example Code<a name="get-start-example-code"></a>
 We will be clone the example code from GitHub repository located here:
 https://github.com/sdsc-hpc-training-org/expanse-101
 
@@ -327,10 +327,10 @@ drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
 ```
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
 
-[ [Back to Getting Started](#getting-started) ] [ [Back to Top](#top) ]
+[ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
 <hr>
 
-### Expanse User Portal<a name="user-portal"></a>
+### Expanse User Portal<a name="get-start-user-portal"></a>
 <img src="images/expanse_user_portal.png" alt="Expanse User Portal" width="400px" />
 
 * See: https://portal.expanse.sdsc.edu
@@ -339,7 +339,7 @@ All examples will contain source code, along with a batch script example so you 
 * Integrated web-based environment for file management and job submission.
 * All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
 
-[ [Back to Getting Started](#getting-started) ] [ [Back to Top](#top) ]
+[ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
 <hr>
 
 
@@ -681,7 +681,7 @@ OR add this command to your shell script (including Slurm batch scripts)
 
 ## <a name="accounts"></a>Managing Accounts on Expanse
 This section focuses on how to manage your allocations on Expanse. For full details, see the [Expanse User Guide.](https://www.sdsc.edu/support/user_guides/expanse.html#accounts)
-
+**Contents**
 * [Expanse Accounts](#expanse-accounts)
 * [Logging Onto Expanse](#expanse-logon)
 * [Obtaining Example Code](#example-code)

@@ -46,7 +46,7 @@ Consulting group at help@xsede.org.
    * [Intel Compilers](#compilers-intel) 
    * [GNU Compilers](#compilers-gnu)
    * [PGI Compilers](#compilers-pgi)
-* [Running Jobs](#running-jobs)
+* [Running Jobs](#run-jobs)
    * [Parallel Models](#run-jobs-par-models)
    * [Methods for  Running Jobs on Expanse](#run-jobs-methods)
       * [Batch Jobs](#run-jobs-methods-batch)

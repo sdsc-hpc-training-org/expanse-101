@@ -72,21 +72,19 @@ Consulting group at help@xsede.org.
         * [Hybrid (MPI + OpenMP): Compiling](#hybrid-mpi-omp-compile)
         * [Hybrid (MPI + OpenMP): Batch Script Submission](#hybrid-mpi-omp-batch-submit)
         * [Hybrid (MPI + OpenMP): Batch Script Output](#hybrid-mpi-omp-batch-output)
-* [Expanse GPU Nodes](#exp-gpu)
 * [Compiling and Running GPU Jobs](#gpu-jobs)
-   * [Hello World (MPI)](#hello-world-mpi)
-      * [Hello World (MPI): Source Code](#hello-world-gpu-source)
-      * [Hello World (MPI): Compiling](#hello-world-gpu-compile)
-      * [Hello World (MPI): Batch Script Submission](#hello-world-gpu-batch-submit)
-      * [Hello World (MPI): Batch Script Output](#hello-world-gpu-batch-output)
-      * [Hello World (MPI): Interactive Jobs](#hello-world-gpu-interactive)
+   * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
+   * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
+   * [Hello World (GPU): Source Code](#hello-world-gpu-source)
+      * [Hello World (GPU): Source Code](#hello-world-gpu-source)
+      * [Hello World (GPU): Compiling](#hello-world-gpu-compile)
+      * [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
+      * [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
 
 * Data and Storage, Globus Endpoints, Data Movers, Mount Points
 * Final Comments
 
 <hr>
-
-
 
 <img src="images/expanse_overview.png" alt="Expanse Overview" width="500px">
 
@@ -1405,17 +1403,27 @@ Batch Script Output
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-## Expanse GPU Nodes <a name="exp-gpu"></a>
-### Using Interactive GPU Nodes  <a name="exp-gpu-int"></a>
-### Compiling and Runnnin GPU Jobs <a name="exp-gpu-comp-run"></a>
+## Compiling and Running GPU Jobs <a name="comp-run-gpu"></a>
+**Sections**
+* [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
+* [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
+* [Hello World (GPU): Source Code](#hello-world-gpu-source)
+
+### Using Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a>
+Using Expanse GPU Nodes
+
+### Using Interactive GPU Nodes  <a name="comp-run-gpu-interactive"></a>
+Using Interactive GPU Nodes
+
+### [Hello World (GPU)](#hello-world-gpu)
 **Subsections:**
-   * [Hello World (GPU)](#hello-world-gpu)
-      * [Hello World (GPU): Source Code](#hello-world-gpu-source)
-      * [Hello World (GPU): Compiling](#hello-world-gpu-compile)
-      * [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
-      * [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
-      * [Hello World (GPU): Interactive Jobs](#hello-world-gpu-interactive)
+* [Hello World (GPU): Source Code](#hello-world-gpu-source)
+* [Hello World (GPU): Compiling](#hello-world-gpu-compile)
+* [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
+* [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
+* [Hello World (GPU): Interactive Jobs](#hello-world-gpu-interactive)
+
 
 [ [Back to Hello World (GPU)](#hello-world-gpu)] ]      
-[ [Back to Expanse GPU Nodes](#exp-gpu) ] [ [Back to Top](#top) ]
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>

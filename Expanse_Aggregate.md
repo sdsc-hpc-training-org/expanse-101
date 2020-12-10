@@ -1302,38 +1302,32 @@ Source Code.
 ```
 aaaaa
 ```
-[Back to Hello World MPI](#hello-world-mpi)<br>
-[Back to Hands-on](#hands-on)<br>
-[Back to Top](#top)
+[ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Hands-on](#hands-on) ]
+ [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World (MPI): Compiling]<a name="hello-world-mpi-compile"></a>
 Compiling.
 
-[Back to Hello World MPI](#hello-world-mpi)<br>
-[Back to Hands-on](#hands-on)<br>
-[Back to Top](#top)
+[ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Hands-on](#hands-on) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World (MPI): Batch Script Submission<a name="hello-world-mpi-batch-submit"></a>
 Batch Script Submission
 
-[ [Back to Hello World MPI](#hello-world-mpi) ]    [ [Back to Hands-on](#hands-on) ]  
-[ [Back to Top](#top) ]
+[ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Hands-on](#hands-on) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World (MPI): Batch Script Output<a name="hello-world-mpi-batch-output"></a>
 Batch Script Output
 
-[  [Back to Hello World MPI](#hello-world-mpi)  ]    [  [Back to Hands-on](#hands-on)  ]  
-[  [Back to Top](#top)  ]
+[ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Hands-on](#hands-on) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World (MPI): Interactive Jobs<a name="hello-world-mpi-interactive"></a>
 Interactive Jobs
 
-[  [Back to Hello World MPI](#hello-world-mpi)  ]    [  [Back to Hands-on](#hands-on)  ]   
-[  [Back to Top](#top)  ]
+[ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Hands-on](#hands-on) ] [ [Back to Top](#top) ]
 <hr>
 
 ## Hello World (OpenMP)<a name="hello-world-omp"></a>
@@ -1343,8 +1337,7 @@ Interactive Jobs
 * [Hello World (OpenMP): Batch Script Submission<a name="hello-world-omp-batch-submit"></a>
 * [Hello World (OpenMP): Batch Script Output<a name="hello-world-omp-batch-output"></a>
 
-[  [Back to Hello World MPI](#hello-world-omp)  ]    [  [Back to Hands-on](#hands-on)  ]   
-[  [Back to Top](#top)  ]
+[ [Back to Hello World MPI](#hello-world-omp) ] [ [Back to Hands-on](#hands-on) ] [ [Back to Top](#top) ]
 <hr>
 
 ## Compiling and Running Hybrid (MPI + OpenMP) Jobs <a name="hybrid-mpi-omp"></a>
@@ -1354,6 +1347,5 @@ Interactive Jobs
 * [Hybrid (MPI + OpenMP): Batch Script Submission<a name="hybrid-mpi-omp-batch-submit"></a>
 * [Hybrid (MPI + OpenMP): Batch Script Output<a name="hybrid-mpi-omp-batch-output"></a>
 
-[  [Back to Hello World MPI](#hello-world-omp)  ]    [  [Back to Hands-on](#hands-on)  ]   
-[  [Back to Top](#top)  ]
+[[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Hands-on](#hands-on) ] [ [Back to Top](#top) ]
 <hr>

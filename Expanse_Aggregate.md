@@ -56,31 +56,30 @@ Consulting group at help@xsede.org.
       * [SLURM Commands](#run-jobs-slurm-commands)
       * [SLURM Batch Script Example](#run-jobs-slurm-batch)
 * [Compiling and Running CPU Jobs](#comp-and-run-cpu-jobs)
-    * [Hello World (MPI)](#hello-world-mpi)
+   * [Hello World (MPI)](#hello-world-mpi)
         * [Hello World (MPI): Source Code](#hello-world-mpi-source)
         * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
         * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
         * [Hello World (MPI): Batch Script Output](#hello-world-mpi-batch-output)
         * [Hello World (MPI): Interactive Jobs](#hello-world-mpi-interactive)
-    * [Hello World (OpenMP)](#hello-world-omp)
+   * [Hello World (OpenMP)](#hello-world-omp)
         * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
         * [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
         * [Hello World (OpenMP): Batch Script Submission](#hello-world-omp-batch-submit)
         * [Hello World (OpenMP): Batch Script Output](#hello-world-omp-batch-output)
-    * [Compiling and Running Hybrid (MPI + OpenMP) Jobs](#hybrid-mpi-omp)
+   * [Compiling and Running Hybrid (MPI + OpenMP) Jobs](#hybrid-mpi-omp)
         * [Hybrid (MPI + OpenMP): Source Code](#hybrid-mpi-omp-source)
         * [Hybrid (MPI + OpenMP): Compiling](#hybrid-mpi-omp-compile)
         * [Hybrid (MPI + OpenMP): Batch Script Submission](#hybrid-mpi-omp-batch-submit)
         * [Hybrid (MPI + OpenMP): Batch Script Output](#hybrid-mpi-omp-batch-output)
+* [Expanse GPU Nodes](#exp-gpu)
 * [Compiling and Running GPU Jobs](#gpu-jobs)
- * [Hands-on Examples](#hands-on)
-         * [Compiling and Running CPU Jobs](#comp-and-run-cpu-jobs)
-            * [Hello World (MPI)](#hello-world-mpi)
-                * [Hello World (MPI): Source Code](#hello-world-mpi-source)
-                * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
-                * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
-                * [Hello World (MPI): Batch Script Output](#hello-world-mpi-batch-output)
-                * [Hello World (MPI): Interactive Jobs](#hello-world-mpi-interactive)
+   * [Hello World (MPI)](#hello-world-mpi)
+      * [Hello World (MPI): Source Code](#hello-world-gpu-source)
+      * [Hello World (MPI): Compiling](#hello-world-gpu-compile)
+      * [Hello World (MPI): Batch Script Submission](#hello-world-gpu-batch-submit)
+      * [Hello World (MPI): Batch Script Output](#hello-world-gpu-batch-output)
+      * [Hello World (MPI): Interactive Jobs](#hello-world-gpu-interactive)
 
 * Data and Storage, Globus Endpoints, Data Movers, Mount Points
 * Final Comments
@@ -1404,4 +1403,19 @@ Batch Script Submission
 Batch Script Output
 
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
+<hr>
+
+## Expanse GPU Nodes <a name="exp-gpu"></a>
+### Using Interactive GPU Nodes  <a name="exp-gpu-int"></a>
+### Compiling and Runnnin GPU Jobs <a name="exp-gpu-comp-run"></a>
+**Subsections:**
+   * [Hello World (GPU)](#hello-world-gpu)
+      * [Hello World (GPU): Source Code](#hello-world-gpu-source)
+      * [Hello World (GPU): Compiling](#hello-world-gpu-compile)
+      * [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
+      * [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
+      * [Hello World (GPU): Interactive Jobs](#hello-world-gpu-interactive)
+
+[ [Back to Hello World (GPU)](#hello-world-gpu)] ]      
+[ [Back to Expanse GPU Nodes](#exp-gpu) ] [ [Back to Top](#top) ]
 <hr>

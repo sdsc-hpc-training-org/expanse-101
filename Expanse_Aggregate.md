@@ -191,7 +191,7 @@ In this Section:
 
 
 [Back to Top](#top)
-<hr>
+<hr>ba
 
 ### Expanse Accounts<a name="expanse-accounts"></a>
 You must have a expanse account in order to access the system.
@@ -261,8 +261,7 @@ username
 [username@login02 ~]$
 [username@login02 ~]$
 ```
-[Back to Getting Started](#getting-started) <br>
-[Back to Top](#top)
+[ [Back to Getting Started](#getting-started) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Obtaining Tutorial Example Code<a name="example-code"></a>
@@ -327,9 +326,8 @@ drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
 
 ```
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
-<br>
-[Back to Getting Started](#getting-started) <br>
-[Back to Top](#top)
+
+[ [Back to Getting Started](#getting-started) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Expanse User Portal<a name="user-portal"></a>
@@ -341,8 +339,7 @@ All examples will contain source code, along with a batch script example so you 
 * Integrated web-based environment for file management and job submission.
 * All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
 
-[Back to Getting Started](#getting-started) <br>
-[Back to Top](#top)
+[ [Back to Getting Started](#getting-started) ] [ [Back to Top](#top) ]
 <hr>
 
 

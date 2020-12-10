@@ -1697,7 +1697,7 @@ exit
 * Batch Script Contents
 
 ```
-[mthomas@login01 OpenACC]$ cat openacc-gpu-shared.sb 
+[username@login01 OpenACC]$ cat openacc-gpu-shared.sb 
 #!/bin/bash
 #SBATCH --job-name="OpenACC"
 #SBATCH --output="OpenACC.%j.%N.out"
@@ -1722,17 +1722,17 @@ module load pgi
    *  R == Running
 
 ```
-[mthomas@login01 OpenACC]$ !sb
+[username@login01 OpenACC]$ !sb
 sbatch openacc-gpu-shared.sb
 Submitted batch job 667276
-[mthomas@login01 OpenACC]$ !sq
-squeue -u mthomas -u mthomas
+[username@login01 OpenACC]$ !sq
+squeue -u username -u username
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-            667276 gpu-share  OpenACC  mthomas PD       0:00      1 (Priority)
-[mthomas@login01 OpenACC]$
-[mthomas@login01 OpenACC]$ squeue -u mthomas -u mthomas
+            667276 gpu-share  OpenACC  username PD       0:00      1 (Priority)
+[username@login01 OpenACC]$
+[username@login01 OpenACC]$ squeue -u username -u username
              JOBID PARTITION     NAME     USER R       TIME  NODES NODELIST(REASON)
-             [mthomas@login01 OpenACC]$ cat OpenACC.667276.exp-1-60.out
+             [username@login01 OpenACC]$ cat OpenACC.667276.exp-1-60.out
              main()
              Jacobi relaxation Calculation: 4096 x 4096 mesh
                  0, 0.250000
@@ -1746,7 +1746,7 @@ squeue -u mthomas -u mthomas
                800, 0.000302
                900, 0.000269
               total: 1.044246 s
-             [mthomas@login01 OpenACC]$
+             [username@login01 OpenACC]$
 
 ```
 

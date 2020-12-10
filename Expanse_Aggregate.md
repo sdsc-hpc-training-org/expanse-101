@@ -43,7 +43,7 @@ Consulting group at help@xsede.org.
 * [Compiling & Linking](#compilers)
    * [Supported Compilers](#compilers-supported")
    * [AMD Optimizing C/C++ Compiler (AOCC)](#compilers-amd)
-   * [Intel Compilers](#compilers-intel) 
+   * [Intel Compilers](#compilers-intel)
    * [GNU Compilers](#compilers-gnu)
    * [PGI Compilers](#compilers-pgi)
 * [Running Jobs](#run-jobs)
@@ -55,7 +55,7 @@ Consulting group at help@xsede.org.
       * [SLURM Partitions](#run-jobs-slurm-partition)
       * [SLURM Commands](#run-jobs-slurm-commands)
       * [SLURM Batch Script Example](#run-jobs-slurm-batch)
-* Hands-on Examples(#hands-on)
+* [Hands-on Examples](#hands-on)
  * [Compiling and Running CPU Jobs](#comp-and-run-cpu-jobs)
     * [Hello World (MPI)](#hello-world-mpi)
         * [Hello World (MPI): Source Code](#hello-world-mpi-source)
@@ -75,8 +75,8 @@ Consulting group at help@xsede.org.
         * [Hybrid (MPI + OpenMP): Batch Script Output](#hybrid-mpi-omp-batch-output)
 <hr>
 <hr>
- 
- 
+
+
 * GPU/CUDA Jobs(#gpu-jobs)
    * [X](#y)
  * Hybrid MPI-OpenMP Jobs(#hybrid-mpi-omp-jobs)
@@ -187,7 +187,7 @@ In this Section:
 * [Expanse Accounts](#expanse-accounts)
 * [Logging Onto Expanse](#expanse-logon)
 * [Obtaining Example Code](#example-code)
-* [Expanse User Portal](#user-portal) 
+* [Expanse User Portal](#user-portal)
 
 
 [Back to Top](#top)
@@ -1057,7 +1057,7 @@ In this Section:
 * CPUs all share same localized memory (SHMEM)
    * Coordination and communication between tasks via interprocessor communication (IPC) or virtual memory mappings.
 * May use: uniform or non-uniform memory access (UMA or NUMA); cache-only memory architecture (COMA).
-* Most common HPC API’s for using SHMEM: 
+* Most common HPC API’s for using SHMEM:
    * Portable Operating System Interface (POSIX); Open Multi-Processing (OpenMP) designed for parallel computing – best for multi-core computing.
 
 [Back to Running Jobs](#run-jobs)<br>
@@ -1076,7 +1076,7 @@ In this Section:
 
 * When you run in the batch mode, you submit jobs to be run on the compute nodes using the sbatch command. 
 * Remember that computationally intensive jobs should be run only on the compute nodes and not the login nodes.
-* Expanse places limits on the number of jobs queued and running on a per group (allocation) and partition basis. 
+* Expanse places limits on the number of jobs queued and running on a per group (allocation) and partition basis.
 * Please note that submitting a large number of jobs (especially very short ones) can impact the overall  scheduler response for all users.
 
 #### Interactive Jobs<a name="run-jobs-methods-ineractive"></a>
@@ -1086,7 +1086,7 @@ __CPU:__
 srun --partition=debug --qos=debug-normal --pty --account=abc123 --nodes=1 --ntasks-per-node=128 --mem=248 -t 00:30:00 --wait=0 --export=ALL /bin/bash
 ```
 
-__GPU:__ 
+__GPU:__
 
 ```
 srun   --pty --account=abc123  --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
@@ -1112,7 +1112,7 @@ Commands that you type into the terminal and run on the sytem are considered *jo
 <hr>
 
  ### SLURM Resource Manager <a name="run-jobs-slurm"></a>
-* Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ resource manager. Slurm is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://slurm.schedmd.com/documentation.html](https://slurm.schedmd.com/documentation.html). 
+* Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ resource manager. Slurm is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://slurm.schedmd.com/documentation.html](https://slurm.schedmd.com/documentation.html).
 
 | logging on to Expanse | SLURM Architecture |
 | :--- | :--- |
@@ -1149,7 +1149,7 @@ About Partitions
 [Back to Running Jobs](#run-jobs)<br>
 [Back to Top](#top)
 <hr>
- 
+
 ### Common SLURM Commands <a name="run-jobs-slurm-commands"></a>
 Here are a few key Slurm commands. For more information, run the `man slurm` or see this page:
 
@@ -1239,7 +1239,7 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 [Back to Top](#top)
 <hr>
 
-* Hands-on Examples(#hands-on)
+* Hands-on Examples (#hands-on)
  * [Compiling and Running CPU Jobs](#comp-and-run-cpu-jobs)
     * [Hello World (MPI)](#hello-world-mpi)
         * [Hello World (MPI): Source Code](#hello-world-mpi-source)

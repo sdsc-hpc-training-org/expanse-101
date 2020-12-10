@@ -1044,6 +1044,9 @@ In this Section:
 * Most common HPC API’s for using SHMEM: 
    * Portable Operating System Interface (POSIX); Open Multi-Processing (OpenMP) designed for parallel computing – best for multi-core computing.
 
+[Back to Running Jobs](#run-jobs)<br>
+[Back to Top](#top)
+<hr>
 
 ### Methods for  Running Jobs on Expanse <a name="run-jobs-methods"></a>
 
@@ -1072,6 +1075,10 @@ __GPU:__
 ```
 srun   --pty --account=abc123  --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
 ```
+
+[Back to Running Jobs](#run-jobs)<br>
+[Back to Top](#top)
+<hr>
 
 ### Command Line Jobs <a name="run-jobs-cmdline"></a>
 The login nodes are meant for compilation, file editing, simple data analysis, and other tasks that use minimal compute resources. <em>Do not run parallel or large jobs on the login nodes - even for simple tests</em>. Even if you could run a simple test on the command line on the login node, full tests should not be run on the login node because the performance will be adversely impacted by all the other tasks and login activities of the other users who are logged onto the same node. For example, at the moment that this note was written,  a `gzip` process was consuming 98% of the CPU time:

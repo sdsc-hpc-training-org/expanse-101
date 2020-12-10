@@ -1232,7 +1232,7 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 
 ## Compiling and Running CPU Jobs<a name="comp-and-run-cpu-jobs"></a>
 
-### Sections:
+**Sections:**
    * [Hello World (MPI)](#hello-world-mpi)
    * [Hello World (OpenMP)](#hello-world-omp)
    * [Hello World Hybrid (MPI + OpenMP)](#hybrid-mpi-omp)
@@ -1279,7 +1279,7 @@ sbatch hello_mpi_slurm.sb
 <hr>
 
 
-## Hello World (MPI)<a name="hello-world-mpi"></a>
+## Hello World (MPI) <a name="hello-world-mpi"></a>
 
 **Subsections:**
 * [Hello World (MPI): Source Code](#hello-world-mpi-source)
@@ -1353,6 +1353,7 @@ Currently Loaded Modules:
 ```
 
 * Next, compile the code:
+
 
 ```
 [username@login01 MPI]$mpif90 -o hello_mpi hello_mpi.f90
@@ -1431,7 +1432,7 @@ drwxr-xr-x 8 username abc123     8 Oct  8 04:16 ..
  node         247 : Hello world!
  node         254 : Hello world!
  node         188 : Hello world!
-node         246 : Hello world!
+ node         246 : Hello world!
 ```
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
@@ -1463,7 +1464,7 @@ Interactive Jobs
 Source Code.
 
 ```
-aaaaa
+hello-world-omp  source code
 ```
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ]
  [ [Back to Top](#top) ]

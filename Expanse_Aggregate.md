@@ -663,9 +663,8 @@ PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/
 (base) [username@login02 ~]$ which squeue
 /cm/shared/apps/slurm/current/bin/squeue
 ```
-[Back to Modules](#modules) <br>
-[Back to Top](#top)
-
+[ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
+<hr>
 
 ### Troubleshooting:Module Error<a name="module-error"></a>
 
@@ -677,11 +676,8 @@ Sometimes this error is encountered when switching from one shell to another or 
 ```
 OR add this command to your shell script (including Slurm batch scripts)
 
-[Back to Modules](#modules) <br>
-[Back to Top](#top)
+[ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
-
-
 
 ## <a name="accounts"></a>Managing Accounts on Expanse
 This section focuses on how to manage your allocations on Expanse. For full details, see the [Expanse User Guide.](https://www.sdsc.edu/support/user_guides/expanse.html#accounts)
@@ -696,6 +692,9 @@ You must have a expanse account in order to access the system.
 * To obtain a trial account or an expedited allocation, go here:  http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
 * *Note:* You may need to create an XSEDE portal account. XSEDE portal accounts are open to the general community. However, access and allocations to specific XSEDE or SDSC systems will depend on the details of an allocation request.
 
+[ [Back to Accounts](#accounts) ] [ [Back to Top](#top) ]
+<hr>
+
 ### Logging Onto Expanse<a name="expanse-logon"></a>
 
 Expanse supports *Single Sign-On* through the [XSEDE User Portal](https://portal.xsede.org), from the command line using an XSEDE-wide password. While CPU and GPU resources are allocated separately, the ```login``` nodes are the same. To log in to Expanse from the command line, use the hostname:
@@ -703,7 +702,7 @@ Expanse supports *Single Sign-On* through the [XSEDE User Portal](https://portal
 ```
 login.expanse.sdsc.edu
 ```
-
+ 
 The following are examples of Secure Shell (ssh) commands that may be used to log in to Expanse:
 
 ```
@@ -747,8 +746,7 @@ Use the following commands to adjust your environment:
 Last login: Fri Nov 1 11:16:02 2020 from 76.176.117.51
 ```
 
-####
-Example of a terminal connection/Unix login session:
+#### Example of a terminal connection/Unix login session:
 
 ```
 (base) localhost:~ username$ ssh -l username login.expanse.sdsc.edu
@@ -763,7 +761,7 @@ username
 [username@login02 ~]$
 ```
 
-[Back to Top](#top)
+[ [Back to Accounts](#accounts) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Obtaining Tutorial Example Code<a name="example-code"></a>
@@ -831,7 +829,7 @@ drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
 ```
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
 
-[Back to Top](#top)
+[ [Back to Accounts](#accounts) ] [ [Back to Top](#top) ]
 <hr>
 
 ## <a name="compilers"></a>Compiling & Linking Code

@@ -1449,8 +1449,11 @@ batch script submit
 
 [ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
+
 ### Hello World (GPU): Batch Script Output  <a name="hello-world-gpu-batch-output"></a>
+
 Batch Script Output
+
 ```
 batch script Output
 ```

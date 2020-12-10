@@ -1421,7 +1421,7 @@ Using Interactive GPU Nodes
 * [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
 * [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
 
-### [Hello World (GPU): Source Code  <a name="hello-world-gpu-source"></a>
+### Hello World (GPU): Source Code  <a name="hello-world-gpu-source"></a>
 Source Code
 
 ```
@@ -1431,7 +1431,7 @@ Some Source Code
 [ [Back to Hello World (GPU)](#hello-world-gpu)] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### [Hello World (GPU): Compiling  <a name="hello-world-gpu-compile"></a>
+### Hello World (GPU): Compiling  <a name="hello-world-gpu-compile"></a>
 Source Compiling
 
 ```
@@ -1441,7 +1441,7 @@ Some Source Compiling
 [ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### [Hello World (GPU): Batch Script Submission  <a name="hello-world-gpu-batch-submit"></a>
+### Hello World (GPU): Batch Script Submission  <a name="hello-world-gpu-batch-submit"></a>
 Batch Script Submission
 ```
 batch script submit
@@ -1449,7 +1449,7 @@ batch script submit
 
 [ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
-### [Hello World (GPU): Batch Script Output  <a name="hello-world-gpu-batch-output"></a>
+### Hello World (GPU): Batch Script Output  <a name="hello-world-gpu-batch-output"></a>
 Batch Script Output
 ```
 batch script Output

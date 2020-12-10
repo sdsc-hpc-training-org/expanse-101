@@ -828,8 +828,6 @@ drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
 ```
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
 
-
-
 [Back to Top](#top)
 <hr>
 
@@ -874,8 +872,7 @@ In this tutorial, we include several hands-on examples that cover many of the ca
 * GPU
 * Local scratch
 
-[Back to Compilers](#compilers)<br>
-[Back to Top](#top)
+[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top)
 <hr>
 
 ### <a name="compilers-amd"></a>AMD Optimizing C/C++ Compiler (AOCC)
@@ -929,8 +926,7 @@ Currently Loaded Modules:
 [mthomas@login02 ~]$ 
 ```
 
-[Back to Compilers](#compilers)<br>
-[Back to Top](#top)
+[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top)
 <hr>
 
 ### <a name="compilers-intel"></a>Intel Compilers:
@@ -1060,8 +1056,7 @@ In this Section:
 * Most common HPC API’s for using SHMEM:
    * Portable Operating System Interface (POSIX); Open Multi-Processing (OpenMP) designed for parallel computing – best for multi-core computing.
 
-[Back to Running Jobs](#run-jobs)<br>
-[Back to Top](#top)
+[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top)
 <hr>
 
 ### Methods for  Running Jobs on Expanse <a name="run-jobs-methods"></a>
@@ -1092,8 +1087,7 @@ __GPU:__
 srun   --pty --account=abc123  --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
 ```
 
-[Back to Running Jobs](#run-jobs)<br>
-[Back to Top](#top)
+[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top)
 <hr>
 
 ### Command Line Jobs <a name="run-jobs-cmdline"></a>
@@ -1235,8 +1229,7 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 ----------------------------------
 ```
 
-[Back to Running Jobs](#run-jobs)<br>
-[Back to Top](#top)
+[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top)
 <hr>
 
 ## Hands-on Examples <a name="hands-on"></a>
@@ -1245,6 +1238,9 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
    * [Hello World (MPI)](#hello-world-mpi)
    * [Hello World (OpenMP)](#hello-world-omp)
    * [Hello World Hybrid (MPI + OpenMP)](#hybrid-mpi-omp)
+
+[ [Back to Top](#top) ]
+<hr>
 
 ### General Steps: Compiling/Running Jobs
 
@@ -1281,6 +1277,9 @@ ls -lt hello_mpi
 sbatch hello_mpi_slurm.sb
 ```
 
+[ [Back to Hands-on](#hands-on) ] [ [Back to Top](#top) ]
+<hr>
+
 ## Compiling and Running CPU Jobs<a name="comp-and-run-cpu-jobs"></a>
 
 ### Hello World (MPI)<a name="hello-world-mpi"></a>
@@ -1292,8 +1291,7 @@ sbatch hello_mpi_slurm.sb
 * [Hello World (MPI): Batch Script Output](#hello-world-mpi-batch-output)
 * [Hello World (MPI): Interactive Jobs](#hello-world-mpi-interactive)
 
-[Back to Hands-on](#hands-on)<br>
-[Back to Top](#top)
+[ [Back to Hands-on](#hands-on) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World (MPI): Source Code<a name="hello-world-mpi-source"></a>

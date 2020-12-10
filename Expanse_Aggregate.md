@@ -1048,8 +1048,8 @@ In this Section:
 ### Methods for  Running Jobs on Expanse <a name="run-jobs-methods"></a>
 
 #### Batch Jobs<a name="run-jobs-methods-batch"></a>
-* Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ batch environment. 
-* Batch Jobs are used to ubmit batch scripts to Slurm from the login nodes. You need to specify
+
+* Batch Jobs are used to submit batch scripts to Slurm from the login nodes. You need to specify
    * Partition (queue)
    * Time limit for the run (maximum of 48 hours)
    * Number of nodes, tasks per node; Memory requirements (if any)
@@ -1062,13 +1062,24 @@ In this Section:
 
 #### Interactive Jobs<a name="run-jobs-methods-ineractive"></a>
 * Interactive Jobs: Use the _srun_ command to obtain nodes for ‘real-time, live’ command line access to a compute node:
+__CPU:__
+```
+srun --partition=debug --qos=debug-normal --pty --account=abc123 --nodes=1 --ntasks-per-node=128 --mem=248 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+```
 
+__GPU:__ 
+
+```
+srun   --pty --account=abc123  --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
+```
 
 [Back to Running Jobs](#run-jobs)<br>
 [Back to Top](#top)
 <hr>
+
  ### SLURM Resource Manager <a name="run-jobs-slurm"></a>
-About SLURM
+* Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ resource manager. Slurm is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://slurm.schedmd.com/documentation.html](https://slurm.schedmd.com/documentation.html). 
+
 
 
 [Back to Running Jobs](#run-jobs)<br>
@@ -1082,7 +1093,7 @@ About Partitions
 <hr>
  
 ### SLURM Commands <a name="run-jobs-slurm-commands"></a>
-About SKURM Commands
+About SLURM Commands
 
 [Back to Running Jobs](#run-jobs)<br>
 [Back to Top](#top)

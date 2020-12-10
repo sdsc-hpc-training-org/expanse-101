@@ -1292,23 +1292,147 @@ sbatch hello_mpi_slurm.sb
 <hr>
 
 ### Hello World (MPI): Source Code <a name="hello-world-mpi-source"></a>
-Source Code.
+* Change to the tutorial `MPI` examples directory:
+* Source code with basic MPI elements:
 
 ```
-aaaaa
+[username@login01 MPI]$ cat hello_mpi.f90 
+!  Fortran example  
+   program hello
+   include 'mpif.h'
+   integer rank, size, ierror, tag, status(MPI_STATUS_SIZE)
+   
+   call MPI_INIT(ierror)
+   call MPI_COMM_SIZE(MPI_COMM_WORLD, size, ierror)
+   call MPI_COMM_RANK(MPI_COMM_WORLD, rank, ierror)
+   print*, 'node', rank, ': Hello world!'
+   call MPI_FINALIZE(ierror)
+   end
+[username@login01 MPI]$ 
 ```
+
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ]
  [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World (MPI): Compiling <a name="hello-world-mpi-compile"></a>
-Compiling.
+* To compile, checkout the instructions in the README.txt file.
+* Follow the instructions in the batch script provided for the compiler you want to test.
+
+```
+[username@login01 MPI]$ cat README.txt 
+[1] Compile:
+# Load module environment
+module purge
+module load slurm
+module load cpu
+module load gcc/10.2.0
+module load openmpi/4.0.4
+mpif90 -o hello_mpi hello_mpi.f90
+
+[2a] Run using Slurm:
+sbatch hellompi-slurm.sb
+
+[2b] Run using Interactive CPU Node
+srun --partition=debug  --pty --account=abc123 --nodes=1 --ntasks-per-node=128 --mem=248G -t 00:30:00 --wait=0 --export=ALL /bin/bash
+```
+
+* Follow the compile instructions for the compiler that you want to use
+
+```
+[username@login01 MPI]$ module purge
+[username@login01 MPI]$ module load slurm
+[username@login01 MPI]$ module load cpu
+[username@login01 MPI]$ module load gcc/10.2.0
+[username@login01 MPI]$ module load openmpi/4.0.4
+[username@login01 MPI]$ module load openmpi/4.0.4
+[username@login01 MPI]$ module list
+
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
+```
+
+* Next, compile the code:
+
+```
+[username@login01 MPI]$mpif90 -o hello_mpi hello_mpi.f90
+[username@login01 MPI]$ mpif90 -o hello_mpi hello_mpi.f90
+[username@login01 MPI]$ ll
+total 125
+drwxr-xr-x 2 username abc123    12 Dec 10 00:58 .
+drwxr-xr-x 8 username abc123     8 Oct  8 04:16 ..
+-rwxr-xr-x 1 username abc123 21576 Oct  7 11:28 hello_mpi
+[snip]
+```
+
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World (MPI): Batch Script Submission <a name="hello-world-mpi-batch-submit"></a>
-Batch Script Submission
+* There are several batch scripts provided that contain the module commands needed to compile
+and run the code. The contents of the default batch script are:
+
+```
+[username@login01 MPI]$ cat hellompi-slurm.sb
+#!/bin/bash
+#SBATCH --job-name="hellompi"
+#SBATCH --output="hellompi.%j.%N.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=128
+#SBATCH --export=ALL
+#SBATCH -t 00:10:00
+
+#This job runs with 2 nodes, 128 cores per node for a total of 256 cores.
+## Environment
+module purge
+module load slurm
+module load cpu
+module load gcc/10.2.0
+module load openmpi/4.0.4
+
+## Use srun to run the job
+
+srun --mpi=pmi2 -n 256 --cpu-bind=rank ./hello_mpi
+```
+
+* In this batch script we are using the GNU compiler, and asking for 2 CPU compute nodes, with 128 tasks per node for a total of 256 tasks.
+* the name of job is set in line 2, while the name of the output file is set in line 3, where "%j" is the SLURM JOB_ID, and and "%N" is the compute node name. You can name your outupt file however you wish, but it helpful to keep track of the JOB_ID and node info in case something goes wrong.
+
+* Submit the batch script Submission using the sbatch commmand and monitor the job status using the squeue command:
+
+```
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+667424   compute hellompi  username PD       0:00      2 (Priority)
+[username@login01 MPI]$ squeue -u username -u username
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+667424   compute hellompi  username PD       0:00      2 (Priority)
+[username@login01 MPI]$ squeue -u username -u username
+^[[A             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+667424   compute hellompi  username CF       0:01      2 exp-2-[28-29]
+[username@login01 MPI]$ squeue -u username -u username
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+667424   compute hellompi  username  R       0:02      2 exp-2-[28-29]
+[username@login01 MPI]$ squeue -u username -u username
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+[username@login01 MPI]$ ll
+total 151
+drwxr-xr-x 2 username abc123    13 Dec 10 01:06 .
+drwxr-xr-x 8 username abc123     8 Oct  8 04:16 ..
+-rwxr-xr-x 1 username abc123 21576 Oct  8 03:12 hello_mpi
+-rw-r--r-- 1 username abc123  8448 Oct  8 03:32 hellompi.667424.exp-2-28.out
+[username@login01 MPI]$
+[username@login01 MPI]$
+[username@login01 MPI]$ cat hellompi.667424.exp-2-28.out
+ node           1 : Hello world!
+ node           0 : Hello world!
+ [snip]
+ node         247 : Hello world!
+ node         254 : Hello world!
+ node         188 : Hello world!
+node         246 : Hello world!
+```
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>

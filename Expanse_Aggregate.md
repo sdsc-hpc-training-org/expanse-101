@@ -1296,7 +1296,7 @@ sbatch hello_mpi_slurm.sb
 [Back to Top](#top)
 <hr>
 
-### Hello World (MPI): Source Code<a name="hello-world-mpi-source)
+### Hello World (MPI): Source Code<a name="hello-world-mpi-source</a>
 Source Code.
 
 ```
@@ -1307,7 +1307,7 @@ aaaaa
 [Back to Top](#top)
 <hr>
 
-### Hello World (MPI): Compiling]<a name="hello-world-mpi-compile)
+### Hello World (MPI): Compiling]<a name="hello-world-mpi-compile</a>
 Compiling.
 
 [Back to Hello World MPI](#hello-world-mpi)<br>
@@ -1318,12 +1318,11 @@ Compiling.
 ### Hello World (MPI): Batch Script Submission<a name="hello-world-mpi-batch-submit)
 Batch Script Submission
 
-[Back to Hello World MPI](#hello-world-mpi)<br>
-[Back to Hands-on](#hands-on)<br>
+[Back to Hello World MPI](#hello-world-mpi)  [Back to Hands-on](#hands-on)<br>
 [Back to Top](#top)
 <hr>
 
-### Hello World (MPI): Batch Script Output<a name="hello-world-mpi-batch-output)
+### Hello World (MPI): Batch Script Output<a name="hello-world-mpi-batch-output</a>
 Batch Script Output
 
 [Back to Hello World MPI](#hello-world-mpi)<br>
@@ -1331,34 +1330,34 @@ Batch Script Output
 [Back to Top](#top)
 <hr>
 
-### Hello World (MPI): Interactive Jobs<a name="hello-world-mpi-interactive)
+### Hello World (MPI): Interactive Jobs<a name="hello-world-mpi-interactive</a>
 Interactive Jobs
 
-[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hello World MPI<a name="hello-world-mpi)<br>
 [Back to Hands-on](#hands-on)<br>
 [Back to Top](#top)
 <hr>
 
-## Hello World (OpenMP)](#hello-world-omp)
+## Hello World (OpenMP)<a name="hello-world-omp</a>
 **Subsections:**
-* [Hello World (OpenMP): Source Code](#hello-world-omp-source)
-* [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
-* [Hello World (OpenMP): Batch Script Submission](#hello-world-omp-batch-submit)
-* [Hello World (OpenMP): Batch Script Output](#hello-world-omp-batch-output)
+* [Hello World (OpenMP): Source Code<a name="hello-world-omp-source</a>
+* [Hello World (OpenMP): Compiling<a name="hello-world-omp-compile</a>
+* [Hello World (OpenMP): Batch Script Submission<a name="hello-world-omp-batch-submit</a>
+* [Hello World (OpenMP): Batch Script Output<a name="hello-world-omp-batch-output</a>
 
 [Back to Hello World MPI](#hello-world-omp)<br>
 [Back to Hands-on](#hands-on)<br>
 [Back to Top](#top)
 <hr><hr>
 
-## Compiling and Running Hybrid (MPI + OpenMP) Jobs (#hybrid-mpi-omp)
+## Compiling and Running Hybrid (MPI + OpenMP) Jobs <a name="hybrid-mpi-omp</a>
 **Subsections:**
-* [Hybrid (MPI + OpenMP): Source Code](#hybrid-mpi-omp-source)
-* [Hybrid (MPI + OpenMP): Compiling](#hybrid-mpi-omp-compile)
-* [Hybrid (MPI + OpenMP): Batch Script Submission](#hybrid-mpi-omp-batch-submit)
-* [Hybrid (MPI + OpenMP): Batch Script Output](#hybrid-mpi-omp-batch-output)
+* [Hybrid (MPI + OpenMP): Source Code<a name="hybrid-mpi-omp-source</a>
+* [Hybrid (MPI + OpenMP): Compiling<a name="hybrid-mpi-omp-compile</a>
+* [Hybrid (MPI + OpenMP): Batch Script Submission<a name="hybrid-mpi-omp-batch-submit</a>
+* [Hybrid (MPI + OpenMP): Batch Script Output<a name="hybrid-mpi-omp-batch-output</a>
 
-[Back to Hello World hybrid](#hybrid-mpi-omp)<br>
+[Back to Hello World hybrid<a name="hybrid-mpi-omp)<br>
 [Back to Hands-on](#hands-on)<br>
 [Back to Top](#top)
 <hr>

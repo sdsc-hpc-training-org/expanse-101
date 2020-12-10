@@ -49,11 +49,13 @@ Consulting group at help@xsede.org.
    * [PGI Compilers](#compilers-pgi)
 * [Running Jobs](#running-jobs)
    * [Parallel Models](#run-jobs-par-models)
-   * [Ways to Run Jobs on Expanse](#run-jobs-ways)
+   * [Methods for  Running Jobs on Expanse](#run-jobs-methods)
+      * [Batch Jobs](#run-jobs-methods-batch)
+      * [Interactive Jobs](#run-jobs-methods-ineractive)
    * [SLURM Resource Manager](#run-jobs-slurm)
-   * [SLURM Partitions](#run-jobs-slurm-partition)
-   * [SLURM Commands](#run-jobs-slurm-commands)
-   * [SLURM Batch Script Example](#run-jobs-slurm-batch)
+      * [SLURM Partitions](#run-jobs-slurm-partition)
+      * [SLURM Commands](#run-jobs-slurm-commands)
+      * [SLURM Batch Script Example](#run-jobs-slurm-batch)
 * Hands-on Examples(#hands-on)
    * [X](#y)
 * MPI Jobs(#mpi-jobs)
@@ -1011,7 +1013,11 @@ For more information on the PGI compilers: man [pgf90 | pgcc | pgCC]
 
 ## Running Jobs on Expanse <a name="run-jobs"></a>
 In this Section:
-   * [SLURM Partitions](#run-jobs-slurm-partition)
+* [Parallel Models](#run-jobs-par-models)
+* [Methods for  Running Jobs on Expanse](#run-jobs-methods)
+   * [Batch Jobs](#run-jobs-methods-batch)
+   * [Interactive Jobs](#run-jobs-methods-ineractive)
+* [SLURM Partitions](#run-jobs-slurm-partition)
    * [SLURM Commands](#run-jobs-slurm-commands)
    * [SLURM Batch Script Example](#run-jobs-slurm-batch)
 
@@ -1020,23 +1026,42 @@ In this Section:
 
 ### Parallel Models <a name="run-jobs-par-models"></a>
 #### Parallel Models: Distributed Memory
-[IMG]
+
 <img src="images/distr-memory.png" alt="Distributed Memory architecture" width="300px" />
+
 * Programs that run asynchronously, pass messages for communication and coordination between resources.
 * Examples include: SOA-based systems, massively multiplayer online games, peer-to-peer apps.
 * Different types of implementations for the message passing mechanism: HTTP, RPC-like connectors, message queues
 * HPC historically uses the Message Passing Interface (MPI)
 
 #### Parallel Models: Shared Memory
+
 <img src="images/shared-memory.png" alt="Shared Memory architecture" width="300px" />
-* CPUs all share same localized memory (SHMEM); 
+
+* CPUs all share same localized memory (SHMEM)
    * Coordination and communication between tasks via interprocessor communication (IPC) or virtual memory mappings.
 * May use: uniform or non-uniform memory access (UMA or NUMA); cache-only memory architecture (COMA).
 * Most common HPC API’s for using SHMEM: 
    * Portable Operating System Interface (POSIX); Open Multi-Processing (OpenMP) designed for parallel computing – best for multi-core computing.
 
-### Advice about Running Jobs on Expanse <a name="run-jobs-ways"></a>
-About Ways to Run Jobs
+
+### Methods for  Running Jobs on Expanse <a name="run-jobs-methods"></a>
+
+#### Batch Jobs<a name="run-jobs-methods-batch"></a>
+* Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ batch environment. 
+* Batch Jobs are used to ubmit batch scripts to Slurm from the login nodes. You need to specify
+   * Partition (queue)
+   * Time limit for the run (maximum of 48 hours)
+   * Number of nodes, tasks per node; Memory requirements (if any)
+   * Job name, output file location; Email info, configuration
+
+* When you run in the batch mode, you submit jobs to be run on the compute nodes using the sbatch command. 
+* Remember that computationally intensive jobs should be run only on the compute nodes and not the login nodes.
+* Expanse places limits on the number of jobs queued and running on a per group (allocation) and partition basis. 
+* Please note that submitting a large number of jobs (especially very short ones) can impact the overall  scheduler response for all users.
+
+#### Interactive Jobs<a name="run-jobs-methods-ineractive"></a>
+* Interactive Jobs: Use the _srun_ command to obtain nodes for ‘real-time, live’ command line access to a compute node:
 
 
 [Back to Running Jobs](#run-jobs)<br>
@@ -1044,6 +1069,7 @@ About Ways to Run Jobs
 <hr>
  ### SLURM Resource Manager <a name="run-jobs-slurm"></a>
 About SLURM
+
 
 [Back to Running Jobs](#run-jobs)<br>
 [Back to Top](#top)

@@ -702,7 +702,7 @@ Expanse supports *Single Sign-On* through the [XSEDE User Portal](https://portal
 ```
 login.expanse.sdsc.edu
 ```
- 
+
 The following are examples of Secure Shell (ssh) commands that may be used to log in to Expanse:
 
 ```

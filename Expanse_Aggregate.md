@@ -1,4 +1,6 @@
-
+element {
+  font-size: 75;
+}
 
 # Expanse 101:  Introduction to Running Jobs on the Expanse Supercomputer
 Presented by Mary Thomas (SDSC,  <mpthomas@ucsd.edu> )
@@ -1114,7 +1116,7 @@ About Partitions
 
 |	Partition Name	|	Max Walltime	|	Max Nodes/ Job	|	Max Running Jobs	|	Max Running + Queued Jobs	|	Charge Factor	|	Comments	|
 |	:----	|	:----:	|	:----:	|	:----:	|	:----:	|	:----:	|	:----	|
-|	compute	|	48 hrs	|	32	|	64	|	128	|	1	|	* Used for exclusive access to regular compute nodes	|
+|	compute	|	48 hrs	|	32	|	64	|	128	|	1	|	Used for exclusive access to regular compute nodes	|
 |	shared	|	48 hrs	|	1	|	4096	|	4096	|	1	|	Single-node jobs using fewer than 128 cores	|
 |	gpu	|	48 hrs	|	4	|	4	|	8 (32 Tres GPU)	|	1	|	Used for exclusive access to the GPU nodes	|
 |	gpu-shared	|	48 hrs	|	1	|	16	|	24 (24 Tres GPU)	|	1	|	Single-node job using fewer than 4 GPUs	|

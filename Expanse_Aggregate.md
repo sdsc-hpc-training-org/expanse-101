@@ -61,6 +61,30 @@ Consulting group at help@xsede.org.
    * [X](#y)
 * OpenMP Jobs(#omp-jobs)
    * [X](#y)
+ 
+<hr>
+<hr>
+ * [Compiling and Running CPU Jobs](#comp-and-run-cpu-jobs)
+    * [Hello World (MPI)](#hello-world-mpi)
+        * [Hello World (MPI): Source Code](#hello-world-mpi-source)
+        * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
+        * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
+        * [Hello World (MPI): Batch Script Output](#hello-world-mpi-batch-output)
+        * [Hello World (MPI): Interactive Jobs](#hello-world-mpi-interactive)
+    * [Hello World (OpenMP)](#hello-world-omp)
+        * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
+        * [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
+        * [Hello World (OpenMP): Batch Script Submission](#hello-world-omp-batch-submit)
+        * [Hello World (OpenMP): Batch Script Output](#hello-world-omp-batch-output)
+    * [Compiling and Running Hybrid (MPI + OpenMP) Jobs](#hybrid-mpi-omp)
+        * [Hybrid (MPI + OpenMP): Source Code](#hybrid-mpi-omp-source)
+        * [Hybrid (MPI + OpenMP): Compiling](#hybrid-mpi-omp-compile)
+        * [Hybrid (MPI + OpenMP): Batch Script Submission](#hybrid-mpi-omp-batch-submit)
+        * [Hybrid (MPI + OpenMP): Batch Script Output](#hybrid-mpi-omp-batch-output)
+<hr>
+<hr>
+ 
+ 
 * GPU/CUDA Jobs(#gpu-jobs)
    * [X](#y)
  * Hybrid MPI-OpenMP Jobs(#hybrid-mpi-omp-jobs)

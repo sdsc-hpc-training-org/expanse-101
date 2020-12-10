@@ -1080,9 +1080,10 @@ srun   --pty --account=abc123  --nodes=1   --ntasks-per-node=1   --cpus-per-task
  ### SLURM Resource Manager <a name="run-jobs-slurm"></a>
 * Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ resource manager. Slurm is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://slurm.schedmd.com/documentation.html](https://slurm.schedmd.com/documentation.html). 
 
-| loggin on to Exapanse | SLURM Architecture |
+| logging on to Expanse | SLURM Architecture |
 | :--- | :--- |
 | <img src="images/login-nodes-cluster-nodes.png" alt="Login nodes to cluster diagram" width="300px" /> | <img src="images/slurm-sched-arch.png" alt="Slurm Scheduler Architecture" width="300px" /> |
+| User logs onto Expanse, and submits a batch script to the SLURM Controller daemon | SLURM parses the batch script for correct syntax and then queues up the job until the requested resources are available |
 
 * SLURM is the "Glue" for parallel computer to schedule and execute jobs
   * Role: Allocate resources within a cluster

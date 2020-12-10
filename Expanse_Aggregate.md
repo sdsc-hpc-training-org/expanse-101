@@ -1241,7 +1241,7 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 
 ## Hands-on Examples <a name="hands-on"></a>
 
-* _Sections:_
+### Sections:
    * Hello World (MPI)<a name="hello-world-mpi"></a>
    * Hello World (OpenMP)<a name="hello-world-omp"></a>
    * Hello World Hybrid (MPI + OpenMP)<a name="hybrid-mpi-omp"></a>
@@ -1249,32 +1249,40 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 ## Compiling and Running CPU Jobs<a name="comp-and-run-cpu-jobs"></a>
 
 ### Hello World (MPI)<a name="hello-world-mpi"></a>
-[Back to Hello World MPI](#hello-world-mpi)<br>
-[Back to Hands-on](#hands-on)<br>
-[Back to Top](#top)
-<hr>
-    ### Hello World (MPI): Source Code<a name="hello-world-mpi-source)
-[Back to Hello World MPI](#hello-world-mpi)<br>
-[Back to Hands-on](#hands-on)<br>
-[Back to Top](#top)
-<hr>
-    ### Hello World (MPI): Compiling]<a name="hello-world-mpi-compile)
-[Back to Hello World MPI](#hello-world-mpi)<br>
-[Back to Hands-on](#hands-on)<br>
-[Back to Top](#top)
-<hr>
-    ### Hello World (MPI): Batch Script Submission<a name="hello-world-mpi-batch-submit)
-[Back to Hello World MPI](#hello-world-mpi)<br>
-[Back to Hands-on](#hands-on)<br>
-[Back to Top](#top)
-<hr>
-    ### Hello World (MPI): Batch Script Output<a name="hello-world-mpi-batch-output)
-[Back to Hello World MPI](#hello-world-mpi)<br>
-[Back to Hands-on](#hands-on)<br>
-[Back to Top](#top)
-<hr>
-    ### Hello World (MPI): Interactive Jobs<a name="hello-world-mpi-interactive)
 
+[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+
+### Hello World (MPI): Source Code<a name="hello-world-mpi-source)
+
+[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+
+### Hello World (MPI): Compiling]<a name="hello-world-mpi-compile)
+
+[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+
+### Hello World (MPI): Batch Script Submission<a name="hello-world-mpi-batch-submit)
+[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+
+### Hello World (MPI): Batch Script Output<a name="hello-world-mpi-batch-output)
+
+[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+
+### Hello World (MPI): Interactive Jobs<a name="hello-world-mpi-interactive)
 
 [Back to Hello World MPI](#hello-world-mpi)<br>
 [Back to Hands-on](#hands-on)<br>

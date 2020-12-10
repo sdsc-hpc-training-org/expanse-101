@@ -1400,6 +1400,7 @@ Batch Script Submission
 <hr>
 
 ### Hello World Hybrid (MPI + OpenMP): Batch Script Output <a name="hybrid-mpi-omp-batch-output"></a>
+
 Batch Script Output
 
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Hands-on](#hands-on) ] [ [Back to Top](#top) ]

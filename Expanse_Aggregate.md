@@ -306,20 +306,20 @@ The examples directory contains the code we will cover in this tutorial:
 ```
 [username@login01 examples]$ ls -al examples
 total 88
-drwxr-xr-x 6 username use300 6 Oct  7 14:15 .
-drwxr-xr-x 5 username use300 8 Oct  7 14:15 ..
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 HYBRID
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 MPI
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 OpenACC
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 OPENMP
+drwxr-xr-x 6 username abc123 6 Oct  7 14:15 .
+drwxr-xr-x 5 username abc123 8 Oct  7 14:15 ..
+drwxr-xr-x 2 username abc123 6 Oct  7 14:15 HYBRID
+drwxr-xr-x 2 username abc123 6 Oct  7 14:15 MPI
+drwxr-xr-x 2 username abc123 6 Oct  7 14:15 OpenACC
+drwxr-xr-x 2 username abc123 6 Oct  7 14:15 OPENMP
 [username@login01 examples]$ ls -al examples/MPI
 total 63
-drwxr-xr-x 2 username use300     6 Oct  7 14:15 .
-drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
--rwxr-xr-x 1 username use300 21576 Oct  7 14:15 hello_mpi
--rw-r--r-- 1 username use300   329 Oct  7 14:15 hello_mpi.f90
--rw-r--r-- 1 username use300   464 Oct  7 14:15 hellompi-slurm.sb
--rw-r--r-- 1 username use300   181 Oct  7 14:15 README.txt
+drwxr-xr-x 2 username abc123     6 Oct  7 14:15 .
+drwxr-xr-x 6 username abc123     6 Oct  7 14:15 ..
+-rwxr-xr-x 1 username abc123 21576 Oct  7 14:15 hello_mpi
+-rw-r--r-- 1 username abc123   329 Oct  7 14:15 hello_mpi.f90
+-rw-r--r-- 1 username abc123   464 Oct  7 14:15 hellompi-slurm.sb
+-rw-r--r-- 1 username abc123   181 Oct  7 14:15 README.txt
 
 ```
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
@@ -808,20 +808,20 @@ The examples directory contains the code we will cover in this tutorial:
 
 [username@login01 examples]$ ls -al examples
 total 88
-drwxr-xr-x 6 username use300 6 Oct  7 14:15 .
-drwxr-xr-x 5 username use300 8 Oct  7 14:15 ..
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 HYBRID
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 MPI
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 OpenACC
-drwxr-xr-x 2 username use300 6 Oct  7 14:15 OPENMP
+drwxr-xr-x 6 username abc123 6 Oct  7 14:15 .
+drwxr-xr-x 5 username abc123 8 Oct  7 14:15 ..
+drwxr-xr-x 2 username abc123 6 Oct  7 14:15 HYBRID
+drwxr-xr-x 2 username abc123 6 Oct  7 14:15 MPI
+drwxr-xr-x 2 username abc123 6 Oct  7 14:15 OpenACC
+drwxr-xr-x 2 username abc123 6 Oct  7 14:15 OPENMP
 [username@login01 examples]$ ls -al examples/MPI
 total 63
-drwxr-xr-x 2 username use300     6 Oct  7 14:15 .
-drwxr-xr-x 6 username use300     6 Oct  7 14:15 ..
--rwxr-xr-x 1 username use300 21576 Oct  7 14:15 hello_mpi
--rw-r--r-- 1 username use300   329 Oct  7 14:15 hello_mpi.f90
--rw-r--r-- 1 username use300   464 Oct  7 14:15 hellompi-slurm.sb
--rw-r--r-- 1 username use300   181 Oct  7 14:15 README.txt
+drwxr-xr-x 2 username abc123     6 Oct  7 14:15 .
+drwxr-xr-x 6 username abc123     6 Oct  7 14:15 ..
+-rwxr-xr-x 1 username abc123 21576 Oct  7 14:15 hello_mpi
+-rw-r--r-- 1 username abc123   329 Oct  7 14:15 hello_mpi.f90
+-rw-r--r-- 1 username abc123   464 Oct  7 14:15 hellompi-slurm.sb
+-rw-r--r-- 1 username abc123   181 Oct  7 14:15 README.txt
 
 ```
 All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
@@ -946,13 +946,13 @@ In the example below, we are working with the HPC examples that can be found in
 /home/user/expanse-examples/expanse101/MKL
 [user@expanse-14-01:~/expanse-examples/expanse101/MKL] ls -al
 total 25991
-drwxr-xr-x  2 user use300        9 Nov 25 17:20 .
-drwxr-xr-x 16 user use300       16 Aug  5 19:02 ..
--rw-r--r--  1 user use300      325 Aug  5 19:02 compile.txt
--rw-r--r--  1 user use300     6380 Aug  5 19:02 pdpttr.c
--rwxr-xr-x  1 user use300 44825440 Nov 25 16:55 pdpttr.exe
--rw-r--r--  1 user use300      188 Nov 25 16:57 scalapack.20294236.expanse-07-27.out
--rw-r--r--  1 user use300      376 Aug  5 19:02 scalapack.sb
+drwxr-xr-x  2 user abc123        9 Nov 25 17:20 .
+drwxr-xr-x 16 user abc123       16 Aug  5 19:02 ..
+-rw-r--r--  1 user abc123      325 Aug  5 19:02 compile.txt
+-rw-r--r--  1 user abc123     6380 Aug  5 19:02 pdpttr.c
+-rwxr-xr-x  1 user abc123 44825440 Nov 25 16:55 pdpttr.exe
+-rw-r--r--  1 user abc123      188 Nov 25 16:57 scalapack.20294236.expanse-07-27.out
+-rw-r--r--  1 user abc123      376 Aug  5 19:02 scalapack.sb
 ```
 
 The file `compile.txt` contains the full command to compile the `pdpttr.c` program statically linking 64 bit scalapack libraries on Expanse:
@@ -1449,7 +1449,9 @@ module load pgi
 ```
 srun   --pty   --nodes=1 --account=abc123  --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
 ```
-####
+
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
 
 ### Using Interactive GPU Nodes  <a name="comp-run-gpu-interactive"></a>
 
@@ -1458,12 +1460,12 @@ srun   --pty   --nodes=1 --account=abc123  --ntasks-per-node=1   --cpus-per-task
 ```
 [username@exp-7-59 OpenACC]$ ll
 total 71
--rw-r--r-- 1 username use300  2136 Oct  7 11:28 laplace2d.c
--rwxr-xr-x 1 username use300 52056 Oct  7 11:28 laplace2d.openacc.exe
--rw-r--r-- 1 username use300   234 Oct  7 11:28 OpenACC.108739.exp-7-57.out
--rw-r--r-- 1 username use300   307 Oct  8 00:21 openacc-gpu-shared.sb
--rw-r--r-- 1 username use300  1634 Oct  7 11:28 README.txt
--rw-r--r-- 1 username use300  1572 Oct  7 11:28 timer.h
+-rw-r--r-- 1 username abc123  2136 Oct  7 11:28 laplace2d.c
+-rwxr-xr-x 1 username abc123 52056 Oct  7 11:28 laplace2d.openacc.exe
+-rw-r--r-- 1 username abc123   234 Oct  7 11:28 OpenACC.108739.exp-7-57.out
+-rw-r--r-- 1 username abc123   307 Oct  8 00:21 openacc-gpu-shared.sb
+-rw-r--r-- 1 username abc123  1634 Oct  7 11:28 README.txt
+-rw-r--r-- 1 username abc123  1572 Oct  7 11:28 timer.h
 ```
 
 * Obtain an interactive node:
@@ -1471,6 +1473,9 @@ total 71
 ```
 [username@login01 OpenACC]$ srun   --pty   --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
 ```
+
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
 
 #### Obtaining GPU/CUDA: Node Information
 
@@ -1500,12 +1505,13 @@ Thu Oct  8 03:58:44 2020       
 +-----------------------------------------------------------------------------+
 [username@exp-7-59 OpenACC]$ 
 ```
-
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
 
 #### GPU: Must Compile on Interactive node
 
 ```
-[mthomas@login01 OpenACC]$
+[username@login01 OpenACC]$
 cat README.txt 
 [1] Compile Code:
 (a) Get an interactive GPU debug node:
@@ -1539,6 +1545,9 @@ Exit out of debug node after this)
 sbatch openacc-gpu-shared.sb 
 ```
 
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
+
 ### [Hello World (GPU)](#hello-world-gpu)
 **Subsections:**
 * [Hello World (GPU): Source Code](#hello-world-gpu-source)
@@ -1550,37 +1559,208 @@ sbatch openacc-gpu-shared.sb 
 Source Code
 
 ```
-Some Source Code
+[username@login01 OpenACC]$ !cat
+cat laplace2d.c
+/*
+ *  Copyright 2012 NVIDIA Corporation
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+#include <math.h>
+#include <string.h>
+#include <stdio.h>
+#include "timer.h"
+
+#define NN 4096
+#define NM 4096
+
+double A[NN][NM];
+double Anew[NN][NM];
+
+int main(void)
+{
+	int laplace(void);
+	printf("main()\n");
+	laplace();
+}
+
+int laplace()
+{
+    const int n = NN;
+    const int m = NM;
+    const int iter_max = 1000;
+
+    const double tol = 1.0e-6;
+    double error     = 1.0;
+
+    memset(A, 0, n * m * sizeof(double));
+    memset(Anew, 0, n * m * sizeof(double));
+
+    for (int j = 0; j < n; j++)
+    {
+        A[j][0]    = 1.0;
+        Anew[j][0] = 1.0;
+    }
+    printf("Jacobi relaxation Calculation: %d x %d mesh\n", n, m);
+    StartTimer();
+    int iter = 0;
+
+#pragma acc data copy(A), create(Anew)
+    while ( error > tol && iter < iter_max )
+    {
+        error = 0.0;
+
+#pragma acc kernels
+        for( int j = 1; j < n-1; j++)
+        {
+            for( int i = 1; i < m-1; i++ )
+            {
+                Anew[j][i] = 0.25 * ( A[j][i+1] + A[j][i-1]
+                                    + A[j-1][i] + A[j+1][i]);
+                error = fmax( error, fabs(Anew[j][i] - A[j][i]));
+            }
+        }
+
+#pragma acc kernels
+        for( int j = 1; j < n-1; j++)
+        {
+            for( int i = 1; i < m-1; i++ )
+            {
+                A[j][i] = Anew[j][i];    
+            }
+        }
+
+        if(iter % 100 == 0) printf("%5d, %0.6f\n", iter, error);
+
+        iter++;
+    }
+    double runtime = GetTimer();
+    printf(" total: %f s\n", runtime / 1000);
+}
 ```
 
 [ [Back to Hello World (GPU)](#hello-world-gpu)] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World (GPU): Compiling  <a name="hello-world-gpu-compile"></a>
-Source Compiling
+Compile the code:
+1. obtain an interactive node
+2. load the right Modules
+3. compile the Source code
+4. exit interactive node
+
 
 ```
-Some Source Compiling
+[username@login01 ~]$ module load slurm
+[username@login01 ~]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug -A abc123 --gpus=1 -t 00:10:00 /bin/bash
+srun: job 667263 queued and waiting for resources
+srun: job 667263 has been allocated resources
+[username@exp-7-59 ~]$ module purge
+[username@exp-7-59 ~]$ module load slurm
+[username@exp-7-59 ~]$ module load gpu
+[username@exp-7-59 ~]$ module load pgi
+[username@exp-7-59 ~]$ module list
+
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) gpu/1.0   3) pgi/20.4
+
+  [username@exp-7-59 OpenACC]$ pgcc -o laplace2d.openacc.exe -fast -Minfo -acc -ta=tesla:cc70 laplace2d.c
+  "laplace2d.c", line 91: warning: missing return statement at end of non-void
+            function "laplace"
+    }
+    ^
+
+  GetTimer:
+       20, include "timer.h"
+            61, FMA (fused multiply-add) instruction(s) generated
+[SNIP]
+[username@exp-7-59 OpenACC]$ exit
+exit
+[username@login01 ~]$
 ```
 
 [ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World (GPU): Batch Script Submission  <a name="hello-world-gpu-batch-submit"></a>
-Batch Script Submission
+* Batch Script Contents
+
 ```
-batch script submit
+[mthomas@login01 OpenACC]$ cat openacc-gpu-shared.sb 
+#!/bin/bash
+#SBATCH --job-name="OpenACC"
+#SBATCH --output="OpenACC.%j.%N.out"
+#SBATCH --partition=gpu-shared
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --gpus=1
+#SBATCH -t 01:00:00
+
+#Environment
+module purge
+module load slurm
+module load gpu
+module load pgi
+
+#Run the job
+./laplace2d.openacc.exe
 ```
+* Submit the batch script, and monitor queue status:
+   * PD == Pending
+   * ST == Starting
+   *  R == Running
+
+```
+[mthomas@login01 OpenACC]$ !sb
+sbatch openacc-gpu-shared.sb
+Submitted batch job 667276
+[mthomas@login01 OpenACC]$ !sq
+squeue -u mthomas -u mthomas
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+            667276 gpu-share  OpenACC  mthomas PD       0:00      1 (Priority)
+[mthomas@login01 OpenACC]$
+[mthomas@login01 OpenACC]$ squeue -u mthomas -u mthomas
+             JOBID PARTITION     NAME     USER R       TIME  NODES NODELIST(REASON)
+             [mthomas@login01 OpenACC]$ cat OpenACC.667276.exp-1-60.out
+             main()
+             Jacobi relaxation Calculation: 4096 x 4096 mesh
+                 0, 0.250000
+               100, 0.002397
+               200, 0.001204
+               300, 0.000804
+               400, 0.000603
+               500, 0.000483
+               600, 0.000403
+               700, 0.000345
+               800, 0.000302
+               900, 0.000269
+              total: 1.044246 s
+             [mthomas@login01 OpenACC]$
+
+```
+
 
 [ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World (GPU): Batch Script Output  <a name="hello-world-gpu-batch-output"></a>
 
-Batch Script Output
+* Batch Script Output:
 
 ```
-batch script Output
+dddd
+
 ```
 
 [ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]

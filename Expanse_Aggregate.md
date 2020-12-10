@@ -1246,6 +1246,41 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
    * Hello World (OpenMP)<a name="hello-world-omp"></a>
    * Hello World Hybrid (MPI + OpenMP)<a name="hybrid-mpi-omp"></a>
 
+### General Steps: Compiling/Running Jobs
+
+* Change to a working directory (for example the expanse101 directory):
+
+```
+cd /home/$USER/expanse101/MPI
+```
+
+* Verify that the correct modules loaded:
+
+```
+module list
+Currently Loaded Modulefiles:
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
+```
+
+* Compile the MPI hello world code:
+
+```
+mpif90 -o hello_mpi hello_mpi.f90
+```
+
+Verify executable has been created (check that date):
+
+```
+ls -lt hello_mpi
+-rwxr-xr-x 1 user sdsc 721912 Mar 25 14:53 hello_mpi
+```
+
+* Submit job
+
+```
+sbatch hello_mpi_slurm.sb
+```
+
 ## Compiling and Running CPU Jobs<a name="comp-and-run-cpu-jobs"></a>
 
 ### Hello World (MPI)<a name="hello-world-mpi"></a>
@@ -1289,7 +1324,8 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 [Back to Top](#top)
 <hr>
 
-    * Hello World (OpenMP)](#hello-world-omp)
+<hr><hr>
+* Hello World (OpenMP)](#hello-world-omp)
         * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
         * [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
         * [Hello World (OpenMP): Batch Script Submission](#hello-world-omp-batch-submit)
@@ -1299,17 +1335,13 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 [Back to Hands-on](#hands-on)<br>
 [Back to Top](#top)
 <hr>
+<hr><hr>
 
-## Compiling and Running Hybrid (MPI + OpenMP) Jobs](#hybrid-mpi-omp)
+## Compiling and Running Hybrid (MPI + OpenMP) Jobs (#hybrid-mpi-omp)
         * [Hybrid (MPI + OpenMP): Source Code](#hybrid-mpi-omp-source)
         * [Hybrid (MPI + OpenMP): Compiling](#hybrid-mpi-omp-compile)
         * [Hybrid (MPI + OpenMP): Batch Script Submission](#hybrid-mpi-omp-batch-submit)
         * [Hybrid (MPI + OpenMP): Batch Script Output](#hybrid-mpi-omp-batch-output)
-
-
-
-
-
 
 
 

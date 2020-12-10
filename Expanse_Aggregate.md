@@ -1017,6 +1017,7 @@ In this Section:
 * [Methods for  Running Jobs on Expanse](#run-jobs-methods)
    * [Batch Jobs](#run-jobs-methods-batch)
    * [Interactive Jobs](#run-jobs-methods-ineractive)
+   * [Command Line Jobs](#run-jobs-cmdline)
 * [SLURM Partitions](#run-jobs-slurm-partition)
    * [SLURM Commands](#run-jobs-slurm-commands)
    * [SLURM Batch Script Example](#run-jobs-slurm-batch)
@@ -1073,6 +1074,17 @@ __GPU:__
 srun   --pty --account=abc123  --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
 ```
 
+### Command Line Jobs <a name="run-jobs-cmdline"></a>
+The login nodes are meant for compilation, file editing, simple data analysis, and other tasks that use minimal compute resources. <em>Do not run parallel or large jobs on the login nodes - even for simple tests</em>. Even if you could run a simple test on the command line on the login node, full tests should not be run on the login node because the performance will be adversely impacted by all the other tasks and login activities of the other users who are logged onto the same node. For example, at the moment that this note was written,  a `gzip` process was consuming 98% of the CPU time:
+    ```
+    [mthomas@comet-ln3 OPENMP]$ top
+    ...
+      PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                      
+    19937 XXXXX     20   0  4304  680  300 R 98.2  0.0   0:19.45 gzip
+    ```
+
+Commands that you type into the terminal and run on the sytem are considered *jobs* and they consume resources.  <em>Computationally intensive jobs should be run only on the compute nodes and not the login nodes</em>.
+
 [Back to Running Jobs](#run-jobs)<br>
 [Back to Top](#top)
 <hr>
@@ -1096,8 +1108,21 @@ srun   --pty --account=abc123  --nodes=1   --ntasks-per-node=1   --cpus-per-task
 [Back to Running Jobs](#run-jobs)<br>
 [Back to Top](#top)
 <hr>
+
  ### SLURM Partitions <a name="run-jobs-slurm-partition"></a>
 About Partitions
+
+|	Partition Name	|	Max Walltime	|	Max Nodes/ Job	|	Max Running Jobs	|	Max Running + Queued Jobs	|	Charge Factor	|	Comments	|
+|	:----	|	:----:	|	:----:	|	:----:	|	:----:	|	:----:	|	:----	|
+|	compute	|	48 hrs	|	32	|	64	|	128	|	1	|	* Used for exclusive access to regular compute nodes	|
+|	shared	|	48 hrs	|	1	|	4096	|	4096	|	1	|	Single-node jobs using fewer than 128 cores	|
+|	gpu	|	48 hrs	|	4	|	4	|	8 (32 Tres GPU)	|	1	|	Used for exclusive access to the GPU nodes	|
+|	gpu-shared	|	48 hrs	|	1	|	16	|	24 (24 Tres GPU)	|	1	|	Single-node job using fewer than 4 GPUs	|
+|	large-shared	|	48 hrs	|	1	|	1	|	4	|	1	|	Single-node jobs using large memory up to 2 TB (minimum memory required 256G)	|
+|	debug	|	15 min	|	2	|	1	|	2	|	1	|	Priority access to compute nodes set aside for testing of jobs with short walltime and limited resources	|
+|	gpu-debug	|	15 min	|	2	|	1	|	2	|	1	|	** Priority access to gpu nodes set aside for testing of jobs with short walltime and limited resources	|
+|	preempt	|	7 days	|	32	|		|	128	|	0.8	|	Discounted jobs to run on free nodes that can be pre-empted by jobs submited to any other queue (NO REFUNDS)	|
+|	gpu-preempt	|	7 days	|	1	|		|	24 (24 Tres GPU)	|	0.8	|	Discounted jobs to run on unallocated nodes that can be pre-empted by jobs submitted to higher priority queues (NO REFUNDS	|
 
 [Back to Running Jobs](#run-jobs)<br>
 [Back to Top](#top)

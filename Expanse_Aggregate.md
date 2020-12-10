@@ -1239,20 +1239,60 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 [Back to Top](#top)
 <hr>
 
-* Hands-on Examples (#hands-on)
- * [Compiling and Running CPU Jobs](#comp-and-run-cpu-jobs)
-    * [Hello World (MPI)](#hello-world-mpi)
-        * [Hello World (MPI): Source Code](#hello-world-mpi-source)
-        * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
-        * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
-        * [Hello World (MPI): Batch Script Output](#hello-world-mpi-batch-output)
-        * [Hello World (MPI): Interactive Jobs](#hello-world-mpi-interactive)
-    * [Hello World (OpenMP)](#hello-world-omp)
+## Hands-on Examples <a name="hands-on"></a>
+
+* _Sections:_
+   * Hello World (MPI)<a name="hello-world-mpi"></a>
+   * Hello World (OpenMP)<a name="hello-world-omp"></a>
+   * Hello World Hybrid (MPI + OpenMP)<a name="hybrid-mpi-omp"></a>
+
+## Compiling and Running CPU Jobs<a name="comp-and-run-cpu-jobs"></a>
+
+### Hello World (MPI)<a name="hello-world-mpi"></a>
+[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+    ### Hello World (MPI): Source Code<a name="hello-world-mpi-source)
+[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+    ### Hello World (MPI): Compiling]<a name="hello-world-mpi-compile)
+[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+    ### Hello World (MPI): Batch Script Submission<a name="hello-world-mpi-batch-submit)
+[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+    ### Hello World (MPI): Batch Script Output<a name="hello-world-mpi-batch-output)
+[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+    ### Hello World (MPI): Interactive Jobs<a name="hello-world-mpi-interactive)
+
+
+[Back to Hello World MPI](#hello-world-mpi)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+
+    * Hello World (OpenMP)](#hello-world-omp)
         * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
         * [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
         * [Hello World (OpenMP): Batch Script Submission](#hello-world-omp-batch-submit)
         * [Hello World (OpenMP): Batch Script Output](#hello-world-omp-batch-output)
-    * [Compiling and Running Hybrid (MPI + OpenMP) Jobs](#hybrid-mpi-omp)
+
+[Back to Hello World MPI](#hello-world-omp)<br>
+[Back to Hands-on](#hands-on)<br>
+[Back to Top](#top)
+<hr>
+
+## Compiling and Running Hybrid (MPI + OpenMP) Jobs](#hybrid-mpi-omp)
         * [Hybrid (MPI + OpenMP): Source Code](#hybrid-mpi-omp-source)
         * [Hybrid (MPI + OpenMP): Compiling](#hybrid-mpi-omp-compile)
         * [Hybrid (MPI + OpenMP): Batch Script Submission](#hybrid-mpi-omp-batch-submit)

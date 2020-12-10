@@ -1285,7 +1285,13 @@ sbatch hello_mpi_slurm.sb
 
 ### Hello World (MPI)<a name="hello-world-mpi"></a>
 
-[Back to Hello World MPI](#hello-world-mpi)<br>
+#### Subsections:
+* [Hello World (MPI): Source Code](#hello-world-mpi-source)
+* [Hello World (MPI): Compiling](#hello-world-mpi-compile)
+* [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
+* [Hello World (MPI): Batch Script Output](#hello-world-mpi-batch-output)
+* [Hello World (MPI): Interactive Jobs](#hello-world-mpi-interactive)
+
 [Back to Hands-on](#hands-on)<br>
 [Back to Top](#top)
 <hr>

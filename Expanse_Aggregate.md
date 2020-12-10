@@ -861,7 +861,7 @@ In this tutorial, we include several hands-on examples that cover many of the ca
 [Back to Top](#top)
 <hr>
 
-### <a name="compilers-amd"></a>MD Optimizing C/C++ Compiler (AOCC)
+### <a name="compilers-amd"></a>AMD Optimizing C/C++ Compiler (AOCC)
 
 The AMD Optimizing C/C++ Compiler (AOCC) is only available on CPU nodes. AMD compilers can be loaded by executing the following commands at the Linux prompt:
 
@@ -882,6 +882,35 @@ Suggested Compilers to used based on programming model and languages:
 |Fortran  | flang | mpif90 | ifort -fopenmp | mpif90 -fopenmp |
 |C         | clang | mpiclang | icc -fopenmp | mpicc -fopenmp |
 | C++     | clang++ | mpiclang | icpc -fopenmp | mpicxx -fopenmp |
+
+### Using the AOCC Compilers
+
+* If you have modified your environment, you can reload by executing the module purge & load commands at the Linux prompt, or placing the load command in your startup file (~/.cshrc or ~/.bashrc)
+* Note: The examples below are for the simple “hellompi” examples shown below
+
+```
+[mthomas@login02 ~]$ module list
+Currently Loaded Modules:
+  1) shared   2) cpu/1.0   3) DefaultModules   4) hdf5/1.10.1   5) intel/ 19.1.1.217
+## need to change multiple modules
+[mthomas@login02 ~]$ module purge
+[mthomas@login02 ~]$ module list
+No modules loaded
+[mthomas@login02 ~]$ module load slurm
+[mthomas@login02 ~]$ module load cpu
+[mthomas@login02 ~]$ module load gcc
+[mthomas@login02 ~]$ module load openmpi/4.0.4
+[mthomas@login02 ~]$ module list
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
+[mthomas@login02 MPI]$ module swap intel aocc
+Due to MODULEPATH changes, the following have been reloaded:
+  1) openmpi/4.0.4
+[mthomas@login02 ~]$ module list
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) aocc/2.2.0   4) openmpi/4.0.4
+[mthomas@login02 ~]$ 
+```
 
 [Back to Compilers](#compilers)<br>
 [Back to Top](#top)

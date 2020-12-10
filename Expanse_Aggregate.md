@@ -1242,9 +1242,9 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 ## Hands-on Examples <a name="hands-on"></a>
 
 ### Sections:
-   * Hello World (MPI)<a name="hello-world-mpi"></a>
-   * Hello World (OpenMP)<a name="hello-world-omp"></a>
-   * Hello World Hybrid (MPI + OpenMP)<a name="hybrid-mpi-omp"></a>
+   * [Hello World (MPI)](#hello-world-mpi)
+   * [Hello World (OpenMP)](#hello-world-omp)
+   * [Hello World Hybrid (MPI + OpenMP)](#hybrid-mpi-omp)
 
 ### General Steps: Compiling/Running Jobs
 

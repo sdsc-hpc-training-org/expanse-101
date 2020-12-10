@@ -76,11 +76,9 @@ Consulting group at help@xsede.org.
    * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
    * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
    * [Hello World (GPU): Source Code](#hello-world-gpu-source)
-      * [Hello World (GPU): Source Code](#hello-world-gpu-source)
-      * [Hello World (GPU): Compiling](#hello-world-gpu-compile)
-      * [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
-      * [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
-
+   * [Hello World (GPU): Compiling](#hello-world-gpu-compile)
+   * [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
+   * [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
 * Data and Storage, Globus Endpoints, Data Movers, Mount Points
 * Final Comments
 
@@ -1421,8 +1419,6 @@ Using Interactive GPU Nodes
 * [Hello World (GPU): Compiling](#hello-world-gpu-compile)
 * [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
 * [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
-* [Hello World (GPU): Interactive Jobs](#hello-world-gpu-interactive)
-
 
 [ [Back to Hello World (GPU)](#hello-world-gpu)] ]      
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]

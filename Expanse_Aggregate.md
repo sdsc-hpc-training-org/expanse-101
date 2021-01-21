@@ -7,7 +7,7 @@ where to run them, and how to run batch jobs. The commands below can be
 cut & pasted into the terminal window, which is connected to
 expanse.sdsc.edu. For instructions on how to do this, see the tutorial
 on how to use a terminal application and SSH go connect to an SDSC HPC
-system: https://github.com/sdsc-hpc-training-org/basic_skills.
+system: [https://github.com/sdsc-hpc-training-org/basic_skills](https://github.com/sdsc-hpc-training-org/basic_skills).
 
 # Misc Notes/Updates:
 *  You must have a expanse account in order to access the system.

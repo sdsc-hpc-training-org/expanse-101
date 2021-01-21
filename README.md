@@ -2,8 +2,10 @@
 
 See:  [expanse.sdsc.edu](https://expanse.sdsc.edu)
 
-<https://github.com/sdsc-hpc-training-org/reverse-proxy/blob/master/README.md>
+[comment]: <> (a reference style link.
+[https://github.com/sdsc-hpc-training-org/reverse-proxy/blob/master/README.md>
 [[embed url=http://www.youtube.com/watch?v=6YbBmqUnoQM]]
+)
 
 ## NOTES:
 
@@ -15,19 +17,19 @@ The link to the presentation will be posted soon:
 
 ### Hands-on Self-guided Tutorial (using markdown file):
 
-https://github.com/sdsc-hpc-training-org/expanse-101/blob/master/running_jobs_on_expanse.md
+[Self-guided Tutorial](https://github.com/sdsc-hpc-training-org/expanse-101/blob/master/running_jobs_on_expanse.md)
 
 ### Link to GitHub Repo
-https://github.com/sdsc-hpc-training-org/expanse-101
+[https://github.com/sdsc-hpc-training-org/expanse-101](https://github.com/sdsc-hpc-training-org/expanse-101)
 
 ### Expanse User Guide
 Please read the Expanse user guide and familiarize yourself with the hardware, file systems, batch job submission, compilers and modules. The guide can be found here:
 
-http://www.sdsc.edu/support/user_guides/expanse.html
+[http://www.sdsc.edu/support/user_guides/expanse.html](http://www.sdsc.edu/support/user_guides/expanse.html)
 
 ### Basic Skills
 You should be familiar with running basic Unix commands, connecting to Expanse via SSH, and other basic skills. See:
-https://github.com/sdsc-hpc-training/basic_skills
+[https://github.com/sdsc-hpc-training/basic_skills](https://github.com/sdsc-hpc-training/basic_skills)
 
 
 

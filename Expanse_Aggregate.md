@@ -19,7 +19,7 @@ system: [https://github.com/sdsc-hpc-training-org/basic_skills](https://github.c
 *  The ``hostname`` for Expanse is ``expanse.sdsc.edu``
 *  The operating system for Expanse is CentOS
 *  For information on moving from Comet to Expanse, see the [Comet to Expanse
-Transition Workshpo](https://education.sdsc.edu/training/interactive/202010_comet_to_expanse/index.html)
+Transition Workshop](https://education.sdsc.edu/training/interactive/202010_comet_to_expanse/index.html)
 
 If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at help@xsede.org.

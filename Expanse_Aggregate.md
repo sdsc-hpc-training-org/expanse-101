@@ -12,10 +12,10 @@ system: https://github.com/sdsc-hpc-training-org/basic_skills.
 # Misc Notes/Updates:
 *  You must have a expanse account in order to access the system.
   * To obtain a trial account:
-      http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
+      [Comet trial account](http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts)
 *  You must be familiar with running basic Unix commands: see the
    following tutorials at:
-   *  https://github.com/sdsc-hpc-training/basic_skills
+   *  [https://github.com/sdsc-hpc-training/basic_skills](https://github.com/sdsc-hpc-training/basic_skills)
 *  The ``hostname`` for Expanse is ``expanse.sdsc.edu``
 *  The operating system for Expanse is CentOS
 *  For information on moving from Comet to Expanse, see the [Comet to Expanse

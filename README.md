@@ -1,5 +1,6 @@
 # [Expanse 101 Tutorial](https://github.com/sdsc-hpc-training-org/reverse-proxy/blob/master/README.md)
 
+## Expanse User Guide:
 See:  [expanse.sdsc.edu](https://expanse.sdsc.edu)
 
 [comment]: <> (a reference style link.

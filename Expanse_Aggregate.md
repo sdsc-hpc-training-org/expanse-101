@@ -340,7 +340,7 @@ All examples will contain source code, along with a batch script example so you 
 <hr>
 
 
-## <a name="modules"></a>Expanse Environment Modules: Customizing Your User Environment
+## <a name="modules"></a>Environment Modules: Customizing Your User Environment
 The Environment Modules package provides for dynamic modification of your shell environment. Module commands set, change, or delete environment variables, typically in support of a particular application. They also let the user choose between different versions of the same software or different combinations of related codes. See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#modules).
 
 In this Section:
@@ -408,12 +408,12 @@ Lmod commands support *short-hand* notation, for example:
 
 <b> A few module command examples:</b>
 
-* Default environment: `list`, `li`
+* Default environment for a new user/new login: `list`, `li`
 
 ```
 (base) [username@login01 expanse-101]$ module list
 Currently Loaded Modules:
-  1) shared   2) cpu/1.0   3) DefaultModules
+1) shared   2) slurm/expanse/20.02.3   3) cpu/0.15.4   4) DefaultModules
 ```
 
 * List available modules:  `available`, `avail`, `av`

@@ -1451,6 +1451,7 @@ Currently Loaded Modules:
 <hr>
 
 #### Hello World (MPI): Batch Script Submission <a name="hello-world-mpi-batch-submit"></a>
+
 * The batch script contains the module commands needed to set the right environment
 in order to run the code. The contents of the default batch script are:
 
@@ -1533,7 +1534,7 @@ Interactive Jobs
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-## Hello World (OpenMP) <a name="hello-world-omp"></a>
+### Hello World (OpenMP) <a name="hello-world-omp"></a>
 **Subsections:**
 * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
 * [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
@@ -1543,7 +1544,7 @@ Interactive Jobs
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (OpenMP): Source Code <a name="hello-world-omp-source"></a>
+#### Hello World (OpenMP): Source Code <a name="hello-world-omp-source"></a>
 Source Code.
 
 ```
@@ -1553,7 +1554,7 @@ hello-world-omp  source code
  [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (OpenMP): Compiling <a name="hello-world-omp-compile"></a>
+#### Hello World (OpenMP): Compiling <a name="hello-world-omp-compile"></a>
 Compiling.
 
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
@@ -1572,7 +1573,7 @@ Batch Script Output
 <hr>
 
 
-## Compiling and Running Hybrid (MPI + OpenMP) Jobs <a name="hybrid-mpi-omp"></a>
+### Compiling and Running Hybrid (MPI + OpenMP) Jobs <a name="hybrid-mpi-omp"></a>
 **Subsections:**
 * [Hybrid (MPI + OpenMP): Source Code](#hybrid-mpi-omp-source)
 * [Hybrid (MPI + OpenMP): Compiling](#hybrid-mpi-omp-compile)
@@ -1582,7 +1583,7 @@ Batch Script Output
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World Hybrid (MPI + OpenMP): Source Code <a name="hybrid-mpi-omp-source"></a>
+#### Hello World Hybrid (MPI + OpenMP): Source Code <a name="hybrid-mpi-omp-source"></a>
 Source Code.
 
 ```
@@ -1616,10 +1617,10 @@ Batch Script Output
 * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
 * [Hello World (GPU): Source Code](#hello-world-gpu)
 
-### Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a>
+### Using Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a>
 Using Expanse GPU Nodes
 
-##### Expanse GPU Hardware
+#### Expanse GPU Hardware
 
 |	GPU Type	|	NVIDIA V100 SMX2	|
 |	  :----	|	  :----
@@ -1685,7 +1686,7 @@ total 71
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Obtaining GPU/CUDA: Node Information
+#### Obtaining GPU/CUDA: Node Information
 
 * Once you are on an interactive node, you can check node configuration using the nvidia-smi command:
 
@@ -1716,7 +1717,7 @@ Thu Oct  8 03:58:44 2020       
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### GPU Compiling:
+### GPU Compiling:
 Must be done on Interactive node
 
 ```
@@ -1968,7 +1969,7 @@ squeue -u user -u user
 * Batch Script Output:
 
 ```
-dddd
+
 
 ```
 

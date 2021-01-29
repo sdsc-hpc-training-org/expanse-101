@@ -39,8 +39,8 @@ Consulting group at help@xsede.org.
 * [Managing Accounts](#managing-accounts)
    * [Expanse Client Script](#manage-accts-client-script)
    * [Using Accounts in Batch Jobs](#manage-accts-batch-script)
-   * [Managing Users on an Account](#manage-accts-adding-users)  
-*[Job Charging](#job-charging)
+   * [Managing Users on an Account](#manage-accts-users)  
+* [Job Charging](#job-charging)
 * [Compiling & Linking](#compilers)
    * [Supported Compilers](#compilers-supported")
    * [AMD Optimizing C/C++ Compiler (AOCC)](#compilers-amd)
@@ -669,7 +669,7 @@ OR add this command to your shell script (including Slurm batch scripts)
 ## <a name="managing-accounts"></a>Managing Accounts on Expanse
 * [Expanse Client Script](#manage-accts-client-script)
 * [Using Accounts in Batch Jobs](#manage-accts-batch-script)
-* [Managing Users on an Account](#manage-accts-adding-users)
+* [Managing Users on an Account](#manage-accts-users)
 
 ### <a name="manage-accts-client-script"></a>Expanse-Client Script
 * The expanse-client script provides additional details regarding User and Project availability and usage located at:
@@ -741,13 +741,15 @@ As with the case above, some users will have access to multiple accounts (e.g. a
   #SBATCH -A << project >>
 ```
 
-### <a name="manage-accts-adding-users"></a>Managing Users on an Account
+### <a name="manage-accts-users"></a>Managing Users on an Account
 Only project PIs and co-PIs can add or remove users from an account. This can only be done 
 via the [XSEDE portal](https://portal.xsede.org) account (there is no command line interface for this). 
 After logging in, go to the Add User page for the account.
 
+[ [Back to Managing Accounts](#managing-accounts) ] [ [Back to Top](#top) ]
 
-## <a name="job-charging"></a>Job Charging
+<hr>
+## <a name="job-charging"></a> Job Charging
 The charge unit for all SDSC machines, including Expanse, is the Service Unit (SU). This corresponds to:
 * Use of one compute core utilizing less than or equal to 2G of data for one hour
 * 1 GPU using less than 96G of data for 1 hour. 
@@ -756,7 +758,7 @@ Note: your charges are based on the resources that are tied up by your job and d
 See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#charging) for more details and factors that affect job charging.
 
 
-[ [Back to Managing Accounts](#accounts) ] [ [Back to Top](#top) ]
+[ [Back to Managing Accounts](#managing-accounts) ] [ [Back to Top](#top) ]
 
 <hr>
 ## <a name="compilers"></a>Compiling & Linking Code

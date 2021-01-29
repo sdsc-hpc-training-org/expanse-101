@@ -1450,7 +1450,7 @@ Currently Loaded Modules:
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (MPI): Batch Script Submission <a name="hello-world-mpi-batch-submit"></a>
+#### Hello World (MPI): Batch Script Submission <a name="hello-world-mpi-batch-submit"></a>
 * The batch script contains the module commands needed to set the right environment
 in order to run the code. The contents of the default batch script are:
 
@@ -1521,7 +1521,7 @@ drwxr-xr-x 8 user abc123     8 Oct  8 04:16 ..
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (MPI): Batch Script Output <a name="hello-world-mpi-batch-output"></a>
+#### Hello World (MPI): Batch Script Output <a name="hello-world-mpi-batch-output"></a>
 Batch Script Output
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
@@ -1559,13 +1559,13 @@ Compiling.
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (OpenMP): Batch Script Submission <a name="hello-world-omp-batch-submit"></a>
+#### Hello World (OpenMP): Batch Script Submission <a name="hello-world-omp-batch-submit"></a>
 Batch Script Submission
 
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (OpenMP): Batch Script Output <a name="hello-world-omp-batch-output"></a>
+#### Hello World (OpenMP): Batch Script Output <a name="hello-world-omp-batch-output"></a>
 Batch Script Output
 
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
@@ -1582,7 +1582,7 @@ Batch Script Output
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Hello World Hybrid (MPI + OpenMP): Source Code <a name="hybrid-mpi-omp-source"></a>
+### Hello World Hybrid (MPI + OpenMP): Source Code <a name="hybrid-mpi-omp-source"></a>
 Source Code.
 
 ```
@@ -1610,13 +1610,13 @@ Batch Script Output
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Compiling and Running GPU Jobs <a name="comp-run-gpu"></a>
+## Compiling and Running GPU Jobs <a name="comp-run-gpu"></a>
 **Sections**
 * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
 * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
 * [Hello World (GPU): Source Code](#hello-world-gpu)
 
-#### Using Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a>
+### Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a>
 Using Expanse GPU Nodes
 
 ##### Expanse GPU Hardware
@@ -1652,16 +1652,16 @@ module load gpu
 module load pgi
 ```
 
+
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
+
+#### Using Interactive GPU Nodes  <a name="comp-run-gpu-interactive"></a>
 * Interactive GPU node:
 
 ```
 srun   --pty   --nodes=1 --account=abc123  --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
 ```
-
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
-<hr>
-
-### Using Interactive GPU Nodes  <a name="comp-run-gpu-interactive"></a>
 
 * Change to the tutorial `OpenACC` directory
 
@@ -1685,7 +1685,7 @@ total 71
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Obtaining GPU/CUDA: Node Information
+### Obtaining GPU/CUDA: Node Information
 
 * Once you are on an interactive node, you can check node configuration using the nvidia-smi command:
 
@@ -1716,7 +1716,8 @@ Thu Oct  8 03:58:44 2020       
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### GPU: Must Compile on Interactive node
+#### GPU Compiling:
+Must be done on Interactive node
 
 ```
 [user@login01 OpenACC]$
@@ -1763,7 +1764,7 @@ sbatch openacc-gpu-shared.sb 
 * [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
 * [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
 
-### Hello World (GPU): Source Code  <a name="hello-world-gpu-source"></a>
+#### Hello World (GPU): Source Code  <a name="hello-world-gpu-source"></a>
 Source Code
 
 ```
@@ -1861,7 +1862,7 @@ int laplace()
 [ [Back to Hello World (GPU)](#hello-world-gpu)] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (GPU): Compiling  <a name="hello-world-gpu-compile"></a>
+#### Hello World (GPU): Compiling  <a name="hello-world-gpu-compile"></a>
 Compile the code:
 1. obtain an interactive node
 2. load the right Modules
@@ -1901,7 +1902,7 @@ exit
 [ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (GPU): Batch Script Submission  <a name="hello-world-gpu-batch-submit"></a>
+#### Hello World (GPU): Batch Script Submission  <a name="hello-world-gpu-batch-submit"></a>
 * Batch Script Contents
 
 ```
@@ -1962,7 +1963,7 @@ squeue -u user -u user
 [ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (GPU): Batch Script Output  <a name="hello-world-gpu-batch-output"></a>
+#### Hello World (GPU): Batch Script Output  <a name="hello-world-gpu-batch-output"></a>
 
 * Batch Script Output:
 

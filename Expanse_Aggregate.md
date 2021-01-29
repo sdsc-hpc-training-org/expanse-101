@@ -940,6 +940,7 @@ with the one you want to use.
 ```
 
 * Contents of the batch script:
+
 ```
 [user@login01 dgemm]$ cat dgemm-slurm.sb
 #!/bin/bash
@@ -965,7 +966,9 @@ module load slurm
 ## Use srun to run the job
 srun --mpi=pmi2 -n 128 --cpu-bind=rank dgemm_example
 ```
-An example of the output:
+
+* An example of the output:
+
 ```
 Top left corner of matrix A:
           1.           2.           3.           4.           5.           6.

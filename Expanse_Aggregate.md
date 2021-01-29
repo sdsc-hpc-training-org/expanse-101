@@ -1678,10 +1678,35 @@ Batch Script Output
 <hr>
 
 #### Hello World Hybrid (MPI + OpenMP): Source Code <a name="hybrid-mpi-omp-source"></a>
-Source Code.
+
+* Source Code: hybrid.c.
 
 ```
-aaaaa
+#include <stdio.h>
+#include "mpi.h"
+#include <omp.h>
+
+int main(int argc, char *argv[]) {
+  int numprocs, rank, namelen;
+  char processor_name[MPI_MAX_PROCESSOR_NAME];
+  int iam = 0, np = 1;
+
+  MPI_Init(&argc, &argv);
+  MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
+  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+  MPI_Get_processor_name(processor_name, &namelen);
+
+  #pragma omp parallel default(shared) private(iam, np)
+  {
+    np = omp_get_num_threads();
+    iam = omp_get_thread_num();
+    printf("Hello from thread %d out of %d from process %d out of %d on %s\n",
+           iam, np, rank, numprocs, processor_name);
+  }
+
+  MPI_Finalize();
+}
+
 ```
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
@@ -1689,18 +1714,96 @@ aaaaa
 #### Hello World Hybrid (MPI + OpenMP): Compiling <a name="hybrid-mpi-omp-compile"></a>
 Compiling.
 
+* Compile code, but remember to load the right modules (see README.txt)
+```
+[1] Compile:
+
+module purge
+module load slurm
+module load cpu
+module load intel
+module load intel-mpi
+
+export I_MPI_CC=icc
+mpicc -qopenmp -o hello_hybrid hello_hybrid.c
+
+[2] Run:
+
+sbatch hybrid-slurm.sb
+
+```
+
+* Compilation example:
+```
+[mthomas@login01 HYBRID]$ module purge
+[mthomas@login01 HYBRID]$ module load slurm
+[mthomas@login01 HYBRID]$ module load cpu
+[mthomas@login01 HYBRID]$ module load intel
+[mthomas@login01 HYBRID]$ module load intel-mpi
+[mthomas@login01 HYBRID]$ export I_MPI_CC=icc
+[mthomas@login01 HYBRID]$ mpicc -qopenmp -o hello_hybrid hello_hybrid.c
+
+```
+
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ]  [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
 #### Hello World Hybrid (MPI + OpenMP): Batch Script Submission <a name="hybrid-mpi-omp-batch-submit"></a>
-Batch Script Submission
+
+* Submit the batch script and monitor:
+```
+[mthomas@login01 HYBRID]$ sbatch hybrid-slurm.sb
+Submitted batch job 1089019
+    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+[mthomas@login01 HYBRID]$ squeue -u mthomas
+[mthomas@login01 HYBRID]$ squeue -u mthomas
+    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+
+```
 
 [ [Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
 #### Hello World Hybrid (MPI + OpenMP): Batch Script Output <a name="hybrid-mpi-omp-batch-output"></a>
 
-Batch Script Output
+* Batch Script Output:
+
+```
+[mthomas@login01 HYBRID]$ cat hellohybrid.1089019.exp-10-07.out
+Hello from thread 0 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 14 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 1 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 4 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 12 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 2 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 13 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 7 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 3 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 8 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 0 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 3 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 13 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 14 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 6 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 7 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 11 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 12 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 4 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 1 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 5 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 15 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 11 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 9 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 5 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 2 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 6 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 9 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 8 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 10 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 10 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 15 out of 16 from process 0 out of 2 on exp-10-07
+
+```
 
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>

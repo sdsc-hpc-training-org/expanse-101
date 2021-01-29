@@ -593,7 +593,7 @@ To see the value for any of these variables, use the `echo` command. In this exa
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
-### Loading Modules During Login <a name="module-login-load"></a>
+### Loading Modules at Login <a name="module-login-load"></a>
 You can override, and add to the standard set of login modules in two ways.
 1. The first is adding module commands to your personal startup files.
 2. The second way is through the “module save” command.
@@ -741,7 +741,7 @@ As with the case above, some users will have access to multiple accounts (e.g. a
   #SBATCH -A << project >>
 ```
 
-### <a name="manage-accts-adding-users"></a>Adding Users to an Account
+### <a name="manage-accts-adding-users"></a>Managing Users on an Account
 Only project PIs and co-PIs can add or remove users from an account. This can only be done 
 via the [XSEDE portal](https://portal.xsede.org] account (there is no command line interface for this). 
 After logging in, go to the Add User page for the account.

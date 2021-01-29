@@ -1312,7 +1312,7 @@ sbatch hello_mpi_slurm.sb
 [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-## Checking Your Environment<a name="heck-env"></a>
+### Checking Your Environment<a name="heck-env"></a>
 This simple batch script will show you how to check your user environment
 and to also verify that your Slurm environment is working.
 
@@ -1368,7 +1368,7 @@ Submitted batch job 1088090
 
 [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 
-## Hello World (MPI) <a name="hello-world-mpi"></a>
+### Hello World (MPI) <a name="hello-world-mpi"></a>
 **Subsections:**
 * [Hello World (MPI): Source Code](#hello-world-mpi-source)
 * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
@@ -1379,7 +1379,7 @@ Submitted batch job 1088090
 [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (MPI): Source Code <a name="hello-world-mpi-source"></a>
+#### Hello World (MPI): Source Code <a name="hello-world-mpi-source"></a>
 * Change to the tutorial `MPI` examples directory:
 * Source code with basic MPI elements:
 
@@ -1403,7 +1403,7 @@ Submitted batch job 1088090
  [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (MPI): Compiling <a name="hello-world-mpi-compile"></a>
+#### Hello World (MPI): Compiling <a name="hello-world-mpi-compile"></a>
 * To compile, checkout the instructions in the README.txt file.
 * Follow the instructions in the batch script provided for the compiler you want to test.
 
@@ -1411,7 +1411,7 @@ Submitted batch job 1088090
 [user@login01 MPI]$ cat README.txt 
 [1] Compile:
 
-### MODULE ENV: updated 01/28/2020 (MPT)
+#### MODULE ENV: updated 01/28/2020 (MPT)
  module purge
  module load slurm
  module load cpu
@@ -1527,7 +1527,7 @@ Batch Script Output
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (MPI): Interactive Jobs <a name="hello-world-mpi-interactive"></a>
+#### Hello World (MPI): Interactive Jobs <a name="hello-world-mpi-interactive"></a>
 Interactive Jobs
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
@@ -1582,7 +1582,7 @@ Batch Script Output
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World Hybrid (MPI + OpenMP): Source Code <a name="hybrid-mpi-omp-source"></a>
+#### Hello World Hybrid (MPI + OpenMP): Source Code <a name="hybrid-mpi-omp-source"></a>
 Source Code.
 
 ```
@@ -1591,35 +1591,35 @@ aaaaa
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World Hybrid (MPI + OpenMP): Compiling <a name="hybrid-mpi-omp-compile"></a>
+#### Hello World Hybrid (MPI + OpenMP): Compiling <a name="hybrid-mpi-omp-compile"></a>
 Compiling.
 
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ]  [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World Hybrid (MPI + OpenMP): Batch Script Submission <a name="hybrid-mpi-omp-batch-submit"></a>
+#### Hello World Hybrid (MPI + OpenMP): Batch Script Submission <a name="hybrid-mpi-omp-batch-submit"></a>
 Batch Script Submission
 
 [ [Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World Hybrid (MPI + OpenMP): Batch Script Output <a name="hybrid-mpi-omp-batch-output"></a>
+#### Hello World Hybrid (MPI + OpenMP): Batch Script Output <a name="hybrid-mpi-omp-batch-output"></a>
 
 Batch Script Output
 
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-## Compiling and Running GPU Jobs <a name="comp-run-gpu"></a>
+### Compiling and Running GPU Jobs <a name="comp-run-gpu"></a>
 **Sections**
 * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
 * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
 * [Hello World (GPU): Source Code](#hello-world-gpu)
 
-### Using Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a>
+#### Using Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a>
 Using Expanse GPU Nodes
 
-#### Expanse GPU Hardware
+##### Expanse GPU Hardware
 
 |	GPU Type	|	NVIDIA V100 SMX2	|
 |	  :----	|	  :----

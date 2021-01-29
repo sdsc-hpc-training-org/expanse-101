@@ -664,13 +664,58 @@ OR add this command to your shell script (including Slurm batch scripts)
 <hr>
 
 ## <a name="accounts"></a>Managing Accounts on Expanse
-* [Expanse Accounts](#expanse-accounts)
+* [Expanse Client Script](#manage-accts-client-script)
 
-### Expanse Accounts<a name="expanse-accounts"></a>
-You must have a expanse account in order to access the system.
-* To obtain a trial account or an expedited allocation, go here:  http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
-* To obtain a trial account or an expedited allocation, go here:  http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
-* *Note:* You may need to create an XSEDE portal account. XSEDE portal accounts are open to the general community. However, access and allocations to specific XSEDE or SDSC systems will depend on the details of an allocation request.
+### <a name="manage-accts-client-script"></a>Expanse-Client Script
+The expanse-client script provides additional details regarding User and Project availability and usage located at:
+```
+/cm/shared/apps/sdsc/current/bin/expanse-client
+```
+
+Usage: 
+```
+[username@login01 ~]$ expanse-client -h
+Allows querying the user statistics.
+
+Usage:
+  expanse-client [command]
+
+Available Commands:
+  help        Help about any command
+  project     Get project information
+  user        Get user information
+
+Flags:
+  -a, --auth      authenticate the request
+  -h, --help      help for expanse-client
+  -p, --plain     plain no graphics output
+  -v, --verbose   verbose output
+
+Use "expanse-client [command] --help" for more information about a command.
+```
+
+Example of using the script shows that the user has allocations on 3 accounts, and has not used a lot of SU's:
+```
+[username@login01 ~]$ expanse-client user -p
+
+ Resource  sdsc_expanse 
+
+ NAME     PROJECT  USED  AVAILABLE  USED BY PROJECT 
+----------------------------------------------------
+ username  abc123     33      50000              180 
+ username  srt456      0       1000               79 
+ username  xyz789    318    5050000          2905439 
+```
+
+### Using Accounts in Batch Jobs
+As with the case above, some users will have access to multiple accounts (e.g. an allocation for a research project and a separate allocation for classroom or educational use). Users should verify that the correct project is designated for all batch jobs. Awards are granted for a specific purposes and should not be used for other projects. Designate a project by replacing  << project >> with a project listed as above in the SBATCH directive in your job script:
+
+```
+  #SBATCH -A << project >>
+```
+
+### Adding Users to an Account
+Only project PIs and co-PIs can add or remove users from an account. This can only be done via the [XSEDE portal](https://portal.xsede.org] account (there is no command line interface for this). After logging in, go to the Add User page for the account.
 
 [ [Back to Accounts](#accounts) ] [ [Back to Top](#top) ]
 

@@ -743,10 +743,20 @@ As with the case above, some users will have access to multiple accounts (e.g. a
 
 ### <a name="manage-accts-adding-users"></a>Managing Users on an Account
 Only project PIs and co-PIs can add or remove users from an account. This can only be done 
-via the [XSEDE portal](https://portal.xsede.org] account (there is no command line interface for this). 
+via the [XSEDE portal](https://portal.xsede.org) account (there is no command line interface for this). 
 After logging in, go to the Add User page for the account.
 
 
+## <a name="job-charging"></a>Job Charging
+The charge unit for all SDSC machines, including Expanse, is the Service Unit (SU). This corresponds to:
+* Use of one compute core utilizing less than or equal to 2G of data for one hour
+* 1 GPU using less than 96G of data for 1 hour. 
+Note: your charges are based on the resources that are tied up by your job and don't necessarily reflect how the resources are used. Charges are based on either the number of cores or the fraction of the memory requested, whichever is larger. The minimum charge for any job is 1 SU.
+
+See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#charging) for more details and factors that affect job charging.
+
+
+[ [Back to Managing Accounts](#accounts) ] [ [Back to Top](#top) ]
 
 <hr>
 ## <a name="compilers"></a>Compiling & Linking Code

@@ -766,11 +766,11 @@ Note: your charges are based on the resources that are tied up by your job and d
 
 See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#charging) for more details and factors that affect job charging.
 
+## <a name="compilers"></a>Compiling & Linking Code
 
 [ [Back to Managing Accounts](#managing-accounts) ] [ [Back to Top](#top) ]
 
 <hr>
-## <a name="compilers"></a>Compiling & Linking Code
 ## <a name="job-charging"></a>Job Charging222
 
 Expanse provides the Intel, Portland Group (PGI), and GNU compilers along with multiple MPI implementations (MVAPICH2, MPICH2, OpenMPI). Most applications will achieve the best performance on Expanse using the Intel compilers and MVAPICH2 and the majority of libraries installed on Expanse have been built using this combination. Having such a diverse set of compilers avaiable allows for our users to customize the software stack need for thier application. However, there

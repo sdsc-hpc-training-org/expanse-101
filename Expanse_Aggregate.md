@@ -27,7 +27,7 @@ Consulting group at help@xsede.org.
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](#overview)
 * [Getting Started](#get-start)
-  * [Expanse Accounts](#get-start-expanse-accounts)
+  * [Obtaining Expanse Accounts](#get-start-expanse-accounts)
   * [Logging Onto Expanse](#get-start-expanse-logon)
   * [Obtaining Example Code](#get-start-example-code)
   * [Expanse User Portal](#get-start-user-portal)

@@ -766,12 +766,11 @@ Note: your charges are based on the resources that are tied up by your job and d
 
 See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#charging) for more details and factors that affect job charging.
 
-[ [Back to Managing Accounts](#managing-accounts) ] [ [Back to Top](#top) ]
 
 ## <a name="compilers"></a>Compiling & Linking Code
 
-Expanse provides the Intel, Portland Group (PGI), and GNU compilers along with multiple MPI implementations (MVAPICH2, MPICH2, OpenMPI). Most applications will achieve the best performance on Expanse using the Intel compilers and MVAPICH2 and the majority of libraries installed on Expanse have been built using this combination. Having such a diverse set of compilers avaiable allows for our users to customize the software stack need for thier application. However, there
-can be some complexity involed in sorting out the module dependencies needed for your applications. Often the set of modules being loaded depends on the application you are using and the compiler and libraries you may need. In many cases you will need to use the ```module spider``` command to sort out what modules your application will need. Additionally, it is possible the list will change if some of the dependent software changes.
+Expanse provides the Intel, Portland Group (PGI), and GNU compilers along with multiple MPI implementations (MVAPICH2, MPICH2, OpenMPI). Most applications will achieve the best performance on Expanse using the Intel compilers and MVAPICH2 and the majority of libraries installed on Expanse have been built using this combination. Having such a diverse set of compilers avaiable allows for our users to customize the software stack need for their application. However, there
+can be some complexity involved in sorting out the module dependencies needed for your applications. Often the set of modules being loaded depends on the application you are using and the compiler and libraries you may need. In many cases you will need to use the ```module spider``` command to sort out what modules your application will need. Additionally, it is possible the list will change if some of the dependent software changes.
 
 Other compilers and versions can be installed by Expanse staff on request. For more information, see the [Expanse User Guide.]
 (https://www.sdsc.edu/support/user_guides/expanse.html#compiling)
@@ -785,7 +784,6 @@ Other compilers and versions can be installed by Expanse staff on request. For m
     * [PGI Compilers](#compilers-pgi)
 
 [Back to Top](#top)
-<hr>
 
 ### <a name="compilers-supported"></a>Supported Compilers
 Expanse CPU and GPU nodes have different compiler libraries.
@@ -832,15 +830,14 @@ Suggested Compilers to used based on programming model and languages:
 |Language | Serial | MPI | OpenMP | MPI + OpenMP |
 | :---- | :---- | :---- | :---- | :---- |
 |Fortran  | flang | mpif90 | ifort -fopenmp | mpif90 -fopenmp |
-|C         | clang | mpiclang | icc -fopenmp | mpicc -fopenmp |
+| C       | clang | mpiclang | icc -fopenmp | mpicc -fopenmp |
 | C++     | clang++ | mpiclang | icpc -fopenmp | mpicxx -fopenmp |
 
 ### Using the AOCC Compilers
 
 * If you have modified your environment, you can reload by executing the module purge & load commands at the Linux prompt, or placing the load command in your startup file (~/.cshrc or ~/.bashrc)
-* Note: The examples below are for the simple “hellompi” examples shown below
 
-In this example, we show how to use the ```swap``` command.
+In this example, we show how to reload your environment and how to use the ```swap``` command.
 ```
 [username@login02 ~]$ module list
 Currently Loaded Modules:
@@ -868,7 +865,7 @@ Currently Loaded Modules:
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top)
 <hr>
 
-### <a name="compilers-intel"></a>Intel Compilers:
+### <a name="compilers-intel"></a>Intel Compilers
 
 The Intel compilers and the MVAPICH2 MPI implementation will be loaded by default. The MKL and related libraries may need several modulrs. If you have modified your environment, you can reload by executing the following commands such as those shown below at the Linux prompt or placing in your startup file (~/.cshrc or ~/.bashrc). Below is the list of modules created for the DGEMM MKL example described below  (on 01/25/21):
 
@@ -881,7 +878,7 @@ module load intel/19.0.5.281
 module load intel-mkl/2020.3.279
 ```
 
-Recall that the list of modules being loaded depends on the application you are using and the compiler and libraries you may need. In some cases you will need to use the ```module spider``` command to sort out what modules your application will need.  And, it is possible the list will change if some of the dependent software changes.
+Recall that the list of modules being loaded depends on the application you are using and the compiler and libraries you may need. In some cases you will need to use the __module spider__ command to sort out what modules your application will need.  And, it is possible the list will change if some of the dependent software changes.
 
 For AVX2 support, compile with the -xHOST option. Note that -xHOST alone does not enable aggressive optimization, so compilation with -O3 is also suggested. The -fast flag invokes -xHOST, but should be avoided since it also turns on interprocedural optimization (-ipo), which may cause problems in some instances.
 
@@ -902,7 +899,7 @@ drwxr-xr-x 3 username abc123        3 Jan 29 00:25 ..
 -rw-r--r-- 1 username abc123      363 Jan 29 00:32 README.txt
 ```
 
-* Source code key lines:
+* Code snippets:
 ```
  PROGRAM   MAIN
 
@@ -919,9 +916,9 @@ drwxr-xr-x 3 username abc123        3 Jan 29 00:25 ..
 ```
 
 * README.txt contents:
+
 ```
 [username@login01 dgemm]$ cat README.txt
-### MPT:  10/7/2020 -- Example is not working
 
 [1] Compile:
 

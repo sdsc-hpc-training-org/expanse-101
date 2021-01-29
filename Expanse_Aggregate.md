@@ -37,7 +37,7 @@ Consulting group at help@xsede.org.
    * [Loading Modules During Login](#module-login-load)
    * [Troubleshooting:Module Error](#module-error)
 * [Account Management](#managing-accounts)
-   * [Expanse Client Script](#emanage-accts-client-script)
+   * [Expanse Client Script](#manage-accts-client-script)
    * [Using Accounts in Batch Jobs](#manage-accts-batch-script)
    * [Managing Users on an Account](#manage-accts-adding-users)  
 *[Job Charging](#job-charging)
@@ -699,7 +699,7 @@ Flags:
 Use "expanse-client [command] --help" for more information about a command.
 ```
 
-Example of using the script shows that the user has allocations on 3 accounts, and has not used a lot of SU's:
+Example of using the script shows that the user has allocations on 3 accounts, and SU's remaining:
 ```
 [username@login01 ~]$ expanse-client user -p
 
@@ -710,6 +710,9 @@ Example of using the script shows that the user has allocations on 3 accounts, a
  username  abc123     33      50000              180 
  username  srt456      0       1000               79 
  username  xyz789    318    5050000          2905439 
+```
+
+To see who is on an account:
 ```
 
 ### <a name="manage-accts-batch-script"></a>Using Accounts in Batch Jobs
@@ -846,35 +849,114 @@ For AVX2 support, compile with the -xHOST option. Note that -xHOST alone does no
 
 Intel MKL libraries are available as part of the "intel" modules on Expanse. Once this module is loaded, the environment variable MKL_ROOT points to the location of the mkl libraries. The MKL link advisor can be used to ascertain the link line (change the MKL_ROOT aspect appropriately).
 
-In the example below, we are working with the HPC examples that can be found in
+In the example below, we are working with a serial MKL example that can be found in the examples/MKL/dgemm folder of the GitHub repository.
+This example based on an [Intel MKL repo](http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/) 
+computes the real matrix ```C=alpha*A*B+beta*C``` using Intel(R) MKL
 
+* Repository contents:
 ```
-[user@expanse-14-01:~/expanse-examples/expanse101/MKL] pwd
-/home/user/expanse-examples/expanse101/MKL
-[user@expanse-14-01:~/expanse-examples/expanse101/MKL] ls -al
-total 25991
-drwxr-xr-x  2 user abc123        9 Nov 25 17:20 .
-drwxr-xr-x 16 user abc123       16 Aug  5 19:02 ..
--rw-r--r--  1 user abc123      325 Aug  5 19:02 compile.txt
--rw-r--r--  1 user abc123     6380 Aug  5 19:02 pdpttr.c
--rwxr-xr-x  1 user abc123 44825440 Nov 25 16:55 pdpttr.exe
--rw-r--r--  1 user abc123      188 Nov 25 16:57 scalapack.20294236.expanse-07-27.out
--rw-r--r--  1 user abc123      376 Aug  5 19:02 scalapack.sb
-```
-
-The file `compile.txt` contains the full command to compile the `pdpttr.c` program statically linking 64 bit scalapack libraries on Expanse:
-
-```
-[user@expanse-14-01:~/expanse-examples/expanse101/MKL] cat compile.txt
-mpicc -o pdpttr.exe pdpttr.c /opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64/libmkl_scalapack_lp64.a -Wl,--start-group /opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64/libmkl_intel_lp64.a /opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64/libmkl_sequential.a /opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64/libmkl_core.a /opt/intel/2018.1.163/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64/libmkl_blacs_intelmpi_lp64.a -Wl,--end-group -lpthread -lm -ldl
+[username@login01 dgemm]$ ll
+total 3758
+drwxr-xr-x 2 username abc123       8 Jan 29 00:45 .
+drwxr-xr-x 3 username abc123        3 Jan 29 00:25 ..
+-rw-r--r-- 1 username abc123     2997 Jan 29 00:25 dgemm_example.f
+-rw-r--r-- 1 username abc123      618 Jan 29 00:25 dgemm-slurm.sb
+-rw-r--r-- 1 username abc123      363 Jan 29 00:32 README.txt
 ```
 
-Run the command:
-
-
+* Source code key lines:
 ```
-[user@expanse-14-01:~/expanse-examples/expanse101/MKL] mpicc -o pdpttr.exe pdpttr.c  -I$MKL_ROOT/include ${MKL_ROOT}/lib/intel64/libmkl_scalapack_lp64.a -Wl,--start-group ${MKL_ROOT}/lib/intel64/libmkl_intel_lp64.a ${MKL_ROOT}/lib/intel64/libmkl_core.a ${MKL_ROOT}/lib/intel64/libmkl_sequential.a -Wl,--end-group ${MKL_ROOT}/lib/intel64/libmkl_blacs_intelmpi_lp64.a -lpthread -lm
+ PROGRAM   MAIN
+
+      IMPLICIT NONE
+
+      DOUBLE PRECISION ALPHA, BETA
+      INTEGER          M, P, N, I, J
+      PARAMETER        (M=2000, P=200, N=1000)
+      DOUBLE PRECISION A(M,P), B(P,N), C(M,N)
+[SNIP]
+      PRINT *, "Computing matrix product using Intel(R) MKL DGEMM "
+      CALL DGEMM('N','N',M,N,P,ALPHA,A,M,B,P,BETA,C,M)
+[SNIP]
 ```
+
+* README.txt contents:
+```
+[username@login01 dgemm]$ cat README.txt 
+### MPT:  10/7/2020 -- Example is not working
+
+[1] Compile:
+
+module purge
+module load slurm
+module load cpu
+module load gpu/0.15.4  
+module load intel/19.0.5.281
+module load intel-mkl/2020.3.279
+
+ifort -o dgemm_example  -mkl -static-intel dgemm_example.f
+
+[2] Run:
+
+sbatch dgemm-slurm.sb
+
+NOTE: for other compilers, replace "gcc"
+with the one you want to use.
+```
+
+* Contents of the batch script:
+```
+[username@login01 dgemm]$ cat dgemm-slurm.sb 
+#!/bin/bash
+#SBATCH --job-name="dgemm_example"
+#SBATCH --output="dgemm_example.%j.%N.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=128
+#SBATCH --mem=248G
+#SBATCH --account=sds173
+#SBATCH --export=ALL
+#SBATCH -t 00:30:00
+
+#This job runs with 1 nodes, 128 cores per node for a total of 256 cores.
+## Environment
+module purge
+module load cpu/0.15.4
+module load gpu/0.15.4 
+module load intel/19.0.5.281 
+module load intel-mkl/2020.3.279
+module load slurm
+
+## Use srun to run the job
+srun --mpi=pmi2 -n 128 --cpu-bind=rank dgemm_example
+```
+An example of the output:
+```
+Top left corner of matrix A:
+          1.           2.           3.           4.           5.           6.
+        201.         202.         203.         204.         205.         206.
+        401.         402.         403.         404.         405.         406.
+        601.         602.         603.         604.         605.         606.
+        801.         802.         803.         804.         805.         806.
+       1001.        1002.        1003.        1004.        1005.        1006.
+ 
+ Top left corner of matrix B:
+         -1.          -2.          -3.          -4.          -5.          -6.
+      -1001.       -1002.       -1003.       -1004.       -1005.       -1006.
+      -2001.       -2002.       -2003.       -2004.       -2005.       -2006.
+      -3001.       -3002.       -3003.       -3004.       -3005.       -3006.
+      -4001.       -4002.       -4003.       -4004.       -4005.       -4006.
+      -5001.       -5002.       -5003.       -5004.       -5005.       -5006.
+ 
+ Top left corner of matrix C:
+ -2.6666E+09  -2.6666E+09  -2.6667E+09  -2.6667E+09  -2.6667E+09  -2.6667E+09
+ -6.6467E+09  -6.6467E+09  -6.6468E+09  -6.6468E+09  -6.6469E+09  -6.6470E+09
+ -1.0627E+10  -1.0627E+10  -1.0627E+10  -1.0627E+10  -1.0627E+10  -1.0627E+10
+ -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10
+ -1.8587E+10  -1.8587E+10  -1.8587E+10  -1.8587E+10  -1.8588E+10  -1.8588E+10
+ -2.2567E+10  -2.2567E+10  -2.2567E+10  -2.2567E+10  -2.2568E+10  -2.2568E+10
+ ```
+
 
 For more information on the Intel compilers run: [ifort | icc | icpc] -help
 

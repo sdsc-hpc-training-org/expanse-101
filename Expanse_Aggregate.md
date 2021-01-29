@@ -1017,8 +1017,7 @@ For more information on the GNU compilers: man [gfortran | gcc | g++]
 |C++ | g++ | mpicxx | g++ -fopenmp | mpicxx -fopenmp|
 
 
-[Back to Compilers](#compilers)<br>
-[Back to Top](#top)
+[Back to Compilers](#compilers) [Back to Top](#top)
 <hr>
 
 ### <a name="compilers-pgi"></a>PGI Compilers

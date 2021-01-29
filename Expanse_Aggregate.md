@@ -36,7 +36,7 @@ Consulting group at help@xsede.org.
    * [Modules: Popular Lmod Commands](#module-commands)
    * [Loading Modules During Login](#module-login-load)
    * [Troubleshooting:Module Error](#module-error)
-* [Account Management](#managing-accounts)
+* [Managing Accounts](#managing-accounts)
    * [Expanse Client Script](#manage-accts-client-script)
    * [Using Accounts in Batch Jobs](#manage-accts-batch-script)
    * [Managing Users on an Account](#manage-accts-adding-users)  

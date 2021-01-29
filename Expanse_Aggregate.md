@@ -995,7 +995,7 @@ Top left corner of matrix A:
 
 For more information on the Intel compilers run: [ifort | icc | icpc] -help
 
-[ [Back to Compilers](#compilers-toc) ] [ [Back to Top](#top)
+[ [Back to Compilers](#compilers-toc) ] [ [Back to Top](#top) ]
 <hr>
 
 ### <a name="compilers-gnu"></a>GNU Compilers
@@ -1038,8 +1038,7 @@ For more information on the PGI compilers: man [pgf90 | pgcc | pgCC]
 |C | pgcc | mpicc | pgcc -mp | mpicc -mp|
 |C++ | pgCC | mpicxx | pgCC -mp | mpicxx -mp|
 
-[Back to Compilers](#compilers)<br>
-[Back to Top](#top)
+[Back to Compilers](#compilers) [Back to Top](#top)
 <hr>
 
 ## Running Jobs on Expanse <a name="run-jobs"></a>

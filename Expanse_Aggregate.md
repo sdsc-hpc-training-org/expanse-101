@@ -768,11 +768,6 @@ See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.ht
 
 ## <a name="compilers"></a>Compiling & Linking Code
 
-[ [Back to Managing Accounts](#managing-accounts) ] [ [Back to Top](#top) ]
-
-<hr>
-## <a name="job-charging"></a>Job Charging222
-
 Expanse provides the Intel, Portland Group (PGI), and GNU compilers along with multiple MPI implementations (MVAPICH2, MPICH2, OpenMPI). Most applications will achieve the best performance on Expanse using the Intel compilers and MVAPICH2 and the majority of libraries installed on Expanse have been built using this combination. Having such a diverse set of compilers avaiable allows for our users to customize the software stack need for thier application. However, there
 can be some complexity involed in sorting out the module dependencies needed for your applications. Often the set of modules being loaded depends on the application you are using and the compiler and libraries you may need. In many cases you will need to use the ```module spider``` command to sort out what modules your application will need. Additionally, it is possible the list will change if some of the dependent software changes.
 

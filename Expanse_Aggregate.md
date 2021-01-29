@@ -1020,7 +1020,7 @@ For more information on the GNU compilers: man [gfortran | gcc | g++]
 |C++ | g++ | mpicxx | g++ -fopenmp | mpicxx -fopenmp|
 
 
-[Back to Compilers](#compilers) [Back to Top](#top)
+[ [Back to Compilers](#compilers) ] [ [Back to Top](#top) ]
 <hr>
 
 ### <a name="compilers-pgi"></a>PGI Compilers
@@ -1041,7 +1041,7 @@ For more information on the PGI compilers: man [pgf90 | pgcc | pgCC]
 |C | pgcc | mpicc | pgcc -mp | mpicc -mp|
 |C++ | pgCC | mpicxx | pgCC -mp | mpicxx -mp|
 
-[Back to Compilers](#compilers) [Back to Top](#top)
+[ [Back to Compilers](#compilers) ] [ [Back to Top](#top) ]
 <hr>
 
 ## Running Jobs on Expanse <a name="run-jobs"></a>
@@ -1078,7 +1078,7 @@ In this Section:
 * Most common HPC API’s for using SHMEM:
    * Portable Operating System Interface (POSIX); Open Multi-Processing (OpenMP) designed for parallel computing – best for multi-core computing.
 
-[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top)
+[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Methods for  Running Jobs on Expanse <a name="run-jobs-methods"></a>
@@ -1109,10 +1109,10 @@ __GPU:__
 srun   --pty --account=abc123  --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
 ```
 
-[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top)
+[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
 
-### Command Line Jobs <a name="run-jobs-cmdline"></a>
+#### Command Line Jobs <a name="run-jobs-cmdline"></a>
 The login nodes are meant for compilation, file editing, simple data analysis, and other tasks that use minimal compute resources. <em>Do not run parallel or large jobs on the login nodes - even for simple tests</em>. Even if you could run a simple test on the command line on the login node, full tests should not be run on the login node because the performance will be adversely impacted by all the other tasks and login activities of the other users who are logged onto the same node. For example, at the moment that this note was written,  a `gzip` process was consuming 98% of the CPU time:
     ```
     [user@comet-ln3 OPENMP]$ top
@@ -1123,12 +1123,11 @@ The login nodes are meant for compilation, file editing, simple data analysis, a
 
 Commands that you type into the terminal and run on the sytem are considered *jobs* and they consume resources.  <em>Computationally intensive jobs should be run only on the compute nodes and not the login nodes</em>.
 
-[Back to Running Jobs](#run-jobs)<br>
-[Back to Top](#top)
+[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
 
  ### SLURM Resource Manager <a name="run-jobs-slurm"></a>
-* Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ resource manager. Slurm is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://slurm.schedmd.com/documentation.html](https://slurm.schedmd.com/documentation.html).
+Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ resource manager. Slurm is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://slurm.schedmd.com/documentation.html](https://slurm.schedmd.com/documentation.html).
 
 | logging on to Expanse | SLURM Architecture |
 | :--- | :--- |
@@ -1143,8 +1142,7 @@ Commands that you type into the terminal and run on the sytem are considered *jo
   * Launch and otherwise manage jobs
 
 
-[Back to Running Jobs](#run-jobs)<br>
-[Back to Top](#top)
+[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
 
  ### SLURM Partitions <a name="run-jobs-slurm-partition"></a>
@@ -1152,18 +1150,17 @@ About Partitions
 
 |	Partition Name	|	Max Walltime	|	Max Nodes/ Job	|	Max Running Jobs	|	Max Running + Queued Jobs	|	Charge Factor	|	Comments	|
 |	:----	|	:----:	|	:----:	|	:----:	|	:----:	|	:----:	|	:----	|
-|	compute	|	48 hrs	|	32	|	64	|	128	|	1	|	Used for exclusive access to regular compute nodes	|
+|	compute	|	48 hrs	|	32	|	32	|	64	|	1	|	Used for exclusive access to regular compute nodes	|
 |	shared	|	48 hrs	|	1	|	4096	|	4096	|	1	|	Single-node jobs using fewer than 128 cores	|
 |	gpu	|	48 hrs	|	4	|	4	|	8 (32 Tres GPU)	|	1	|	Used for exclusive access to the GPU nodes	|
-|	gpu-shared	|	48 hrs	|	1	|	16	|	24 (24 Tres GPU)	|	1	|	Single-node job using fewer than 4 GPUs	|
+|	gpu-shared	|	48 hrs	|	1	|	24	|	24 (24 Tres GPU)	|	1	|	Single-node job using fewer than 4 GPUs	|
 |	large-shared	|	48 hrs	|	1	|	1	|	4	|	1	|	Single-node jobs using large memory up to 2 TB (minimum memory required 256G)	|
-|	debug	|	15 min	|	2	|	1	|	2	|	1	|	Priority access to compute nodes set aside for testing of jobs with short walltime and limited resources	|
-|	gpu-debug	|	15 min	|	2	|	1	|	2	|	1	|	** Priority access to gpu nodes set aside for testing of jobs with short walltime and limited resources	|
+|	debug	|	30 min	|	2	|	1	|	2	|	1	|	Priority access to compute nodes set aside for testing of jobs with short walltime and limited resources	|
+|	gpu-debug	|	30 min	|	2	|	1	|	2	|	1	|	** Priority access to gpu nodes set aside for testing of jobs with short walltime and limited resources	|
 |	preempt	|	7 days	|	32	|		|	128	|	0.8	|	Discounted jobs to run on free nodes that can be pre-empted by jobs submited to any other queue (NO REFUNDS)	|
 |	gpu-preempt	|	7 days	|	1	|		|	24 (24 Tres GPU)	|	0.8	|	Discounted jobs to run on unallocated nodes that can be pre-empted by jobs submitted to higher priority queues (NO REFUNDS	|
 
-[Back to Running Jobs](#run-jobs)<br>
-[Back to Top](#top)
+[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Common SLURM Commands <a name="run-jobs-slurm-commands"></a>
@@ -1175,8 +1172,12 @@ Here are a few key Slurm commands. For more information, run the `man slurm` or 
 $ sbatch mycode-slurm.sb 
 ```
 
-* Submitted batch job 8718049
-Check job status using the squeue command:
+* Submitted batch job 8718049.
+Check job status using the squeue command.
+* PD == job pending
+* R  == job is Running
+* C  == job is complete/clearing
+* E  ==  job has an error
 
 ```
 $ squeue -u $USER
@@ -1218,7 +1219,7 @@ Below is an example of a batch script that prints our your environment on the co
 ## Environment
 module purge
 module load slurm
-module load cpu
+module load cpu
 ##  perform some basic unix commands
 echo "----------------------------------"
 echo "hostname= " `hostname` 
@@ -1251,7 +1252,7 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 ----------------------------------
 ```
 
-[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top)
+[ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
 
 ## Compiling and Running CPU Jobs<a name="comp-and-run-cpu-jobs"></a>
@@ -1346,19 +1347,19 @@ sbatch hello_mpi_slurm.sb
 ```
 [user@login01 MPI]$ cat README.txt 
 [1] Compile:
-# Load module environment
-module purge
-module load slurm
-module load cpu
-module load gcc/10.2.0
-module load openmpi/4.0.4
-mpif90 -o hello_mpi hello_mpi.f90
+
+### MODULE ENV: updated 01/28/2020 (MPT)
+ module purge
+ module load slurm
+ module load cpu
+ module load gcc/10.2.0
+ module load openmpi/4.0.4
+
+mpif90 -o hello_mpi hello_mpi.f90
 
 [2a] Run using Slurm:
-sbatch hellompi-slurm.sb
 
-[2b] Run using Interactive CPU Node
-srun --partition=debug  --pty --account=abc123 --nodes=1 --ntasks-per-node=128 --mem=248G -t 00:30:00 --wait=0 --export=ALL /bin/bash
+sbatch hellompi-slurm.sb
 ```
 
 * Follow the compile instructions for the compiler that you want to use
@@ -1380,46 +1381,41 @@ Currently Loaded Modules:
 
 
 ```
-[user@login01 MPI]$mpif90 -o hello_mpi hello_mpi.f90
 [user@login01 MPI]$ mpif90 -o hello_mpi hello_mpi.f90
-[user@login01 MPI]$ ll
-total 125
-drwxr-xr-x 2 user abc123    12 Dec 10 00:58 .
-drwxr-xr-x 8 user abc123     8 Oct  8 04:16 ..
--rwxr-xr-x 1 user abc123 21576 Oct  7 11:28 hello_mpi
-[snip]
 ```
-
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Hello World (MPI): Batch Script Submission <a name="hello-world-mpi-batch-submit"></a>
-* There are several batch scripts provided that contain the module commands needed to compile
-and run the code. The contents of the default batch script are:
+* The batch script contains the module commands needed to set the right environment
+in order to run the code. The contents of the default batch script are:
 
 ```
-[user@login01 MPI]$ cat hellompi-slurm.sb
+[mthomas@login01 MPI]$ cat hellompi-slurm.sb
 #!/bin/bash
 #SBATCH --job-name="hellompi"
 #SBATCH --output="hellompi.%j.%N.out"
 #SBATCH --partition=compute
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=128
+####SBATCH --partition=shared
+#SBATCH --nodes=3
+#SBATCH --ntasks-per-node=12
 #SBATCH --export=ALL
-#SBATCH -t 00:10:00
+#SBATCH -t 00:04:00
+#SBATCH -A use300
 
-#This job runs with 2 nodes, 128 cores per node for a total of 256 cores.
+# This job runs with 3 nodes, and a total of 12 cores.
 ## Environment
-module purge
-module load slurm
-module load cpu
-module load gcc/10.2.0
-module load openmpi/4.0.4
+### MODULE ENV: updated 01/28/2020 (MPT)
+ module purge
+ module load slurm
+ module load cpu
+ module load gcc/10.2.0
+ module load openmpi/4.0.4
 
 ## Use srun to run the job
+srun --mpi=pmi2 -n 12 --cpu-bind=rank ./hello_mpi
 
-srun --mpi=pmi2 -n 256 --cpu-bind=rank ./hello_mpi
 ```
 
 * In this batch script we are using the GNU compiler, and asking for 2 CPU compute nodes, with 128 tasks per node for a total of 256 tasks.

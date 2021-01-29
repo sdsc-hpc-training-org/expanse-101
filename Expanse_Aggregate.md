@@ -707,12 +707,31 @@ Example of using the script shows that the user has allocations on 3 accounts, a
 
  NAME     PROJECT  USED  AVAILABLE  USED BY PROJECT 
 ----------------------------------------------------
- username  abc123     33      50000              180 
- username  srt456      0       1000               79 
- username  xyz789    318    5050000          2905439 
+ username  abc123     33      80000              180 
+ username  srt456      0       5000               79 
+ username  xyz789    318     500000          2905439 
 ```
 
 To see who is on an account:
+```
+[mthomas@login01 dgemm]$  expanse-client project abc123 -v
+
+ Resource          sdsc_expanse    
+ Project           xyz789         
+ Total allocation  500000         
+ Total recorded    289243         
+ Total queued      13004           
+ Expiration        January 1, 2024 
+
+╭────┬──────────┬───────────────┬─────────────┬───────────┬──────────────────────────┬────────────────────────╮
+│    │ NAME     │ USED RECORDED │ USED QUEUED │ AVAILABLE │ USED BY PROJECT RECORDED │ USED BY PROJECT QUEUED │
+├────┼──────────┼───────────────┼─────────────┼───────────┼──────────────────────────┼────────────────────────┤
+│  1 │ user1    │             0 │           0 │   500000  │                  289243  │                  13004 │
+│  2 │ user2    │          6624 │           0 │   500000  │                  289243  │                  13004 │
+[SNIP]
+│  9 │ user3    │            33 │           0 │   500000  │                  289243  │                  13004 │
+│ 10 │ user4    │            14 │           0 │   500000  │                  289243  │                  13004 │
+╰────┴──────────┴───────────────┴─────────────┴───────────┴──────────────────────────┴────────────────────────╯
 ```
 
 ### <a name="manage-accts-batch-script"></a>Using Accounts in Batch Jobs
@@ -723,7 +742,9 @@ As with the case above, some users will have access to multiple accounts (e.g. a
 ```
 
 ### <a name="manage-accts-adding-users"></a>Adding Users to an Account
-Only project PIs and co-PIs can add or remove users from an account. This can only be done via the [XSEDE portal](https://portal.xsede.org] account (there is no command line interface for this). After logging in, go to the Add User page for the account.
+Only project PIs and co-PIs can add or remove users from an account. This can only be done 
+via the [XSEDE portal](https://portal.xsede.org] account (there is no command line interface for this). 
+After logging in, go to the Add User page for the account.
 
 
 ## <a name="job-charging"></a>Job Charging

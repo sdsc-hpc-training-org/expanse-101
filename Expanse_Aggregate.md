@@ -87,7 +87,7 @@ Consulting group at help@xsede.org.
 
 <img src="images/expanse_overview.png" alt="Expanse Overview" width="500px">
 
-## Expanse Overview: <a name="overview"></a>
+## Expanse Overview <a name="overview"></a>
 
 ### HPC for the *long tail* of science:
 * Designed by Dell and SDSC delivering 5.16 peak petaflops
@@ -147,8 +147,9 @@ Consulting group at help@xsede.org.
 * Each core includes a private 512KB L2 cache.  
 
 <hr>
+### New Expanse Features 
 
-### New Expanse Feature: Composable Systems
+#### Composable Systems
 
 <img src="images/expanse_composable_systems.png" alt="Expanse Composable Systems" width="400px" />
 Composable Systems will support complex, distributed, workflows – making Expanse part of a larger CI ecosystem.
@@ -160,7 +161,7 @@ Composable Systems will support complex, distributed, workflows – making Expan
   *  Webinar scheduled for April 2021. See: https://www.sdsc.edu/education_and_training/training_hpc.html
 
 
-### New Expanse Feature: Cloud Bursting
+#### Cloud Bursting
 Expanse will support integration with public clouds:
 
   <img src="images/expanse_cloud_burst_aws.png" alt="Expanse Cloud Bursting to AWS" width="400px" />
@@ -192,8 +193,8 @@ In this Section:
 
 ### Expanse Accounts<a name="get-start-expanse-accounts"></a>
 You must have a expanse account in order to access the system.
-* Obtain a trial account here:  http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
-* You can use your XSEDE account.
+* Obtain a trial account here:  [http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts](http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts)
+    * You can use your existing XSEDE account.
 
 
 ### Logging Onto Expanse<a name="get-start-expanse-logon"></a>
@@ -252,10 +253,10 @@ Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
 [username@login02 ~]$
 [username@login02 ~]$ whoami
 username
-[username@login02 ~]$
+[username@login02 ~]$ hostname
+login01
 [username@login02 ~]$ pwd
 /home/username
-[username@login02 ~]$
 [username@login02 ~]$
 ```
 [ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
@@ -267,35 +268,31 @@ https://github.com/sdsc-hpc-training-org/expanse-101
 
 The example below will be for anonymous HTTPS downloads
 
-* Create a test directory hold the expanse example files:
+* Create a test directory hold the expanse example files (optional):
 *
 ```
 localhost:hpctrain username$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
 Cloning into 'expanse-101'...
-remote: Enumerating objects: 79, done.
-remote: Counting objects: 100% (79/79), done.
-remote: Compressing objects: 100% (52/52), done.
-remote: Total 302 (delta 36), reused 39 (delta 15), pack-reused 223
-Receiving objects: 100% (302/302), 3.70 MiB | 4.66 MiB/s, done.
-Resolving deltas: 100% (130/130), done.
-localhost:hpctrain username$ ll
-total 0
-drwxr-xr-x   3 username  staff   96 Nov 18 08:12 .
-drwxr-xr-x  11 username  staff  352 Nov 18 08:11 ..
-drwxr-xr-x  10 username  staff  320 Nov 18 08:12 expanse-101
-localhost:hpctrain username$ cd expanse-101/
-localhost:expanse-101 username$ ls -al
-total 48
-drwxr-xr-x  10 username  staff   320 Nov 18 08:12 .
-drwxr-xr-x   3 username  staff    96 Nov 18 08:12 ..
--rw-r--r--   1 username  staff  6148 Nov 18 08:12 .DS_Store
-drwxr-xr-x  12 username  staff   384 Nov 18 08:12 .git
--rw-r--r--   1 username  staff   459 Nov 18 08:12 .gitignore
--rw-r--r--   1 username  staff  1005 Nov 18 08:12 README.md
-drwxr-xr-x   4 username  staff   128 Nov 18 08:12 docs
-drwxr-xr-x   7 username  staff   224 Nov 18 08:12 examples
-drwxr-xr-x  12 username  staff   384 Nov 18 08:12 images
--rw-r--r--   1 username  staff  5061 Nov 18 08:12 running_jobs_on_expanse.md
+remote: Enumerating objects: 275, done.
+remote: Counting objects: 100% (275/275), done.
+remote: Compressing objects: 100% (217/217), done.
+remote: Total 784 (delta 163), reused 122 (delta 55), pack-reused 509
+Receiving objects: 100% (784/784), 12.98 MiB | 20.92 MiB/s, done.
+Resolving deltas: 100% (434/434), done.
+Checking out files: 100% (56/56), done.
+[mthomas@login01 TEMP]$ cd expanse-101/
+[mthomas@login01 expanse-101]$ ll
+total 8784
+drwxr-xr-x 6 mthomas use300      11 Jan 28 22:39 .
+drwxr-xr-x 3 mthomas use300       3 Jan 28 22:39 ..
+-rw-r--r-- 1 mthomas use300    6148 Jan 28 22:39 .DS_Store
+drwxr-xr-x 8 mthomas use300       8 Jan 28 22:39 examples
+-rw-r--r-- 1 mthomas use300   76883 Jan 28 22:39 Expanse_Aggregate.md
+drwxr-xr-x 8 mthomas use300      13 Jan 28 22:39 .git
+-rw-r--r-- 1 mthomas use300     457 Jan 28 22:39 .gitignore
+drwxr-xr-x 2 mthomas use300      16 Jan 28 22:39 images
+-rw-r--r-- 1 mthomas use300    3053 Jan 28 22:39 README.md
+-rw-r--r-- 1 mthomas use300 8855428 Jan 28 22:39 Webinar-Running-Jobs-on-Expanse-10-08-2020.pdf
 ```
 
 *Note*: you can learn to create and modify directories as part of the *Getting Started* and *Basic Skills* preparation found here:

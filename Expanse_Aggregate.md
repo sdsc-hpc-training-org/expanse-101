@@ -1,6 +1,6 @@
-user
 # Expanse 101:  Introduction to Running Jobs on the Expanse Supercomputer
-Presented by Mary Thomas (SDSC,  <mpthomas@ucsd.edu> )
+[SDSC HPC Training Group](https://www.sdsc.edu/education_and_training/training_hpc.html)
+*Document last updated:  01/29/21*
 <hr>
 In this tutorial, you will learn how to compile and run jobs on Expanse,
 where to run them, and how to run batch jobs. The commands below can be
@@ -1222,6 +1222,7 @@ Below is an example of a batch script that prints our your environment on the co
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --export=ALL
+#SBATCH --account=abc123
 #SBATCH -t 00:01:00
 
 ## Environment
@@ -1860,10 +1861,10 @@ module load pgi
 * Interactive GPU node:
 
 ```
-[mthomas@login01 OpenACC]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 -A abc123 /bin/bash
+[user@login01 OpenACC]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 -A abc123 /bin/bash
 srun: job 1089081 queued and waiting for resources
 srun: job 1089081 has been allocated resources
-[mthomas@exp-7-59 OpenACC]$
+[user@exp-7-59 OpenACC]$
 
 ```
 
@@ -1883,10 +1884,10 @@ total 71
 * Obtain an interactive node:
 
 ```
-[mthomas@login01 OpenACC]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 -A abc123 /bin/bash
+[user@login01 OpenACC]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 -A abc123 /bin/bash
 srun: job 1089081 queued and waiting for resources
 srun: job 1089081 has been allocated resources
-[mthomas@exp-7-59 OpenACC]$
+[user@exp-7-59 OpenACC]$
 
 ```
 
@@ -1898,12 +1899,12 @@ srun: job 1089081 has been allocated resources
 * Once you are on an interactive node, reload the module environment:
 
 ```
-[mthomas@exp-7-59 OpenACC]$
-[mthomas@exp-7-59 OpenACC]$ module purge
-[mthomas@exp-7-59 OpenACC]$ module load slurm
-[mthomas@exp-7-59 OpenACC]$ module load gpu
-[mthomas@exp-7-59 OpenACC]$ module load pgi
-[mthomas@exp-7-59 OpenACC]$ module list
+[user@exp-7-59 OpenACC]$
+[user@exp-7-59 OpenACC]$ module purge
+[user@exp-7-59 OpenACC]$ module load slurm
+[user@exp-7-59 OpenACC]$ module load gpu
+[user@exp-7-59 OpenACC]$ module load pgi
+[user@exp-7-59 OpenACC]$ module list
 
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) gpu/0.15.4   3) pgi/20.4
@@ -1914,7 +1915,7 @@ Currently Loaded Modules:
 
 ```
 
-[mthomas@exp-7-59 OpenACC]$ nvidia-smi
+[user@exp-7-59 OpenACC]$ nvidia-smi
 Fri Jan 29 12:33:25 2021       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 450.51.05    Driver Version: 450.51.05    CUDA Version: 11.0     |
@@ -2113,7 +2114,7 @@ Currently Loaded Modules:
 * Now you are set up to compile the code:
 
 ```
-[mthomas@exp-7-59 OpenACC]$ pgcc -o laplace2d.openacc.exe -fast -Minfo -acc -ta=tesla:cc70 laplace2d.c
+[user@exp-7-59 OpenACC]$ pgcc -o laplace2d.openacc.exe -fast -Minfo -acc -ta=tesla:cc70 laplace2d.c
 "laplace2d.c", line 91: warning: missing return statement at end of non-void
           function "laplace"
   }
@@ -2154,7 +2155,7 @@ laplace:
 
 ```
 
-[mthomas@exp-7-59 OpenACC]$ cat openacc-gpu-shared.sb
+[user@exp-7-59 OpenACC]$ cat openacc-gpu-shared.sb
 #!/bin/bash
 #SBATCH --job-name="OpenACC"
 #SBATCH --output="OpenACC.%j.%N.out"
@@ -2162,7 +2163,7 @@ laplace:
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --gpus=1
-#SBATCH --acount=use300
+#SBATCH --acount=abc123
 #SBATCH -t 01:00:00
 
 #Environment
@@ -2181,11 +2182,11 @@ module load pgi
    *  R == Running
 
 ```
-[mthomas@exp-7-59 OpenACC]$ sbatch openacc-gpu-shared.sb
+[user@exp-7-59 OpenACC]$ sbatch openacc-gpu-shared.sb
 Submitted batch job 1089114
-[mthomas@exp-7-59 OpenACC]$ squeue -u mthomas
+[user@exp-7-59 OpenACC]$ squeue -u user
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-           1089081 gpu-debug     bash  mthomas  R       8:24      1 exp-7-59
+           1089081 gpu-debug     bash  user  R       8:24      1 exp-7-59
 
 ```
 
@@ -2199,7 +2200,7 @@ Submitted batch job 1089114
 
 ```
 
-[mthomas@exp-7-59 OpenACC]$ cat OpenACC.1089081.exp-7-57.out
+[user@exp-7-59 OpenACC]$ cat OpenACC.1089081.exp-7-57.out
 main()
 Jacobi relaxation Calculation: 4096 x 4096 mesh
     0, 0.250000

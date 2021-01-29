@@ -27,7 +27,7 @@ Consulting group at help@xsede.org.
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](#overview)
 * [Getting Started](#get-start)
-  * [System Access](#get-start-system-access)
+  * [Expanse Accounts](#get-start-expanse-accounts)
   * [Logging Onto Expanse](#get-start-expanse-logon)
   * [Obtaining Example Code](#get-start-example-code)
   * [Expanse User Portal](#get-start-user-portal)
@@ -181,7 +181,7 @@ Expanse will support integration with public clouds:
 
 ## <a name="get-start"></a>Getting Started on Expanse
 In this Section:
-* [System Access](#get-start-system-access)
+* [Expanse Accounts](#get-start-expanse-accounts)
 * [Logging Onto Expanse](#get-start-expanse-logon)
 * [Obtaining Example Code](#get-start-example-code)
 * [Expanse User Portal](#get-start-user-portal)

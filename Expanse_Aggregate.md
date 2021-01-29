@@ -672,12 +672,15 @@ OR add this command to your shell script (including Slurm batch scripts)
 * [Managing Users on an Account](#manage-accts-users)
 
 ### <a name="manage-accts-client-script"></a>Expanse-Client Script
+
 * The expanse-client script provides additional details regarding User and Project availability and usage located at:
+
 ```
 /cm/shared/apps/sdsc/current/bin/expanse-client
 ```
 
-* Script Usage: 
+* Example of Script Usage: 
+
 ```
 [username@login01 ~]$ expanse-client -h
 Allows querying the user statistics.
@@ -699,7 +702,8 @@ Flags:
 Use "expanse-client [command] --help" for more information about a command.
 ```
 
-Example of using the script shows that the user has allocations on 3 accounts, and SU's remaining:
+* Example of using the script shows that the user has allocations on 3 accounts, and SU's remaining:
+
 ```
 [username@login01 ~]$ expanse-client user -p
 
@@ -712,7 +716,8 @@ Example of using the script shows that the user has allocations on 3 accounts, a
  username  xyz789    318     500000          2905439 
 ```
 
-To see who is on an account:
+* To see who is on an account:
+
 ```
 [mthomas@login01 dgemm]$  expanse-client project abc123 -v
 
@@ -732,6 +737,7 @@ To see who is on an account:
 │  9 │ user3    │            33 │           0 │   500000  │                  289243  │                  13004 │
 │ 10 │ user4    │            14 │           0 │   500000  │                  289243  │                  13004 │
 ╰────┴──────────┴───────────────┴─────────────┴───────────┴──────────────────────────┴────────────────────────╯
+
 ```
 
 ### <a name="manage-accts-batch-script"></a>Using Accounts in Batch Jobs

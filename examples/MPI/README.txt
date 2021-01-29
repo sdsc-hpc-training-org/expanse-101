@@ -1,10 +1,11 @@
 [1] Compile:
 
+
+### MODULE ENV: updated 01/28/2020 (MPT)
 module purge
-module load slurm
-module load cpu
-module load gcc/10.2.0
-module load openmpi/4.0.4
+module load cpu/0.15.4  
+module load intel/19.1.1.217
+module load mvapich2/2.3.4
 
 mpif90 -o hello_mpi hello_mpi.f90
 

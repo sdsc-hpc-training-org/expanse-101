@@ -1,4 +1,4 @@
-
+# THESE ARE MOVED TO CPU / GPU files
 ## <a name="hands-on"></a>Hands-on Examples
 * [Compiling and Running GPU/CUDA Jobs](#comp-and-run-cuda-jobs)
 * [GPU Hello World (GPU) ](#hello-world-gpu)

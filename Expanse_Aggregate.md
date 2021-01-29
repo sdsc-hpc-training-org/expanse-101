@@ -672,67 +672,11 @@ OR add this command to your shell script (including Slurm batch scripts)
 * [Managing Users on an Account](#manage-accts-adding-users)
 
 ### <a name="manage-accts-client-script"></a>Expanse-Client Script
-The expanse-client script provides additional details regarding User and Project availability and usage located at:
+* The expanse-client script provides additional details regarding User and Project availability and usage located at:
 ```
 /cm/shared/apps/sdsc/current/bin/expanse-client
 ```
 
-Usage: 
-```
-[username@login01 ~]$ expanse-client -h
-Allows querying the user statistics.
-
-Usage:
-  expanse-client [command]
-
-Available Commands:
-  help        Help about any command
-  project     Get project information
-  user        Get user information
-
-Flags:
-  -a, --auth      authenticate the request
-  -h, --help      help for expanse-client
-  -p, --plain     plain no graphics output
-  -v, --verbose   verbose output
-
-Use "expanse-client [command] --help" for more information about a command.
-```
-
-Example of using the script shows that the user has allocations on 3 accounts, and SU's remaining:
-```
-[username@login01 ~]$ expanse-client user -p
-
- Resource  sdsc_expanse 
-
- NAME     PROJECT  USED  AVAILABLE  USED BY PROJECT 
-----------------------------------------------------
- username  abc123     33      80000              180 
- username  srt456      0       5000               79 
- username  xyz789    318     500000          2905439 
-```
-
-To see who is on an account:
-```
-[mthomas@login01 dgemm]$  expanse-client project abc123 -v
-
- Resource          sdsc_expanse    
- Project           xyz789         
- Total allocation  500000         
- Total recorded    289243         
- Total queued      13004           
- Expiration        January 1, 2024 
-
-╭────┬──────────┬───────────────┬─────────────┬───────────┬──────────────────────────┬────────────────────────╮
-│    │ NAME     │ USED RECORDED │ USED QUEUED │ AVAILABLE │ USED BY PROJECT RECORDED │ USED BY PROJECT QUEUED │
-├────┼──────────┼───────────────┼─────────────┼───────────┼──────────────────────────┼────────────────────────┤
-│  1 │ user1    │             0 │           0 │   500000  │                  289243  │                  13004 │
-│  2 │ user2    │          6624 │           0 │   500000  │                  289243  │                  13004 │
-[SNIP]
-│  9 │ user3    │            33 │           0 │   500000  │                  289243  │                  13004 │
-│ 10 │ user4    │            14 │           0 │   500000  │                  289243  │                  13004 │
-╰────┴──────────┴───────────────┴─────────────┴───────────┴──────────────────────────┴────────────────────────╯
-```
 
 ### <a name="manage-accts-batch-script"></a>Using Accounts in Batch Jobs
 As with the case above, some users will have access to multiple accounts (e.g. an allocation for a research project and a separate allocation for classroom or educational use). Users should verify that the correct project is designated for all batch jobs. Awards are granted for a specific purposes and should not be used for other projects. Designate a project by replacing  << project >> with a project listed as above in the SBATCH directive in your job script:

@@ -35,6 +35,8 @@ Consulting group at help@xsede.org.
    * [Loading Modules During Login](#module-login-load)
    * [Modules: Popular Lmod Commands](#module-commands)
    * [Loading Modules During Login](#module-login-load)
+   * [Lmod warning “rebuild your saved collection”](#lmod-warn-rebuild)
+
    * [Troubleshooting:Module Error](#module-error)
 * [Managing Accounts](#managing-accounts)
    * [Expanse Client Script](#manage-accts-client-script)
@@ -57,7 +59,8 @@ Consulting group at help@xsede.org.
       * [SLURM Commands](#run-jobs-slurm-commands)
       * [SLURM Batch Script Example](#run-jobs-slurm-batch)
 * [Compiling and Running CPU Jobs](#comp-and-run-cpu-jobs)
-   * [Hello World (MPI)](#hello-world-mpi)
+* [Checking Your Environment](#check-env)
+* [Hello World (MPI)](#hello-world-mpi)
         * [Hello World (MPI): Source Code](#hello-world-mpi-source)
         * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
         * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
@@ -652,6 +655,11 @@ PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/
 ```
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
+
+
+
+###  Lmod warning “rebuild your saved collection”<a name="lmod-warn-rebuild"></a>
+Lmod allows a user to save a bundle of modules as a collection using module save <collection_name> and module restore <collection_name>. This enables you to quickly get the same list of modules loaded if you tend to use the same modules over and over. With a new module scheme came a different system MODULEPATH. For this reason, if you have some module collections saved, you will experience the following warning: “Lmod Warning: The system MODULEPATH has changed: please rebuild your saved collection.” To solve this you need to remove your old collections and create them again.
 
 ### Troubleshooting:Module Error<a name="module-error"></a>
 
@@ -1258,6 +1266,7 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 ## Compiling and Running CPU Jobs<a name="comp-and-run-cpu-jobs"></a>
 
 **Sections:**
+   * [Checking Your Environment](#check-env)
    * [Hello World (MPI)](#hello-world-mpi)
    * [Hello World (OpenMP)](#hello-world-omp)
    * [Hello World Hybrid (MPI + OpenMP)](#hybrid-mpi-omp)
@@ -1303,9 +1312,63 @@ sbatch hello_mpi_slurm.sb
 [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
+## Checking Your Environment<a name="heck-env"></a>
+This simple batch script will show you how to check your user environment
+and to also verify that your Slurm environment is working.
+
+* Script contents:
+
+```
+[user@login01 ENV_INFO]$ cat env-slurm.sb
+#!/bin/bash
+#SBATCH --job-name="envinfo"
+#SBATCH --output="envinfo.%j.%N.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --export=ALL
+#SBATCH -A sds173
+#SBATCH -t 00:1:00
+
+## Load module environment
+module purge
+module load slurm
+module load cpu
+module load sdsc
+
+##  perform some basic unix commands
+
+echo "----------------------------------"
+echo "hostname= " `hostname`
+echo "date= " `date`
+echo "whoami= " `whoami`
+echo "pwd= " `pwd`
+echo "module list= " `module list`
+echo "----------------------------------"
+echo "env= " `env`
+echo "----------------------------------"
+echo "expanse-client user -p: " `expanse-client user -p`
+echo "----------------------------------"
+
+```
+* Submit the batch script and monitor until the job is allocated a node,
+and completes execution:
+
+```
+
+[mthomas@login01 ENV_INFO]$ sbatch env-slurm.sb
+Submitted batch job 1088090
+[mthomas@login01 ENV_INFO]$ squeue -u mthomas
+           1088090   compute  envinfo  mthomas PD       0:00      1 (ReqNodeNotAvail,[SNIP]
+[...]
+[mthomas@login01 ENV_INFO]$ squeue -u mthomas
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1088090   compute  envinfo  mthomas PD       0:00      1 (ReqNodeNotAvail, [SNIP]
+```
+
+[ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 
 ## Hello World (MPI) <a name="hello-world-mpi"></a>
-
 **Subsections:**
 * [Hello World (MPI): Source Code](#hello-world-mpi-source)
 * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
@@ -1392,7 +1455,7 @@ Currently Loaded Modules:
 in order to run the code. The contents of the default batch script are:
 
 ```
-[mthomas@login01 MPI]$ cat hellompi-slurm.sb
+[user@login01 MPI]$ cat hellompi-slurm.sb
 #!/bin/bash
 #SBATCH --job-name="hellompi"
 #SBATCH --output="hellompi.%j.%N.out"

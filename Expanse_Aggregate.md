@@ -82,11 +82,11 @@ Consulting group at help@xsede.org.
 * [Compiling and Running GPU Jobs](#comp-run-gpu)
    * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
    * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
-   * [Hello World (GPU)](#hello-world-gpu)
-       * [Hello World (GPU): Source Code](#hello-world-gpu-source)
-       * [Hello World (GPU): Compiling](#hello-world-gpu-compile)
-       * [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
-       * [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
+   * [Laplace2D (GPU)](#laplace2d-gpu)
+       * [Laplace2D (GPU): Source Code](#laplace2d-gpu-source)
+       * [Laplace2D (GPU): Compiling](#laplace2d-gpu-compile)
+       * [Laplace2D (GPU): Batch Script Submission](#laplace2d-gpu-batch-submit)
+       * [Laplace2D (GPU): Batch Script Output](#laplace2d-gpu-batch-output)
 * Data and Storage, Globus Endpoints, Data Movers, Mount Points
 * Final Comments
 
@@ -1819,7 +1819,7 @@ Hello from thread 15 out of 16 from process 0 out of 2 on exp-10-07
 **Sections**
 * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
 * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
-* [Hello World (GPU): Source Code](#hello-world-gpu)
+* [Laplace2D (GPU): Source Code](#laplace2d-gpu)
 
 ### Using Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a>
 
@@ -1985,14 +1985,14 @@ sbatch openacc-gpu-shared.sb 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### [Hello World (GPU)](#hello-world-gpu)
+### [Laplace2D (GPU)](#laplace2d-gpu)
 **Subsections:**
-* [Hello World (GPU): Source Code](#hello-world-gpu-source)
-* [Hello World (GPU): Compiling](#hello-world-gpu-compile)
-* [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
-* [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
+* [Laplace2D (GPU): Source Code](#laplace2d-gpu-source)
+* [Laplace2D (GPU): Compiling](#laplace2d-gpu-compile)
+* [Laplace2D (GPU): Batch Script Submission](#laplace2d-gpu-batch-submit)
+* [Laplace2D (GPU): Batch Script Output](#laplace2d-gpu-batch-output)
 
-#### Hello World (GPU): Source Code  <a name="hello-world-gpu-source"></a>
+#### Laplace2D (GPU): Source Code  <a name="laplace2d-gpu-source"></a>
 Source Code
 
 ```
@@ -2087,10 +2087,10 @@ int laplace()
 }
 ```
 
-[ [Back to Hello World (GPU)](#hello-world-gpu)] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to Laplace2D (GPU)](#laplace2d-gpu)] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Hello World (GPU): Compiling  <a name="hello-world-gpu-compile"></a>
+#### Laplace2D (GPU): Compiling  <a name="laplace2d-gpu-compile"></a>
 Compile the code:
 1. obtain an interactive node
 2. load the right Modules
@@ -2150,10 +2150,10 @@ laplace:
 
 ```
 
-[ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to Laplace2D (GPU)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Hello World (GPU): Batch Script Submission  <a name="hello-world-gpu-batch-submit"></a>
+#### Laplace2D (GPU): Batch Script Submission  <a name="laplace2d-gpu-batch-submit"></a>
 * Batch Script Contents
 
 ```
@@ -2194,10 +2194,10 @@ Submitted batch job 1089114
 ```
 
 
-[ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to Laplace2D (GPU)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Hello World (GPU): Batch Script Output  <a name="hello-world-gpu-batch-output"></a>
+#### Laplace2D (GPU): Batch Script Output  <a name="laplace2d-gpu-batch-output"></a>
 
 * Batch Script Output:
 
@@ -2221,5 +2221,5 @@ Jacobi relaxation Calculation: 4096 x 4096 mesh
 
 ```
 
-[ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to Laplace2D (GPU)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>

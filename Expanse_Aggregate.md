@@ -762,7 +762,8 @@ See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.ht
 <hr>
 ## <a name="compilers"></a>Compiling & Linking Code
 
-Expanse provides the Intel, Portland Group (PGI), and GNU compilers along with multiple MPI implementations (MVAPICH2, MPICH2, OpenMPI). Most applications will achieve the best performance on Expanse using the Intel compilers and MVAPICH2 and the majority of libraries installed on Expanse have been built using this combination.
+Expanse provides the Intel, Portland Group (PGI), and GNU compilers along with multiple MPI implementations (MVAPICH2, MPICH2, OpenMPI). Most applications will achieve the best performance on Expanse using the Intel compilers and MVAPICH2 and the majority of libraries installed on Expanse have been built using this combination. Having such a diverse set of compilers avaiable allows for our users to customize the software stack need for thier application. However, there
+can be some complexity involed in sorting out the module dependencies needed for your applications. Often the set of modules being loaded depends on the application you are using and the compiler and libraries you may need. In many cases you will need to use the ```module spider``` command to sort out what modules your application will need. Additionally, it is possible the list will change if some of the dependent software changes.
 
 Other compilers and versions can be installed by Expanse staff on request. For more information, see the [Expanse User Guide.]
 (https://www.sdsc.edu/support/user_guides/expanse.html#compiling)
@@ -831,6 +832,7 @@ Suggested Compilers to used based on programming model and languages:
 * If you have modified your environment, you can reload by executing the module purge & load commands at the Linux prompt, or placing the load command in your startup file (~/.cshrc or ~/.bashrc)
 * Note: The examples below are for the simple “hellompi” examples shown below
 
+In this example, we show how to use the ```swap``` command.
 ```
 [username@login02 ~]$ module list
 Currently Loaded Modules:
@@ -860,12 +862,19 @@ Currently Loaded Modules:
 
 ### <a name="compilers-intel"></a>Intel Compilers:
 
-The Intel compilers and the MVAPICH2 MPI implementation will be loaded by default. If you have modified your environment, you can reload by executing the following commands at the Linux prompt or placing in your startup file (~/.cshrc or ~/.bashrc) or into a module load script (see above).
+The Intel compilers and the MVAPICH2 MPI implementation will be loaded by default. The MKL and related libraries may need several modulrs. If you have modified your environment, you can reload by executing the following commands such as those shown below at the Linux prompt or placing in your startup file (~/.cshrc or ~/.bashrc). Below is the list of modules created for the DGEMM MKL example described below  (on 01/25/21):
 
 ```
 module purge
-module load intel mvapich2_ib
+module load slurm
+module load cpu
+module load gpu/0.15.4  
+module load intel/19.0.5.281
+module load intel-mkl/2020.3.279
 ```
+
+Recall that the list of modules being loaded depends on the application you are using and the compiler and libraries you may need. In some cases you will need to use the ```module spider``` command to sort out what modules your application will need.  And, it is possible the list will change if some of the dependent software changes.
+
 For AVX2 support, compile with the -xHOST option. Note that -xHOST alone does not enable aggressive optimization, so compilation with -O3 is also suggested. The -fast flag invokes -xHOST, but should be avoided since it also turns on interprocedural optimization (-ipo), which may cause problems in some instances.
 
 Intel MKL libraries are available as part of the "intel" modules on Expanse. Once this module is loaded, the environment variable MKL_ROOT points to the location of the mkl libraries. The MKL link advisor can be used to ascertain the link line (change the MKL_ROOT aspect appropriately).

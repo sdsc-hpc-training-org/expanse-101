@@ -1356,14 +1356,14 @@ and completes execution:
 
 ```
 
-[mthomas@login01 ENV_INFO]$ sbatch env-slurm.sb
+[user@login01 ENV_INFO]$ sbatch env-slurm.sb
 Submitted batch job 1088090
-[mthomas@login01 ENV_INFO]$ squeue -u mthomas
-           1088090   compute  envinfo  mthomas PD       0:00      1 (ReqNodeNotAvail,[SNIP]
+[user@login01 ENV_INFO]$ squeue -u user
+           1088090   compute  envinfo  user PD       0:00      1 (ReqNodeNotAvail,[SNIP]
 [...]
-[mthomas@login01 ENV_INFO]$ squeue -u mthomas
+[user@login01 ENV_INFO]$ squeue -u user
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-           1088090   compute  envinfo  mthomas PD       0:00      1 (ReqNodeNotAvail, [SNIP]
+           1088090   compute  envinfo  user PD       0:00      1 (ReqNodeNotAvail, [SNIP]
 ```
 
 [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
@@ -1466,7 +1466,7 @@ in order to run the code. The contents of the default batch script are:
 #SBATCH --ntasks-per-node=12
 #SBATCH --export=ALL
 #SBATCH -t 00:04:00
-#SBATCH -A use300
+#SBATCH -A abc123
 
 # This job runs with 3 nodes, and a total of 12 cores.
 ## Environment
@@ -1548,7 +1548,7 @@ Interactive Jobs
 Source Code.
 
 ```
-[mthomas@login02 OPENMP]$ cat hello_openmp.f90
+[user@login02 OPENMP]$ cat hello_openmp.f90
       PROGRAM OMPHELLO
       INTEGER TNUMBER
       INTEGER OMP_GET_THREAD_NUM
@@ -1626,10 +1626,10 @@ export OMP_NUM_THREADS=16
 * Submit the job to the batch queue, and monitor:
 
 ```
-[mthomas@login02 OPENMP]$ sbatch openmp-slurm-shared.sb ;  squeue -u mthomas
+[user@login02 OPENMP]$ sbatch openmp-slurm-shared.sb ;  squeue -u user
 Submitted batch job 1088802
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-           1088802    shared hell_ope  mthomas PD       0:00      1 (None)
+           1088802    shared hell_ope  user PD       0:00      1 (None)
 
 ```
 
@@ -1640,7 +1640,7 @@ Submitted batch job 1088802
 Batch Script Output
 
 ```
-[mthomas@login02 OPENMP]$ cat hello_openmp_shared.1088802.exp-3-08.out
+[user@login02 OPENMP]$ cat hello_openmp_shared.1088802.exp-3-08.out
  HELLO FROM THREAD NUMBER =            14
  HELLO FROM THREAD NUMBER =            15
  HELLO FROM THREAD NUMBER =            10
@@ -1657,7 +1657,7 @@ Batch Script Output
  HELLO FROM THREAD NUMBER =            13
  HELLO FROM THREAD NUMBER =             3
  HELLO FROM THREAD NUMBER =             6
-[mthomas@login02 OPENMP]$
+[user@login02 OPENMP]$
 
 ```
 
@@ -1737,13 +1737,13 @@ sbatch hybrid-slurm.sb
 * Compilation example:
 
 ```
-[mthomas@login01 HYBRID]$ module purge
-[mthomas@login01 HYBRID]$ module load slurm
-[mthomas@login01 HYBRID]$ module load cpu
-[mthomas@login01 HYBRID]$ module load intel
-[mthomas@login01 HYBRID]$ module load intel-mpi
-[mthomas@login01 HYBRID]$ export I_MPI_CC=icc
-[mthomas@login01 HYBRID]$ mpicc -qopenmp -o hello_hybrid hello_hybrid.c
+[user@login01 HYBRID]$ module purge
+[user@login01 HYBRID]$ module load slurm
+[user@login01 HYBRID]$ module load cpu
+[user@login01 HYBRID]$ module load intel
+[user@login01 HYBRID]$ module load intel-mpi
+[user@login01 HYBRID]$ export I_MPI_CC=icc
+[user@login01 HYBRID]$ mpicc -qopenmp -o hello_hybrid hello_hybrid.c
 
 ```
 
@@ -1755,11 +1755,11 @@ sbatch hybrid-slurm.sb
 * Submit the batch script and monitor:
 
 ```
-[mthomas@login01 HYBRID]$ sbatch hybrid-slurm.sb
+[user@login01 HYBRID]$ sbatch hybrid-slurm.sb
 Submitted batch job 1089019
     JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-[mthomas@login01 HYBRID]$ squeue -u mthomas
-[mthomas@login01 HYBRID]$ squeue -u mthomas
+[user@login01 HYBRID]$ squeue -u user
+[user@login01 HYBRID]$ squeue -u user
     JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 
 ```
@@ -1772,7 +1772,7 @@ Submitted batch job 1089019
 * Batch Script Output:
 
 ```
-[mthomas@login01 HYBRID]$ cat hellohybrid.1089019.exp-10-07.out
+[user@login01 HYBRID]$ cat hellohybrid.1089019.exp-10-07.out
 Hello from thread 0 out of 16 from process 1 out of 2 on exp-10-07
 Hello from thread 14 out of 16 from process 1 out of 2 on exp-10-07
 Hello from thread 1 out of 16 from process 1 out of 2 on exp-10-07
@@ -1860,7 +1860,11 @@ module load pgi
 * Interactive GPU node:
 
 ```
-srun   --pty   --nodes=1 --account=abc123  --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
+[mthomas@login01 OpenACC]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 -A abc123 /bin/bash
+srun: job 1089081 queued and waiting for resources
+srun: job 1089081 has been allocated resources
+[mthomas@exp-7-59 OpenACC]$
+
 ```
 
 * Change to the tutorial `OpenACC` directory
@@ -1879,7 +1883,11 @@ total 71
 * Obtain an interactive node:
 
 ```
-[user@login01 OpenACC]$ srun   --pty   --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
+[mthomas@login01 OpenACC]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 -A abc123 /bin/bash
+srun: job 1089081 queued and waiting for resources
+srun: job 1089081 has been allocated resources
+[mthomas@exp-7-59 OpenACC]$
+
 ```
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
@@ -1887,31 +1895,47 @@ total 71
 
 #### Obtaining GPU/CUDA: Node Information
 
-* Once you are on an interactive node, you can check node configuration using the nvidia-smi command:
+* Once you are on an interactive node, reload the module environment:
 
 ```
-[user@exp-7-59 OpenACC]$ nvidia-smi
-Thu Oct  8 03:58:44 2020       
+[mthomas@exp-7-59 OpenACC]$
+[mthomas@exp-7-59 OpenACC]$ module purge
+[mthomas@exp-7-59 OpenACC]$ module load slurm
+[mthomas@exp-7-59 OpenACC]$ module load gpu
+[mthomas@exp-7-59 OpenACC]$ module load pgi
+[mthomas@exp-7-59 OpenACC]$ module list
+
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) gpu/0.15.4   3) pgi/20.4
+
+```
+
+* You can also check node configuration using the nvidia-smi command:
+
+```
+
+[mthomas@exp-7-59 OpenACC]$ nvidia-smi
+Fri Jan 29 12:33:25 2021       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 450.51.05    Driver Version: 450.51.05    CUDA Version: 11.0     |
+| NVIDIA-SMI 450.51.05    Driver Version: 450.51.05    CUDA Version: 11.0     |
 |-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
 |===============================+======================+======================|
-|   0  Tesla V100-SXM2...  On   | 00000000:18:00.0 Off |                    0 |
-| N/A   32C    P0    41W / 300W |      0MiB / 32510MiB |      0%      Default |
-|                               |                      |                  N/A |
+|   0  Tesla V100-SXM2...  On   | 00000000:18:00.0 Off |                    0 |
+| N/A   32C    P0    41W / 300W |      0MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-                                                                               
+
 +-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
 |=============================================================================|
-|  No running processes found                                                 |
+|  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
-[user@exp-7-59 OpenACC]$ 
+
 ```
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
@@ -2084,19 +2108,42 @@ srun: job 667263 has been allocated resources
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) gpu/1.0   3) pgi/20.4
 
-  [user@exp-7-59 OpenACC]$ pgcc -o laplace2d.openacc.exe -fast -Minfo -acc -ta=tesla:cc70 laplace2d.c
-  "laplace2d.c", line 91: warning: missing return statement at end of non-void
-            function "laplace"
-    }
-    ^
+```
 
-  GetTimer:
-       20, include "timer.h"
-            61, FMA (fused multiply-add) instruction(s) generated
-[SNIP]
-[user@exp-7-59 OpenACC]$ exit
-exit
-[user@login01 ~]$
+* Now you are set up to compile the code:
+
+```
+[mthomas@exp-7-59 OpenACC]$ pgcc -o laplace2d.openacc.exe -fast -Minfo -acc -ta=tesla:cc70 laplace2d.c
+"laplace2d.c", line 91: warning: missing return statement at end of non-void
+          function "laplace"
+  }
+  ^
+
+GetTimer:
+     20, include "timer.h"
+          61, FMA (fused multiply-add) instruction(s) generated
+laplace:
+     47, Loop not fused: function call before adjacent loop
+         Loop unrolled 8 times
+         FMA (fused multiply-add) instruction(s) generated
+     55, StartTimer inlined, size=2 (inline) file laplace2d.c (37)
+     59, Generating create(Anew[:][:]) [if not already present]
+         Generating copy(A[:][:]) [if not already present]
+         Loop not vectorized/parallelized: potential early exits
+     61, Generating implicit copy(error) [if not already present]
+     64, Loop is parallelizable
+     66, Loop is parallelizable
+         Generating Tesla code
+         64, #pragma acc loop gang, vector(4) /* blockIdx.y threadIdx.y */
+             Generating implicit reduction(max:error)
+         66, #pragma acc loop gang, vector(32) /* blockIdx.x threadIdx.x */
+     75, Loop is parallelizable
+     77, Loop is parallelizable
+         Generating Tesla code
+         75, #pragma acc loop gang, vector(4) /* blockIdx.y threadIdx.y */
+         77, #pragma acc loop gang, vector(32) /* blockIdx.x threadIdx.x */
+     88, GetTimer inlined, size=9 (inline) file laplace2d.c (54)
+
 ```
 
 [ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
@@ -2106,7 +2153,8 @@ exit
 * Batch Script Contents
 
 ```
-[user@login01 OpenACC]$ cat openacc-gpu-shared.sb 
+
+[mthomas@exp-7-59 OpenACC]$ cat openacc-gpu-shared.sb
 #!/bin/bash
 #SBATCH --job-name="OpenACC"
 #SBATCH --output="OpenACC.%j.%N.out"
@@ -2114,6 +2162,7 @@ exit
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --gpus=1
+#SBATCH --acount=use300
 #SBATCH -t 01:00:00
 
 #Environment
@@ -2124,6 +2173,7 @@ module load pgi
 
 #Run the job
 ./laplace2d.openacc.exe
+
 ```
 * Submit the batch script, and monitor queue status:
    * PD == Pending
@@ -2131,31 +2181,11 @@ module load pgi
    *  R == Running
 
 ```
-[user@login01 OpenACC]$ !sb
-sbatch openacc-gpu-shared.sb
-Submitted batch job 667276
-[user@login01 OpenACC]$ !sq
-squeue -u user -u user
+[mthomas@exp-7-59 OpenACC]$ sbatch openacc-gpu-shared.sb
+Submitted batch job 1089114
+[mthomas@exp-7-59 OpenACC]$ squeue -u mthomas
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-            667276 gpu-share  OpenACC  user PD       0:00      1 (Priority)
-[user@login01 OpenACC]$
-[user@login01 OpenACC]$ squeue -u user -u user
-             JOBID PARTITION     NAME     USER R       TIME  NODES NODELIST(REASON)
-             [user@login01 OpenACC]$ cat OpenACC.667276.exp-1-60.out
-             main()
-             Jacobi relaxation Calculation: 4096 x 4096 mesh
-                 0, 0.250000
-               100, 0.002397
-               200, 0.001204
-               300, 0.000804
-               400, 0.000603
-               500, 0.000483
-               600, 0.000403
-               700, 0.000345
-               800, 0.000302
-               900, 0.000269
-              total: 1.044246 s
-             [user@login01 OpenACC]$
+           1089081 gpu-debug     bash  mthomas  R       8:24      1 exp-7-59
 
 ```
 
@@ -2168,6 +2198,21 @@ squeue -u user -u user
 * Batch Script Output:
 
 ```
+
+[mthomas@exp-7-59 OpenACC]$ cat OpenACC.1089081.exp-7-57.out
+main()
+Jacobi relaxation Calculation: 4096 x 4096 mesh
+    0, 0.250000
+  100, 0.002397
+  200, 0.001204
+  300, 0.000804
+  400, 0.000603
+  500, 0.000483
+  600, 0.000403
+  700, 0.000345
+  800, 0.000302
+  900, 0.000269
+ total: 1.031729 s
 
 
 ```

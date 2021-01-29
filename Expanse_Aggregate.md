@@ -617,11 +617,10 @@ For Bash:  put the following block into your ```~/.bash_profile``` file:
 Place the following in your ```~/.bashrc``` file:
 
 ```
-           if [ -z "$BASHRC_READ" ]; then
-                        export BASHRC_READ=1
-                        # Place any module commands here
-                   # module load hdf5
-                fi
+
+           # Place any module commands here
+           # module load hdf5
+
 ```
 
 * First edit your ```.bashrc``` and ```.bash_profile``` files:
@@ -641,11 +640,10 @@ fi
 if [ -f /etc/bashrc ]; then
 . /etc/bashrc
 fi
-if [ -z "$BASHRC_READ" ]; then
-   export BASHRC_READ=1
-   # Place any module commands here
-   module load hdf5
-Fi
+
+# Place any module commands here
+module load hdf5
+
 [SNIP]
 ```
 
@@ -915,7 +913,7 @@ No modules loaded
 [username@login02 ~]$ module list
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
-[username@login02 MPI]$ module swap intel aocc
+[username@login02 MPI]$ module swap gcc aocc
 Due to MODULEPATH changes, the following have been reloaded:
   1) openmpi/4.0.4
 [username@login02 ~]$ module list

@@ -1,4 +1,5 @@
 #!/bin/bash
+## Example of OpenMP code running on a shared node
 #SBATCH --job-name="hell_openmp_shared"
 #SBATCH --output="hello_openmp_shared.%j.%N.out"
 #SBATCH --partition=shared
@@ -7,10 +8,10 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=32G
 #SBATCH --export=ALL
-#SBATCH -t 01:30:00
+#SBATCH --account=sds173
+#SBATCH -t 00:10:00
 
 # AOCC environment
-
 module purge
 module load slurm
 module load cpu

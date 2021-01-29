@@ -1,4 +1,5 @@
 [1] Compile:
+Using the AOCC compiler:
 
 module purge
 module load slurm

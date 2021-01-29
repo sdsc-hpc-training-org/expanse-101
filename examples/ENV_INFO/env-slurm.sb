@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH --job-name="envinfo"
 #SBATCH --output="envinfo.%j.%N.out"
-#SBATCH --partition=compute
+#SBATCH --partition=shared
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --export=ALL
-#SBATCH -A sds173
+#SBATCH --account=sds173
 #SBATCH -t 00:1:00
 
 ## Environment

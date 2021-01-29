@@ -3,13 +3,13 @@
 #SBATCH --output="hellompi.%j.%N.out"
 #SBATCH --partition=compute
 ####SBATCH --partition=shared
-#SBATCH --nodes=1
+#SBATCH --nodes=3
 #SBATCH --ntasks-per-node=12
 #SBATCH --export=ALL
 #SBATCH -t 00:04:00
 #SBATCH -A use300
 
-#This job runs with 2 nodes, 128 cores per node for a total of 256 cores.
+#This job runs with 3 nodes, and 12 total task
 ## Environment
 ### MODULE ENV: updated 01/28/2020 (MPT)
  module purge 

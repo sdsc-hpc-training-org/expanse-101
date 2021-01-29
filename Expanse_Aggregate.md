@@ -1548,26 +1548,120 @@ Interactive Jobs
 Source Code.
 
 ```
-hello-world-omp  source code
+[mthomas@login02 OPENMP]$ cat hello_openmp.f90
+      PROGRAM OMPHELLO
+      INTEGER TNUMBER
+      INTEGER OMP_GET_THREAD_NUM
+
+!$OMP PARALLEL DEFAULT(PRIVATE)
+      TNUMBER = OMP_GET_THREAD_NUM()
+      PRINT *, 'HELLO FROM THREAD NUMBER = ', TNUMBER
+!$OMP END PARALLEL
+
+      END
+
 ```
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ]
  [ [Back to Top](#top) ]
 <hr>
 
 #### Hello World (OpenMP): Compiling <a name="hello-world-omp-compile"></a>
-Compiling.
+
+* First, load the correct module environment:
+
+```
+module purge
+module load slurm
+module load cpu
+module load aocc
+module list
+
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) cpu/0.15.4   3) aocc/2.2.0
+
+```
+
+* Next, compile the code:
+
+```
+flang -fopenmp -o hello_openmp hello_openmp.f90
+```
 
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
 #### Hello World (OpenMP): Batch Script Submission <a name="hello-world-omp-batch-submit"></a>
-Batch Script Submission
+* Batch Script contents:
+
+```
+
+#!/bin/bash
+## Example of OpenMP code running on a shared node
+#SBATCH --job-name="hell_openmp_shared"
+#SBATCH --output="hello_openmp_shared.%j.%N.out"
+#SBATCH --partition=shared
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
+#SBATCH --export=ALL
+#SBATCH --account=sds173
+#SBATCH -t 00:10:00
+
+# AOCC environment
+module purge
+module load slurm
+module load cpu
+module load aocc
+
+#SET the number of openmp threads
+export OMP_NUM_THREADS=16
+
+#Run the openmp job
+./hello_openmp
+
+```
+* Note that the script is loading the module stack, and setting the number of OMP threads.
+
+* Submit the job to the batch queue, and monitor:
+
+```
+[mthomas@login02 OPENMP]$ sbatch openmp-slurm-shared.sb ;  squeue -u mthomas
+Submitted batch job 1088802
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1088802    shared hell_ope  mthomas PD       0:00      1 (None)
+
+```
 
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
 #### Hello World (OpenMP): Batch Script Output <a name="hello-world-omp-batch-output"></a>
 Batch Script Output
+
+```
+[mthomas@login02 OPENMP]$ cat hello_openmp_shared.1088802.exp-3-08.out
+ HELLO FROM THREAD NUMBER =            14
+ HELLO FROM THREAD NUMBER =            15
+ HELLO FROM THREAD NUMBER =            10
+ HELLO FROM THREAD NUMBER =             8
+ HELLO FROM THREAD NUMBER =            12
+ HELLO FROM THREAD NUMBER =             4
+ HELLO FROM THREAD NUMBER =             1
+ HELLO FROM THREAD NUMBER =             0
+ HELLO FROM THREAD NUMBER =             9
+ HELLO FROM THREAD NUMBER =             7
+ HELLO FROM THREAD NUMBER =            11
+ HELLO FROM THREAD NUMBER =             2
+ HELLO FROM THREAD NUMBER =             5
+ HELLO FROM THREAD NUMBER =            13
+ HELLO FROM THREAD NUMBER =             3
+ HELLO FROM THREAD NUMBER =             6
+[mthomas@login02 OPENMP]$
+
+```
+
+* Note the non-deterministic output of the thread numbers. This is normal for HPC systems.
 
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>

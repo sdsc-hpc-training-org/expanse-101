@@ -1,6 +1,9 @@
 # Expanse 101:  Introduction to Running Jobs on the Expanse Supercomputer
+
 [SDSC HPC Training Group](https://www.sdsc.edu/education_and_training/training_hpc.html)
+
 *Document last updated:  01/29/21*
+
 <hr>
 In this tutorial, you will learn how to compile and run jobs on Expanse,
 where to run them, and how to run batch jobs. The commands below can be

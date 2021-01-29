@@ -36,8 +36,11 @@ Consulting group at help@xsede.org.
    * [Modules: Popular Lmod Commands](#module-commands)
    * [Loading Modules During Login](#module-login-load)
    * [Troubleshooting:Module Error](#module-error)
-* [Account Management](#accounts)
-   * [Expanse Accounts](#expanse-accounts)
+* [Account Management](#managing-accounts)
+   * [Expanse Client Script](#emanage-accts-client-script)
+   * [Using Accounts in Batch Jobs](#manage-accts-batch-script)
+   * [Managing Users on an Account](#manage-accts-adding-users)  
+*[Job Charging](#job-charging)
 * [Compiling & Linking](#compilers)
    * [Supported Compilers](#compilers-supported")
    * [AMD Optimizing C/C++ Compiler (AOCC)](#compilers-amd)
@@ -663,8 +666,10 @@ OR add this command to your shell script (including Slurm batch scripts)
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
-## <a name="accounts"></a>Managing Accounts on Expanse
+## <a name="managing-accounts"></a>Managing Accounts on Expanse
 * [Expanse Client Script](#manage-accts-client-script)
+* [Using Accounts in Batch Jobs](#manage-accts-batch-script)
+* [Managing Users on an Account](#manage-accts-adding-users)
 
 ### <a name="manage-accts-client-script"></a>Expanse-Client Script
 The expanse-client script provides additional details regarding User and Project availability and usage located at:
@@ -707,17 +712,28 @@ Example of using the script shows that the user has allocations on 3 accounts, a
  username  xyz789    318    5050000          2905439 
 ```
 
-### Using Accounts in Batch Jobs
+### <a name="manage-accts-batch-script"></a>Using Accounts in Batch Jobs
 As with the case above, some users will have access to multiple accounts (e.g. an allocation for a research project and a separate allocation for classroom or educational use). Users should verify that the correct project is designated for all batch jobs. Awards are granted for a specific purposes and should not be used for other projects. Designate a project by replacing  << project >> with a project listed as above in the SBATCH directive in your job script:
 
 ```
   #SBATCH -A << project >>
 ```
 
-### Adding Users to an Account
+### <a name="manage-accts-adding-users"></a>Adding Users to an Account
 Only project PIs and co-PIs can add or remove users from an account. This can only be done via the [XSEDE portal](https://portal.xsede.org] account (there is no command line interface for this). After logging in, go to the Add User page for the account.
 
-[ [Back to Accounts](#accounts) ] [ [Back to Top](#top) ]
+
+## <a name="job-charging"></a>Job Charging
+The charge unit for all SDSC machines, including Expanse, is the Service Unit (SU). This corresponds to:
+* use of one compute core utilizing less than or equal to 2G of data for one hour
+* 1 GPU using less than 96G of data for 1 hour. 
+Note: your charges are based on the resources that are tied up by your job and don't necessarily reflect how the resources are used. Charges are based on either the number of cores or the fraction of the memory requested, whichever is larger. The minimum charge for any job is 1 SU.
+
+See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#charging) for more details and factors that affect job charging.
+
+
+
+[ [Back to Managing Accounts](#accounts) ] [ [Back to Top](#top) ]
 
 <hr>
 ## <a name="compilers"></a>Compiling & Linking Code

@@ -35,6 +35,8 @@ Consulting group at help@xsede.org.
    * [Loading Modules During Login](#module-login-load)
    * [Modules: Popular Lmod Commands](#module-commands)
    * [Loading Modules During Login](#module-login-load)
+   * [Lmod warning “rebuild your saved collection”](#lmod-warn-rebuild)
+
    * [Troubleshooting:Module Error](#module-error)
 * [Managing Accounts](#managing-accounts)
    * [Expanse Client Script](#manage-accts-client-script)
@@ -57,7 +59,8 @@ Consulting group at help@xsede.org.
       * [SLURM Commands](#run-jobs-slurm-commands)
       * [SLURM Batch Script Example](#run-jobs-slurm-batch)
 * [Compiling and Running CPU Jobs](#comp-and-run-cpu-jobs)
-   * [Hello World (MPI)](#hello-world-mpi)
+* [Checking Your Environment](#check-env)
+* [Hello World (MPI)](#hello-world-mpi)
         * [Hello World (MPI): Source Code](#hello-world-mpi-source)
         * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
         * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
@@ -652,6 +655,11 @@ PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/
 ```
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
+
+
+
+###  Lmod warning “rebuild your saved collection”<a name="lmod-warn-rebuild"></a>
+Lmod allows a user to save a bundle of modules as a collection using module save <collection_name> and module restore <collection_name>. This enables you to quickly get the same list of modules loaded if you tend to use the same modules over and over. With a new module scheme came a different system MODULEPATH. For this reason, if you have some module collections saved, you will experience the following warning: “Lmod Warning: The system MODULEPATH has changed: please rebuild your saved collection.” To solve this you need to remove your old collections and create them again.
 
 ### Troubleshooting:Module Error<a name="module-error"></a>
 
@@ -1258,6 +1266,7 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib6
 ## Compiling and Running CPU Jobs<a name="comp-and-run-cpu-jobs"></a>
 
 **Sections:**
+   * [Checking Your Environment](#check-env)
    * [Hello World (MPI)](#hello-world-mpi)
    * [Hello World (OpenMP)](#hello-world-omp)
    * [Hello World Hybrid (MPI + OpenMP)](#hybrid-mpi-omp)
@@ -1303,9 +1312,63 @@ sbatch hello_mpi_slurm.sb
 [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
+### Checking Your Environment<a name="heck-env"></a>
+This simple batch script will show you how to check your user environment
+and to also verify that your Slurm environment is working.
 
-## Hello World (MPI) <a name="hello-world-mpi"></a>
+* Script contents:
 
+```
+[user@login01 ENV_INFO]$ cat env-slurm.sb
+#!/bin/bash
+#SBATCH --job-name="envinfo"
+#SBATCH --output="envinfo.%j.%N.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --export=ALL
+#SBATCH -A sds173
+#SBATCH -t 00:1:00
+
+## Load module environment
+module purge
+module load slurm
+module load cpu
+module load sdsc
+
+##  perform some basic unix commands
+
+echo "----------------------------------"
+echo "hostname= " `hostname`
+echo "date= " `date`
+echo "whoami= " `whoami`
+echo "pwd= " `pwd`
+echo "module list= " `module list`
+echo "----------------------------------"
+echo "env= " `env`
+echo "----------------------------------"
+echo "expanse-client user -p: " `expanse-client user -p`
+echo "----------------------------------"
+
+```
+* Submit the batch script and monitor until the job is allocated a node,
+and completes execution:
+
+```
+
+[mthomas@login01 ENV_INFO]$ sbatch env-slurm.sb
+Submitted batch job 1088090
+[mthomas@login01 ENV_INFO]$ squeue -u mthomas
+           1088090   compute  envinfo  mthomas PD       0:00      1 (ReqNodeNotAvail,[SNIP]
+[...]
+[mthomas@login01 ENV_INFO]$ squeue -u mthomas
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1088090   compute  envinfo  mthomas PD       0:00      1 (ReqNodeNotAvail, [SNIP]
+```
+
+[ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
+
+### Hello World (MPI) <a name="hello-world-mpi"></a>
 **Subsections:**
 * [Hello World (MPI): Source Code](#hello-world-mpi-source)
 * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
@@ -1316,7 +1379,7 @@ sbatch hello_mpi_slurm.sb
 [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (MPI): Source Code <a name="hello-world-mpi-source"></a>
+#### Hello World (MPI): Source Code <a name="hello-world-mpi-source"></a>
 * Change to the tutorial `MPI` examples directory:
 * Source code with basic MPI elements:
 
@@ -1340,7 +1403,7 @@ sbatch hello_mpi_slurm.sb
  [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (MPI): Compiling <a name="hello-world-mpi-compile"></a>
+#### Hello World (MPI): Compiling <a name="hello-world-mpi-compile"></a>
 * To compile, checkout the instructions in the README.txt file.
 * Follow the instructions in the batch script provided for the compiler you want to test.
 
@@ -1348,7 +1411,7 @@ sbatch hello_mpi_slurm.sb
 [user@login01 MPI]$ cat README.txt 
 [1] Compile:
 
-### MODULE ENV: updated 01/28/2020 (MPT)
+#### MODULE ENV: updated 01/28/2020 (MPT)
  module purge
  module load slurm
  module load cpu
@@ -1387,12 +1450,13 @@ Currently Loaded Modules:
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (MPI): Batch Script Submission <a name="hello-world-mpi-batch-submit"></a>
+#### Hello World (MPI): Batch Script Submission <a name="hello-world-mpi-batch-submit"></a>
+
 * The batch script contains the module commands needed to set the right environment
 in order to run the code. The contents of the default batch script are:
 
 ```
-[mthomas@login01 MPI]$ cat hellompi-slurm.sb
+[user@login01 MPI]$ cat hellompi-slurm.sb
 #!/bin/bash
 #SBATCH --job-name="hellompi"
 #SBATCH --output="hellompi.%j.%N.out"
@@ -1458,19 +1522,19 @@ drwxr-xr-x 8 user abc123     8 Oct  8 04:16 ..
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (MPI): Batch Script Output <a name="hello-world-mpi-batch-output"></a>
+#### Hello World (MPI): Batch Script Output <a name="hello-world-mpi-batch-output"></a>
 Batch Script Output
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (MPI): Interactive Jobs <a name="hello-world-mpi-interactive"></a>
+#### Hello World (MPI): Interactive Jobs <a name="hello-world-mpi-interactive"></a>
 Interactive Jobs
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-## Hello World (OpenMP) <a name="hello-world-omp"></a>
+### Hello World (OpenMP) <a name="hello-world-omp"></a>
 **Subsections:**
 * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
 * [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
@@ -1480,36 +1544,130 @@ Interactive Jobs
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (OpenMP): Source Code <a name="hello-world-omp-source"></a>
+#### Hello World (OpenMP): Source Code <a name="hello-world-omp-source"></a>
 Source Code.
 
 ```
-hello-world-omp  source code
+[mthomas@login02 OPENMP]$ cat hello_openmp.f90
+      PROGRAM OMPHELLO
+      INTEGER TNUMBER
+      INTEGER OMP_GET_THREAD_NUM
+
+!$OMP PARALLEL DEFAULT(PRIVATE)
+      TNUMBER = OMP_GET_THREAD_NUM()
+      PRINT *, 'HELLO FROM THREAD NUMBER = ', TNUMBER
+!$OMP END PARALLEL
+
+      END
+
 ```
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ]
  [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (OpenMP): Compiling <a name="hello-world-omp-compile"></a>
-Compiling.
+#### Hello World (OpenMP): Compiling <a name="hello-world-omp-compile"></a>
+
+* First, load the correct module environment:
+
+```
+module purge
+module load slurm
+module load cpu
+module load aocc
+module list
+
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) cpu/0.15.4   3) aocc/2.2.0
+
+```
+
+* Next, compile the code:
+
+```
+flang -fopenmp -o hello_openmp hello_openmp.f90
+```
 
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (OpenMP): Batch Script Submission <a name="hello-world-omp-batch-submit"></a>
-Batch Script Submission
+#### Hello World (OpenMP): Batch Script Submission <a name="hello-world-omp-batch-submit"></a>
+* Batch Script contents:
+
+```
+
+#!/bin/bash
+## Example of OpenMP code running on a shared node
+#SBATCH --job-name="hell_openmp_shared"
+#SBATCH --output="hello_openmp_shared.%j.%N.out"
+#SBATCH --partition=shared
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
+#SBATCH --export=ALL
+#SBATCH --account=sds173
+#SBATCH -t 00:10:00
+
+# AOCC environment
+module purge
+module load slurm
+module load cpu
+module load aocc
+
+#SET the number of openmp threads
+export OMP_NUM_THREADS=16
+
+#Run the openmp job
+./hello_openmp
+
+```
+* Note that the script is loading the module stack, and setting the number of OMP threads.
+
+* Submit the job to the batch queue, and monitor:
+
+```
+[mthomas@login02 OPENMP]$ sbatch openmp-slurm-shared.sb ;  squeue -u mthomas
+Submitted batch job 1088802
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1088802    shared hell_ope  mthomas PD       0:00      1 (None)
+
+```
 
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (OpenMP): Batch Script Output <a name="hello-world-omp-batch-output"></a>
+#### Hello World (OpenMP): Batch Script Output <a name="hello-world-omp-batch-output"></a>
 Batch Script Output
 
+```
+[mthomas@login02 OPENMP]$ cat hello_openmp_shared.1088802.exp-3-08.out
+ HELLO FROM THREAD NUMBER =            14
+ HELLO FROM THREAD NUMBER =            15
+ HELLO FROM THREAD NUMBER =            10
+ HELLO FROM THREAD NUMBER =             8
+ HELLO FROM THREAD NUMBER =            12
+ HELLO FROM THREAD NUMBER =             4
+ HELLO FROM THREAD NUMBER =             1
+ HELLO FROM THREAD NUMBER =             0
+ HELLO FROM THREAD NUMBER =             9
+ HELLO FROM THREAD NUMBER =             7
+ HELLO FROM THREAD NUMBER =            11
+ HELLO FROM THREAD NUMBER =             2
+ HELLO FROM THREAD NUMBER =             5
+ HELLO FROM THREAD NUMBER =            13
+ HELLO FROM THREAD NUMBER =             3
+ HELLO FROM THREAD NUMBER =             6
+[mthomas@login02 OPENMP]$
+
+```
+
+* Note the non-deterministic output of the thread numbers. This is normal for HPC systems.
+
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
 
-## Compiling and Running Hybrid (MPI + OpenMP) Jobs <a name="hybrid-mpi-omp"></a>
+### Compiling and Running Hybrid (MPI + OpenMP) Jobs <a name="hybrid-mpi-omp"></a>
 **Subsections:**
 * [Hybrid (MPI + OpenMP): Source Code](#hybrid-mpi-omp-source)
 * [Hybrid (MPI + OpenMP): Compiling](#hybrid-mpi-omp-compile)
@@ -1519,7 +1677,7 @@ Batch Script Output
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World Hybrid (MPI + OpenMP): Source Code <a name="hybrid-mpi-omp-source"></a>
+#### Hello World Hybrid (MPI + OpenMP): Source Code <a name="hybrid-mpi-omp-source"></a>
 Source Code.
 
 ```
@@ -1528,19 +1686,19 @@ aaaaa
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World Hybrid (MPI + OpenMP): Compiling <a name="hybrid-mpi-omp-compile"></a>
+#### Hello World Hybrid (MPI + OpenMP): Compiling <a name="hybrid-mpi-omp-compile"></a>
 Compiling.
 
 [[Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ]  [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World Hybrid (MPI + OpenMP): Batch Script Submission <a name="hybrid-mpi-omp-batch-submit"></a>
+#### Hello World Hybrid (MPI + OpenMP): Batch Script Submission <a name="hybrid-mpi-omp-batch-submit"></a>
 Batch Script Submission
 
 [ [Back to Hybrid (MPI+OpenMP)](#hybrid-mpi-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World Hybrid (MPI + OpenMP): Batch Script Output <a name="hybrid-mpi-omp-batch-output"></a>
+#### Hello World Hybrid (MPI + OpenMP): Batch Script Output <a name="hybrid-mpi-omp-batch-output"></a>
 
 Batch Script Output
 
@@ -1589,16 +1747,16 @@ module load gpu
 module load pgi
 ```
 
+
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
+
+#### Using Interactive GPU Nodes  <a name="comp-run-gpu-interactive"></a>
 * Interactive GPU node:
 
 ```
 srun   --pty   --nodes=1 --account=abc123  --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
 ```
-
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
-<hr>
-
-### Using Interactive GPU Nodes  <a name="comp-run-gpu-interactive"></a>
 
 * Change to the tutorial `OpenACC` directory
 
@@ -1653,7 +1811,8 @@ Thu Oct  8 03:58:44 2020       
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### GPU: Must Compile on Interactive node
+### GPU Compiling:
+Must be done on Interactive node
 
 ```
 [user@login01 OpenACC]$
@@ -1700,7 +1859,7 @@ sbatch openacc-gpu-shared.sb 
 * [Hello World (GPU): Batch Script Submission](#hello-world-gpu-batch-submit)
 * [Hello World (GPU): Batch Script Output](#hello-world-gpu-batch-output)
 
-### Hello World (GPU): Source Code  <a name="hello-world-gpu-source"></a>
+#### Hello World (GPU): Source Code  <a name="hello-world-gpu-source"></a>
 Source Code
 
 ```
@@ -1798,7 +1957,7 @@ int laplace()
 [ [Back to Hello World (GPU)](#hello-world-gpu)] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (GPU): Compiling  <a name="hello-world-gpu-compile"></a>
+#### Hello World (GPU): Compiling  <a name="hello-world-gpu-compile"></a>
 Compile the code:
 1. obtain an interactive node
 2. load the right Modules
@@ -1838,7 +1997,7 @@ exit
 [ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (GPU): Batch Script Submission  <a name="hello-world-gpu-batch-submit"></a>
+#### Hello World (GPU): Batch Script Submission  <a name="hello-world-gpu-batch-submit"></a>
 * Batch Script Contents
 
 ```
@@ -1899,12 +2058,12 @@ squeue -u user -u user
 [ [Back to Hello World (GPU)](#hello-world-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Hello World (GPU): Batch Script Output  <a name="hello-world-gpu-batch-output"></a>
+#### Hello World (GPU): Batch Script Output  <a name="hello-world-gpu-batch-output"></a>
 
 * Batch Script Output:
 
 ```
-dddd
+
 
 ```
 

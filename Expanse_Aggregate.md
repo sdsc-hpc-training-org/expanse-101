@@ -148,7 +148,7 @@ Consulting group at help@xsede.org.
 * Each core includes a private 512KB L2 cache.  
 
 <hr>
-### New Expanse Features 
+### New Expanse Features
 
 #### Composable Systems
 
@@ -506,7 +506,7 @@ Currently Loaded Modules:
   1) shared   2) slurm/expanse/20.02.3   3) cpu/0.15.4   4) DefaultModules
 ```
 
-* Note that SLURM (the cluster resource manager) is not in the environment. 
+* Note that SLURM (the cluster resource manager) is not in the environment.
 Check environment looking for SLURM commands
 
 
@@ -679,7 +679,7 @@ OR add this command to your shell script (including Slurm batch scripts)
 /cm/shared/apps/sdsc/current/bin/expanse-client
 ```
 
-* Example of Script Usage: 
+* Example of Script Usage:
 
 ```
 [username@login01 ~]$ expanse-client -h
@@ -707,13 +707,13 @@ Use "expanse-client [command] --help" for more information about a command.
 ```
 [username@login01 ~]$ expanse-client user -p
 
- Resource  sdsc_expanse 
+ Resource  sdsc_expanse
 
- NAME     PROJECT  USED  AVAILABLE  USED BY PROJECT 
+ NAME     PROJECT  USED  AVAILABLE  USED BY PROJECT
 ----------------------------------------------------
- username  abc123     33      80000              180 
- username  srt456      0       5000               79 
- username  xyz789    318     500000          2905439 
+ username  abc123     33      80000              180
+ username  srt456      0       5000               79
+ username  xyz789    318     500000          2905439
 ```
 
 * To see who is on an account:
@@ -726,7 +726,7 @@ Use "expanse-client [command] --help" for more information about a command.
  Total allocation  500000         
  Total recorded    289243         
  Total queued      13004           
- Expiration        January 1, 2024 
+ Expiration        January 1, 2024
 
 ╭────┬──────────┬───────────────┬─────────────┬───────────┬──────────────────────────┬────────────────────────╮
 │    │ NAME     │ USED RECORDED │ USED QUEUED │ AVAILABLE │ USED BY PROJECT RECORDED │ USED BY PROJECT QUEUED │
@@ -748,8 +748,8 @@ As with the case above, some users will have access to multiple accounts (e.g. a
 ```
 
 ### <a name="manage-accts-users"></a>Managing Users on an Account
-Only project PIs and co-PIs can add or remove users from an account. This can only be done 
-via the [XSEDE portal](https://portal.xsede.org) account (there is no command line interface for this). 
+Only project PIs and co-PIs can add or remove users from an account. This can only be done
+via the [XSEDE portal](https://portal.xsede.org) account (there is no command line interface for this).
 After logging in, go to the Add User page for the account.
 
 
@@ -757,12 +757,11 @@ After logging in, go to the Add User page for the account.
 
 <hr>
 
-## <a name="job-charging"></a> Job Charging
 ## <a name="job-charging"></a>Job Charging
 
 The basic charge unit for all SDSC machines, including Expanse, is the Service Unit (SU). This corresponds to:
 * Use of one compute core utilizing less than or equal to 2G of data for one hour
-* 1 GPU using less than 96G of data for 1 hour. 
+* 1 GPU using less than 96G of data for 1 hour.
 Note: your charges are based on the resources that are tied up by your job and don't necessarily reflect how the resources are used. Charges are based on either the number of cores or the fraction of the memory requested, whichever is larger. The minimum charge for any job is 1 SU.
 
 See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#charging) for more details and factors that affect job charging.
@@ -772,6 +771,7 @@ See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.ht
 
 <hr>
 ## <a name="compilers"></a>Compiling & Linking Code
+## <a name="job-charging"></a>Job Charging222
 
 Expanse provides the Intel, Portland Group (PGI), and GNU compilers along with multiple MPI implementations (MVAPICH2, MPICH2, OpenMPI). Most applications will achieve the best performance on Expanse using the Intel compilers and MVAPICH2 and the majority of libraries installed on Expanse have been built using this combination. Having such a diverse set of compilers avaiable allows for our users to customize the software stack need for thier application. However, there
 can be some complexity involed in sorting out the module dependencies needed for your applications. Often the set of modules being loaded depends on the application you are using and the compiler and libraries you may need. In many cases you will need to use the ```module spider``` command to sort out what modules your application will need. Additionally, it is possible the list will change if some of the dependent software changes.
@@ -891,7 +891,7 @@ For AVX2 support, compile with the -xHOST option. Note that -xHOST alone does no
 Intel MKL libraries are available as part of the "intel" modules on Expanse. Once this module is loaded, the environment variable MKL_ROOT points to the location of the mkl libraries. The MKL link advisor can be used to ascertain the link line (change the MKL_ROOT aspect appropriately).
 
 In the example below, we are working with a serial MKL example that can be found in the examples/MKL/dgemm folder of the GitHub repository.
-This example based on an [Intel MKL repo](http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/) 
+This example based on an [Intel MKL repo](http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/)
 computes the real matrix ```C=alpha*A*B+beta*C``` using Intel(R) MKL
 
 * Repository contents:
@@ -923,7 +923,7 @@ drwxr-xr-x 3 username abc123        3 Jan 29 00:25 ..
 
 * README.txt contents:
 ```
-[username@login01 dgemm]$ cat README.txt 
+[username@login01 dgemm]$ cat README.txt
 ### MPT:  10/7/2020 -- Example is not working
 
 [1] Compile:
@@ -947,7 +947,7 @@ with the one you want to use.
 
 * Contents of the batch script:
 ```
-[username@login01 dgemm]$ cat dgemm-slurm.sb 
+[username@login01 dgemm]$ cat dgemm-slurm.sb
 #!/bin/bash
 #SBATCH --job-name="dgemm_example"
 #SBATCH --output="dgemm_example.%j.%N.out"
@@ -963,8 +963,8 @@ with the one you want to use.
 ## Environment
 module purge
 module load cpu/0.15.4
-module load gpu/0.15.4 
-module load intel/19.0.5.281 
+module load gpu/0.15.4
+module load intel/19.0.5.281
 module load intel-mkl/2020.3.279
 module load slurm
 
@@ -980,7 +980,7 @@ Top left corner of matrix A:
         601.         602.         603.         604.         605.         606.
         801.         802.         803.         804.         805.         806.
        1001.        1002.        1003.        1004.        1005.        1006.
- 
+
  Top left corner of matrix B:
          -1.          -2.          -3.          -4.          -5.          -6.
       -1001.       -1002.       -1003.       -1004.       -1005.       -1006.
@@ -988,7 +988,7 @@ Top left corner of matrix A:
       -3001.       -3002.       -3003.       -3004.       -3005.       -3006.
       -4001.       -4002.       -4003.       -4004.       -4005.       -4006.
       -5001.       -5002.       -5003.       -5004.       -5005.       -5006.
- 
+
  Top left corner of matrix C:
  -2.6666E+09  -2.6666E+09  -2.6667E+09  -2.6667E+09  -2.6667E+09  -2.6667E+09
  -6.6467E+09  -6.6467E+09  -6.6468E+09  -6.6468E+09  -6.6469E+09  -6.6470E+09

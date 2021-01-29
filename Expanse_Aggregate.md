@@ -1715,6 +1715,7 @@ int main(int argc, char *argv[]) {
 Compiling.
 
 * Compile code, but remember to load the right modules (see README.txt)
+
 ```
 [1] Compile:
 
@@ -1734,6 +1735,7 @@ sbatch hybrid-slurm.sb
 ```
 
 * Compilation example:
+
 ```
 [mthomas@login01 HYBRID]$ module purge
 [mthomas@login01 HYBRID]$ module load slurm
@@ -1751,6 +1753,7 @@ sbatch hybrid-slurm.sb
 #### Hello World Hybrid (MPI + OpenMP): Batch Script Submission <a name="hybrid-mpi-omp-batch-submit"></a>
 
 * Submit the batch script and monitor:
+
 ```
 [mthomas@login01 HYBRID]$ sbatch hybrid-slurm.sb
 Submitted batch job 1089019
@@ -1815,7 +1818,6 @@ Hello from thread 15 out of 16 from process 0 out of 2 on exp-10-07
 * [Hello World (GPU): Source Code](#hello-world-gpu)
 
 ### Using Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a>
-Using Expanse GPU Nodes
 
 #### Expanse GPU Hardware
 

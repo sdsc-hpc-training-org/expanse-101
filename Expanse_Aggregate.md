@@ -1186,18 +1186,27 @@ of the most common states you will see. For full details, See
 the section on SLURM JOB STATE CODES, at the
 [SLURM Squeue data page](https://slurm.schedmd.com/squeue.html).
 
-| **STATE** |   **DESCRIPTION** |
-| :-----  | :----- |
+| **STATE** | **LABEL** |  **DESCRIPTION** |
+| :-----  | :----- | :----- |
 | CA CANCELLED | Job was explicitly cancelled by the user or system administrator.|
-|   C: COMPLETED  | job is Complete/Clearing |
-|   F FAILED | Job terminated with non-zero exit code or other failure condition.|
-| PD: PENDING | Job is awaiting resource allocation. |
-|   R RUNNING | Job currently has an allocation. |
-|  ST STOPPED | Job has an allocation, but execution has been stopped with SIGSTOP signal. CPUS have been retained by this job. |
-| TO TIMEOUT | Job terminated upon reaching its time limit.|
+| C | COMPLETED  | job is Complete/Clearing |
+| F | FAILED | Job terminated with non-zero exit code or other failure condition.|
+| PD | PENDING | Job is awaiting resource allocation. |
+| R | RUNNING | Job currently has an allocation. |
+| ST | STOPPED | Job has an allocation, but execution has been stopped with SIGSTOP signal. CPUS have been retained by this job. |
+| TO | TIMEOUT | Job terminated upon reaching its time limit.|
 
-### Common SLURM Commands <a name="run-jobs-SLURM-commands"></a>
+#### Common SLURM Commands <a name="run-jobs-SLURM-commands"></a>
 Here are a few key SLURM commands. For more information, run the `man SLURM` or see this page:
+
+| **COMMAND** |   **DESCRIPTION** |
+| :-----  | :----- |
+| *scancel* | description |
+| *sbatch* | description |
+| *sinfo*  | desc  |
+| *squeue* | description |
+| *srun* | description |
+
 
 * Submit jobs using the sbatch command:
 

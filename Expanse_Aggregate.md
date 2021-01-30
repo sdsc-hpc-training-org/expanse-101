@@ -1871,7 +1871,7 @@ srun: job 1089081 has been allocated resources
 
 ```
 
-* Change to the tutorial `OpenACC` directory
+* Change to the tutorial *OpenAC*  directory:
 
 ```
 [user@exp-7-59 OpenACC]$ ll
@@ -1884,15 +1884,7 @@ total 71
 -rw-r--r-- 1 user abc123  1572 Oct  7 11:28 timer.h
 ```
 
-* Obtain an interactive node:
 
-```
-[user@login01 OpenACC]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 -A abc123 /bin/bash
-srun: job 1089081 queued and waiting for resources
-srun: job 1089081 has been allocated resources
-[user@exp-7-59 OpenACC]$
-
-```
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
@@ -1949,7 +1941,7 @@ Must be done on Interactive node
 
 ```
 [user@login01 OpenACC]$
-cat README.txt 
+[mthomas@exp-7-59 OpenACC]$ cat README.txt 
 [1] Compile Code:
 (a) Get an interactive GPU debug node:
 module load slurm
@@ -1980,6 +1972,8 @@ Exit out of debug node after this)
 
 [2] Run job:
 sbatch openacc-gpu-shared.sb 
+[mthomas@exp-7-59 OpenACC]$
+[mthomas@exp-7-59 OpenACC]$ exit
 ```
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
@@ -2147,7 +2141,8 @@ laplace:
          75, #pragma acc loop gang, vector(4) /* blockIdx.y threadIdx.y */
          77, #pragma acc loop gang, vector(32) /* blockIdx.x threadIdx.x */
      88, GetTimer inlined, size=9 (inline) file laplace2d.c (54)
-
+[user@exp-7-59 OpenACC]$
+[user@exp-7-59 OpenACC]$ exit
 ```
 
 [ [Back to Laplace2D (GPU)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
@@ -2180,16 +2175,27 @@ module load pgi
 
 ```
 * Submit the batch script, and monitor queue status:
-   * PD == Pending
-   * ST == Starting
-   *  R == Running
+| State | Description |
+| :---  | :--- |  :--- |
+| PD  | ==  | Pending |
+|  ST  | == |  Starting |
+|   R  | ==  | Running |
 
 ```
-[user@exp-7-59 OpenACC]$ sbatch openacc-gpu-shared.sb
-Submitted batch job 1089114
-[user@exp-7-59 OpenACC]$ squeue -u user
+[mthomas@login01 OpenACC]$ sbatch openacc-gpu-shared.sb
+Submitted batch job 1093002
+[mthomas@login01 OpenACC]$ squeue -u mthomas
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-           1089081 gpu-debug     bash  user  R       8:24      1 exp-7-59
+[mthomas@login01 OpenACC]$ ll
+total 106
+drwxr-xr-x  2 mthomas use300     8 Jan 29 16:25 .
+drwxr-xr-x 10 mthomas use300    10 Jan 29 03:28 ..
+-rw-r--r--  1 mthomas use300  2136 Jan 29 03:27 laplace2d.c
+-rwxr-xr-x  1 mthomas use300 52080 Jan 29 16:20 laplace2d.openacc.exe
+-rw-r--r--  1 mthomas use300   234 Jan 29 16:25 OpenACC.1093002.exp-7-57.out
+-rw-r--r--  1 mthomas use300   332 Jan 29 16:11 openacc-gpu-shared.sb
+-rw-r--r--  1 mthomas use300  1634 Jan 29 03:27 README.txt
+-rw-r--r--  1 mthomas use300  1572 Jan 29 03:27 timer.h
 
 ```
 
@@ -2202,8 +2208,7 @@ Submitted batch job 1089114
 * Batch Script Output:
 
 ```
-
-[user@exp-7-59 OpenACC]$ cat OpenACC.1089081.exp-7-57.out
+[mthomas@login01 OpenACC]$ cat OpenACC.1093002.exp-7-57.out
 main()
 Jacobi relaxation Calculation: 4096 x 4096 mesh
     0, 0.250000
@@ -2216,9 +2221,9 @@ Jacobi relaxation Calculation: 4096 x 4096 mesh
   700, 0.000345
   800, 0.000302
   900, 0.000269
- total: 1.031729 s
-
-
+ total: 1.029057 s
+[mthomas@login01 OpenACC]$
+ 
 ```
 
 [ [Back to Laplace2D (GPU)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]

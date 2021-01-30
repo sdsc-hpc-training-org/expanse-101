@@ -7,10 +7,8 @@
 <hr>
 In this tutorial, you will learn how to compile and run jobs on Expanse,
 where to run them, and how to run batch jobs. The commands below can be
-cut & pasted into the terminal window, which is connected to
-expanse.sdsc.edu. For instructions on how to do this, see the tutorial
-on how to use a terminal application and SSH go connect to an SDSC HPC
-system: [Basic HPC Skills](https://github.com/sdsc-hpc-training-org/basic_skills).
+cut & pasted into the terminal window, when it is connected to
+expanse.sdsc.edu.
 
 # Misc Notes/Updates:
 *  You must have a expanse account in order to access the system.
@@ -223,7 +221,7 @@ Details about how to access Expanse under different circumstances are described 
 https://www.sdsc.edu/support/user_guides/expanse.html#access
 
 For instructions on how to use SSH,
-see [Connecting to SDSC HPC Systems Guide](https://github.com/sdsc-hpc-training-org/hpc-security/tree/master/connecting-to-hpc-systems). Below is the logon message – often called the *MOTD* (message of the day, located in /etc/motd). This has not been implemented at this point on Expanse
+see [Connecting to SDSC HPC Systems Guide](https://github.com/sdsc-hpc-training-org/hpc-security). Below is the logon message – often called the *MOTD* (message of the day, located in /etc/motd). This has not been implemented at this point on Expanse
 
 ```
 [user@localhost:~] ssh -Y expanse.sdsc.edu

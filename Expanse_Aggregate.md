@@ -2175,6 +2175,7 @@ module load pgi
 
 ```
 * Submit the batch script, and monitor queue status:
+
 | State | Description |
 | :---  | :--- |  :--- |
 | PD  | ==  | Pending |
@@ -2223,7 +2224,7 @@ Jacobi relaxation Calculation: 4096 x 4096 mesh
   900, 0.000269
  total: 1.029057 s
 [mthomas@login01 OpenACC]$
- 
+
 ```
 
 [ [Back to Laplace2D (GPU)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]

@@ -1180,16 +1180,21 @@ About Partitions
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
 
-#### SLURM Job Status States<a name="run-jobs-SLURM-status"></a>
+#### SLURM Job  State Codes<a name="run-jobs-SLURM-status"></a>
+SLURM has a large number of states. The table below lists some
+of the most common states you will see. For full details, See
+the section on SLURM JOB STATE CODES, at the
+[SLURM Squeue data page](https://slurm.schedmd.com/squeue.html).
 
-| State |   Description |
+| **STATE** |   **DESCRIPTION** |
 | :-----  | :----- |
-| PD: | Job is Pending |
-|  ST:  |  Job is Starting |
-|   R:  | Job is Running |
-|   C:  | job is Complete/Clearing |
-|   E:  | Job has an Error |
-
+| CA CANCELLED | Job was explicitly cancelled by the user or system administrator.|
+|   C: COMPLETED  | job is Complete/Clearing |
+|   F FAILED | Job terminated with non-zero exit code or other failure condition.|
+| PD: PENDING | Job is awaiting resource allocation. |
+|   R RUNNING | Job currently has an allocation. |
+|  ST STOPPED | Job has an allocation, but execution has been stopped with SIGSTOP signal. CPUS have been retained by this job. |
+| TO TIMEOUT | Job terminated upon reaching its time limit.|
 
 ### Common SLURM Commands <a name="run-jobs-SLURM-commands"></a>
 Here are a few key SLURM commands. For more information, run the `man SLURM` or see this page:

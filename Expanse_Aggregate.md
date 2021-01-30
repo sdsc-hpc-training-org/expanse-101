@@ -357,7 +357,7 @@ In this Section:
 
 ### Introduction to the Lua Lmod Module System<a name="module-lmod-intro"></a>
 * Expanse uses Lmod, a Lua based module system.
-   * See: https://lmod.readthedocs.io/en/latest/010_user.html
+   * See: [https://lmod.readthedocs.io/en/latest/010_user.html](https://lmod.readthedocs.io/en/latest/010_user.html)
 * Users setup custom environments by loading available modules into the shell environment, including needed compilers and libraries and the batch scheduler.
 * What’s the same as Comet:
   * Dynamic modification of your shell environment
@@ -385,16 +385,15 @@ Here are some common module commands and their descriptions:
 
 | Lmod Command | Description |
 |:--- | :--- |
-|module list|List the modules that are currently loaded|
-|module avail|List the modules that are available in environment|
-|module spider|List of the modules and extensions currently available|
-|module display <module_name>|Show the environment variables used by
-<module name> and how they are affected|
-|module unload <module name>|Remove <module name> from the environment|
-|module load <module name>|Load <module name> into the environment|
-|module swap <module one> <module two>|Replace <module one> with
-<module two> in the environment|
-|module help|get a list of all the commands that module knows about do:
+|module purge | Remove all modules that are currently loaded|
+|module list | List the modules that are currently loaded|
+|module avail | List the modules that are available in environment|
+|module spider | List of the modules and extensions currently available|
+|module display <module_name> | Show the environment variables used by <module name> and how they are affected|
+|module unload <module name> | Remove <module name> from the environment|
+|module load <module name> | Load <module name> into the environment|
+|module swap <module one> <module two> | Replace <module one> with <module two> in the environment|
+|module help | Get a list of all the commands that module knows about do:
 
 Lmod commands support *short-hand* notation, for example:
 
@@ -664,6 +663,26 @@ PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/
 
 ###  Lmod warning “rebuild your saved collection”<a name="lmod-warn-rebuild"></a>
 Lmod allows a user to save a bundle of modules as a collection using module save <collection_name> and module restore <collection_name>. This enables you to quickly get the same list of modules loaded if you tend to use the same modules over and over. With a new module scheme came a different system MODULEPATH. For this reason, if you have some module collections saved, you will experience the following warning: “Lmod Warning: The system MODULEPATH has changed: please rebuild your saved collection.” To solve this you need to remove your old collections and create them again.
+
+* Too see the list of module collections that you currently have:
+
+``
+[mthomas@login02 ~]$ module savelist
+Named collection list :
+  1) default  2) hdf5_env
+
+```
+
+* To remove or disable a saved collection:
+
+```
+[mthomas@login02 ~]$ module disable hdf5_env
+Disabling hdf5_env collection by renaming with a "~"
+[mthomas@login02 ~]$ module savelist
+Named collection list :
+  1) default
+[mthomas@login02 ~]$
+```
 
 ### Troubleshooting:Module Error<a name="module-error"></a>
 
@@ -1188,7 +1207,7 @@ the section on Slurm JOB STATE CODES, at the
 
 | **STATE** | **LABEL** |  **DESCRIPTION** |
 | :-----  | :----- | :----- |
-| CA CANCELLED | Job was explicitly cancelled by the user or system administrator.|
+| CA | CANCELLED | Job was explicitly cancelled by the user or system administrator.|
 | C | COMPLETED  | job is Complete/Clearing |
 | F | FAILED | Job terminated with non-zero exit code or other failure condition.|
 | PD | PENDING | Job is awaiting resource allocation. |

@@ -57,11 +57,11 @@ Consulting group at help@xsede.org.
    * [Methods for  Running Jobs on Expanse](#run-jobs-methods)
       * [Batch Jobs](#run-jobs-methods-batch)
       * [Interactive Jobs](#run-jobs-methods-ineractive)
-   * [SLURM Resource Manager](#run-jobs-SLURM)
-      * [SLURM Job Status States](#run-jobs-SLURM-status)
-      * [SLURM Partitions](#run-jobs-SLURM-partition)
-      * [SLURM Commands](#run-jobs-SLURM-commands)
-      * [SLURM Batch Script Example](#run-jobs-SLURM-batch)
+   * [Slurm Resource Manager](#run-jobs-slurm)
+      * [Slurm Job Status States](#run-jobs-slurm-status)
+      * [Slurm Partitions](#run-jobs-slurm-partition)
+      * [Slurm Commands](#run-jobs-slurm-commands)
+      * [Slurm Batch Script Example](#run-jobs-slurm-batch)
 * [Compiling and Running CPU Jobs](#comp-and-run-cpu-jobs)
 * [Checking Your Environment](#check-env)
 * [Hello World (MPI)](#hello-world-mpi)
@@ -175,10 +175,10 @@ Expanse will support integration with public clouds:
   <img src="images/expanse_cloud_burst_aws.png" alt="Expanse Cloud Bursting to AWS" width="400px" />
 
 * Supports projects that share data, need access to novel technologies, and integrate cloud resources into workflows
-* SLURM + in-house developed software + Terraform (Hashicorp)
+* Slurm + in-house developed software + Terraform (Hashicorp)
 * Early work funded internally and via NSF E-CAS/Internet2 project for CIPRES (Exploring Cloud for the Acceleration of Science, Award #1904444).
 * Approach is cloud-agnostic and will support the major cloud providers.
-* Users submit directly via SLURM, or as part of a composed system.
+* Users submit directly via Slurm, or as part of a composed system.
 * Options for data movement: data in the cloud; remote mounting of file systems; cached filesystems (e.g., StashCache), and data transfer during the job.
 * Funding for users cloud resources is not part of an Expanse award: the researcher must have access to cloud computing credits via other NSF awards and funding.
 
@@ -364,7 +364,7 @@ In this Section:
   * User can set, change, or delete environment variables
   * User chooses between different versions of the same software or different combinations of related codes.
 * Modules: What’s Different?
-  * *Users will need to load the scheduler (e.g. SLURM)*
+  * *Users will need to load the scheduler (e.g. Slurm)*
   * Users will not see all available modules when they run command "module available" without loading a compiler.
   * Use the command "module spider" option to see if a particular package exists and can be loaded, run command
       * module spider <package>
@@ -413,7 +413,7 @@ Lmod commands support *short-hand* notation, for example:
 ```
 (base) [user@login01 expanse-101]$ module list
 Currently Loaded Modules:
-1) shared   2) SLURM/expanse/20.02.3   3) cpu/0.15.4   4) DefaultModules
+1) shared   2) slurm/expanse/20.02.3   3) cpu/0.15.4   4) DefaultModules
 ```
 
 * List available modules:  `available`, `avail`, `av`
@@ -436,7 +436,7 @@ $ module av
    cmjob                         kubernetes/expanse/1.18.8    python37
    cpu/1.0                (L)    lua/5.3.5                    shared                (L)
    docker/19.03.5                luajit                       singularitypro/3.5
-   dot                           module-git                   SLURM/expanse/20.02.3
+   dot                           module-git                   slurm/expanse/20.02.3
    freeipmi/1.6.4                module-info
 
 -------------------------------- /usr/share/modulefiles ---------------------------------
@@ -503,18 +503,18 @@ Use ```module spider``` to find all possible modules and extensions.
 <hr>
 
 ### <a name="load-and-check-module-env"></a>Load and Check Modules and Environment
-In this example, we will add the SLURM library, and and verify that it is in your environment
+In this example, we will add the Slurm library, and and verify that it is in your environment
 * Check  module environment after loggin on to the system:
 
 ```
 (base) [user@login01 ~]$ module li
 
 Currently Loaded Modules:
-  1) shared   2) SLURM/expanse/20.02.3   3) cpu/0.15.4   4) DefaultModules
+  1) shared   2) slurm/expanse/20.02.3   3) cpu/0.15.4   4) DefaultModules
 ```
 
-* Note that SLURM (the cluster resource manager) is not in the environment.
-Check environment looking for SLURM commands
+* Note that Slurm (the cluster resource manager) is not in the environment.
+Check environment looking for Slurm commands
 
 
 ```
@@ -522,35 +522,35 @@ Check environment looking for SLURM commands
 /usr/bin/which: no squeue in (/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin)
 ```
 
-* Since SLURM commands do not exist,  we need to load that module:
+* Since Slurm commands do not exist,  we need to load that module:
 
 
 ```
-(base) [user@login01 ~]$ module load SLURM
+(base) [user@login01 ~]$ module load slurm
 (base) [user@login01 ~]$ which squeue
-/cm/shared/apps/SLURM/current/bin/squeue
+/cm/shared/apps/Slurm/current/bin/squeue
 ```
 
 * Display loaded module details:
 
 
 ```
-(base) [user@login02 ~]$ module display SLURM
+(base) [user@login02 ~]$ module display Slurm
 -------------------------------------------------------------------------------------
-   /cm/local/modulefiles/SLURM/expanse/20.02.3:
+   /cm/local/modulefiles/slurm/expanse/20.02.3:
 -------------------------------------------------------------------------------------
-whatis("Adds SLURM to your environment ")
+whatis("Adds Slurm to your environment ")
 setenv("CMD_WLM_CLUSTER_NAME","expanse")
-setenv("SLURM_CONF","/cm/shared/apps/SLURM/var/etc/expanse/SLURM.conf")
-prepend_path("PATH","/cm/shared/apps/SLURM/current/bin")
-prepend_path("PATH","/cm/shared/apps/SLURM/current/sbin")
-prepend_path("MANPATH","/cm/shared/apps/SLURM/current/man")
-prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/SLURM/current/lib64")
-prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/SLURM/current/lib64/SLURM")
-prepend_path("LIBRARY_PATH","/cm/shared/apps/SLURM/current/lib64")
-prepend_path("LIBRARY_PATH","/cm/shared/apps/SLURM/current/lib64/SLURM")
-prepend_path("CPATH","/cm/shared/apps/SLURM/current/include")
-help([[ Adds SLURM to your environment
+setenv("Slurm_CONF","/cm/shared/apps/Slurm/var/etc/expanse/Slurm.conf")
+prepend_path("PATH","/cm/shared/apps/Slurm/current/bin")
+prepend_path("PATH","/cm/shared/apps/Slurm/current/sbin")
+prepend_path("MANPATH","/cm/shared/apps/Slurm/current/man")
+prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64")
+prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64/Slurm")
+prepend_path("LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64")
+prepend_path("LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64/Slurm")
+prepend_path("CPATH","/cm/shared/apps/Slurm/current/include")
+help([[ Adds Slurm to your environment
 ]])
 ```
 
@@ -561,22 +561,22 @@ Once you have loaded the modules, you can check the system variables that are av
 ```
 [user@expanse-ln3 IBRUN]$ env
 CONDA_EXE=/home/user/miniconda3/bin/conda
-__LMOD_REF_COUNT_PATH=/cm/shared/apps/SLURM/current/sbin:1;/cm/shared/apps/SLURM/current/bin:1;/home/user/miniconda3/bin/conda:1;/home/user/miniconda3/bin:1;/home/user/miniconda3/condabin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/dell/srvadmin/bin:1;/home/user/.local/bin:1;/home/user/bin:1
+__LMOD_REF_COUNT_PATH=/cm/shared/apps/Slurm/current/sbin:1;/cm/shared/apps/Slurm/current/bin:1;/home/user/miniconda3/bin/conda:1;/home/user/miniconda3/bin:1;/home/user/miniconda3/condabin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/dell/srvadmin/bin:1;/home/user/.local/bin:1;/home/user/bin:1
 HOSTNAME=login02
 USER=user
 HOME=/home/user
 CONDA_PYTHON_EXE=/home/user/miniconda3/bin/python
 BASH_ENV=/usr/share/lmod/lmod/init/bash
 BASHRC_READ=1
-LIBRARY_PATH=/cm/shared/apps/SLURM/current/lib64/SLURM:/cm/shared/apps/SLURM/current/lib64
-SLURM_CONF=/cm/shared/apps/SLURM/var/etc/expanse/SLURM.conf
-LOADEDMODULES=shared:cpu/1.0:DefaultModules:SLURM/expanse/20.02.3
-__LMOD_REF_COUNT_MANPATH=/cm/shared/apps/SLURM/current/man:1;/usr/share/lmod/lmod/share/man:1;/usr/local/. . . .
-MANPATH=/cm/shared/apps/SLURM/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
+LIBRARY_PATH=/cm/shared/apps/Slurm/current/lib64/Slurm:/cm/shared/apps/Slurm/current/lib64
+Slurm_CONF=/cm/shared/apps/Slurm/var/etc/expanse/Slurm.conf
+LOADEDMODULES=shared:cpu/1.0:DefaultModules:slurm/expanse/20.02.3
+__LMOD_REF_COUNT_MANPATH=/cm/shared/apps/Slurm/current/man:1;/usr/share/lmod/lmod/share/man:1;/usr/local/. . . .
+MANPATH=/cm/shared/apps/Slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
 MODULEPATH=/cm/shared/apps/spack/cpu/lmod/linux-centos8-x86_64/Core:/cm/local/modulefiles:/etc/modulefiles:/usr/share/modulefiles:/usr/share/Modules/modulefiles:/cm/shared/modulefiles
 MODULEPATH_ROOT=/usr/share/modulefiles
-PATH=/cm/shared/apps/SLURM/current/sbin:/cm/shared/apps/SLURM/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
-_LMFILES_=/cm/local/modulefiles/shared:/cm/local/modulefiles/cpu/1.0.lua:/usr/share/modulefiles/DefaultModules.lua:/cm/local/modulefiles/SLURM/expanse/20.02.3
+PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
+_LMFILES_=/cm/local/modulefiles/shared:/cm/local/modulefiles/cpu/1.0.lua:/usr/share/modulefiles/DefaultModules.lua:/cm/local/modulefiles/slurm/expanse/20.02.3
 MODULESHOME=/usr/share/lmod/lmod
 CONDA_DEFAULT_ENV=base
 ```
@@ -649,13 +649,13 @@ module load hdf5
 * Next LOGOUT and LOG BACK IN:
 
 ```
-(base) [user@login02 ~]$ env | grep SLURM
+(base) [user@login02 ~]$ env | grep Slurm
 [snip]
-MANPATH=/cm/shared/apps/SLURM/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
-PATH=/cm/shared/apps/SLURM/current/sbin:/cm/shared/apps/SLURM/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
+MANPATH=/cm/shared/apps/Slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
+PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
 [snip]
 (base) [user@login02 ~]$ which squeue
-/cm/shared/apps/SLURM/current/bin/squeue
+/cm/shared/apps/Slurm/current/bin/squeue
 ```
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
@@ -673,7 +673,7 @@ Sometimes this error is encountered when switching from one shell to another or 
 ```
 [expanse-ln3:~]source /etc/profile.d/modules.sh
 ```
-OR add this command to your shell script (including SLURM batch scripts)
+OR add this command to your shell script (including Slurm batch scripts)
 
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
@@ -858,19 +858,19 @@ Currently Loaded Modules:
 [user@login02 ~]$ module purge
 [user@login02 ~]$ module list
 No modules loaded
-[user@login02 ~]$ module load SLURM
+[user@login02 ~]$ module load slurm
 [user@login02 ~]$ module load cpu
 [user@login02 ~]$ module load gcc
 [user@login02 ~]$ module load openmpi/4.0.4
 [user@login02 ~]$ module list
 Currently Loaded Modules:
-  1) SLURM/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
 [user@login02 MPI]$ module swap gcc aocc
 Due to MODULEPATH changes, the following have been reloaded:
   1) openmpi/4.0.4
 [user@login02 ~]$ module list
 Currently Loaded Modules:
-  1) SLURM/expanse/20.02.3   2) cpu/1.0   3) aocc/2.2.0   4) openmpi/4.0.4
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) aocc/2.2.0   4) openmpi/4.0.4
 [user@login02 ~]$ 
 ```
 
@@ -883,7 +883,7 @@ The Intel compilers and the MVAPICH2 MPI implementation will be loaded by defaul
 
 ```
 module purge
-module load SLURM
+module load slurm
 module load cpu
 module load gpu/0.15.4  
 module load intel/19.0.5.281
@@ -907,7 +907,7 @@ total 3758
 drwxr-xr-x 2 user abc123       8 Jan 29 00:45 .
 drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
 -rw-r--r-- 1 user abc123     2997 Jan 29 00:25 dgemm_example.f
--rw-r--r-- 1 user abc123      618 Jan 29 00:25 dgemm-SLURM.sb
+-rw-r--r-- 1 user abc123      618 Jan 29 00:25 dgemm-Slurm.sb
 -rw-r--r-- 1 user abc123      363 Jan 29 00:32 README.txt
 ```
 
@@ -935,7 +935,7 @@ drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
 [1] Compile:
 
 module purge
-module load SLURM
+module load slurm
 module load cpu
 module load gpu/0.15.4  
 module load intel/19.0.5.281
@@ -945,7 +945,7 @@ ifort -o dgemm_example  -mkl -static-intel dgemm_example.f
 
 [2] Run:
 
-sbatch dgemm-SLURM.sb
+sbatch dgemm-Slurm.sb
 
 NOTE: for other compilers, replace "gcc"
 with the one you want to use.
@@ -954,7 +954,7 @@ with the one you want to use.
 * Contents of the batch script:
 
 ```
-[user@login01 dgemm]$ cat dgemm-SLURM.sb
+[user@login01 dgemm]$ cat dgemm-Slurm.sb
 #!/bin/bash
 #SBATCH --job-name="dgemm_example"
 #SBATCH --output="dgemm_example.%j.%N.out"
@@ -973,7 +973,7 @@ module load cpu/0.15.4
 module load gpu/0.15.4
 module load intel/19.0.5.281
 module load intel-mkl/2020.3.279
-module load SLURM
+module load slurm
 
 ## Use srun to run the job
 srun --mpi=pmi2 -n 128 --cpu-bind=rank dgemm_example
@@ -1063,9 +1063,9 @@ In this Section:
    * [Batch Jobs](#run-jobs-methods-batch)
    * [Interactive Jobs](#run-jobs-methods-ineractive)
    * [Command Line Jobs](#run-jobs-cmdline)
-* [SLURM Partitions](#run-jobs-SLURM-partition)
-   * [SLURM Commands](#run-jobs-SLURM-commands)
-   * [SLURM Batch Script Example](#run-jobs-SLURM-batch)
+* [Slurm Partitions](#run-jobs-slurm-partition)
+   * [Slurm Commands](#run-jobs-slurm-commands)
+   * [Slurm Batch Script Example](#run-jobs-slurm-batch)
 
 [Back to Top](#top)
 <hr>
@@ -1097,7 +1097,7 @@ In this Section:
 
 #### Batch Jobs<a name="run-jobs-methods-batch"></a>
 
-* Batch Jobs are used to submit batch scripts to SLURM from the login nodes. You need to specify
+* Batch Jobs are used to submit batch scripts to Slurm from the login nodes. You need to specify
    * Partition (queue)
    * Time limit for the run (maximum of 48 hours)
    * Number of nodes, tasks per node; Memory requirements (if any)
@@ -1138,20 +1138,20 @@ Commands that you type into the terminal and run on the sytem are considered *jo
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
 
-### SLURM Resource Manager <a name="run-jobs-SLURM"></a>
+### Slurm Resource Manager <a name="run-jobs-slurm"></a>
 **Sections:**
- * [SLURM Partitions](#run-jobs-SLURM-partition)
- * [Common SLURM Commands](#run-jobs-SLURM-commands)
- * [SLURM Job Status States](#run-jobs-SLURM-status)
+ * [Slurm Partitions](#run-jobs-slurm-partition)
+ * [Common Slurm Commands](#run-jobs-slurm-commands)
+ * [Slurm Job Status States](#run-jobs-slurm-status)
 
-Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ resource manager. SLURM is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://SLURM.schedmd.com/documentation.html](https://SLURM.schedmd.com/documentation.html). Follow this link to the [SLURM Quick Start Guide](https://slurm.schedmd.com/quickstart.html)
+Expanse uses the _Simple Linux Utility for Resource Management (Slurm)_ resource manager. Slurm is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://Slurm.schedmd.com/documentation.html](https://Slurm.schedmd.com/documentation.html). Follow this link to the [Slurm Quick Start Guide](https://Slurm.schedmd.com/quickstart.html)
 
-| logging on to Expanse | SLURM Architecture |
+| logging on to Expanse | Slurm Architecture |
 | :----- | :-----: |
-| <img src="images/login-nodes-cluster-nodes.png" alt="Login nodes to cluster diagram" width="300px" /> | <img src="images/slurm-sched-arch.png" alt="SLURM Scheduler Architecture" width="400px" /> |
-| User logs onto Expanse, and submits a batch script to the SLURM Controller daemon | SLURM parses the batch script for correct syntax and then queues up the job until the requested resources are available |
+| <img src="images/login-nodes-cluster-nodes.png" alt="Login nodes to cluster diagram" width="300px" /> | <img src="images/Slurm-sched-arch.png" alt="Slurm Scheduler Architecture" width="400px" /> |
+| User logs onto Expanse, and submits a batch script to the Slurm Controller daemon | Slurm parses the batch script for correct syntax and then queues up the job until the requested resources are available |
 
-* SLURM is the "Glue" for parallel computer to schedule and execute jobs
+* Slurm is the "Glue" for parallel computer to schedule and execute jobs
   * Role: Allocate resources within a cluster
   * Nodes (unique IP address)
   * Interconnect/switches
@@ -1162,7 +1162,7 @@ Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ resour
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
 
-#### SLURM Partitions <a name="run-jobs-SLURM-partition"></a>
+#### Slurm Partitions <a name="run-jobs-slurm-partition"></a>
 About Partitions
 
 |	Partition Name	|	Max Walltime	|	Max Nodes/ Job	|	Max Running Jobs	|	Max Running + Queued Jobs	|	Charge Factor	|	Comments	|
@@ -1180,11 +1180,11 @@ About Partitions
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
 
-#### SLURM Job  State Codes<a name="run-jobs-SLURM-status"></a>
-SLURM has a large number of states. The table below lists some
+#### Slurm Job  State Codes<a name="run-jobs-slurm-status"></a>
+Slurm has a large number of states. The table below lists some
 of the most common states you will see. For full details, See
-the section on SLURM JOB STATE CODES, at the
-[SLURM Squeue data page](https://slurm.schedmd.com/squeue.html).
+the section on Slurm JOB STATE CODES, at the
+[Slurm Squeue data page](https://Slurm.schedmd.com/squeue.html).
 
 | **STATE** | **LABEL** |  **DESCRIPTION** |
 | :-----  | :----- | :----- |
@@ -1196,22 +1196,22 @@ the section on SLURM JOB STATE CODES, at the
 | ST | STOPPED | Job has an allocation, but execution has been stopped with SIGSTOP signal. CPUS have been retained by this job. |
 | TO | TIMEOUT | Job terminated upon reaching its time limit.|
 
-#### Common SLURM Commands <a name="run-jobs-SLURM-commands"></a>
-Here are a few key SLURM commands. For more information, run the `man SLURM` or see this page:
+#### Common Slurm Commands <a name="run-jobs-slurm-commands"></a>
+Here are a few key Slurm commands. For more information, run the `man Slurm` or see this page:
 
 | **COMMAND** |   **DESCRIPTION** |
 | :-----  | :----- |
-| *scancel* | description |
-| *sbatch* | description |
-| *sinfo*  | desc  |
-| *squeue* | description |
-| *srun* | description |
+| *scancel* | Used to signal or cancel jobs, job arrays or job steps.  |
+| *sbatch* | Submit a batch script to Slurm. |
+| *sinfo*  | View information about Slurm nodes and partitions.  |
+| *squeue* | Used to view job and job step information for jobs managed by Slurm. |
+| *srun*   | Run a parallel job on cluster managed by Slurm. |
 
 
 * Submit jobs using the sbatch command:
 
 ```
-$ sbatch mycode-SLURM.sb 
+$ sbatch mycode-slurm.sb 
 ```
 
 * Submitted batch job 8718049.
@@ -1242,11 +1242,11 @@ $ scancel 8718049
 [Back to Top](#top)
 <hr>
 
-#### SLURM Batch Script Example <a name="run-jobs-SLURM-batch"></a>
+#### Slurm Batch Script Example <a name="run-jobs-slurm-batch"></a>
 Below is an example of a batch script that prints our your environment on the compute node:
 
 ```
-[user@login01 ENV_INFO]$ cat env-SLURM.sb 
+[user@login01 ENV_INFO]$ cat env-slurm.sb 
 #!/bin/bash
 #SBATCH --job-name="envinfo"
 #SBATCH --output="envinfo.%j.%N.out"
@@ -1259,7 +1259,7 @@ Below is an example of a batch script that prints our your environment on the co
 
 ## Environment
 module purge
-module load SLURM
+module load slurm
 module load cpu
 ##  perform some basic unix commands
 echo "----------------------------------"
@@ -1283,13 +1283,13 @@ date=  Wed Oct 7 23:45:43 PDT 2020
 whoami=  user
 pwd=  /home/user/DEMO/ENV_INFO
 Currently Loaded Modules:
-  1) SLURM/expanse/20.02.3   2) cpu/1.0
+  1) slurm/expanse/20.02.3   2) cpu/1.0
 ----------------------------------
-env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/SLURM/current/lib64/SLURM:/cm/shared/apps/SLURM/current/lib64 LS_COLORS=rs=0
+env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/Slurm/current/lib64/Slurm:/cm/shared/apps/Slurm/current/lib64 LS_COLORS=rs=0
 
 [SNIP]
 
- MODULESHOME=/usr/share/lmod/lmod LMOD_SETTARG_FULL_SUPPORT=no HISTSIZE=5000 LMOD_PKG=/usr/share/lmod/lmod LMOD_CMD=/usr/share/lmod/lmod/libexec/lmod SLURM_LOCALID=0 LESSOPEN=||/usr/bin/lesspipe.sh %s LMOD_FULL_SETTARG_SUPPORT=no LMOD_DIR=/usr/share/lmod/lmod/libexec BASH_FUNC_module%%=() { eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh) } BASH_FUNC_ml%%=() { eval $($LMOD_DIR/ml_cmd "$@") } _=/usr/bin/env
+ MODULESHOME=/usr/share/lmod/lmod LMOD_SETTARG_FULL_SUPPORT=no HISTSIZE=5000 LMOD_PKG=/usr/share/lmod/lmod LMOD_CMD=/usr/share/lmod/lmod/libexec/lmod Slurm_LOCALID=0 LESSOPEN=||/usr/bin/lesspipe.sh %s LMOD_FULL_SETTARG_SUPPORT=no LMOD_DIR=/usr/share/lmod/lmod/libexec BASH_FUNC_module%%=() { eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh) } BASH_FUNC_ml%%=() { eval $($LMOD_DIR/ml_cmd "$@") } _=/usr/bin/env
 ----------------------------------
 ```
 
@@ -1320,7 +1320,7 @@ cd /home/$USER/expanse101/MPI
 ```
 module list
 Currently Loaded Modulefiles:
-  1) SLURM/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
 ```
 
 * Compile the MPI hello world code:
@@ -1339,7 +1339,7 @@ ls -lt hello_mpi
 * Submit job
 
 ```
-sbatch hello_mpi_SLURM.sb
+sbatch hello_mpi_Slurm.sb
 ```
 
 [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
@@ -1347,12 +1347,12 @@ sbatch hello_mpi_SLURM.sb
 
 ### Checking Your Environment<a name="heck-env"></a>
 This simple batch script will show you how to check your user environment
-and to also verify that your SLURM environment is working.
+and to also verify that your Slurm environment is working.
 
 * Script contents:
 
 ```
-[user@login01 ENV_INFO]$ cat env-SLURM.sb
+[user@login01 ENV_INFO]$ cat env-Slurm.sb
 #!/bin/bash
 #SBATCH --job-name="envinfo"
 #SBATCH --output="envinfo.%j.%N.out"
@@ -1365,7 +1365,7 @@ and to also verify that your SLURM environment is working.
 
 ## Load module environment
 module purge
-module load SLURM
+module load slurm
 module load cpu
 module load sdsc
 
@@ -1389,7 +1389,7 @@ and completes execution:
 
 ```
 
-[user@login01 ENV_INFO]$ sbatch env-SLURM.sb
+[user@login01 ENV_INFO]$ sbatch env-Slurm.sb
 Submitted batch job 1088090
 [user@login01 ENV_INFO]$ squeue -u user
            1088090   compute  envinfo  user PD       0:00      1 (ReqNodeNotAvail,[SNIP]
@@ -1446,23 +1446,23 @@ Submitted batch job 1088090
 
 #### MODULE ENV: updated 01/28/2020 (MPT)
  module purge
- module load SLURM
+ module load slurm
  module load cpu
  module load gcc/10.2.0
  module load openmpi/4.0.4
 
 mpif90 -o hello_mpi hello_mpi.f90
 
-[2a] Run using SLURM:
+[2a] Run using Slurm:
 
-sbatch hellompi-SLURM.sb
+sbatch hellompi-Slurm.sb
 ```
 
 * Follow the compile instructions for the compiler that you want to use
 
 ```
 [user@login01 MPI]$ module purge
-[user@login01 MPI]$ module load SLURM
+[user@login01 MPI]$ module load slurm
 [user@login01 MPI]$ module load cpu
 [user@login01 MPI]$ module load gcc/10.2.0
 [user@login01 MPI]$ module load openmpi/4.0.4
@@ -1470,7 +1470,7 @@ sbatch hellompi-SLURM.sb
 [user@login01 MPI]$ module list
 
 Currently Loaded Modules:
-  1) SLURM/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
 ```
 
 * Next, compile the code:
@@ -1489,7 +1489,7 @@ Currently Loaded Modules:
 in order to run the code. The contents of the default batch script are:
 
 ```
-[user@login01 MPI]$ cat hellompi-SLURM.sb
+[user@login01 MPI]$ cat hellompi-Slurm.sb
 #!/bin/bash
 #SBATCH --job-name="hellompi"
 #SBATCH --output="hellompi.%j.%N.out"
@@ -1505,7 +1505,7 @@ in order to run the code. The contents of the default batch script are:
 ## Environment
 ### MODULE ENV: updated 01/28/2020 (MPT)
  module purge
- module load SLURM
+ module load slurm
  module load cpu
  module load gcc/10.2.0
  module load openmpi/4.0.4
@@ -1516,7 +1516,7 @@ srun --mpi=pmi2 -n 12 --cpu-bind=rank ./hello_mpi
 ```
 
 * In this batch script we are using the GNU compiler, and asking for 2 CPU compute nodes, with 128 tasks per node for a total of 256 tasks.
-* the name of job is set in line 2, while the name of the output file is set in line 3, where "%j" is the SLURM JOB_ID, and and "%N" is the compute node name. You can name your outupt file however you wish, but it helpful to keep track of the JOB_ID and node info in case something goes wrong.
+* the name of job is set in line 2, while the name of the output file is set in line 3, where "%j" is the Slurm JOB_ID, and and "%N" is the compute node name. You can name your outupt file however you wish, but it helpful to keep track of the JOB_ID and node info in case something goes wrong.
 
 * Submit the batch script Submission using the sbatch commmand and monitor the job status using the squeue command:
 
@@ -1610,13 +1610,13 @@ Source Code.
 
 ```
 module purge
-module load SLURM
+module load slurm
 module load cpu
 module load aocc
 module list
 
 Currently Loaded Modules:
-  1) SLURM/expanse/20.02.3   2) cpu/0.15.4   3) aocc/2.2.0
+  1) slurm/expanse/20.02.3   2) cpu/0.15.4   3) aocc/2.2.0
 
 ```
 
@@ -1649,7 +1649,7 @@ flang -fopenmp -o hello_openmp hello_openmp.f90
 
 # AOCC environment
 module purge
-module load SLURM
+module load slurm
 module load cpu
 module load aocc
 
@@ -1665,7 +1665,7 @@ export OMP_NUM_THREADS=16
 * Submit the job to the batch queue, and monitor:
 
 ```
-[user@login02 OPENMP]$ sbatch openmp-SLURM-shared.sb ;  squeue -u user
+[user@login02 OPENMP]$ sbatch openmp-Slurm-shared.sb ;  squeue -u user
 Submitted batch job 1088802
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
            1088802    shared hell_ope  user PD       0:00      1 (None)
@@ -1759,7 +1759,7 @@ Compiling.
 [1] Compile:
 
 module purge
-module load SLURM
+module load slurm
 module load cpu
 module load intel
 module load intel-mpi
@@ -1769,7 +1769,7 @@ mpicc -qopenmp -o hello_hybrid hello_hybrid.c
 
 [2] Run:
 
-sbatch hybrid-SLURM.sb
+sbatch hybrid-Slurm.sb
 
 ```
 
@@ -1777,7 +1777,7 @@ sbatch hybrid-SLURM.sb
 
 ```
 [user@login01 HYBRID]$ module purge
-[user@login01 HYBRID]$ module load SLURM
+[user@login01 HYBRID]$ module load slurm
 [user@login01 HYBRID]$ module load cpu
 [user@login01 HYBRID]$ module load intel
 [user@login01 HYBRID]$ module load intel-mpi
@@ -1794,7 +1794,7 @@ sbatch hybrid-SLURM.sb
 * Submit the batch script and monitor:
 
 ```
-[user@login01 HYBRID]$ sbatch hybrid-SLURM.sb
+[user@login01 HYBRID]$ sbatch hybrid-Slurm.sb
 Submitted batch job 1089019
     JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 [user@login01 HYBRID]$ squeue -u user
@@ -1886,7 +1886,7 @@ Hello from thread 15 out of 16 from process 0 out of 2 on exp-10-07
 ```
 #Environment
 module purge
-module load SLURM
+module load slurm
 module load gpu
 module load pgi
 ```
@@ -1931,13 +1931,13 @@ total 71
 ```
 [user@exp-7-59 OpenACC]$
 [user@exp-7-59 OpenACC]$ module purge
-[user@exp-7-59 OpenACC]$ module load SLURM
+[user@exp-7-59 OpenACC]$ module load slurm
 [user@exp-7-59 OpenACC]$ module load gpu
 [user@exp-7-59 OpenACC]$ module load pgi
 [user@exp-7-59 OpenACC]$ module list
 
 Currently Loaded Modules:
-  1) SLURM/expanse/20.02.3   2) gpu/0.15.4   3) pgi/20.4
+  1) slurm/expanse/20.02.3   2) gpu/0.15.4   3) pgi/20.4
 
 ```
 
@@ -1979,12 +1979,12 @@ Must be done on Interactive node
 [mthomas@exp-7-59 OpenACC]$ cat README.txt 
 [1] Compile Code:
 (a) Get an interactive GPU debug node:
-module load SLURM
+module load slurm
 srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 /bin/bash
 
 (b) On the GPU node:
 module purge
-module load SLURM
+module load slurm
 module load gpu
 module load pgi
 pgcc -o laplace2d.openacc.exe -fast -Minfo -acc -ta=tesla:cc70 laplace2d.c
@@ -2128,18 +2128,18 @@ Compile the code:
 
 
 ```
-[user@login01 ~]$ module load SLURM
+[user@login01 ~]$ module load slurm
 [user@login01 ~]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug -A abc123 --gpus=1 -t 00:10:00 /bin/bash
 srun: job 667263 queued and waiting for resources
 srun: job 667263 has been allocated resources
 [user@exp-7-59 ~]$ module purge
-[user@exp-7-59 ~]$ module load SLURM
+[user@exp-7-59 ~]$ module load slurm
 [user@exp-7-59 ~]$ module load gpu
 [user@exp-7-59 ~]$ module load pgi
 [user@exp-7-59 ~]$ module list
 
 Currently Loaded Modules:
-  1) SLURM/expanse/20.02.3   2) gpu/1.0   3) pgi/20.4
+  1) slurm/expanse/20.02.3   2) gpu/1.0   3) pgi/20.4
 
 ```
 
@@ -2201,7 +2201,7 @@ laplace:
 
 #Environment
 module purge
-module load SLURM
+module load slurm
 module load gpu
 module load pgi
 

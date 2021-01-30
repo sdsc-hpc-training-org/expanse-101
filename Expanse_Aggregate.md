@@ -1144,10 +1144,10 @@ Commands that you type into the terminal and run on the sytem are considered *jo
  * [SLURM Partitions](#run-jobs-SLURM-partition)
  * [Common SLURM Commands](#run-jobs-SLURM-commands)
 
-Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ resource manager. SLURM is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://SLURM.schedmd.com/documentation.html](https://SLURM.schedmd.com/documentation.html).
+Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ resource manager. SLURM is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://SLURM.schedmd.com/documentation.html](https://SLURM.schedmd.com/documentation.html). Follow this link to the [SLURM Quick Start Guide](https://slurm.schedmd.com/quickstart.html)
 
 | logging on to Expanse | SLURM Architecture |
-| :--- | :--- |
+| :----- | :-----: |
 | <img src="images/login-nodes-cluster-nodes.png" alt="Login nodes to cluster diagram" width="300px" /> | <img src="images/SLURM-sched-arch.png" alt="SLURM Scheduler Architecture" width="300px" /> |
 | User logs onto Expanse, and submits a batch script to the SLURM Controller daemon | SLURM parses the batch script for correct syntax and then queues up the job until the requested resources are available |
 

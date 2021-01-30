@@ -1148,7 +1148,7 @@ Expanse uses the _Simple Linux Utility for Resource Management (SLURM)_ resour
 
 | logging on to Expanse | SLURM Architecture |
 | :----- | :-----: |
-| <img src="images/login-nodes-cluster-nodes.png" alt="Login nodes to cluster diagram" width="300px" /> | <img src="images/slurm-sched-arch.png" alt="SLURM Scheduler Architecture" width="300px" /> |
+| <img src="images/login-nodes-cluster-nodes.png" alt="Login nodes to cluster diagram" width="300px" /> | <img src="images/slurm-sched-arch.png" alt="SLURM Scheduler Architecture" width="400px" /> |
 | User logs onto Expanse, and submits a batch script to the SLURM Controller daemon | SLURM parses the batch script for correct syntax and then queues up the job until the requested resources are available |
 
 * SLURM is the "Glue" for parallel computer to schedule and execute jobs

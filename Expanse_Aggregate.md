@@ -2177,7 +2177,7 @@ module load pgi
 * Submit the batch script, and monitor queue status:
 
 | State | Description |
-| :---  | :--- |  :--- |
+| :-----  | :----- |  :----- |
 | PD  | ==  | Pending |
 |  ST  | == |  Starting |
 |   R  | ==  | Running |

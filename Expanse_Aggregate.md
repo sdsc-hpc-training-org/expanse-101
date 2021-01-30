@@ -1185,10 +1185,14 @@ $ sbatch mycode-slurm.sb 
 
 * Submitted batch job 8718049.
 Check job status using the squeue command.
-* PD == job pending
-* R  == job is Running
-* C  == job is complete/clearing
-* E  ==  job has an error
+| State |   Description |
+| :-----  | :----- |
+| PD: | Job is Pending |
+|  ST:  |  Job is Starting |
+|   R:  | Job is Running |
+|   C:  | job is Complete/Clearing |
+|   E:  | Job has an Error |
+
 
 ```
 $ squeue -u $USER

@@ -1185,6 +1185,7 @@ $ sbatch mycode-slurm.sb 
 
 * Submitted batch job 8718049.
 Check job status using the squeue command.
+
 | State |   Description |
 | :-----  | :----- |
 | PD: | Job is Pending |

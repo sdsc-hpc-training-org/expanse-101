@@ -13,13 +13,13 @@ expanse.sdsc.edu.
 # Misc Notes/Updates:
 *  You must have a expanse account in order to access the system.
   * To obtain a trial account:
-      [Comet trial account](http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts)
+      [Expanse trial account](http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts)
 *  You must be familiar with running basic Unix commands: see the
    following tutorials at:
    *  [https://github.com/sdsc-hpc-training/basic_skills](https://github.com/sdsc-hpc-training/basic_skills)
 *  The ``hostname`` for Expanse is ``expanse.sdsc.edu``
 *  The operating system for Expanse is CentOS
-*  For information on moving from Comet to Expanse, see the [Comet to Expanse
+*  For information on moving files from Comet to Expanse, see the [Comet to Expanse
 Transition Workshop](https://education.sdsc.edu/training/interactive/202010_comet_to_expanse/index.html)
 
 If you have any difficulties completing these tasks, please contact SDSC
@@ -1142,7 +1142,7 @@ srun   --pty --account=abc123  --nodes=1   --ntasks-per-node=1   --cpus-per-task
 <hr>
 
 #### Command Line Jobs <a name="run-jobs-cmdline"></a>
-The login nodes are meant for compilation, file editing, simple data analysis, and other tasks that use minimal compute resources. <em>Do not run parallel or large jobs on the login nodes - even for simple tests</em>. Even if you could run a simple test on the command line on the login node, full tests should not be run on the login node because the performance will be adversely impacted by all the other tasks and login activities of the other users who are logged onto the same node. For example, at the moment that this note was written,  a `gzip` process was consuming 98% of the CPU time:
+The login nodes are meant for compilation, file editing, simple data analysis, and other tasks that use minimal compute resources. <em>Do not run parallel or large jobs on the login nodes - even for simple tests</em>. Even if you could run a simple test on the command line on the login node, full tests should not be run on the login node because the performance will be adversely impacted by all the other tasks and login activities of the other users who are logged onto the same node. For example, at the moment that this note was written,  a `gzip` process was consuming 98% of the CPU time on the Comet HPC system:
     ```
     [user@comet-ln3 OPENMP]$ top
     ...

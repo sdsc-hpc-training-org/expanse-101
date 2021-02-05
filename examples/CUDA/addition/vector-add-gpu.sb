@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name="OpenACC"
-#SBATCH --output="OpenACC.%j.%N.out"
+#SBATCH --job-name="vector_add_gpu"
+#SBATCH --output="vector_add_gpu.%j.%N.out"
 #SBATCH --partition=gpu-shared
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -12,7 +12,7 @@
 module purge
 module load slurm
 module load gpu
-module load pgi
+module load cuda10.2/toolkit/10.2.89
 
 #Run the job
-./laplace2d.openacc.exe
+./vector_add_gpu

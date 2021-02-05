@@ -1,4 +1,6 @@
 # [Expanse 101 Tutorial](https://github.com/sdsc-hpc-training-org/reverse-proxy/blob/master/README.md)
+*Document last updated:  01/29/21*
+
 
 ## Expanse User Guide:
 See:  [expanse.sdsc.edu](https://expanse.sdsc.edu)
@@ -74,4 +76,3 @@ Transition Workshpo](https://education.sdsc.edu/training/interactive/202010_come
 
 If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at help@xsede.org.
-

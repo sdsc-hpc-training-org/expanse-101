@@ -368,6 +368,7 @@ In this Section:
   * User chooses between different versions of the same software or different combinations of related codes.
 * Modules: What’s Different?
   * *Users will need to load the scheduler (e.g. Slurm)*
+  * Depending on which hardware users are working on, *users will need to load either the ```gpu``` or ```cpu``` modules*. 
   * Users will not see all available modules when they run command "module available" without loading a compiler.
   * Use the command "module spider" option to see if a particular package exists and can be loaded, run command
       * module spider <package>
@@ -378,6 +379,8 @@ In this Section:
       * module load cpu  (for cpu nodes)
       * module load gpu  (for gpu nodes)     
       * note: avoid loading both modules
+
+
 
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>

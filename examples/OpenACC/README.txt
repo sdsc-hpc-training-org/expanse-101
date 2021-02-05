@@ -1,9 +1,9 @@
-[1] Compile Code:
+[1] Compile OpenACC Code:
 
 (a) Get an interactive GPU debug node:
 
 module load slurm
-srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 /bin/bash
+srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 -A abc123 /bin/bash
 
 (b) On the GPU node:
 module purge

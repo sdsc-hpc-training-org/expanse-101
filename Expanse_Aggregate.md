@@ -61,8 +61,8 @@ Consulting group at help@xsede.org.
       * [Slurm Commands](#run-jobs-slurm-commands)
       * [Slurm Batch Script Example](#run-jobs-slurm-batch)
 * [Compiling and Running CPU Jobs](#comp-and-run-cpu-jobs)
-* [Checking Your Environment](#check-env)
-* [Hello World (MPI)](#hello-world-mpi)
+   * [Checking Your Environment](#check-env)
+   * [Hello World (MPI)](#hello-world-mpi)
         * [Hello World (MPI): Source Code](#hello-world-mpi-source)
         * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
         * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
@@ -81,11 +81,16 @@ Consulting group at help@xsede.org.
 * [Compiling and Running GPU Jobs](#comp-run-gpu)
    * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
    * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
-   * [Laplace2D (GPU)](#laplace2d-gpu)
-       * [Laplace2D (GPU): Source Code](#laplace2d-gpu-source)
-       * [Laplace2D (GPU): Compiling](#laplace2d-gpu-compile)
-       * [Laplace2D (GPU): Batch Script Submission](#laplace2d-gpu-batch-submit)
-       * [Laplace2D (GPU): Batch Script Output](#laplace2d-gpu-batch-output)
+   * [Vector Addition (GPU/CUDA)](#vec-add-cuda-gpu)
+       * [Vector Addition (GPU/CUDA): Source Code](#vec-add-cuda-source)
+       * [Vector Addition (GPU/CUDA): Compiling](#vec-add-cuda-compile)
+       * [Vector Addition (GPU/CUDA): Batch Script Submission](#vec-add-cuda-batch-submit)
+       * [Vector Addition (GPU/CUDA): Batch Script Output](#vec-add-cuda-batch-output)
+   * [Laplace2D (GPU/OpenACC)](#laplace2d-gpu)
+       * [Laplace2D (GPU/OpenACC): Source Code](#laplace2d-gpu-source)
+       * [Laplace2D (GPU/OpenACC): Compiling](#laplace2d-gpu-compile)
+       * [Laplace2D (GPU/OpenACC): Batch Script Submission](#laplace2d-gpu-batch-submit)
+       * [Laplace2D (GPU/OpenACC): Batch Script Output](#laplace2d-gpu-batch-output)
 * Data and Storage, Globus Endpoints, Data Movers, Mount Points
 * Final Comments
 
@@ -1871,7 +1876,7 @@ Hello from thread 15 out of 16 from process 0 out of 2 on exp-10-07
 **Sections**
 * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
 * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
-* [Laplace2D (GPU): Source Code](#laplace2d-gpu)
+* [Laplace2D (GPU/OpenACC): Source Code](#laplace2d-gpu)
 
 ### Using Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a>
 
@@ -2008,57 +2013,31 @@ Fri Jan 29 12:33:25 2021
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### GPU Compiling:
-Must be done on Interactive node
+#### GPU Compiling:
+All compilng for GPU codes must be done on an interactive node:
+Steps to compile the code:
 
-```
-[user@login01 OpenACC]$
-[mthomas@exp-7-59 OpenACC]$ cat README.txt 
-[1] Compile Code:
-(a) Get an interactive GPU debug node:
-module load slurm
-srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 /bin/bash
+1. Otain an interactive node
+2. Load the right Modules
+3. Compile the Source code
+4. Run code locally, or exit interactive node and submit the batch script
 
-(b) On the GPU node:
-module purge
-module load slurm
-module load gpu
-module load pgi
-pgcc -o laplace2d.openacc.exe -fast -Minfo -acc -ta=tesla:cc70 laplace2d.c
-
-Compiler output:
-GetTimer:
-     20, include "timer.h"
-          61, FMA (fused multiply-add) instruction(s) generated
-laplace:
-     47, Loop not fused: function call before adjacent loop
-         Loop unrolled 8 times
-         FMA (fused multiply-add) instruction(s) generated
-     55, StartTimer inlined, size=2 (inline) file laplace2d.c (37)
-
-[SNIP]
-          75, #pragma acc loop gang, vector(4) /* blockIdx.y threadIdx.y */
-         77, #pragma acc loop gang, vector(32) /* blockIdx.x threadIdx.x */
-     88, GetTimer inlined, size=9 (inline) file laplace2d.c (54)
-Exit out of debug node after this)
-
-[2] Run job:
-sbatch openacc-gpu-shared.sb 
-[mthomas@exp-7-59 OpenACC]$
-[mthomas@exp-7-59 OpenACC]$ exit
-```
-
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
-<hr>
-
-### [Laplace2D (GPU)](#laplace2d-gpu)
+### [Vector Addition (GPU/CUDA)](#vec-add-cuda-gpu)
 **Subsections:**
-* [Laplace2D (GPU): Source Code](#laplace2d-gpu-source)
-* [Laplace2D (GPU): Compiling](#laplace2d-gpu-compile)
-* [Laplace2D (GPU): Batch Script Submission](#laplace2d-gpu-batch-submit)
-* [Laplace2D (GPU): Batch Script Output](#laplace2d-gpu-batch-output)
+* [Vector Addition (GPU/CUDA): Source Code](#vec-add-cuda-source)
+* [Vector Addition (GPU/CUDA): Compiling](#vec-add-cuda-compile)
+* [Vector Addition (GPU/CUDA): Batch Script Submission](#vec-add-cuda-batch-submit)
+* [Vector Addition (GPU/CUDA): Batch Script Output](#vec-add-cuda-batch-output)
 
-#### Laplace2D (GPU): Source Code  <a name="laplace2d-gpu-source"></a>
+
+### [Laplace2D (GPU/OpenACC)](#laplace2d-gpu)
+**Subsections:**
+* [Laplace2D (GPU/OpenACC): Source Code](#laplace2d-gpu-source)
+* [Laplace2D (GPU/OpenACC): Compiling](#laplace2d-gpu-compile)
+* [Laplace2D (GPU/OpenACC): Batch Script Submission](#laplace2d-gpu-batch-submit)
+* [Laplace2D (GPU/OpenACC): Batch Script Output](#laplace2d-gpu-batch-output)
+
+#### Laplace2D (GPU/OpenACC): Source Code  <a name="laplace2d-gpu-source"></a>
 Source Code
 
 ```
@@ -2153,10 +2132,10 @@ int laplace()
 }
 ```
 
-[ [Back to Laplace2D (GPU)](#laplace2d-gpu)] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to Laplace2D (GPU/OpenACC)](#laplace2d-gpu)] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Laplace2D (GPU): Compiling  <a name="laplace2d-gpu-compile"></a>
+#### Laplace2D (GPU/OpenACC): Compiling  <a name="laplace2d-gpu-compile"></a>
 Compile the code:
 1. obtain an interactive node
 2. load the right Modules
@@ -2217,10 +2196,10 @@ laplace:
 [user@exp-7-59 OpenACC]$ exit
 ```
 
-[ [Back to Laplace2D (GPU)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to Laplace2D (GPU/OpenACC)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Laplace2D (GPU): Batch Script Submission  <a name="laplace2d-gpu-batch-submit"></a>
+#### Laplace2D (GPU/OpenACC): Batch Script Submission  <a name="laplace2d-gpu-batch-submit"></a>
 * Batch Script Contents
 
 ```
@@ -2267,10 +2246,10 @@ drwxr-xr-x 10 mthomas use300    10 Jan 29 03:28 ..
 ```
 
 
-[ [Back to Laplace2D (GPU)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to Laplace2D (GPU/OpenACC)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Laplace2D (GPU): Batch Script Output  <a name="laplace2d-gpu-batch-output"></a>
+#### Laplace2D (GPU/OpenACC): Batch Script Output  <a name="laplace2d-gpu-batch-output"></a>
 
 * Batch Script Output:
 
@@ -2293,5 +2272,5 @@ Jacobi relaxation Calculation: 4096 x 4096 mesh
 
 ```
 
-[ [Back to Laplace2D (GPU)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to Laplace2D (GPU/OpenACC)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>

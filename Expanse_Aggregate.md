@@ -368,7 +368,7 @@ In this Section:
   * User chooses between different versions of the same software or different combinations of related codes.
 * Modules: What’s Different?
   * *Users will need to load the scheduler (e.g. Slurm)*
-  * Depending on which hardware users are working on, *users will need to load either the ```gpu``` or ```cpu``` modules*. 
+  * Depending on which hardware users are working on, *users will need to load either the ```gpu``` or ```cpu``` modules*.
   * Users will not see all available modules when they run command "module available" without loading a compiler.
   * Use the command "module spider" option to see if a particular package exists and can be loaded, run command
       * module spider <package>
@@ -399,6 +399,9 @@ Here are some common module commands and their descriptions:
 |module unload <module name> | Remove <module name> from the environment|
 |module load <module name> | Load <module name> into the environment|
 |module swap <module one> <module two> | Replace <module one> with <module two> in the environment|
+|module  save <name> | Save the current list of modules to "name" collection. |
+| savelist | List of saved module collections. |
+|  describe  <name> | Describe the contents of a module collection. |
 |module help | Get a list of all the commands that module knows about do:
 
 Lmod commands support *short-hand* notation, for example:

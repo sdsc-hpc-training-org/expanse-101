@@ -371,7 +371,7 @@ In this Section:
       * module spider <application_name>
   * The module paths are different for the CPU and GPU nodes. Users can enable the paths by loading the following modules:               
       * module load cpu  (for cpu nodes)
-      * module load gpu  (for gpu nodes)  
+      * module load gpu  (for gpu nodes)     
       * note: avoid loading both modules
 
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
@@ -664,7 +664,7 @@ Lmod allows a user to save a bundle of modules as a collection using module save
 
 * Too see the list of module collections that you currently have:
 
-``
+```
 [mthomas@login02 ~]$ module savelist
 Named collection list :
   1) default  2) hdf5_env

@@ -1898,16 +1898,36 @@ Hello from thread 15 out of 16 from process 0 out of 2 on exp-10-07
 * Batch: GPU nodes can be accessed via either the "gpu" or the "gpu-shared" partitions.
    *  #SBATCH -p gpu
    * or #SBATCH -p gpu-shared
-* Be sure to setup  your CUDA environment:
+* Be sure to setup  your CUDA environment for the compiler that you want to use:   
+   * For CUDA codes, you will need the cuda Compiler. Expanse has several CUDA compiler libraries
 
 ```
-#Environment
+#Environment for the CUDA Compiler
+module purge
+module load slurm
+module load gpu
+module load cuda
+```
+   * Note that Expanse has several CUDA compiler libraries, and you can see them by
+   running *module avail* (once you have loaded the gpu module)
+
+   ```
+   ------------------------------------ /cm/shared/modulefiles ------------------------------------
+      cuda10.2/blas/10.2.89      cuda10.2/profiler/10.2.89    sdsc/1.0
+      cuda10.2/fft/10.2.89       cuda10.2/toolkit/10.2.89     xsede/xdusage/2.1-1
+      cuda10.2/nsight/10.2.89    default-environment
+
+   ```
+
+   * For OpenACC codes, you will need the PGI Compiler:
+
+```
+#Environment for the PGI Compiler
 module purge
 module load slurm
 module load gpu
 module load pgi
 ```
-
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>

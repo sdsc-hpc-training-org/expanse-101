@@ -1,6 +1,3 @@
-// UCSD Phys244
-// Spring 2018
-// Andreas Goetz (agoetz@sdsc.edu)
 
 // CUDA program to add two vectors in parallel on the GPU
 // launch all kernels at once

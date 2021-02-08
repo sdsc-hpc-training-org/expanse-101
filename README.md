@@ -20,7 +20,7 @@ The link to the presentation will be posted soon:
 
 ### Hands-on Self-guided Tutorial (using markdown file):
 
-[Self-guided Tutorial](https://github.com/sdsc-hpc-training-org/expanse-101/blob/master/running_jobs_on_expanse.md)
+[Self-guided Tutorial](https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/Expanse_Aggregate.md)
 
 ### Link to GitHub Repo
 [https://github.com/sdsc-hpc-training-org/expanse-101](https://github.com/sdsc-hpc-training-org/expanse-101)
@@ -28,7 +28,7 @@ The link to the presentation will be posted soon:
 ### Expanse User Guide
 Please read the Expanse user guide and familiarize yourself with the hardware, file systems, batch job submission, compilers and modules. The guide can be found here:
 
-[http://www.sdsc.edu/support/user_guides/expanse.html](http://www.sdsc.edu/support/user_guides/expanse.html)
+[http://www.sdsc.edu/support/user_guides/expanse.html](https://www.sdsc.edu/support/user_guides/expanse.html)
 
 ### Basic Skills
 You should be familiar with running basic Unix commands, connecting to Expanse via SSH, and other basic skills. See:

@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH --job-name="hello_world"
+#SBATCH --output="hello_world.%j.%N.out"
+#SBATCH --partition=gpu-shared
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --gpus=1
+#SBATCH --account=sds173
+#SBATCH -t 01:00:00
+
+#Environment
+module purge
+module load slurm
+module load gpu
+module load cuda10.2/toolkit/10.2.89
+
+#Run the job
+./hello_world

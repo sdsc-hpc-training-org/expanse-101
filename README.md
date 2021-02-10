@@ -45,7 +45,7 @@ on how to use a terminal application and SSH go connect to an SDSC HPC
 system: https://github.com/sdsc-hpc-training-org/basic_skills.
 
 
-<a name="top">Topics Include:
+### Topics Include:
 * Expanse Overview & Innovative Features
 * Getting Started
 * Modules
@@ -61,7 +61,7 @@ system: https://github.com/sdsc-hpc-training-org/basic_skills.
 * Final Comments
 
 <hr>
-## Misc Notes/Updates:
+### Misc Notes/Updates:
 
 *  You must have a expanse account in order to access the system.
   * To obtain a trial account:

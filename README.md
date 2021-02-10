@@ -45,11 +45,11 @@ on how to use a terminal application and SSH go connect to an SDSC HPC
 system: https://github.com/sdsc-hpc-training-org/basic_skills.
 
 
-<a name="top">Contents:
-* [Expanse Overview & Innovative Features](./docs/expanse_overview.md)
-* [Getting Started](./getting_started.md)
-* [Modules](./modules.md)
-* [Account Management](./accounts.md)
+<a name="top">Topics Include:
+* Expanse Overview & Innovative Features
+* Getting Started
+* Modules
+* Account Management
 * Compiling and Linking Code
 * Running Jobs
 * Hands-on Examples

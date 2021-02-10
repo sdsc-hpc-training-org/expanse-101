@@ -1,5 +1,5 @@
 # [Expanse 101 Tutorial](https://github.com/sdsc-hpc-training-org/reverse-proxy/blob/master/README.md)
-*Document last updated:  01/29/21*
+*Document last updated:  02/10/21*
 
 *In this tutorial, you will learn how to compile and run jobs on Expanse,
 where to run them, and how to run batch jobs. The commands below can be

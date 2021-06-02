@@ -2274,7 +2274,7 @@ Jacobi relaxation Calculation: 4096 x 4096 mesh
 <hr>
 * [Data and Storage, Globus Endpoints, Data Movers, Mount Points]<a name="data"></a>
 	IMAGE HERE:  expanse-data-arch.png
-<img src="images/expanse-data-arch.png" alt="expanse-data-arch.png" width="500px">
+<img src="images/expanse_connectivity_fabric.png" alt="expanse_connectivity_fabric.png" width="500px">
 
 Expanse is archtected with a Data Centric Architecture. File system features include:
 * Lustre parallel file system with 12 PB of usable capacity, 140 GB/s of bandwidth, 200k IOPS.
@@ -2282,15 +2282,9 @@ Expanse is archtected with a Data Centric Architecture. File system features inc
 * Fast I/O Node-local, NVMe provides applications with extremely fast I/O.
 * 7 PB of Ceph Object storage at SDSC for projects that need longer-term, archive-like capability over the life of their allocations.
 
-	DISK I/O Subsystem
-
-
-
-
-
 
 | *DISK/IO SUBSYTEM:* | *FEATURES*| 
-| --- | ----------- | ----------- |
+| ----------- | ----------- |
 | File Systems | NFS, Ceph |
 | Lustre Storage(performance) | 12 PB  |
 | Ceph Storage |  7 PB |	
@@ -2298,4 +2292,4 @@ Expanse is archtected with a Data Centric Architecture. File system features inc
 	
 
 	
-[ [Back to Managing Accounts](#managing-accounts) ] [ [Back to Top](#top) ]
+[ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]

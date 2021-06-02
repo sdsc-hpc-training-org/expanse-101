@@ -37,7 +37,6 @@ Consulting group at help@xsede.org.
    * [Modules: Popular Lmod Commands](#module-commands)
    * [Loading Modules During Login](#module-login-load)
    * [Lmod warning “rebuild your saved collection”](#lmod-warn-rebuild)
-
    * [Troubleshooting:Module Error](#module-error)
 * [Managing Accounts](#managing-accounts)
    * [Expanse Client Script](#manage-accts-client-script)

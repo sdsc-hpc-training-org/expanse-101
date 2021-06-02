@@ -913,15 +913,13 @@ The Intel compilers and the MVAPICH2 MPI implementation will be loaded by defaul
 module purge
 module load slurm
 module load cpu
-module load gpu/0.15.4  
-module load intel/19.0.5.281
-module load intel-mkl/2020.3.279
+module load intel mvapich2
 ```
 
 Recall that the list of modules being loaded depends on the application you are using and the compiler and libraries you may need. In some cases you will need to use the __module spider__ command to sort out what modules your application will need.  And, it is possible the list will change if some of the dependent software changes.
 
-For AVX2 support, compile with the -xHOST option. Note that -xHOST alone does not enable aggressive optimization, so compilation with -O3 is also suggested. The -fast flag invokes -xHOST, but should be avoided since it also turns on interprocedural optimization (-ipo), which may cause problems in some instances.
-
+For AVX2 support, compile with the -march=core-avx2 option. Note that this flag alone does not enable aggressive optimization, so compilation with -O3 is also suggested.
+	
 Intel MKL libraries are available as part of the "intel" modules on Expanse. Once this module is loaded, the environment variable MKL_ROOT points to the location of the mkl libraries. The MKL link advisor can be used to ascertain the link line (change the MKL_ROOT aspect appropriately).
 
 In the example below, we are working with a serial MKL example that can be found in the examples/MKL/dgemm folder of the GitHub repository.
@@ -963,17 +961,14 @@ drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
 [1] Compile:
 
 module purge
-module load slurm
-module load cpu
-module load gpu/0.15.4  
-module load intel/19.0.5.281
-module load intel-mkl/2020.3.279
+module load slurm gpu
+module load intel mvapich2 intel-mkl
 
 ifort -o dgemm_example  -mkl -static-intel dgemm_example.f
 
 [2] Run:
 
-sbatch dgemm-Slurm.sb
+sbatch dgemm-slurm.sb
 
 NOTE: for other compilers, replace "gcc"
 with the one you want to use.
@@ -997,11 +992,8 @@ with the one you want to use.
 #This job runs with 1 nodes, 128 cores per node for a total of 256 cores.
 ## Environment
 module purge
-module load cpu/0.15.4
-module load gpu/0.15.4
-module load intel/19.0.5.281
-module load intel-mkl/2020.3.279
-module load slurm
+module load slurm gpu
+module load intel mvapich2 intel-mkl
 
 ## Use srun to run the job
 srun --mpi=pmi2 -n 128 --cpu-bind=rank dgemm_example

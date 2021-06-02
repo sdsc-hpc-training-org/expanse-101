@@ -91,6 +91,10 @@ Consulting group at help@xsede.org.
        * [Laplace2D (GPU/OpenACC): Batch Script Submission](#laplace2d-gpu-batch-submit)
        * [Laplace2D (GPU/OpenACC): Batch Script Output](#laplace2d-gpu-batch-output)
 * [Data and Storage, Globus Endpoints, Data Movers, Mount Points](#data)
+   * [Home File System](#data-home)
+   * [Parallel Lustre Filesystems](#data-lustre)
+   * [Local Scratch](#data-scratch)
+   * [Globus Endpoints](#data-globus)
 * Final Comments
 
 <hr>
@@ -2272,7 +2276,7 @@ Jacobi relaxation Calculation: 4096 x 4096 mesh
 [ [Back to Laplace2D (GPU/OpenACC)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 
 <hr>
-* [Data and Storage, Globus Endpoints, Data Movers, Mount Points]<a name="data"></a>
+* Data and Storage, Globus Endpoints, Data Movers, Mount Points <a name="data"></a>
 	IMAGE HERE:  expanse-data-arch.png
 <img src="images/expanse_connectivity_fabric.png" alt="expanse_connectivity_fabric.png" width="500px">
 
@@ -2293,3 +2297,17 @@ Expanse is archtected with a Data Centric Architecture. File system features inc
 
 	
 [ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]
+	
+## Home File System <a name="data-home"></a>
+[ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]
+
+## Parallel Lustre Filesystems. <a name="data-lustre"></a>
+## Local Scratch <a name="data-scratch"></a>
+
+[ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]
+## Globus Endpoints <a name="data-globus"></a>
+
+[ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]
+
+	
+	

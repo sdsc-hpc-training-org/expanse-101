@@ -1132,7 +1132,7 @@ In this Section:
 * Interactive Jobs: Use the _srun_ command to obtain nodes for ‘real-time, live’ command line access to a compute node:
 __CPU:__
 ```
-srun --partition=debug --qos=debug-normal --pty --account=abc123 --nodes=1 --ntasks-per-node=128 --mem=248 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+srun --partition=debug  --pty --account=abc123 --nodes=1 --ntasks-per-node=128 --mem=248 -t 00:30:00 --wait=0 --export=ALL /bin/bash
 ```
 
 __GPU:__

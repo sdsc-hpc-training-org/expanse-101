@@ -1,4 +1,4 @@
-# [Expanse 101 Tutorial](https://github.com/sdsc-hpc-training-org/reverse-proxy/blob/master/README.md)
+# [Expanse 101 Tutorial](https://github.com/sdsc-hpc-training-org/expanse-101/)
 *Document last updated:  02/10/21*
 
 *In this tutorial, you will learn how to compile and run jobs on Expanse,

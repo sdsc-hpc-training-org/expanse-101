@@ -1,3 +1,6 @@
+---
+sort: 1
+---
 # [Expanse 101 Tutorial](https://github.com/sdsc-hpc-training-org/expanse-101/)
 *Document last updated:  02/10/21*
 

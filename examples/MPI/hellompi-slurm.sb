@@ -7,7 +7,7 @@
 #SBATCH --ntasks-per-node=128
 #SBATCH --export=ALL
 #SBATCH -t 00:04:00
-#SBATCH -A use300
+#SBATCH -A abc123 
 
 # This job runs with 2 nodes, 
 # 128 cores per node for a total of 256 cores.

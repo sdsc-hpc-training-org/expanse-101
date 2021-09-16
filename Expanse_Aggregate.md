@@ -1438,7 +1438,7 @@ Submitted batch job 1088090
 #### Hello World (MPI): Source Code <a name="hello-world-mpi-source"></a>
 * Change to the tutorial `MPI` examples directory:
 * Source code with basic MPI elements:
-
+* Source code in F90
 ```
 [user@login01 MPI]$ cat hello_mpi.f90 
 !  Fortran example  
@@ -1454,13 +1454,42 @@ Submitted batch job 1088090
    end
 [user@login01 MPI]$ 
 ```
+* Source Code in C:
+```
+[username@login01 MPI]$ cat hello_mpi.c
+#include <mpi.h>
+#include <stdio.h>
 
+int main(int argc, char** argv) {
+    // Initialize the MPI environment
+    MPI_Init(NULL, NULL);
+
+    // Get the number of processes
+    int comm_world;
+    MPI_Comm_size(MPI_COMM_WORLD, &comm_world);
+
+    // Get the rank of the process
+    int rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+    // Get the name of the processor
+    char proc_name[MPI_MAX_PROCESSOR_NAME];
+    int name_len;
+    MPI_Get_processor_name(proc_name, &name_len);
+
+    printf("Hello world from processor %s, rank %d out of %d processors\n",
+           proc_name, rank, comm_world);
+
+    // Finalize the MPI environment.
+    MPI_Finalize();
+}
+```
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ]
  [ [Back to Top](#top) ]
 <hr>
 
 #### Hello World (MPI): Compiling <a name="hello-world-mpi-compile"></a>
-* To compile, checkout the instructions in the README.txt file.
+* To compile, checkout the instructions in the **README.txt** file.
 * Follow the instructions in the batch script provided for the compiler you want to test.
 
 ```
@@ -1510,7 +1539,6 @@ Currently Loaded Modules:
 ```
 
 * Next, compile the code:
-
 
 ```
 [user@login01 MPI]$ mpif90 -o hello_mpi hello_mpi.f90
@@ -1604,7 +1632,7 @@ Batch Script Output
 <hr>
 
 #### Hello World (MPI): Interactive Jobs <a name="hello-world-mpi-interactive"></a>
-* First, obtain an interactive Jobs
+* First, obtain an interactive Node. The example below asks for 1 compute node with 128 tasks, and 249 GB of memory, for 30 minutes.
 ```
 [username@login02 MPI]$ srun --partition=debug --account=abc123 --pty --nodes=1 --ntasks-per-node=128 --mem=248 -t 00:30:00 --wait=0 --export=ALL /bin/bash
 [username@exp-9-55 MPI]$
@@ -1655,11 +1683,10 @@ Batch Script Output
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Hello World (OpenMP): Source Code <a name="hello-world-omp-source"></a>
-Source Code.
+#### Hello World (OpenMP): Source Code  <a name="hello-world-omp-source"></a>
+* Source Code in F90:
 
 ```
-[user@login02 OPENMP]$ cat hello_openmp.f90
       PROGRAM OMPHELLO
       INTEGER TNUMBER
       INTEGER OMP_GET_THREAD_NUM
@@ -1672,6 +1699,7 @@ Source Code.
       END
 
 ```
+
 [ [Back to Hello World OpenMP](#hello-world-omp) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ]
  [ [Back to Top](#top) ]
 <hr>

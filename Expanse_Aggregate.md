@@ -1479,6 +1479,19 @@ mpif90 -o hello_mpi hello_mpi.f90
 [2a] Run using Slurm:
 
 sbatch hellompi-Slurm.sb
+	
+[2b] Run using interactive node:
+
+# obtain an interactive node
+srun --partition=debug  --pty --account=use300--nodes=1 --ntasks-per-node=4  --mem=8G -t 00:30:00 --wait=0 --export=ALL /bin/bash
+
+# On the node:
+module purge 
+module load slurm
+module load cpu
+module load gcc/10.2.0 
+module load openmpi/4.0.4
+mpirun -np 8 ./hello_mpi_f_gnu
 ```
 
 * Follow the compile instructions for the compiler that you want to use
@@ -1591,7 +1604,43 @@ Batch Script Output
 <hr>
 
 #### Hello World (MPI): Interactive Jobs <a name="hello-world-mpi-interactive"></a>
-Interactive Jobs
+* First, obtain an interactive Jobs
+```
+[username@login02 MPI]$ srun --partition=debug --account=abc123 --pty --nodes=1 --ntasks-per-node=128 --mem=248 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+[username@exp-9-55 MPI]$
+```
+* Next, load the module environment on the compute node. Don't depend on the system to propagate the right modules to the compute node.
+```
+[username@ exp-9-55 MPI]$ module purge
+[username@ exp-9-55 MPI]$ module load slurm
+[username@ exp-9-55 MPI]$ module load cpu
+[username@ exp-9-55 MPI]$ module load gcc/10.2.0
+[username@ exp-9-55 MPI]$ module load openmpi/4.0.4
+```	
+* Compile your code if needed
+```
+[username@exp-9-55 MPI]$ mpif90 -o hello_mpi_f_gnu hello_mpi.f90 
+```
+* Run a job from the command line:
+```	
+[username@exp-9-55 MPI]$ mpirun -np 8 ./hello_mpi_f_gnu
+ node           1 : Hello world!
+ node          15 : Hello world!
+ node           7 : Hello world!
+ node          14 : Hello world!
+ node          11 : Hello world!
+ node           6 : Hello world!
+ node           4 : Hello world!
+ node           5 : Hello world!
+ node          12 : Hello world!
+ node          13 : Hello world!
+ node           0 : Hello world!
+ node           8 : Hello world!
+ node           9 : Hello world!
+ node          10 : Hello world!
+ node           2 : Hello world!
+ node           3 : Hello world!
+```
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>

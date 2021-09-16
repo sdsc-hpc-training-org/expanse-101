@@ -232,7 +232,7 @@ For instructions on how to use SSH,
 see [Connecting to SDSC HPC Systems Guide](https://github.com/sdsc-hpc-training-org/hpc-security). Below is the logon message – often called the *MOTD* (message of the day, located in /etc/motd). This has not been implemented at this point on Expanse
 
 ```
-[user@localhost:~] ssh -Y expanse.sdsc.edu
+[username@localhost:~] ssh -Y expanse.sdsc.edu
 Welcome to Bright release         9.0
 
                                                         Based on CentOS Linux 8
@@ -264,14 +264,14 @@ Last login: Fri Nov 1 11:16:02 2020 from 76.176.117.51
 ```
 localhost:~ user$ ssh -l user login.expanse.sdsc.edu
 Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
-[user@login02 ~]$
-[user@login02 ~]$ whoami
+[username@login02 ~]$
+[username@login02 ~]$ whoami
 user
-[user@login02 ~]$ hostname
+[username@login02 ~]$ hostname
 login01
-[user@login02 ~]$ pwd
+[username@login02 ~]$ pwd
 /home/user
-[user@login02 ~]$
+[username@login02 ~]$
 ```
 [ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
 <hr>
@@ -285,7 +285,7 @@ The example below will be for anonymous HTTPS downloads
 * Create a test directory hold the expanse example files (optional):
 *
 ```
-[user@login01 TEMP]$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
+[username@login01 TEMP]$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
 Cloning into 'expanse-101'...
 remote: Enumerating objects: 275, done.
 remote: Counting objects: 100% (275/275), done.
@@ -294,8 +294,8 @@ remote: Total 784 (delta 163), reused 122 (delta 55), pack-reused 509
 Receiving objects: 100% (784/784), 12.98 MiB | 20.92 MiB/s, done.
 Resolving deltas: 100% (434/434), done.
 Checking out files: 100% (56/56), done.
-[user@login01 TEMP]$ cd expanse-101/
-[user@login01 expanse-101]$ ll
+[username@login01 TEMP]$ cd expanse-101/
+[username@login01 expanse-101]$ ll
 total 8784
 drwxr-xr-x 6 user abc123       11 Jan 28 22:39 .
 drwxr-xr-x 3 user abc123        3 Jan 28 22:39 ..
@@ -315,7 +315,7 @@ https://github.com/sdsc-hpc-training-org/basic_skills
 The examples directory contains the code we will cover in this tutorial:
 
 ```
-[user@login01 examples]$ ll
+[username@login01 examples]$ ll
 total 141
 drwxr-xr-x 9 user abc123  9 Jan 28 22:44 .
 drwxr-xr-x 5 user abc123  10 Jan 28 22:44 ..
@@ -422,7 +422,7 @@ Lmod commands support *short-hand* notation, for example:
 * Default environment for a new user/new login: `list`, `li`
 
 ```
-(base) [user@login01 expanse-101]$ module list
+(base) [username@login01 expanse-101]$ module list
 Currently Loaded Modules:
 1) shared   2) slurm/expanse/20.02.3   3) cpu/0.15.4   4) DefaultModules
 ```
@@ -431,8 +431,8 @@ Currently Loaded Modules:
 
 ```
 $ module av
-[user@expanse-ln3:~] module av
-(base) [user@login01 expanse-101]$ module available
+[username@expanse-ln3:~] module av
+(base) [username@login01 expanse-101]$ module available
 
 --------------- /cm/shared/apps/spack/cpu/lmod/linux-centos8-x86_64/Core ----------------
    abaqus/2018     gaussian/16.C.01        gmp/6.1.2           mpfr/4.0.2
@@ -474,7 +474,7 @@ See https://lmod.readthedocs.io/en/latest/060_locating.html for details.
 Use ```module spider``` to find all possible modules and extensions.
 
 ```
-(base) [user@login02 ~]$ module spider MPI
+(base) [username@login02 ~]$ module spider MPI
 -------------------------------------------------------------------------------------
   intel-mpi: intel-mpi/2019.8.254
 -------------------------------------------------------------------------------------
@@ -518,7 +518,7 @@ In this example, we will add the Slurm library, and and verify that it is in you
 * Check  module environment after loggin on to the system:
 
 ```
-(base) [user@login01 ~]$ module li
+(base) [username@login01 ~]$ module li
 
 Currently Loaded Modules:
   1) shared   2) slurm/expanse/20.02.3   3) cpu/0.15.4   4) DefaultModules
@@ -529,7 +529,7 @@ Check environment looking for Slurm commands
 
 
 ```
-(base) [user@login01 ~]$ which squeue
+(base) [username@login01 ~]$ which squeue
 /usr/bin/which: no squeue in (/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin)
 ```
 
@@ -537,8 +537,8 @@ Check environment looking for Slurm commands
 
 
 ```
-(base) [user@login01 ~]$ module load slurm
-(base) [user@login01 ~]$ which squeue
+(base) [username@login01 ~]$ module load slurm
+(base) [username@login01 ~]$ which squeue
 /cm/shared/apps/Slurm/current/bin/squeue
 ```
 
@@ -546,7 +546,7 @@ Check environment looking for Slurm commands
 
 
 ```
-(base) [user@login02 ~]$ module display Slurm
+(base) [username@login02 ~]$ module display Slurm
 -------------------------------------------------------------------------------------
    /cm/local/modulefiles/slurm/expanse/20.02.3:
 -------------------------------------------------------------------------------------
@@ -570,7 +570,7 @@ Once you have loaded the modules, you can check the system variables that are av
 
 
 ```
-[user@expanse-ln3 IBRUN]$ env
+[username@expanse-ln3 IBRUN]$ env
 CONDA_EXE=/home/user/miniconda3/bin/conda
 __LMOD_REF_COUNT_PATH=/cm/shared/apps/Slurm/current/sbin:1;/cm/shared/apps/Slurm/current/bin:1;/home/user/miniconda3/bin/conda:1;/home/user/miniconda3/bin:1;/home/user/miniconda3/condabin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/dell/srvadmin/bin:1;/home/user/.local/bin:1;/home/user/bin:1
 HOSTNAME=login02
@@ -595,17 +595,17 @@ CONDA_DEFAULT_ENV=base
 To see the value for any of these variables, use the `echo` command. In this example we show how to activate your miniconda environment so you can run Jupyter Notebooks:
 
 ```
-(base) [user@login02 ~]$ echo $CONDA_PYTHON_EXE
-[user@login02 ~]$
-[user@login02 ~]$ conda activate
+(base) [username@login02 ~]$ echo $CONDA_PYTHON_EXE
+[username@login02 ~]$
+[username@login02 ~]$ conda activate
 -bash: conda: command not found
-[user@login02 ~]$ . /home/$USER/miniconda3/etc/profile.d/conda.sh
-[user@login02 ~]$ conda activate
-(base) [user@login02 ~]$ which jupyter
+[username@login02 ~]$ . /home/$USER/miniconda3/etc/profile.d/conda.sh
+[username@login02 ~]$ conda activate
+(base) [username@login02 ~]$ which jupyter
 ~/miniconda3/bin/jupyter
-(base) [user@login02 ~]$ echo $CONDA_PYTHON_EXE
+(base) [username@login02 ~]$ echo $CONDA_PYTHON_EXE
 /home/user/miniconda3/bin/python
-(base) [user@login02 ~]$
+(base) [username@login02 ~]$
 ```
 
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
@@ -636,15 +636,15 @@ Place the following in your ```~/.bashrc``` file:
 * First edit your ```.bashrc``` and ```.bash_profile``` files:
 
 ```
-[user@login02 ~]$ cat .bash_profile
+[username@login02 ~]$ cat .bash_profile
 # .bash_profile
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
 . ~/.bashrc
 fi
 [SNIP]
-[user@login01 ~]$
-[user@login02 ~]$ cat .bashrc
+[username@login01 ~]$
+[username@login02 ~]$ cat .bashrc
 # .bashrc
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -660,12 +660,12 @@ module load hdf5
 * Next LOGOUT and LOG BACK IN:
 
 ```
-(base) [user@login02 ~]$ env | grep Slurm
+(base) [username@login02 ~]$ env | grep Slurm
 [snip]
 MANPATH=/cm/shared/apps/Slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
 PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
 [snip]
-(base) [user@login02 ~]$ which squeue
+(base) [username@login02 ~]$ which squeue
 /cm/shared/apps/Slurm/current/bin/squeue
 ```
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
@@ -725,7 +725,7 @@ OR add this command to your shell script (including Slurm batch scripts)
 * Example of Script Usage:
 
 ```
-[user@login01 ~]$ expanse-client -h
+[username@login01 ~]$ expanse-client -h
 Allows querying the user statistics.
 
 Usage:
@@ -748,7 +748,7 @@ Use "expanse-client [command] --help" for more information about a command.
 * Example of using the script shows that the user has allocations on 3 accounts, and SU's remaining:
 
 ```
-[user@login01 ~]$ expanse-client user -p
+[username@login01 ~]$ expanse-client user -p
 
  Resource  sdsc_expanse
 
@@ -762,7 +762,7 @@ Use "expanse-client [command] --help" for more information about a command.
 * To see who is on an account:
 
 ```
-[user@login01]$  expanse-client project abc123 -v
+[username@login01]$  expanse-client project abc123 -v
 
  Resource          sdsc_expanse    
  Project           xyz789         
@@ -882,27 +882,27 @@ Suggested Compilers to used based on programming model and languages:
 
 In this example, we show how to reload your environment and how to use the ```swap``` command.
 ```
-[user@login02 ~]$ module list
+[username@login02 ~]$ module list
 Currently Loaded Modules:
   1) shared   2) cpu/1.0   3) DefaultModules   4) hdf5/1.10.1   5) intel/ 19.1.1.217
 ## need to change multiple modules
-[user@login02 ~]$ module purge
-[user@login02 ~]$ module list
+[username@login02 ~]$ module purge
+[username@login02 ~]$ module list
 No modules loaded
-[user@login02 ~]$ module load slurm
-[user@login02 ~]$ module load cpu
-[user@login02 ~]$ module load gcc
-[user@login02 ~]$ module load openmpi/4.0.4
-[user@login02 ~]$ module list
+[username@login02 ~]$ module load slurm
+[username@login02 ~]$ module load cpu
+[username@login02 ~]$ module load gcc
+[username@login02 ~]$ module load openmpi/4.0.4
+[username@login02 ~]$ module list
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
-[user@login02 MPI]$ module swap gcc aocc
+[username@login02 MPI]$ module swap gcc aocc
 Due to MODULEPATH changes, the following have been reloaded:
   1) openmpi/4.0.4
-[user@login02 ~]$ module list
+[username@login02 ~]$ module list
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) cpu/1.0   3) aocc/2.2.0   4) openmpi/4.0.4
-[user@login02 ~]$ 
+[username@login02 ~]$ 
 ```
 
 [ [Back to Compilers](#compilers-toc) ] [ [Back to Top](#top)
@@ -922,7 +922,7 @@ module load intel mvapich2
 Recall that the list of modules being loaded depends on the application you are using and the compiler and libraries you may need. In some cases you will need to use the __module spider__ command to sort out what modules your application will need.  And, it is possible the list will change if some of the dependent software changes.
 
 For AVX2 support, compile with the -march=core-avx2 option. Note that this flag alone does not enable aggressive optimization, so compilation with -O3 is also suggested.
-	
+
 Intel MKL libraries are available as part of the "intel" modules on Expanse. Once this module is loaded, the environment variable MKL_ROOT points to the location of the mkl libraries. The MKL link advisor can be used to ascertain the link line (change the MKL_ROOT aspect appropriately).
 
 In the example below, we are working with a serial MKL example that can be found in the examples/MKL/dgemm folder of the GitHub repository.
@@ -931,7 +931,7 @@ computes the real matrix ```C=alpha*A*B+beta*C``` using Intel(R) MKL
 
 * Repository contents:
 ```
-[user@login01 dgemm]$ ll
+[username@login01 dgemm]$ ll
 total 3758
 drwxr-xr-x 2 user abc123       8 Jan 29 00:45 .
 drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
@@ -959,7 +959,7 @@ drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
 * README.txt contents:
 
 ```
-[user@login01 dgemm]$ cat README.txt
+[username@login01 dgemm]$ cat README.txt
 
 [1] Compile:
 
@@ -980,7 +980,7 @@ with the one you want to use.
 * Contents of the batch script:
 
 ```
-[user@login01 dgemm]$ cat dgemm-Slurm.sb
+[username@login01 dgemm]$ cat dgemm-Slurm.sb
 #!/bin/bash
 #SBATCH --job-name="dgemm_example"
 #SBATCH --output="dgemm_example.%j.%N.out"
@@ -1150,7 +1150,7 @@ srun   --pty --account=abc123  --nodes=1   --ntasks-per-node=1   --cpus-per-task
 #### Command Line Jobs <a name="run-jobs-cmdline"></a>
 The login nodes are meant for compilation, file editing, simple data analysis, and other tasks that use minimal compute resources. <em>Do not run parallel or large jobs on the login nodes - even for simple tests</em>. Even if you could run a simple test on the command line on the login node, full tests should not be run on the login node because the performance will be adversely impacted by all the other tasks and login activities of the other users who are logged onto the same node. For example, at the moment that this note was written,  a `gzip` process was consuming 98% of the CPU time on the Comet HPC system:
     ```
-    [user@comet-ln3 OPENMP]$ top
+    [username@comet-ln3 OPENMP]$ top
     ...
       PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                      
     19937 XXXXX     20   0  4304  680  300 R 98.2  0.0   0:19.45 gzip
@@ -1269,7 +1269,7 @@ $ scancel 8718049
 Below is an example of a batch script that prints our your environment on the compute node:
 
 ```
-[user@login01 ENV_INFO]$ cat env-slurm.sb 
+[username@login01 ENV_INFO]$ cat env-slurm.sb 
 #!/bin/bash
 #SBATCH --job-name="envinfo"
 #SBATCH --output="envinfo.%j.%N.out"
@@ -1299,7 +1299,7 @@ echo "----------------------------------"
 * Portion of the output generated by this script:
 
 ```
-[user@login01 ENV_INFO]$ cat envinfo.108867.exp-6-56.out 
+[username@login01 ENV_INFO]$ cat envinfo.108867.exp-6-56.out 
 ----------------------------------
 hostname=  exp-6-56
 date=  Wed Oct 7 23:45:43 PDT 2020
@@ -1375,7 +1375,7 @@ and to also verify that your Slurm environment is working.
 * Script contents:
 
 ```
-[user@login01 ENV_INFO]$ cat env-Slurm.sb
+[username@login01 ENV_INFO]$ cat env-Slurm.sb
 #!/bin/bash
 #SBATCH --job-name="envinfo"
 #SBATCH --output="envinfo.%j.%N.out"
@@ -1412,12 +1412,12 @@ and completes execution:
 
 ```
 
-[user@login01 ENV_INFO]$ sbatch env-Slurm.sb
+[username@login01 ENV_INFO]$ sbatch env-Slurm.sb
 Submitted batch job 1088090
-[user@login01 ENV_INFO]$ squeue -u user
+[username@login01 ENV_INFO]$ squeue -u user
            1088090   compute  envinfo  user PD       0:00      1 (ReqNodeNotAvail,[SNIP]
 [...]
-[user@login01 ENV_INFO]$ squeue -u user
+[username@login01 ENV_INFO]$ squeue -u user
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
            1088090   compute  envinfo  user PD       0:00      1 (ReqNodeNotAvail, [SNIP]
 ```
@@ -1440,7 +1440,7 @@ Submitted batch job 1088090
 * Source code with basic MPI elements:
 * Source code in F90
 ```
-[user@login01 MPI]$ cat hello_mpi.f90 
+[username@login01 MPI]$ cat hello_mpi.f90 
 !  Fortran example  
    program hello
    include 'mpif.h'
@@ -1452,7 +1452,7 @@ Submitted batch job 1088090
    print*, 'node', rank, ': Hello world!'
    call MPI_FINALIZE(ierror)
    end
-[user@login01 MPI]$ 
+[username@login01 MPI]$ 
 ```
 * Source Code in C:
 ```
@@ -1493,7 +1493,7 @@ int main(int argc, char** argv) {
 * Follow the instructions in the batch script provided for the compiler you want to test.
 
 ```
-[user@login01 MPI]$ cat README.txt 
+[username@login01 MPI]$ cat README.txt 
 [1] Compile:
 
 #### MODULE ENV: updated 01/28/2020 (MPT)
@@ -1508,17 +1508,17 @@ mpif90 -o hello_mpi hello_mpi.f90
 [2a] Run using Slurm:
 
 sbatch hellompi-Slurm.sb
-	
+
 [2b] Run using interactive node:
 
 # obtain an interactive node
 srun --partition=debug  --pty --account=use300--nodes=1 --ntasks-per-node=4  --mem=8G -t 00:30:00 --wait=0 --export=ALL /bin/bash
 
 # On the node:
-module purge 
+module purge
 module load slurm
 module load cpu
-module load gcc/10.2.0 
+module load gcc/10.2.0
 module load openmpi/4.0.4
 mpirun -np 8 ./hello_mpi_f_gnu
 ```
@@ -1526,13 +1526,13 @@ mpirun -np 8 ./hello_mpi_f_gnu
 * Follow the compile instructions for the compiler that you want to use
 
 ```
-[user@login01 MPI]$ module purge
-[user@login01 MPI]$ module load slurm
-[user@login01 MPI]$ module load cpu
-[user@login01 MPI]$ module load gcc/10.2.0
-[user@login01 MPI]$ module load openmpi/4.0.4
-[user@login01 MPI]$ module load openmpi/4.0.4
-[user@login01 MPI]$ module list
+[username@login01 MPI]$ module purge
+[username@login01 MPI]$ module load slurm
+[username@login01 MPI]$ module load cpu
+[username@login01 MPI]$ module load gcc/10.2.0
+[username@login01 MPI]$ module load openmpi/4.0.4
+[username@login01 MPI]$ module load openmpi/4.0.4
+[username@login01 MPI]$ module list
 
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
@@ -1541,7 +1541,7 @@ Currently Loaded Modules:
 * Next, compile the code:
 
 ```
-[user@login01 MPI]$ mpif90 -o hello_mpi hello_mpi.f90
+[username@login01 MPI]$ mpif90 -o hello_mpi hello_mpi.f90
 ```
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
@@ -1553,7 +1553,7 @@ Currently Loaded Modules:
 in order to run the code. The contents of the default batch script are:
 
 ```
-[user@login01 MPI]$ cat hellompi-Slurm.sb
+[username@login01 MPI]$ cat hellompi-Slurm.sb
 #!/bin/bash
 #SBATCH --job-name="hellompi"
 #SBATCH --output="hellompi.%j.%N.out"
@@ -1587,24 +1587,24 @@ srun --mpi=pmi2 -n 12 --cpu-bind=rank ./hello_mpi
 ```
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 667424   compute hellompi  user PD       0:00      2 (Priority)
-[user@login01 MPI]$ squeue -u user -u user
+[username@login01 MPI]$ squeue -u user -u user
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 667424   compute hellompi  user PD       0:00      2 (Priority)
-[user@login01 MPI]$ squeue -u user -u user
+[username@login01 MPI]$ squeue -u user -u user
 ^[[A             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 667424   compute hellompi  user CF       0:01      2 exp-2-[28-29]
-[user@login01 MPI]$ squeue -u user -u user
+[username@login01 MPI]$ squeue -u user -u user
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 667424   compute hellompi  user  R       0:02      2 exp-2-[28-29]
-[user@login01 MPI]$ squeue -u user -u user
+[username@login01 MPI]$ squeue -u user -u user
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-[user@login01 MPI]$ ll
+[username@login01 MPI]$ ll
 total 151
 drwxr-xr-x 2 user abc123    13 Dec 10 01:06 .
 drwxr-xr-x 8 user abc123     8 Oct  8 04:16 ..
 -rwxr-xr-x 1 user abc123 21576 Oct  8 03:12 hello_mpi
 -rw-r--r-- 1 user abc123  8448 Oct  8 03:32 hellompi.667424.exp-2-28.out
-[user@login01 MPI]$
+[username@login01 MPI]$
 
 ```
 
@@ -1616,8 +1616,8 @@ Batch Script Output
 
 ```
 
-[user@login01 MPI]$
-[user@login01 MPI]$ cat hellompi.667424.exp-2-28.out
+[username@login01 MPI]$
+[username@login01 MPI]$ cat hellompi.667424.exp-2-28.out
  node           1 : Hello world!
  node           0 : Hello world!
  [snip]
@@ -1644,13 +1644,13 @@ Batch Script Output
 [username@ exp-9-55 MPI]$ module load cpu
 [username@ exp-9-55 MPI]$ module load gcc/10.2.0
 [username@ exp-9-55 MPI]$ module load openmpi/4.0.4
-```	
+```
 * Compile your code if needed
 ```
 [username@exp-9-55 MPI]$ mpif90 -o hello_mpi_f_gnu hello_mpi.f90 
 ```
 * Run a job from the command line:
-```	
+```
 [username@exp-9-55 MPI]$ mpirun -np 8 ./hello_mpi_f_gnu
  node           1 : Hello world!
  node          15 : Hello world!
@@ -1765,7 +1765,7 @@ export OMP_NUM_THREADS=16
 * Submit the job to the batch queue, and monitor:
 
 ```
-[user@login02 OPENMP]$ sbatch openmp-Slurm-shared.sb ;  squeue -u user
+[username@login02 OPENMP]$ sbatch openmp-Slurm-shared.sb ;  squeue -u user
 Submitted batch job 1088802
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
            1088802    shared hell_ope  user PD       0:00      1 (None)
@@ -1779,7 +1779,7 @@ Submitted batch job 1088802
 Batch Script Output
 
 ```
-[user@login02 OPENMP]$ cat hello_openmp_shared.1088802.exp-3-08.out
+[username@login02 OPENMP]$ cat hello_openmp_shared.1088802.exp-3-08.out
  HELLO FROM THREAD NUMBER =            14
  HELLO FROM THREAD NUMBER =            15
  HELLO FROM THREAD NUMBER =            10
@@ -1796,7 +1796,7 @@ Batch Script Output
  HELLO FROM THREAD NUMBER =            13
  HELLO FROM THREAD NUMBER =             3
  HELLO FROM THREAD NUMBER =             6
-[user@login02 OPENMP]$
+[username@login02 OPENMP]$
 
 ```
 
@@ -1876,13 +1876,13 @@ sbatch hybrid-Slurm.sb
 * Compilation example:
 
 ```
-[user@login01 HYBRID]$ module purge
-[user@login01 HYBRID]$ module load slurm
-[user@login01 HYBRID]$ module load cpu
-[user@login01 HYBRID]$ module load intel
-[user@login01 HYBRID]$ module load intel-mpi
-[user@login01 HYBRID]$ export I_MPI_CC=icc
-[user@login01 HYBRID]$ mpicc -qopenmp -o hello_hybrid hello_hybrid.c
+[username@login01 HYBRID]$ module purge
+[username@login01 HYBRID]$ module load slurm
+[username@login01 HYBRID]$ module load cpu
+[username@login01 HYBRID]$ module load intel
+[username@login01 HYBRID]$ module load intel-mpi
+[username@login01 HYBRID]$ export I_MPI_CC=icc
+[username@login01 HYBRID]$ mpicc -qopenmp -o hello_hybrid hello_hybrid.c
 
 ```
 
@@ -1894,11 +1894,11 @@ sbatch hybrid-Slurm.sb
 * Submit the batch script and monitor:
 
 ```
-[user@login01 HYBRID]$ sbatch hybrid-Slurm.sb
+[username@login01 HYBRID]$ sbatch hybrid-Slurm.sb
 Submitted batch job 1089019
     JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-[user@login01 HYBRID]$ squeue -u user
-[user@login01 HYBRID]$ squeue -u user
+[username@login01 HYBRID]$ squeue -u user
+[username@login01 HYBRID]$ squeue -u user
     JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 
 ```
@@ -1911,7 +1911,7 @@ Submitted batch job 1089019
 * Batch Script Output:
 
 ```
-[user@login01 HYBRID]$ cat hellohybrid.1089019.exp-10-07.out
+[username@login01 HYBRID]$ cat hellohybrid.1089019.exp-10-07.out
 Hello from thread 0 out of 16 from process 1 out of 2 on exp-10-07
 Hello from thread 14 out of 16 from process 1 out of 2 on exp-10-07
 Hello from thread 1 out of 16 from process 1 out of 2 on exp-10-07
@@ -2019,17 +2019,17 @@ module load pgi
 * Interactive GPU node:
 
 ```
-[user@login01 OpenACC]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 -A abc123 /bin/bash
+[username@login01 OpenACC]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 -A abc123 /bin/bash
 srun: job 1089081 queued and waiting for resources
 srun: job 1089081 has been allocated resources
-[user@exp-7-59 OpenACC]$
+[username@exp-7-59 OpenACC]$
 
 ```
 
 * Change to the tutorial *OpenAC*  directory:
 
 ```
-[user@exp-7-59 OpenACC]$ ll
+[username@exp-7-59 OpenACC]$ ll
 total 71
 -rw-r--r-- 1 user abc123  2136 Oct  7 11:28 laplace2d.c
 -rwxr-xr-x 1 user abc123 52056 Oct  7 11:28 laplace2d.openacc.exe
@@ -2049,12 +2049,12 @@ total 71
 * Once you are on an interactive node, reload the module environment:
 
 ```
-[user@exp-7-59 OpenACC]$
-[user@exp-7-59 OpenACC]$ module purge
-[user@exp-7-59 OpenACC]$ module load slurm
-[user@exp-7-59 OpenACC]$ module load gpu
-[user@exp-7-59 OpenACC]$ module load pgi
-[user@exp-7-59 OpenACC]$ module list
+[username@exp-7-59 OpenACC]$
+[username@exp-7-59 OpenACC]$ module purge
+[username@exp-7-59 OpenACC]$ module load slurm
+[username@exp-7-59 OpenACC]$ module load gpu
+[username@exp-7-59 OpenACC]$ module load pgi
+[username@exp-7-59 OpenACC]$ module list
 
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) gpu/0.15.4   3) pgi/20.4
@@ -2065,7 +2065,7 @@ Currently Loaded Modules:
 
 ```
 
-[user@exp-7-59 OpenACC]$ nvidia-smi
+[username@exp-7-59 OpenACC]$ nvidia-smi
 Fri Jan 29 12:33:25 2021       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 450.51.05    Driver Version: 450.51.05    CUDA Version: 11.0     |
@@ -2119,7 +2119,7 @@ Steps to compile the code:
 Source Code
 
 ```
-[user@login01 OpenACC]$ !cat
+[username@login01 OpenACC]$ !cat
 cat laplace2d.c
 /*
  *  Copyright 2012 NVIDIA Corporation
@@ -2222,15 +2222,15 @@ Compile the code:
 
 
 ```
-[user@login01 ~]$ module load slurm
-[user@login01 ~]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug -A abc123 --gpus=1 -t 00:10:00 /bin/bash
+[username@login01 ~]$ module load slurm
+[username@login01 ~]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug -A abc123 --gpus=1 -t 00:10:00 /bin/bash
 srun: job 667263 queued and waiting for resources
 srun: job 667263 has been allocated resources
-[user@exp-7-59 ~]$ module purge
-[user@exp-7-59 ~]$ module load slurm
-[user@exp-7-59 ~]$ module load gpu
-[user@exp-7-59 ~]$ module load pgi
-[user@exp-7-59 ~]$ module list
+[username@exp-7-59 ~]$ module purge
+[username@exp-7-59 ~]$ module load slurm
+[username@exp-7-59 ~]$ module load gpu
+[username@exp-7-59 ~]$ module load pgi
+[username@exp-7-59 ~]$ module list
 
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) gpu/1.0   3) pgi/20.4
@@ -2240,7 +2240,7 @@ Currently Loaded Modules:
 * Now you are set up to compile the code:
 
 ```
-[user@exp-7-59 OpenACC]$ pgcc -o laplace2d.openacc.exe -fast -Minfo -acc -ta=tesla:cc70 laplace2d.c
+[username@exp-7-59 OpenACC]$ pgcc -o laplace2d.openacc.exe -fast -Minfo -acc -ta=tesla:cc70 laplace2d.c
 "laplace2d.c", line 91: warning: missing return statement at end of non-void
           function "laplace"
   }
@@ -2270,8 +2270,8 @@ laplace:
          75, #pragma acc loop gang, vector(4) /* blockIdx.y threadIdx.y */
          77, #pragma acc loop gang, vector(32) /* blockIdx.x threadIdx.x */
      88, GetTimer inlined, size=9 (inline) file laplace2d.c (54)
-[user@exp-7-59 OpenACC]$
-[user@exp-7-59 OpenACC]$ exit
+[username@exp-7-59 OpenACC]$
+[username@exp-7-59 OpenACC]$ exit
 ```
 
 [ [Back to Laplace2D (GPU/OpenACC)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
@@ -2282,7 +2282,7 @@ laplace:
 
 ```
 
-[user@exp-7-59 OpenACC]$ cat openacc-gpu-shared.sb
+[username@exp-7-59 OpenACC]$ cat openacc-gpu-shared.sb
 #!/bin/bash
 #SBATCH --job-name="OpenACC"
 #SBATCH --output="OpenACC.%j.%N.out"
@@ -2359,22 +2359,22 @@ Jacobi relaxation Calculation: 4096 x 4096 mesh
 
 Expanse is archtected with a Data Centric Architecture. File system features include:
 * Lustre parallel file system with 12 PB of usable capacity, 140 GB/s of bandwidth, 200k IOPS.
-* Large fraction of the workload is dominated by many small files, the parallel file system will include multiple NVMe-based metadata servers and Lustre’s Data on Metadata capability to achieve high I/O operations per second. 
+* Large fraction of the workload is dominated by many small files, the parallel file system will include multiple NVMe-based metadata servers and Lustre’s Data on Metadata capability to achieve high I/O operations per second.
 * Fast I/O Node-local, NVMe provides applications with extremely fast I/O.
 * 7 PB of Ceph Object storage at SDSC for projects that need longer-term, archive-like capability over the life of their allocations.
 
 
-| *DISK/IO SUBSYTEM:* | *FEATURES*| 
+| *DISK/IO SUBSYTEM:* | *FEATURES*|
 | ----------- | ----------- |
 | File Systems | NFS, Ceph |
 | Lustre Storage(performance) | 12 PB  |
-| Ceph Storage |  7 PB |	
+| Ceph Storage |  7 PB |
 |I/O bandwidth (performance disk) | 140 GB/s, 200K IOPs|
-	
 
-	
+
+
 [ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]
-	
+
 ## Home File System <a name="data-home"></a>
 [ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]
 
@@ -2385,6 +2385,3 @@ Expanse is archtected with a Data Centric Architecture. File system features inc
 ## Globus Endpoints <a name="data-globus"></a>
 
 [ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]
-
-	
-	

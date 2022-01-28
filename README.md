@@ -2,7 +2,7 @@
 sort: 1
 ---
 # [Expanse 101 Tutorial](https://github.com/sdsc-hpc-training-org/expanse-101/)
-*Document last updated:  02/10/21*
+*Document last updated:  01/27/2022*
 
 *In this tutorial, you will learn how to compile and run jobs on Expanse,
 where to run them, and how to run batch jobs. The commands below can be
@@ -45,7 +45,7 @@ The link to the presentation will be posted soon:
 *  The ``hostname`` for Expanse is ``expanse.sdsc.edu``
 *  The operating system for Expanse is ``CentOS``
 *  For information on moving from Comet to Expanse, see the [Comet to Expanse
-Transition Workshpo](https://education.sdsc.edu/training/interactive/202010_comet_to_expanse/index.html)
+Transition Workshop](https://education.sdsc.edu/training/interactive/202010_comet_to_expanse/index.html)
 
 If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at help@xsede.org.

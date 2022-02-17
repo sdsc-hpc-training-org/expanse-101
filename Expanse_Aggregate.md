@@ -11,16 +11,18 @@ cut & pasted into the terminal window, when it is connected to
 expanse.sdsc.edu.
 
 # Misc Notes/Updates:
-*  You must have a expanse account in order to access the system.
+*  You must have an Expanse account in order to access the system.
   * To obtain a trial account:
       [Expanse trial account](http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts)
 *  You must be familiar with running basic Unix commands: see the
    following tutorials at:
    *  [https://github.com/sdsc-hpc-training/basic_skills](https://github.com/sdsc-hpc-training/basic_skills)
-*  The ``hostname`` for Expanse is ``expanse.sdsc.edu``
-*  The operating system for Expanse is CentOS
-*  For information on moving files from Comet to Expanse, see the [Comet to Expanse
-Transition Workshop](https://education.sdsc.edu/training/interactive/202010_comet_to_expanse/index.html)
+*  The *hostname* for Expanse is simple *login01*, or *login02*
+*  The login node name is *login.expanse.sdsc.edu*
+*  The operating system for Expanse is *CentOS*
+*  The cluster management system is the *Bright Cluster Manager*
+*  The Scheduler and Resource Manager is *SLURM*
+*  Additional programming examples can be found here:  https://github.com/sdsc-hpc-training-org/hpctr-examples
 
 If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at help@xsede.org.
@@ -90,12 +92,7 @@ Consulting group at help@xsede.org.
        * [Laplace2D (GPU/OpenACC): Compiling](#laplace2d-gpu-compile)
        * [Laplace2D (GPU/OpenACC): Batch Script Submission](#laplace2d-gpu-batch-submit)
        * [Laplace2D (GPU/OpenACC): Batch Script Output](#laplace2d-gpu-batch-output)
-* [Data and Storage, Globus Endpoints, Data Movers, Mount Points](#data)
-   * [Home File System](#data-home)
-   * [Parallel Lustre Filesystems](#data-lustre)
-   * [Local Scratch](#data-scratch)
-   * [Globus Endpoints](#data-globus)
-* Final Comments
+
 
 <hr>
 
@@ -2352,36 +2349,4 @@ Jacobi relaxation Calculation: 4096 x 4096 mesh
 
 [ [Back to Laplace2D (GPU/OpenACC)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 
-<hr>
-* Data and Storage, Globus Endpoints, Data Movers, Mount Points <a name="data"></a>
-	IMAGE HERE:  expanse-data-arch.png
-<img src="images/expanse_connectivity_fabric.png" alt="expanse_connectivity_fabric.png" width="500px">
 
-Expanse is archtected with a Data Centric Architecture. File system features include:
-* Lustre parallel file system with 12 PB of usable capacity, 140 GB/s of bandwidth, 200k IOPS.
-* Large fraction of the workload is dominated by many small files, the parallel file system will include multiple NVMe-based metadata servers and Lustre’s Data on Metadata capability to achieve high I/O operations per second.
-* Fast I/O Node-local, NVMe provides applications with extremely fast I/O.
-* 7 PB of Ceph Object storage at SDSC for projects that need longer-term, archive-like capability over the life of their allocations.
-
-
-| *DISK/IO SUBSYTEM:* | *FEATURES*|
-| ----------- | ----------- |
-| File Systems | NFS, Ceph |
-| Lustre Storage(performance) | 12 PB  |
-| Ceph Storage |  7 PB |
-|I/O bandwidth (performance disk) | 140 GB/s, 200K IOPs|
-
-
-
-[ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]
-
-## Home File System <a name="data-home"></a>
-[ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]
-
-## Parallel Lustre Filesystems. <a name="data-lustre"></a>
-## Local Scratch <a name="data-scratch"></a>
-
-[ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]
-## Globus Endpoints <a name="data-globus"></a>
-
-[ [Back to Data and Storage](#data) ] [ [Back to Top](#top) ]

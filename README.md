@@ -44,10 +44,16 @@ The link to the presentation will be posted soon:
 * You should be familiar with running basic Unix commands, connecting to Expanse via SSH, and other basic skills. 
   * See:
 [https://github.com/sdsc-hpc-training/basic_skills](https://github.com/sdsc-hpc-training/basic_skills)
-*  The ``hostname`` for Expanse is ``expanse.sdsc.edu``
-*  The operating system for Expanse is ``CentOS``
-*  For information on moving from Comet to Expanse, see the [Comet to Expanse
-Transition Workshop](https://education.sdsc.edu/training/interactive/202010_comet_to_expanse/index.html)
+* You must have a expanse account in order to access the system.
+  * To obtain a trial account:
+      [Expanse trial account](https://portal.xsede.org/allocations/startup#rapidaccess-trial)
+*  You should be familiar with running basic Unix commands on and HPC system: see the
+   *  [Basic Skills Tutorial](https://github.com/sdsc-hpc-training/basic_skills)
+*  The *hostname* for Expanse is *login01* or *login02*
+*  The *login node name* for Expanse is *login.expanse.sdsc.edu*
+*  The operating system for Expanse is CentOS
+*  The cluster management system is	*Bright Cluster Manager*
+*  The Scheduler and Resource Manager	is *SLURM*
 
 If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at help@xsede.org.

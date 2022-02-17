@@ -1,4 +1,4 @@
-# Expanse 101:  Introduction to Running Jobs on the Expanse Supercomputer
+# Expanse 101 Tutorial
 
 [SDSC HPC Training Group](https://www.sdsc.edu/education_and_training/training_hpc.html)
 

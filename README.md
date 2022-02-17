@@ -38,7 +38,7 @@ The link to the presentation will be posted soon:
 
 ## Prerequistes:
 
-*  You must have a expanse account in order to access the system.
+*  You must have an *Expanse* account in order to access the system.
   * To obtain a trial account:
       http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
 * You should be familiar with running basic Unix commands, connecting to Expanse via SSH, and other basic skills. 

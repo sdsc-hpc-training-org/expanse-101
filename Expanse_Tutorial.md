@@ -1548,8 +1548,10 @@ module load cpu
 module load gcc/10.2.0
 module load openmpi/4.0.4
 mpirun -np 8 ./hello_mpi_f_gnu
+```
 
 * Follow the compile instructions for the compiler that you want to use:
+
 
 ```
 [username@login01 MPI]$ module purge

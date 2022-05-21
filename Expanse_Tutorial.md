@@ -1137,6 +1137,7 @@ __CPU:__
 srun --partition=debug  --pty --account=<<project>> --nodes=1 --ntasks-per-node=4  --mem=8G -t 00:30:00 --wait=0 --export=ALL /bin/bash
 ```
 * Example output:
+
 ```
 [username@login01 ~]$ module purge
 [username@login01 ~]$ module restore
@@ -1147,7 +1148,7 @@ srun: job 12629939 has been allocated resources
 [username@exp-7-59 ~]$ 
 
 ```
-__GPU:
+__GPU:__
 * The following example will request a GPU node, 10 cores, 1 GPU and 96G  in the debug partition for 30 minutes.  
 * To ensure the GPU environment is properly loaded, please be sure run both the module purge and module restore commands.
 ```
@@ -1164,6 +1165,7 @@ srun: job 12630128 queued and waiting for resources
 srun: job 12630128 has been allocated resources
 [username@exp-7-59 ~]$ 
 ```
+
 
 
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]

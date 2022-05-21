@@ -219,8 +219,8 @@ login.expanse.sdsc.edu
 The following are examples of Secure Shell (ssh) commands that may be used to log in to Expanse:
 
 ```
-ssh <your_user>@login.expanse.sdsc.edu
-ssh -l <your_user> login.expanse.sdsc.edu
+ssh <username>@login.expanse.sdsc.edu
+ssh -l <username> login.expanse.sdsc.edu
 ```
 Details about how to access Expanse under different circumstances are described in the Expanse User Guide:
 https://www.sdsc.edu/support/user_guides/expanse.html#access
@@ -676,7 +676,7 @@ Lmod allows a user to save a bundle of modules as a collection using module save
 * Too see the list of module collections that you currently have:
 
 ```
-[mthomas@login02 ~]$ module savelist
+[username@login02 ~]$ module savelist
 Named collection list :
   1) default  2) hdf5_env
 
@@ -685,12 +685,12 @@ Named collection list :
 * To remove or disable a saved collection:
 
 ```
-[mthomas@login02 ~]$ module disable hdf5_env
+[username@login02 ~]$ module disable hdf5_env
 Disabling hdf5_env collection by renaming with a "~"
-[mthomas@login02 ~]$ module savelist
+[username@login02 ~]$ module savelist
 Named collection list :
   1) default
-[mthomas@login02 ~]$
+[username@login02 ~]$
 ```
 
 ### Troubleshooting:  Module Error<a name="module-error"></a>
@@ -1129,17 +1129,42 @@ In this Section:
 * Please note that submitting a large number of jobs (especially very short ones) can impact the overall  scheduler response for all users.
 
 #### Interactive Jobs<a name="run-jobs-methods-ineractive"></a>
-* Interactive Jobs: Use the _srun_ command to obtain nodes for ‘real-time, live’ command line access to a compute node:
+* Interactive Jobs: Use the _srun_ command to obtain nodes for ‘real-time, live’ command line access to a compute node.
+
 __CPU:__
+* The following example will request one regular compute node, 4 cores,  in the debug partition for 30 minutes:
 ```
-srun --partition=debug  --pty --account=abc123 --nodes=1 --ntasks-per-node=128 --mem=248 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+srun --partition=debug  --pty --account=<<project>> --nodes=1 --ntasks-per-node=4  --mem=8G -t 00:30:00 --wait=0 --export=ALL /bin/bash
+```
+* Example output:
+```
+[username@login01 ~]$ module purge
+[username@login01 ~]$ module restore
+Resetting modules to system default. Reseting $MODULEPATH back to system default. All extra directories will be removed from $MODULEPATH.
+[username@login01 ~]$ srun   --pty --account=sds173  --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1 --mem=98 -t 00:10:00 /bin/bash
+srun: job 12629939 queued and waiting for resources
+srun: job 12629939 has been allocated resources
+[username@exp-7-59 ~]$ 
+
+```
+__GPU:
+* The following example will request a GPU node, 10 cores, 1 GPU and 96G  in the debug partition for 30 minutes.  
+* To ensure the GPU environment is properly loaded, please be sure run both the module purge and module restore commands.
+```
+srun --partition=gpu-debug --pty --account=<<project>> --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+```
+* Example output:
+
+```
+[username@login02 interactive.ex]$ module list
+Currently Loaded Modules:
+  1) slurm/expanse/21.08.8   2) gpu/0.15.4   3) pgi/20.4
+[username@login02 ~]$ srun --partition=gpu-debug --pty --account=use300 --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+srun: job 12630128 queued and waiting for resources
+srun: job 12630128 has been allocated resources
+[username@exp-7-59 ~]$ 
 ```
 
-__GPU:__
-
-```
-srun   --pty --account=abc123  --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1  -t 00:10:00 /bin/bash
-```
 
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
@@ -1509,7 +1534,10 @@ sbatch hellompi-Slurm.sb
 [2b] Run using interactive node:
 
 # obtain an interactive node
-srun --partition=debug  --pty --account=use300--nodes=1 --ntasks-per-node=4  --mem=8G -t 00:30:00 --wait=0 --export=ALL /bin/bash
+he following example will request one regular compute node, 4 cores,  in the debug partition for 30 minutes.
+
+srun --partition=debug  --pty --account=<<project>> --nodes=1 --ntasks-per-node=4 \
+    --mem=8G -t 00:30:00 --wait=0 --export=ALL /bin/bash
 
 # On the node:
 module purge
@@ -1518,9 +1546,8 @@ module load cpu
 module load gcc/10.2.0
 module load openmpi/4.0.4
 mpirun -np 8 ./hello_mpi_f_gnu
-```
 
-* Follow the compile instructions for the compiler that you want to use
+* Follow the compile instructions for the compiler that you want to use:
 
 ```
 [username@login01 MPI]$ module purge
@@ -1631,7 +1658,10 @@ Batch Script Output
 #### Hello World (MPI): Interactive Jobs <a name="hello-world-mpi-interactive"></a>
 * First, obtain an interactive Node. The example below asks for 1 compute node with 128 tasks, and 249 GB of memory, for 30 minutes.
 ```
-[username@login02 MPI]$ srun --partition=debug --account=abc123 --pty --nodes=1 --ntasks-per-node=128 --mem=248 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+[username@login02 MPI]$srun --partition=debug  --pty --account=<<project>> --nodes=1 --ntasks-per-node=4 \
+    --mem=8G -t 00:30:00 --wait=0 --export=ALL /bin/bash
+srun: job 12630128 queued and waiting for resources
+srun: job 12630128 has been allocated resources
 [username@exp-9-55 MPI]$
 ```
 * Next, load the module environment on the compute node. Don't depend on the system to propagate the right modules to the compute node.
@@ -2016,7 +2046,8 @@ module load pgi
 * Interactive GPU node:
 
 ```
-[username@login01 OpenACC]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug --gpus=1 -t 00:10:00 -A abc123 /bin/bash
+[username@login01 OpenACC]$srun --partition=gpu-debug --pty --account=<<project>> --ntasks-per-node=10 \
+    --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
 srun: job 1089081 queued and waiting for resources
 srun: job 1089081 has been allocated resources
 [username@exp-7-59 OpenACC]$
@@ -2303,20 +2334,20 @@ module load pgi
 * Submit the batch script, and monitor queue status:
 
 ```
-[mthomas@login01 OpenACC]$ sbatch openacc-gpu-shared.sb
+[username@login01 OpenACC]$ sbatch openacc-gpu-shared.sb
 Submitted batch job 1093002
-[mthomas@login01 OpenACC]$ squeue -u mthomas
+[username@login01 OpenACC]$ squeue -u username
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-[mthomas@login01 OpenACC]$ ll
+[username@login01 OpenACC]$ ll
 total 106
-drwxr-xr-x  2 mthomas use300     8 Jan 29 16:25 .
-drwxr-xr-x 10 mthomas use300    10 Jan 29 03:28 ..
--rw-r--r--  1 mthomas use300  2136 Jan 29 03:27 laplace2d.c
--rwxr-xr-x  1 mthomas use300 52080 Jan 29 16:20 laplace2d.openacc.exe
--rw-r--r--  1 mthomas use300   234 Jan 29 16:25 OpenACC.1093002.exp-7-57.out
--rw-r--r--  1 mthomas use300   332 Jan 29 16:11 openacc-gpu-shared.sb
--rw-r--r--  1 mthomas use300  1634 Jan 29 03:27 README.txt
--rw-r--r--  1 mthomas use300  1572 Jan 29 03:27 timer.h
+drwxr-xr-x  2 username use300     8 Jan 29 16:25 .
+drwxr-xr-x 10 username use300    10 Jan 29 03:28 ..
+-rw-r--r--  1 username use300  2136 Jan 29 03:27 laplace2d.c
+-rwxr-xr-x  1 username use300 52080 Jan 29 16:20 laplace2d.openacc.exe
+-rw-r--r--  1 username use300   234 Jan 29 16:25 OpenACC.1093002.exp-7-57.out
+-rw-r--r--  1 username use300   332 Jan 29 16:11 openacc-gpu-shared.sb
+-rw-r--r--  1 username use300  1634 Jan 29 03:27 README.txt
+-rw-r--r--  1 username use300  1572 Jan 29 03:27 timer.h
 
 ```
 
@@ -2329,7 +2360,7 @@ drwxr-xr-x 10 mthomas use300    10 Jan 29 03:28 ..
 * Batch Script Output:
 
 ```
-[mthomas@login01 OpenACC]$ cat OpenACC.1093002.exp-7-57.out
+[username@login01 OpenACC]$ cat OpenACC.1093002.exp-7-57.out
 main()
 Jacobi relaxation Calculation: 4096 x 4096 mesh
     0, 0.250000
@@ -2343,7 +2374,7 @@ Jacobi relaxation Calculation: 4096 x 4096 mesh
   800, 0.000302
   900, 0.000269
  total: 1.029057 s
-[mthomas@login01 OpenACC]$
+[username@login01 OpenACC]$
 
 ```
 

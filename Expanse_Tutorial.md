@@ -285,7 +285,7 @@ https://github.com/sdsc-hpc-training-org/hpctr-examples
 The example below will be for anonymous HTTPS downloads from GitHub. Note that GitHub has increased it's security requirements, and you may have to deal with that. See: https://docs.github.com/en/authentication
 
 * Create a test directory hold the expanse example files (optional):
-*
+
 ```
 [mthomas@login01 ~]$ git clone git@github.com:sdsc-hpc-training-org/hpctr-examples.git
 Cloning into 'hpctr-examples'...

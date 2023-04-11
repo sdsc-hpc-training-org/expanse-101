@@ -835,7 +835,7 @@ Note: your charges are based on the resources that are tied up by your job and d
 See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#charging) for more details and factors that affect job charging.
 
 
-## <a name="compilers"></a>Compiling & Linking Code
+## Compiling & Linking Code<a name="compilers"></a>
 
 Expanse provides the Intel, Portland Group (PGI), and GNU compilers along with multiple MPI implementations (MVAPICH2, MPICH2, OpenMPI). Most applications will achieve the best performance on Expanse using the Intel compilers and MVAPICH2 and the majority of libraries installed on Expanse have been built using this combination. Having such a diverse set of compilers avaiable allows for our users to customize the software stack need for their application. However, there
 can be some complexity involved in sorting out the module dependencies needed for your applications. Often the set of modules being loaded depends on the application you are using and the compiler and libraries you may need. In many cases you will need to use the ```module spider``` command to sort out what modules your application will need. Additionally, it is possible the list will change if some of the dependent software changes.
@@ -844,8 +844,7 @@ Other compilers and versions can be installed by Expanse staff on request. For m
 (https://www.sdsc.edu/support/user_guides/expanse.html#compiling)
 
 <a name="compilers-toc"> In this Section:
-* [Compiling & Linking](#compilers)
-    * [Supported Compilers](#compilers-supported")
+* [Supported Compilers](#compilers-supported")
     * [AMD Optimizing C/C++ Compiler (AOCC)](#compilers-amd)
     * [Intel Compilers](#compilers-intel)
     * [GNU Compilers](#compilers-gnu)
@@ -867,9 +866,10 @@ Users should evaluate their application for best compiler and library selection.
 #### GPU Nodes
 Expanse GPU nodes have GNU, Intel, and PGI compilers available along with multiple MPI implementations (OpenMPI, IntelMPI, and MVAPICH2). The gcc/10.2.0, Intel, and PGI compilers have specific flags for the Cascade Lake architecture. Users should evaluate their application for best compiler and library selections.
 
-*Note: that the login nodes are not the same as the GPU nodes, therefore all GPU codes must be compiled by requesting an interactive session on the GPU nodes.*
+*Note that the login nodes are not the same as the GPU nodes, therefore all GPU codes must be compiled by requesting an interactive session on the GPU nodes.*
 
-In this tutorial, we include several hands-on examples that cover many of the cases in the table:
+In this tutorial, we include several hands-on examples that cover many of the cases described below, or the [Running Jobs](#run-jobs) section below.
+
 * MPI
 * OpenMP
 * HYBRID

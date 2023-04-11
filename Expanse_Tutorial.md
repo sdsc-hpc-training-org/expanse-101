@@ -37,7 +37,7 @@ Consulting group at help@xsede.org.
 * [Modules](#modules)
    * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
    * [Modules: Popular Lmod Commands](#module-commands)
-   * [Checking Modules and Environment](#check-module-env)
+   * [Loading and Checking Modules and Environments](#check-module-env)
    * [Loading Modules at Login](#module-login-load)
    * [Troubleshooting](#module-troubleshoot)	
 * [Managing Accounts](#managing-accounts)
@@ -349,7 +349,7 @@ The Environment Modules package provides for dynamic modification of your shell 
 In this Section:
 * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
 * [Modules: Popular Lmod Commands](#module-commands)
-* [Checking Modules and Environment](#check-module-env)
+* [Loading and Checking Modules and Environments](#check-module-env)
 * [Loading Modules at Login](#module-login-load)
 * [Troubleshooting](#module-troubleshoot)
 	 
@@ -512,7 +512,7 @@ Use ```module spider``` to find all possible modules and extensions.
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
-### <a name="load-and-check-module-env"></a>Load and Check Modules and Environment
+### Loading and Checking Modules and Environments<a name="load-and-check-module-env"></a>
 In this example, we will add the Slurm library, and and verify that it is in your environment
 * Check  module environment after loggin on to the system:
 
@@ -672,7 +672,7 @@ PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/
 
 
 
-### [Troubleshooting]<a name="module-troubleshoot"></a>
+### Troubleshooting<a name="module-troubleshoot"></a>
 
 **Troubleshooting: Lmod warning “rebuild your saved collection”** 
 
@@ -711,6 +711,7 @@ OR add this command to your shell script (including Slurm batch scripts)
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
+	
 ## <a name="managing-accounts"></a>Managing Accounts on Expanse
 * [Expanse Client Script](#manage-accts-client-script)
 * [Using Accounts in Batch Jobs](#manage-accts-batch-script)

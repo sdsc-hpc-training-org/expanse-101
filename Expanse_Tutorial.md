@@ -538,7 +538,7 @@ Check environment looking for Slurm commands
 ```
 (base) [username@login01 ~]$ module load slurm
 (base) [username@login01 ~]$ which squeue
-/cm/shared/apps/Slurm/current/bin/squeue
+/cm/shared/apps/slurm/current/bin/squeue
 ```
 
 * Display loaded module details:
@@ -551,15 +551,15 @@ Check environment looking for Slurm commands
 -------------------------------------------------------------------------------------
 whatis("Adds Slurm to your environment ")
 setenv("CMD_WLM_CLUSTER_NAME","expanse")
-setenv("Slurm_CONF","/cm/shared/apps/Slurm/var/etc/expanse/Slurm.conf")
-prepend_path("PATH","/cm/shared/apps/Slurm/current/bin")
-prepend_path("PATH","/cm/shared/apps/Slurm/current/sbin")
-prepend_path("MANPATH","/cm/shared/apps/Slurm/current/man")
-prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64")
-prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64/Slurm")
-prepend_path("LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64")
-prepend_path("LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64/Slurm")
-prepend_path("CPATH","/cm/shared/apps/Slurm/current/include")
+setenv("Slurm_CONF","/cm/shared/apps/slurm/var/etc/expanse/slurm.conf")
+prepend_path("PATH","/cm/shared/apps/slurm/current/bin")
+prepend_path("PATH","/cm/shared/apps/slurm/current/sbin")
+prepend_path("MANPATH","/cm/shared/apps/slurm/current/man")
+prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64")
+prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64/slurm")
+prepend_path("LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64")
+prepend_path("LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64/slurm")
+prepend_path("CPATH","/cm/shared/apps/slurm/current/include")
 help([[ Adds Slurm to your environment
 ]])
 ```
@@ -571,21 +571,21 @@ Once you have loaded the modules, you can check the system variables that are av
 ```
 [username@expanse-ln3 IBRUN]$ env
 CONDA_EXE=/home/user/miniconda3/bin/conda
-__LMOD_REF_COUNT_PATH=/cm/shared/apps/Slurm/current/sbin:1;/cm/shared/apps/Slurm/current/bin:1;/home/user/miniconda3/bin/conda:1;/home/user/miniconda3/bin:1;/home/user/miniconda3/condabin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/dell/srvadmin/bin:1;/home/user/.local/bin:1;/home/user/bin:1
+__LMOD_REF_COUNT_PATH=/cm/shared/apps/slurm/current/sbin:1;/cm/shared/apps/slurm/current/bin:1;/home/user/miniconda3/bin/conda:1;/home/user/miniconda3/bin:1;/home/user/miniconda3/condabin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/dell/srvadmin/bin:1;/home/user/.local/bin:1;/home/user/bin:1
 HOSTNAME=login02
 USER=user
 HOME=/home/user
 CONDA_PYTHON_EXE=/home/user/miniconda3/bin/python
 BASH_ENV=/usr/share/lmod/lmod/init/bash
 BASHRC_READ=1
-LIBRARY_PATH=/cm/shared/apps/Slurm/current/lib64/Slurm:/cm/shared/apps/Slurm/current/lib64
-Slurm_CONF=/cm/shared/apps/Slurm/var/etc/expanse/Slurm.conf
+LIBRARY_PATH=/cm/shared/apps/slurm/current/lib64/slurm:/cm/shared/apps/slurm/current/lib64
+Slurm_CONF=/cm/shared/apps/slurm/var/etc/expanse/slurm.conf
 LOADEDMODULES=shared:cpu/1.0:DefaultModules:slurm/expanse/20.02.3
-__LMOD_REF_COUNT_MANPATH=/cm/shared/apps/Slurm/current/man:1;/usr/share/lmod/lmod/share/man:1;/usr/local/. . . .
-MANPATH=/cm/shared/apps/Slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
+__LMOD_REF_COUNT_MANPATH=/cm/shared/apps/slurm/current/man:1;/usr/share/lmod/lmod/share/man:1;/usr/local/. . . .
+MANPATH=/cm/shared/apps/slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
 MODULEPATH=/cm/shared/apps/spack/cpu/lmod/linux-centos8-x86_64/Core:/cm/local/modulefiles:/etc/modulefiles:/usr/share/modulefiles:/usr/share/Modules/modulefiles:/cm/shared/modulefiles
 MODULEPATH_ROOT=/usr/share/modulefiles
-PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
+PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
 _LMFILES_=/cm/local/modulefiles/shared:/cm/local/modulefiles/cpu/1.0.lua:/usr/share/modulefiles/DefaultModules.lua:/cm/local/modulefiles/slurm/expanse/20.02.3
 MODULESHOME=/usr/share/lmod/lmod
 CONDA_DEFAULT_ENV=base
@@ -659,13 +659,13 @@ module load hdf5
 * Next LOGOUT and LOG BACK IN:
 
 ```
-(base) [username@login02 ~]$ env | grep Slurm
+(base) [username@login02 ~]$ env | grep -i slurm
 [snip]
-MANPATH=/cm/shared/apps/Slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
-PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
+MANPATH=/cm/shared/apps/slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
+PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
 [snip]
 (base) [username@login02 ~]$ which squeue
-/cm/shared/apps/Slurm/current/bin/squeue
+/cm/shared/apps/slurm/current/bin/squeue
 ```
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
@@ -939,7 +939,7 @@ total 3758
 drwxr-xr-x 2 user abc123       8 Jan 29 00:45 .
 drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
 -rw-r--r-- 1 user abc123     2997 Jan 29 00:25 dgemm_example.f
--rw-r--r-- 1 user abc123      618 Jan 29 00:25 dgemm-Slurm.sb
+-rw-r--r-- 1 user abc123      618 Jan 29 00:25 dgemm-slurm.sb
 -rw-r--r-- 1 user abc123      363 Jan 29 00:32 README.txt
 ```
 
@@ -983,7 +983,7 @@ with the one you want to use.
 * Contents of the batch script:
 
 ```
-[username@login01 dgemm]$ cat dgemm-Slurm.sb
+[username@login01 dgemm]$ cat dgemm-slurm.sb
 #!/bin/bash
 #SBATCH --job-name="dgemm_example"
 #SBATCH --output="dgemm_example.%j.%N.out"
@@ -1338,7 +1338,7 @@ pwd=  /home/user/DEMO/ENV_INFO
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) cpu/1.0
 ----------------------------------
-env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/Slurm/current/lib64/Slurm:/cm/shared/apps/Slurm/current/lib64 LS_COLORS=rs=0
+env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib64/Slurm:/cm/shared/apps/slurm/current/lib64 LS_COLORS=rs=0
 
 [SNIP]
 

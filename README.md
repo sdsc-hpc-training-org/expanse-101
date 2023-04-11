@@ -39,8 +39,9 @@ The link to the presentation will be posted soon:
 ## Prerequistes:
 
 *  You must have an *Expanse* account in order to access the system.
-  * To obtain a trial account:
-      http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts
+  * To obtain an account, users may submit a proposal through the [ACCESS Allocation Request System](https://access-ci.atlassian.net/)  or request a Trial Account from SDSC: consult@sdsc.edu.
+  * For more details, see https://www.sdsc.edu/support/user_guides/expanse.html#access
+
 * You should be familiar with running basic Unix commands, connecting to Expanse via SSH, and other basic skills. 
   * See:
 [https://github.com/sdsc-hpc-training/basic_skills](https://github.com/sdsc-hpc-training/basic_skills)

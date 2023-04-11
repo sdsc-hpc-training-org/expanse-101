@@ -37,8 +37,8 @@ Consulting group at help@xsede.org.
 * [Modules](#modules)
    * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
    * [Modules: Popular Lmod Commands](#module-commands)
-   * [Load and Check Modules and Environment](#load-and-check-module-env)
-   * [Loading Modules During Login](#module-login-load)
+   * [Checking Modules and Environment](#check-module-env)
+   * [Loading Modules at Login](#module-login-load)
    * [Troubleshooting](#module-troubleshoot)	
 * [Managing Accounts](#managing-accounts)
    * [Expanse Client Script](#manage-accts-client-script)
@@ -348,10 +348,11 @@ The Environment Modules package provides for dynamic modification of your shell 
 
 In this Section:
 * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
-* [Modules: Popular Lmod Commands](module-commands)
-* [Load and Check Modules and Environment](#load-and-check-module-env)
+* [Modules: Popular Lmod Commands](#module-commands)
+* [Checking Modules and Environment](#check-module-env)
+* [Loading Modules at Login](#module-login-load)
 * [Troubleshooting](#module-troubleshoot)
-
+	 
 <!----
 * [Module Error: command not found](#module-troubleshoot)
 ---->

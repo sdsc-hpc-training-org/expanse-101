@@ -1762,11 +1762,14 @@ salloc: Nodes exp-9-[55-56] are ready for job
 [username@ exp-9-55 MPI]$ module load gcc/10.2.0
 [username@ exp-9-55 MPI]$ module load openmpi/4.0.4
 ```
-* Compile your code if needed
+* Compile your code if needed:
+
 ```
 [username@exp-9-55 MPI]$ mpif90 -o hello_mpi_f_gnu hello_mpi.f90 
 ```
+
 * Run a job from the command line using *mpirun* or *srun*:
+
 ```
 [mthomas@login02 mpi]$ mpirun -np 8 ./hello_mpi_f90
  node           5 : Hello world! F90

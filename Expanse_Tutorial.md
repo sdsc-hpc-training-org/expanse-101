@@ -1613,21 +1613,12 @@ sbatch hellompi-Slurm.sb
 
 [2b] Run using interactive node:
 
-* To run on an interactive node, you need to use the 'salloc' command.
+To run on an interactive node, you need to use the salloc command.
+salloc - Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the allocation when the command is finished.
+For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html
 
 ```
-Command to allocate the node:
-```
-salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G
-salloc: Pending job allocation 21592400
-salloc: job 21592400 queued and waiting for resources
-salloc: job 21592400 has been allocated resources
-salloc: Granted job allocation 21592400
-salloc: Waiting for resource configuration
-salloc: Nodes exp-9-[55-56] are ready for job
-[mthomas@login02 ~]$
-```
-* You are now on an interactive node -- even though the node name on the unix prompt did not change.
+
 * Set your environment on the node:
 ```
 [mthomas@login02 mpi]$ module purge

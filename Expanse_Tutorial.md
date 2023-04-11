@@ -1254,7 +1254,7 @@ Commands that you type into the terminal and run on the sytem are considered *jo
 Expanse uses the _Simple Linux Utility for Resource Management (Slurm)_ resource manager. Slurm is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://Slurm.schedmd.com/documentation.html](https://Slurm.schedmd.com/documentation.html). Follow this link to the [Slurm Quick Start Guide](https://Slurm.schedmd.com/quickstart.html)
 
 | logging on to Expanse | Slurm Architecture |
-| :----- | :-----: |
+| :----- | :----- |
 | <img src="images/login-nodes-cluster-nodes.png" alt="Login nodes to cluster diagram" width="300px" /> | <img src="images/slurm-sched-arch.png" alt="Slurm Scheduler Architecture" width="400px" /> |
 | User logs onto Expanse, and submits a batch script to the Slurm Controller daemon | Slurm parses the batch script for correct syntax and then queues up the job until the requested resources are available |
 
@@ -1283,6 +1283,23 @@ About Partitions
 |	gpu-debug	|	30 min	|	2	|	1	|	2	|	1	|	** Priority access to gpu nodes set aside for testing of jobs with short walltime and limited resources	|
 |	preempt	|	7 days	|	32	|		|	128	|	0.8	|	Discounted jobs to run on free nodes that can be pre-empted by jobs submited to any other queue (NO REFUNDS)	|
 |	gpu-preempt	|	7 days	|	1	|		|	24 (24 Tres GPU)	|	0.8	|	Discounted jobs to run on unallocated nodes that can be pre-empted by jobs submitted to higher priority queues (NO REFUNDS	|
+
+
+  |	Partition Name	|	Max Walltime	|	Max Nodes/ Job	|	Max Running Jobs	|	Max Running + Queued Jobs	|	Charge Factor	|	Comments	|
+  |	:----	|	:----:	|	:----:	|	:----:	|	:----:	|	:----:	|	:----	|
+  compute	|		48 hrs	|		32	|		32	|		64	|		1		|	Exclusive access to regular compute nodes; limit applies per group
+  ind-compute	|		48 hrs	|		32	|		32	|		64	|		1		|	Exclusive access to Industry compute nodes; limit applies per group
+  shared	|		48 hrs	|		1	4096	|		4096	|		1	|		Single-node jobs using fewer than 128 cores
+  ind-shared	|		48 hrs	|		1		|	32	|		64	|		1	|		Single-node Industry jobs using fewer than 128 cores
+  gpu	|		48 hrs	|		4		|	4		|	8 (32 Tres GPU)		|	1	|		Used for exclusive access to the GPU nodes
+  ind-gpu	|		48 hrs	|		4	|		4		|	8 (32 Tres GPU)		|	1		|	Exclusive access to the Industry GPU nodes
+  gpu-shared	|		48 hrs	|		1		|	24	|		24 (24 Tres GPU)	|		1	|	Single-node job using fewer than 4 GPUs
+  ind-gpu-shared	|		48 hrs	|		1		|	24	|		24 (24 Tres GPU)	|		1		|	Single-node job using fewer than 4 Industry GPUs
+  large-shared	|		48 hrs	|		1	|		1		|	4		|	1		|	Single-node jobs using large memory up to 2 TB (minimum memory required 256G)
+  debug	|		30 min	|		2	|		1		|	2		|	1	|		Priority access to shared nodes set aside for testing of jobs with short walltime and limited resources
+  gpu-debug	|		30 min	|		2	|	1		|	2	|		1		|	Priority access to gpu-shared nodes set aside for testing of jobs with short walltime and limited resources; max two gpus per job
+  preempt	|		7 days	|		32		|		|		128	.8	|		Non-refundable discounted jobs to run on free nodes that can be pre-empted by jobs submitted to any other queue
+  gpu-preempt	|		7 days	|		1		|		|		24 (24 Tres GPU)	.8	Non-refundable discounted jobs to run on unallocated nodes that can be pre-empted by higher priority queues	|	
 
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>

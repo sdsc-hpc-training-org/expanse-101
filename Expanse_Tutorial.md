@@ -852,7 +852,7 @@ Other compilers and versions can be installed by Expanse staff on request. For m
 
 [Back to Top](#top)
 
-### <a name="compilers-supported"></a>Supported Compilers
+### <a name="compilers-supported"></a>CPU/GPU Compilers
 Expanse CPU and GPU nodes have different compiler libraries.
 
 #### CPU Nodes
@@ -956,7 +956,7 @@ computes the real matrix ```C=alpha*A*B+beta*C``` using Intel(R) MKL
 
 * Repository contents:
 ```
-[username@login01 dgemm]$ ll
+[username@login01 hpctr-examples/mkl/mkl-mat-mul/dgemm_mat_mul]$ ll
 total 3758
 drwxr-xr-x 2 user abc123       8 Jan 29 00:45 .
 drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
@@ -1173,9 +1173,11 @@ Resetting modules to system default. Reseting $MODULEPATH back to system default
 [username@login01 ~]$ srun   --pty --account=sds173  --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1 --mem=98 -t 00:10:00 /bin/bash
 srun: job 12629939 queued and waiting for resources
 srun: job 12629939 has been allocated resources
-[username@exp-7-59 ~]$
+[username@exp-9-55 ~]$
 
 ```
+Note that evidence that you are on an interactive node is given by the fact that your node name has changed from *login01* to *exp-9-55*.
+
 __GPU:__
 * The following example will request a GPU node, 10 cores, 1 GPU and 96G  in the debug partition for 30 minutes.  
 * To ensure the GPU environment is properly loaded, please be sure run both the module purge and module restore commands.
@@ -1188,13 +1190,20 @@ srun --partition=gpu-debug --pty --account=<<project>> --ntasks-per-node=10 --no
 [username@login02 interactive.ex]$ module list
 Currently Loaded Modules:
   1) slurm/expanse/21.08.8   2) gpu/0.15.4   3) pgi/20.4
-[username@login02 ~]$ srun --partition=gpu-debug --pty --account=use300 --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+[username@login02 ~]$ srun --partition=gpu-debug --pty --account=<<project>> --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
 srun: job 12630128 queued and waiting for resources
 srun: job 12630128 has been allocated resources
 [username@exp-7-59 ~]$
 ```
-
-
+Note that evidence that you are on an interactive node is given by the fact that your node name has changed from *login01* to *exp-7-59*. To confirm that you are on a GPU node, run the *lspci* command (which not have any output unless you are on a GPU node):
+```
+[username@exp-7-59 mkl-mat-mul]$ lspci | grep -i nvidia
+18:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 32GB] (rev a1)
+3b:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 32GB] (rev a1)
+86:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 32GB] (rev a1)
+af:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 32GB] (rev a1)
+[username@exp-7-59 mkl-mat-mul]$
+```
 
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>

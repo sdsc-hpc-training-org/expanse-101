@@ -1,10 +1,11 @@
-# Expanse 101 Tutorial
+ACCESS# Expanse 101 Tutorial
 
 [SDSC HPC Training Group](https://www.sdsc.edu/education_and_training/training_hpc.html)
 
 *Document last updated:  04/10/23*
 
 <hr>
+The [Expanse system](https://expanse.sdsc.edu) is an NSF-funded system that was made available through the eXtreme Science and Engineering Discovery Environment (XSEDE) program (https://www.access-ci.org), which is now part of the NSF Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS program).
 In this tutorial, you will learn how to compile and run jobs on Expanse,
 where to run them, and how to run batch jobs. The commands below can be
 cut & pasted into the terminal window, when it is connected to
@@ -29,7 +30,7 @@ ACCESS is designed to replace the XSEDE project. For more information, see: http
 *  Additional programming examples can be found here:  https://github.com/sdsc-hpc-training-org/hpctr-examples
 
 If you have any difficulties completing these tasks, please contact SDSC
-Consulting group at help@xsede.org.
+Consulting group at consult@sdsc.edu.
 
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](#overview)
@@ -107,7 +108,7 @@ Consulting group at help@xsede.org.
 ### HPC for the *long tail* of science:
 * Designed by Dell and SDSC delivering 5.16 peak petaflops
 * Designed and operated on the principle that the majority of computational research is performed at modest scale: large number jobs that run for less than 48 hours, but can be computationally intensvie and generate large amounts of data.
-* An NSF-funded system available through the eXtreme Science and Engineering Discovery Environment (XSEDE) program (https://www.xsede.org).
+* An NSF-funded system that was made available through the eXtreme Science and Engineering Discovery Environment (XSEDE) program (https://www.xsede.org), which is now part of the NSF Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS program).
 * Supports interactive computing and science gateways.
 * Will offer Composible Systems and Cloud Bursting.
 
@@ -214,7 +215,7 @@ In this Section:
 
 ### Logging Onto Expanse<a name="get-start-expanse-logon"></a>
 
-Expanse supports Single Sign-On through the [XSEDE User Portal](https://portal.xsede.org), from the command line using an XSEDE-wide password (coming soon, the Expanse User Portal). While CPU and GPU resources are allocated separately, the login nodes are the same. To log in to Expanse from the command line, use the hostname:
+Expanse supports Single Sign-On through the ACCESS Identity System (see: https://identity.access-ci.org/new-user), from the command line using an ACCESS-wide password. While CPU and GPU resources are allocated separately, the login nodes are the same. To log in to Expanse from the command line, use the hostname:
 
 ```
 login.expanse.sdsc.edu
@@ -279,35 +280,42 @@ login01
 
 ### Obtaining Tutorial Example Code<a name="get-start-example-code"></a>
 We will clone the example code from GitHub repository located here:
-https://github.com/sdsc-hpc-training-org/expanse-101
+https://github.com/sdsc-hpc-training-org/hpctr-examples
 
-The example below will be for anonymous HTTPS downloads
+The example below will be for anonymous HTTPS downloads from GitHub. Note that GitHub has increased it's security requirements, and you may have to deal with that. See: https://docs.github.com/en/authentication
 
 * Create a test directory hold the expanse example files (optional):
 *
 ```
-[username@login01 TEMP]$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
-Cloning into 'expanse-101'...
-remote: Enumerating objects: 275, done.
-remote: Counting objects: 100% (275/275), done.
-remote: Compressing objects: 100% (217/217), done.
-remote: Total 784 (delta 163), reused 122 (delta 55), pack-reused 509
-Receiving objects: 100% (784/784), 12.98 MiB | 20.92 MiB/s, done.
-Resolving deltas: 100% (434/434), done.
-Checking out files: 100% (56/56), done.
-[username@login01 TEMP]$ cd expanse-101/
-[username@login01 expanse-101]$ ll
-total 8784
-drwxr-xr-x 6 user abc123       11 Jan 28 22:39 .
-drwxr-xr-x 3 user abc123        3 Jan 28 22:39 ..
--rw-r--r-- 1 user abc123     6148 Jan 28 22:39 .DS_Store
-drwxr-xr-x 8 user abc123       8 Jan 28 22:39 examples
--rw-r--r-- 1 user abc123    76883 Jan 28 22:39 Expanse_Aggregate.md
-drwxr-xr-x 8 user abc123       13 Jan 28 22:39 .git
--rw-r--r-- 1 user abc123      457 Jan 28 22:39 .gitignore
-drwxr-xr-x 2 user abc123       16 Jan 28 22:39 images
--rw-r--r-- 1 user abc123     3053 Jan 28 22:39 README.md
--rw-r--r-- 1 user abc123  8855428 Jan 28 22:39 Webinar-Running-Jobs-on-Expanse-10-08-2020.pdf
+[mthomas@login01 ~]$ git clone git@github.com:sdsc-hpc-training-org/hpctr-examples.git
+Cloning into 'hpctr-examples'...
+Warning: untrusted X11 forwarding setup failed: xauth key data not generated
+remote: Enumerating objects: 352, done.
+remote: Counting objects: 100% (352/352), done.
+remote: Compressing objects: 100% (227/227), done.
+remote: Total 352 (delta 128), reused 334 (delta 119), pack-reused 0
+Receiving objects: 100% (352/352), 27.62 MiB | 19.88 MiB/s, done.
+Resolving deltas: 100% (128/128), done.
+Updating files: 100% (310/310), done.
+[mthomas@login01 ~]$ cd hpctr-examples/
+[mthomas@login01 hpctr-examples]$ ll
+total 272
+drwxr-xr-x 12 mthomas use300    15 Apr 10 22:26 .
+drwxr-x--- 41 mthomas use300    63 Apr 10 22:26 ..
+drwxr-xr-x  9 mthomas use300    10 Apr 10 22:26 basic_par
+drwxr-xr-x  3 mthomas use300     9 Apr 10 22:26 calc-prime
+drwxr-xr-x  6 mthomas use300     7 Apr 10 22:26 cuda
+drwxr-xr-x  2 mthomas use300     5 Apr 10 22:26 env_info
+drwxr-xr-x  8 mthomas use300    13 Apr 10 22:26 .git
+-rw-r--r--  1 mthomas use300  1799 Apr 10 22:26 .gitignore
+drwxr-xr-x  2 mthomas use300     9 Apr 10 22:26 hybrid
+-rw-r--r--  1 mthomas use300 35149 Apr 10 22:26 LICENSE
+drwxr-xr-x  4 mthomas use300     4 Apr 10 22:26 mkl
+drwxr-xr-x  2 mthomas use300    15 Apr 10 22:26 mpi
+drwxr-xr-x  2 mthomas use300    17 Apr 10 22:26 openacc
+drwxr-xr-x  2 mthomas use300     8 Apr 10 22:26 openmp
+-rw-r--r--  1 mthomas use300  5772 Apr 10 22:26 README.md
+
 ```
 
 *Note*: you can learn to create and modify directories as part of the *Getting Started* and *Basic Skills* preparation found here:
@@ -335,13 +343,21 @@ All examples will contain source code, along with a batch script example so you 
 <hr>
 
 ### Expanse User Portal<a name="get-start-user-portal"></a>
+
 <img src="images/expanse_user_portal.png" alt="Expanse User Portal" width="400px" />
 
-* See: https://portal.expanse.sdsc.edu
-* Quick and easy way for Expanse users to login, transfer and edit files and submit and monitor jobs.
-* Gateway for launching interactive applications such as MATLAB, Rstudio
+The Expanse User portal provides a quick and easy way for Expanse users . Features include:
+* Logging in, transfering and editing files
+* Submitting and monitoring jobs
+* Running HPC applications
+* Launching interactive applications such as MATLAB, Rstudio and Jupyter Notebooks.
 * Integrated web-based environment for file management and job submission.
-* All Users with valid Expanse Allocation and XSEDE Based credentials have access via their XSEDE credentials..
+* All Users with valid Expanse Allocation and ACCESS Based credentials have access via their ACCESS credentials..
+* See: https://portal.expanse.sdsc.edu
+
+Note that before you can access the Expanse Portal, you will need to authenticate (as shown in the image below). Most users will select the organization labeled "ACCESS CI (formerly XSEDE)" for login. Contact SDSC consulting (consult@sdsc.edu) if you have trouble authenticating.
+<img src="images/expanse-portal-authentication.png" alt="Expanse User Portal" width="400px" />
+
 
 [ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
 <hr>
@@ -797,7 +813,7 @@ As with the case above, some users will have access to multiple accounts (e.g. a
 
 ### <a name="manage-accts-users"></a>Managing Users on an Account
 Only project PIs and co-PIs can add or remove users from an account. This can only be done
-via the [XSEDE portal](https://portal.xsede.org) account (there is no command line interface for this).
+via the [XSEDE portal](https://portal.access-ci.org) account (there is no command line interface for this).
 After logging in, go to the Add User page for the account.
 
 

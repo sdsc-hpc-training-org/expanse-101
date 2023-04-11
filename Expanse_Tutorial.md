@@ -752,16 +752,18 @@ Allows querying the user statistics.
 Usage:
   expanse-client [command]
 
-Available Commands:
-  help        Help about any command
-  project     Get project information
-  user        Get user information
+  Available Commands:
+    completion  Generate the autocompletion script for the specified shell
+    help        Help about any command
+    project     Get project information
+    resource    Get resources
+    user        Get user information
 
-Flags:
-  -a, --auth      authenticate the request
-  -h, --help      help for expanse-client
-  -p, --plain     plain no graphics output
-  -v, --verbose   verbose output
+  Flags:
+    -a, --auth      authenticate the request
+    -h, --help      help for expanse-client
+    -p, --plain     plain no graphics output
+    -v, --verbose   verbose output
 
 Use "expanse-client [command] --help" for more information about a command.
 ```
@@ -783,25 +785,27 @@ Use "expanse-client [command] --help" for more information about a command.
 * To see who is on an account:
 
 ```
-[username@login01]$  expanse-client project abc123 -v
+[mthomas@login01 hpctr-examples]$ expanse-client project abc123
+ Resource          expanse
+ Project           abc123
+ TG Project        xyz789  
+ Total allocation  50000
+ Total spent       1987
+ Expiration        April 16, 2023
 
- Resource          sdsc_expanse    
- Project           xyz789         
- Total allocation  500000         
- Total recorded    289243         
- Total queued      13004           
- Expiration        January 1, 2024
-
-╭────┬──────────┬───────────────┬─────────────┬───────────┬──────────────────────────┬────────────────────────╮
-│    │ NAME     │ USED RECORDED │ USED QUEUED │ AVAILABLE │ USED BY PROJECT RECORDED │ USED BY PROJECT QUEUED │
-├────┼──────────┼───────────────┼─────────────┼───────────┼──────────────────────────┼────────────────────────┤
-│  1 │ user1    │             0 │           0 │   500000  │                  289243  │                  13004 │
-│  2 │ user2    │          6624 │           0 │   500000  │                  289243  │                  13004 │
-[SNIP]
-│  9 │ user3    │            33 │           0 │   500000  │                  289243  │                  13004 │
-│ 10 │ user4    │            14 │           0 │   500000  │                  289243  │                  13004 │
-╰────┴──────────┴───────────────┴─────────────┴───────────┴──────────────────────────┴────────────────────────╯
-
+╭─────┬──────────────┬────────┬──────┬───────────┬─────────────────╮
+│     │ NAME         │ STATUS │ USED │ AVAILABLE │ USED BY PROJECT │
+├─────┼──────────────┼────────┼──────┼───────────┼─────────────────┤
+│   9 │ user100      │ allow  │  500 │       500 │            1987 │
+│  28 │ user101      │ allow  │   34 │       500 │            1987 │
+│  31 │ user102      │ uspent │  514 │       500 │            1987 │
+│  32 │ user103      │ allow  │  495 │       500 │            1987 │
+│  79 │ user104      │ allow  │   67 │       500 │            1987 │
+│  89 │ user105      │ allow  │   82 │       500 │            1987 │
+│ 114 │ user106      │ allow  │   31 │       500 │            1987 │
+│ 156 │ user107      │ allow  │   82 │       500 │            1987 │
+╰─────┴──────────────┴────────┴──────┴───────────┴─────────────────╯
+    (example is filtered)                                                               
 ```
 
 ### <a name="manage-accts-batch-script"></a>Using Accounts in Batch Jobs

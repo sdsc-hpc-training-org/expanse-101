@@ -87,12 +87,12 @@ Consulting group at consult@sdsc.edu.
 * [Compiling and Running GPU Jobs](#comp-run-gpu)
    * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
    * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
-   * [Simple Hello (GPU/CUDA)](#simple-hello-cuda-gpu)
-       * [Simple Hello (GPU/CUDA): Source Code](#simple-hello-cuda-source)
-       * [Simple Hello (GPU/CUDA): Compiling](#simple-hello-cuda-compile)
-       * [Simple Hello (GPU/CUDA): Execute](#simple-hello-execute)
-       * [Simple Hello (GPU/CUDA): Batch Script Submission](#simple-hello-cuda-batch-submit)
-       * [Simple Hello (GPU/CUDA): Batch Script Output](#simple-hello-cuda-batch-output)
+   * [Hello World (GPU/CUDA)](#hello-world-cuda-gpu)
+       * [Hello World (GPU/CUDA): Source Code](#hello-world-cuda-source)
+       * [Hello World (GPU/CUDA): Compiling](#hello-world-cuda-compile)
+       * [Hello World (GPU/CUDA): Execute](#hello-world-execute)
+       * [Hello World (GPU/CUDA): Batch Script Submission](#hello-world-cuda-batch-submit)
+       * [Hello World (GPU/CUDA): Batch Script Output](#hello-world-cuda-batch-output)
 
    * [Vector Addition (GPU/CUDA)](#vec-add-cuda-gpu)
        * [Vector Addition (GPU/CUDA): Source Code](#vec-add-cuda-source)
@@ -2191,18 +2191,20 @@ Steps to compile the code:
 3. Compile the Source code
 4. Run code locally, or exit interactive node and submit the batch script
 
-### [Simple Hello (GPU/CUDA)](#simple-hello-cuda-gpu)
+### [Hello World (GPU/CUDA)](#hello-world-cuda-gpu)
 **Subsections:**
-* [Simple Hello (GPU/CUDA): Source Code](#simple-hello-cuda-source)
-* [Simple Hello (GPU/CUDA): Compiling](#simple-hello-cuda-compile)
-* [Simple Hello (GPU/CUDA): Execute](#simple-hello-execute)
-* [Simple Hello (GPU/CUDA): Batch Script Submission](#simple-hello-cuda-batch-submit)
-* [Simple Hello (GPU/CUDA): Batch Script Output](#simple-hello-cuda-batch-output)
+* [Hello World (GPU/CUDA): Source Code](#hello-world-cuda-source)
+* [Hello World (GPU/CUDA): Compiling](#hello-world-cuda-compile)
+* [Hello World (GPU/CUDA): Execute](#hello-world-execute)
+* [Hello World (GPU/CUDA): Batch Script Submission](#hello-world-cuda-batch-submit)
+* [Hello World (GPU/CUDA): Batch Script Output](#hello-world-cuda-batch-output)
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-* Simple Hello (GPU/CUDA): Source Code]<a name="simple-hello-cuda-source"></a>
+#### Hello World (GPU/CUDA): Source Code]<a name="hello-world-cuda-source"></a>
+Hello World (GPU/CUDA): Source Code:
+
 ```
 /*
 * Copyright 1993-2010 NVIDIA Corporation. All rights reserved. *
@@ -2213,7 +2215,7 @@ Steps to compile the code:
 #include <stdio.h>
 __global__ void kernel( void ) { }
 int main( void ) { kernel<<<1,1>>>();
-printf( "Hello, Simple Cuda!\n" ); return 0;
+printf( "Hello,  SDSC HPC Training World!\n" ); return 0;
 }
 
 ```
@@ -2221,7 +2223,7 @@ printf( "Hello, Simple Cuda!\n" ); return 0;
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-* Simple Hello (GPU/CUDA): Compiling]<a name="simple-hello-cuda-compile"></a>
+* Hello World (GPU/CUDA): Compiling]<a name="hello-world-cuda-compile"></a>
 Load the correct modules for the CUDA Compiler:
 ```
 module purge
@@ -2229,33 +2231,86 @@ module load slurm
 module load gpu
 module load cuda
 ```
-Be sure to purge the old environment:
+Purge the old environment:
 ```
-[mthomas@login01 simple_hello]$ module purge
-[mthomas@login01 simple_hello]$ module load slurm
-[mthomas@login01 simple_hello]$ module load gpu
-[mthomas@login01 simple_hello]$ module load cuda
-[mthomas@login01 simple_hello]$ module list
+[username@login01 hello-world]$ module purge
+[username@login01 hello-world]$ module load slurm
+[username@login01 hello-world]$ module load gpu
+[username@login01 hello-world]$ module load cuda
+[username@login01 hello-world]$ module list
 
 Currently Loaded Modules:
   1) slurm/expanse/21.08.8   2) gpu/0.15.4   3) cuda/11.0.2
 ```
+Compile the code from the command line on the interactive node:
+```
+[username@login01 hello-world]$ nvcc -o hello_world hello_world.cu
+[username@login01 hello-world]$ ll hello_world*
+-rwxr-xr-x 1 username use300 668704 Apr 11 02:08 hello_world
+-rw-r--r-- 1 username use300    372 Apr 11 02:08 hello_world.cu
+```
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-* Simple Hello (GPU/CUDA): Execute]<a name="simple-hello-execute"></a>
+
+#### Hello World (GPU/CUDA): Execute<a name="hello-world-execute"></a>
+Execute the code from the command line on an interactive node:
+```
+[username@login01 hello-world]$ ./hello_world
+Hello,  SDSC HPC Training World!
+```
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
+
+#### Hello World (GPU/CUDA): Batch Script Submission <a name="hello-world-cuda-batch-submit"></a>
+
+Batch script contents:
+```
+[username@login01 hello-world]$ cat hello-world.sb
+#!/bin/bash
+#SBATCH --job-name="hello_world"
+#SBATCH --output="hello_world.%j.%N.out"
+#SBATCH --partition=gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --gpus=1
+#SBATCH --mem=377393M
+#SBATCH --account=use300
+#SBATCH --no-requeue
+#SBATCH -t 00:05:00
+module purge
+module load slurm
+module load gpu
+module load cuda
+```
+* Exit the interactive node.
+* Submit the job using the *sbatch* command, and monitor it while it is running using the *squeue* command:
+
+```
+[mthomas@login01 hello-world]$ sbatch hello-world.sb ; squeue -u mthomas;
+Submitted batch job 21591890
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          21591890       gpu hello_wo  mthomas PD       0:00      1 (Priority)
+[mthomas@login01 hello-world]$ squeue -u mthomas
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          21591890       gpu hello_wo  mthomas  R       0:01      1 exp-2-60
+[mthomas@login01 hello-world]$ squeue -u mthomas
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+```
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-* Simple Hello (GPU/CUDA): Batch Script Submission]<a name="simple-hello-cuda-batch-submit"></a>
+####Hello World (GPU/CUDA): Batch Script Output <a name="hello-world-cuda-batch-output">
 
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
-<hr>
-
-* Simple Hello (GPU/CUDA): Batch Script Output]<a name="simple-hello-cuda-batch-output">
-
+```
+[mthomas@login01 hello-world]$ ls -al *21591890*
+-rw-r--r-- 1 mthomas use300 44 Apr 11 02:20 hello_world.21591890.exp-2-60.out
+[mthomas@login01 hello-world]$ cat hello_world.21591890.exp-2-60.out
+= 21591890
+Hello,  SDSC HPC Training World!
+```
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 

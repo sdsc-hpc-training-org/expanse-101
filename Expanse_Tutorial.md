@@ -2192,7 +2192,7 @@ Steps to compile the code:
 3. Compile the Source code
 4. Run code locally, or exit interactive node and submit the batch script
 
-### [Hello World (GPU/CUDA)](#hello-world-cuda-gpu)
+### Hello World (GPU/CUDA)<a name="hello-world-cuda-gpu"></a>
 **Subsections:**
 * [Hello World (GPU/CUDA): Source Code](#hello-world-cuda-source)
 * [Hello World (GPU/CUDA): Compiling](#hello-world-cuda-compile)
@@ -2303,7 +2303,7 @@ Submitted batch job 21591890
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-####Hello World (GPU/CUDA): Batch Script Output <a name="hello-world-cuda-batch-output">
+#### Hello World (GPU/CUDA): Batch Script Output <a name="hello-world-cuda-batch-output">
 
 ```
 [mthomas@login01 hello-world]$ ls -al *21591890*

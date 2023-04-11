@@ -10,8 +10,8 @@ where to run them, and how to run batch jobs. The commands below can be
 cut & pasted into the terminal window, when it is connected to
 expanse.sdsc.edu.
 
-# IMPORTANT ANNOUNCEMENT:
-_In August of 2022, the NSF ACCESS program was launched. ACCESS is designed to replace the XSEDE project. For more information, see: https://access-ci.org/
+## IMPORTANT ANNOUNCEMENT:
+*In August of 2022, the NSF ACCESS program was launched. ACCESS is designed to replace the XSEDE project. For more information, see: https://access-ci.org*
 
 # Misc Notes/Updates:
 *  You must have an Expanse account in order to access the system.

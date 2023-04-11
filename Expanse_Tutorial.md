@@ -36,7 +36,7 @@ Consulting group at help@xsede.org.
    * [Expanse User Portal](#get-start-user-portal)
 * [Modules](#modules)
    * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
-   * [Modules: Popular Lmod Commands](#module-commands)
+   * [Popular Lmod Commands](#module-commands)
    * [Loading and Checking Modules and Environments](#load-and-check-module-env)
    * [Loading Modules at Login](#module-login-load)
    * [Troubleshooting](#module-troubleshoot)	
@@ -348,7 +348,7 @@ The Environment Modules package provides for dynamic modification of your shell 
 
 In this Section:
 * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
-* [Modules: Popular Lmod Commands](#module-commands)
+* [Popular Lmod Commands](#module-commands)
 * [Loading and Checking Modules and Environments](#load-and-check-module-env)
 * [Loading Modules at Login](#module-login-load)
 * [Troubleshooting](#module-troubleshoot)
@@ -387,7 +387,7 @@ In this Section:
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
-### Modules: Popular Lmod Commands<a name="module-commands"></a>
+### Popular Lmod Commands<a name="module-commands"></a>
 
 Here are some common module commands and their descriptions:
 

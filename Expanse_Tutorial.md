@@ -2061,6 +2061,9 @@ Hello from thread 15 out of 16 from process 0 out of 2 on exp-10-07
 * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
 * [Laplace2D (GPU/OpenACC): Source Code](#laplace2d-gpu)
 
+[ [Back to Top](#top) ]
+<hr>
+
 ### Using Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a>
 
 #### Expanse GPU Hardware
@@ -2184,10 +2187,10 @@ Fri Jan 29 12:33:25 2021
 <hr>
 
 #### GPU Compiling:
-All compilng for GPU codes must be done on an interactive node:
+All Compiling for GPU codes must be done on an interactive node:
 Steps to compile the code:
 
-1. Otain an interactive node
+1. Obtain an interactive node
 2. Load the right Modules
 3. Compile the Source code
 4. Run code locally, or exit interactive node and submit the batch script
@@ -2201,7 +2204,7 @@ Steps to compile the code:
 * [Hello World (GPU-CUDA): Batch Script Submission](#hello-world-cuda-batch-submit)
 * [Hello World (GPU-CUDA): Batch Script Output](#hello-world-cuda-batch-output)
 
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to Top](#top) ]
 <hr>
 
 #### Hello World (GPU-CUDA): Source Code <a name="hello-world-cuda-source"></a>
@@ -2301,7 +2304,7 @@ Submitted batch job 21591890
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 ```
 
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to  Hello World (GPU-CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
 <hr>
 
 #### Hello World (GPU-CUDA): Batch Script Output <a name="hello-world-cuda-batch-output">
@@ -2313,7 +2316,7 @@ Submitted batch job 21591890
 = 21591890
 Hello,  SDSC HPC Training World!
 ```
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to  Hello World (GPU-CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
 <hr>
 
 ### Vector Addition (GPU-CUDA) <a name="vec-add-cuda-gpu">

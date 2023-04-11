@@ -2315,7 +2315,7 @@ Hello,  SDSC HPC Training World!
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### [Vector Addition (GPU/CUDA)](#vec-add-cuda-gpu)
+### Vector Addition (GPU/CUDA) <a name=" "></a> vec-add-cuda-gpu)
 **Subsections:**
 * [Vector Addition (GPU/CUDA): Source Code](#vec-add-cuda-source)
 * [Vector Addition (GPU/CUDA): Compiling](#vec-add-cuda-compile)
@@ -2324,7 +2324,8 @@ Hello,  SDSC HPC Training World!
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
-### [Laplace2D (GPU/OpenACC)](#laplace2d-gpu)
+
+### Laplace2D (GPU/OpenACC) <a name=" ">laplace2d-gpu</a>
 **Subsections:**
 * [Laplace2D (GPU/OpenACC): Source Code](#laplace2d-gpu-source)
 * [Laplace2D (GPU/OpenACC): Compiling](#laplace2d-gpu-compile)

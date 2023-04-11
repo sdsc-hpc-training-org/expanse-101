@@ -1275,10 +1275,10 @@ About Partitions
 
 
   |	Partition Name	|	Max Walltime	|	Max Nodes/ Job	|	Max Running Jobs	|	Max Running + Queued Jobs	|	Charge Factor	|	Comments	|
-  |	:----	|	:----:	|	:----:	|	:----:	|	:----:	|	:----:	|	:----	|
+  |	:----	|	:----:	|	:----:	|	:----:	|	:----:	|	:----	|	:----	|
   |	compute	| 48 hrs | 32	| 32 | 64	| 1 |	Exclusive access to regular compute nodes; limit applies per group	|
   |	ind-compute	|		48 hrs	|		32	| 32	|		64	|		1		|	Exclusive access to Industry compute nodes; limit applies per group	|
-  |	shared	|		48 hrs	|		1	4096	|		4096	|		1	|		Single-node jobs using fewer than 128 cores	|
+  |	shared	|		48 hrs	|		1	| 4096	|		4096	|		1	|		Single-node jobs using fewer than 128 cores	|
   |	ind-shared	|		48 hrs	|		1		|	32	|		64	|		1	|		Single-node Industry jobs using fewer than 128 cores	|
   |	gpu	|	48 hrs	|		4		|	4		|	8 (32 Tres GPU)		|	1	|		Used for exclusive access to the GPU nodes	|
   |	ind-gpu	|	48 hrs	|		4	|		4		|	8 (32 Tres GPU)		|	1		|	Exclusive access to the Industry GPU nodes	|

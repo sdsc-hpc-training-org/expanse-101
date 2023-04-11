@@ -20,20 +20,20 @@ Please read the Expanse user guide and familiarize yourself with the hardware, f
 [http://www.sdsc.edu/support/user_guides/expanse.html](https://www.sdsc.edu/support/user_guides/expanse.html)
 
 ### Interactive Video Link:
-This material was presented as part of a webinar presented on October 8th, 2020.
-The link to the presentation will be posted soon:
-
-[Interactive Video (Sept, 2021)](https://education.sdsc.edu/training/interactive/202109_accessing_and_running_jobs_on_expanse/index.html)
+* This material was presented as part of a webinar presented in September, 2021.
+* The link to the most recent recorded video (September, 2021):
+* [Interactive Video (Sept, 2021)](https://education.sdsc.edu/training/interactive/202109_accessing_and_running_jobs_on_expanse/index.html)
+* Next scheduled presentation will be given in April, 2023 (date to be determined)
 
 ### Hands-on Self-guided Tutorial (using markdown file):
-
-[Self-guided Tutorial -- markdown version](https://github.com/sdsc-hpc-training-org/expanse-101/)
-
-### Link to GitHub Repo
-[https://github.com/sdsc-hpc-training-org/expanse-101](https://github.com/sdsc-hpc-training-org/expanse-101)
+* [Self-guided Tutorial -- markdown version](https://github.com/sdsc-hpc-training-org/expanse-101/Expanse_Tutorial.md)
 
 ### Link to Example code:
-[https://github.com/sdsc-hpc-training-org/hpctr-examples](https://github.com/sdsc-hpc-training-org/hpctr-examples)
+* [https://github.com/sdsc-hpc-training-org/hpctr-examples](https://github.com/sdsc-hpc-training-org/hpctr-examples)
+
+### Link to Expanse-101 GitHub Repo
+* [https://github.com/sdsc-hpc-training-org/expanse-101](https://github.com/sdsc-hpc-training-org/expanse-101)
+
 
 
 ## Prerequistes:

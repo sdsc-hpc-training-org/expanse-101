@@ -674,7 +674,8 @@ PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/
 
 ### [Troubleshooting]<a name="module-troubleshoot"></a>
 
-#### Troubleshooting: Lmod warning “rebuild your saved collection”<a name="lmod-warn-rebuild"></a>
+**Troubleshooting: Lmod warning “rebuild your saved collection”** 
+	<a name="lmod-warn-rebuild"></a>
 Lmod allows a user to save a bundle of modules as a collection using module save <collection_name> and module restore <collection_name>. This enables you to quickly get the same list of modules loaded if you tend to use the same modules over and over. With a new module scheme came a different system MODULEPATH. For this reason, if you have some module collections saved, you will experience the following warning: “Lmod Warning: The system MODULEPATH has changed: please rebuild your saved collection.” To solve this you need to remove your old collections and create them again.
 
 * Too see the list of module collections that you currently have:

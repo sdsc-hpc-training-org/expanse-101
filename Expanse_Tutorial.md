@@ -10,6 +10,9 @@ where to run them, and how to run batch jobs. The commands below can be
 cut & pasted into the terminal window, when it is connected to
 expanse.sdsc.edu.
 
+# IMPORTANT ANNOUNCEMENT:
+_In August of 2022, the NSF ACCESS program was launched. ACCESS is designed to replace the XSEDE project. For more information, see: https://access-ci.org/
+
 # Misc Notes/Updates:
 *  You must have an Expanse account in order to access the system.
    * To obtain an account, users may submit a proposal through the [ACCESS Allocation Request System](https://access-ci.atlassian.net/)  or request a Trial Account from SDSC: consult@sdsc.edu.
@@ -36,8 +39,9 @@ Consulting group at help@xsede.org.
    * [Expanse User Portal](#get-start-user-portal)
 * [Modules](#modules)
    * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
-   * [Popular Lmod Commands](#module-commands)
-   * [Loading Modules at Login](#module-login-load)
+   * [Modules: Popular Lmod Commands](#module-commands)
+   * [Load and Check Modules and Environment](#load-and-check-module-env)
+   * [Loading Modules During Login](#module-login-load)
    * [Troubleshooting](#module-troubleshoot)	
 * [Managing Accounts](#managing-accounts)
    * [Expanse Client Script](#manage-accts-client-script)
@@ -202,10 +206,10 @@ In this Section:
 <hr>ba
 
 ### Expanse Accounts<a name="get-start-expanse-accounts"></a>
-You must have a expanse account in order to access the system.
-* Obtain a trial account here:  [http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts](http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts)
-    * You can use your existing XSEDE account.
-
+* You must have a expanse account in order to access the system.
+* To obtain an account, users may submit a proposal through the [ACCESS Allocation Request System](https://access-ci.atlassian.net/)  or request a Trial Account from SDSC: consult@sdsc.edu.
+   * For more details, see https://www.sdsc.edu/support/user_guides/expanse.html#access
+If you had an XSEDE account, it should have been migrated to the ACCESS System. For details, see: https://identity.access-ci.org/new-user
 
 ### Logging Onto Expanse<a name="get-start-expanse-logon"></a>
 
@@ -347,13 +351,13 @@ The Environment Modules package provides for dynamic modification of your shell 
 
 In this Section:
 * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
-* [Popular Lmod Commands](#module-commands)
-* [Loading and Checking Modules and Environments](#load-and-check-module-env)
-* [Loading Modules at Login](#module-login-load)
+* [Popular Lmod Commands](module-commands)
+* [Load and Check Modules and Environment](#load-and-check-module-env)
+* [Loading Modules During Login](#module-login-load)
 * [Troubleshooting](#module-troubleshoot)
-	 
+	
 <!----
-* [Module Error: command not found](#module-troubleshoot)
+* comment
 ---->
 
 [Back to Top](#top)
@@ -386,7 +390,7 @@ In this Section:
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
-### Popular Lmod Commands<a name="module-commands"></a>
+### Modules: Popular Lmod Commands<a name="module-commands"></a>
 
 Here are some common module commands and their descriptions:
 
@@ -404,7 +408,7 @@ Here are some common module commands and their descriptions:
 | savelist | List of saved module collections. |
 |  describe  <name> | Describe the contents of a module collection. |
 |module help | Get a list of all the commands that module knows about do:
- 
+
 Lmod commands support *short-hand* notation, for example:
 
 ```
@@ -511,8 +515,7 @@ Use ```module spider``` to find all possible modules and extensions.
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
-### Loading and Checking Modules and Environments<a name="load-and-check-module-env"></a>
-
+### <a name="load-and-check-module-env"></a>Load and Check Modules and Environment
 In this example, we will add the Slurm library, and and verify that it is in your environment
 * Check  module environment after loggin on to the system:
 
@@ -538,7 +541,7 @@ Check environment looking for Slurm commands
 ```
 (base) [username@login01 ~]$ module load slurm
 (base) [username@login01 ~]$ which squeue
-/cm/shared/apps/slurm/current/bin/squeue
+/cm/shared/apps/Slurm/current/bin/squeue
 ```
 
 * Display loaded module details:
@@ -551,15 +554,15 @@ Check environment looking for Slurm commands
 -------------------------------------------------------------------------------------
 whatis("Adds Slurm to your environment ")
 setenv("CMD_WLM_CLUSTER_NAME","expanse")
-setenv("Slurm_CONF","/cm/shared/apps/slurm/var/etc/expanse/slurm.conf")
-prepend_path("PATH","/cm/shared/apps/slurm/current/bin")
-prepend_path("PATH","/cm/shared/apps/slurm/current/sbin")
-prepend_path("MANPATH","/cm/shared/apps/slurm/current/man")
-prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64")
-prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64/slurm")
-prepend_path("LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64")
-prepend_path("LIBRARY_PATH","/cm/shared/apps/slurm/current/lib64/slurm")
-prepend_path("CPATH","/cm/shared/apps/slurm/current/include")
+setenv("Slurm_CONF","/cm/shared/apps/Slurm/var/etc/expanse/Slurm.conf")
+prepend_path("PATH","/cm/shared/apps/Slurm/current/bin")
+prepend_path("PATH","/cm/shared/apps/Slurm/current/sbin")
+prepend_path("MANPATH","/cm/shared/apps/Slurm/current/man")
+prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64")
+prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64/Slurm")
+prepend_path("LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64")
+prepend_path("LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64/Slurm")
+prepend_path("CPATH","/cm/shared/apps/Slurm/current/include")
 help([[ Adds Slurm to your environment
 ]])
 ```
@@ -571,21 +574,21 @@ Once you have loaded the modules, you can check the system variables that are av
 ```
 [username@expanse-ln3 IBRUN]$ env
 CONDA_EXE=/home/user/miniconda3/bin/conda
-__LMOD_REF_COUNT_PATH=/cm/shared/apps/slurm/current/sbin:1;/cm/shared/apps/slurm/current/bin:1;/home/user/miniconda3/bin/conda:1;/home/user/miniconda3/bin:1;/home/user/miniconda3/condabin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/dell/srvadmin/bin:1;/home/user/.local/bin:1;/home/user/bin:1
+__LMOD_REF_COUNT_PATH=/cm/shared/apps/Slurm/current/sbin:1;/cm/shared/apps/Slurm/current/bin:1;/home/user/miniconda3/bin/conda:1;/home/user/miniconda3/bin:1;/home/user/miniconda3/condabin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/dell/srvadmin/bin:1;/home/user/.local/bin:1;/home/user/bin:1
 HOSTNAME=login02
 USER=user
 HOME=/home/user
 CONDA_PYTHON_EXE=/home/user/miniconda3/bin/python
 BASH_ENV=/usr/share/lmod/lmod/init/bash
 BASHRC_READ=1
-LIBRARY_PATH=/cm/shared/apps/slurm/current/lib64/slurm:/cm/shared/apps/slurm/current/lib64
-Slurm_CONF=/cm/shared/apps/slurm/var/etc/expanse/slurm.conf
+LIBRARY_PATH=/cm/shared/apps/Slurm/current/lib64/Slurm:/cm/shared/apps/Slurm/current/lib64
+Slurm_CONF=/cm/shared/apps/Slurm/var/etc/expanse/Slurm.conf
 LOADEDMODULES=shared:cpu/1.0:DefaultModules:slurm/expanse/20.02.3
-__LMOD_REF_COUNT_MANPATH=/cm/shared/apps/slurm/current/man:1;/usr/share/lmod/lmod/share/man:1;/usr/local/. . . .
-MANPATH=/cm/shared/apps/slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
+__LMOD_REF_COUNT_MANPATH=/cm/shared/apps/Slurm/current/man:1;/usr/share/lmod/lmod/share/man:1;/usr/local/. . . .
+MANPATH=/cm/shared/apps/Slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
 MODULEPATH=/cm/shared/apps/spack/cpu/lmod/linux-centos8-x86_64/Core:/cm/local/modulefiles:/etc/modulefiles:/usr/share/modulefiles:/usr/share/Modules/modulefiles:/cm/shared/modulefiles
 MODULEPATH_ROOT=/usr/share/modulefiles
-PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
+PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
 _LMFILES_=/cm/local/modulefiles/shared:/cm/local/modulefiles/cpu/1.0.lua:/usr/share/modulefiles/DefaultModules.lua:/cm/local/modulefiles/slurm/expanse/20.02.3
 MODULESHOME=/usr/share/lmod/lmod
 CONDA_DEFAULT_ENV=base
@@ -659,23 +662,22 @@ module load hdf5
 * Next LOGOUT and LOG BACK IN:
 
 ```
-(base) [username@login02 ~]$ env | grep -i slurm
+(base) [username@login02 ~]$ env | grep Slurm
 [snip]
-MANPATH=/cm/shared/apps/slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
-PATH=/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
+MANPATH=/cm/shared/apps/Slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
+PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
 [snip]
 (base) [username@login02 ~]$ which squeue
-/cm/shared/apps/slurm/current/bin/squeue
+/cm/shared/apps/Slurm/current/bin/squeue
 ```
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
 
 
-### Troubleshooting<a name="module-troubleshoot"></a>
+### [Troubleshooting]<a name="module-troubleshoot"></a>
 
-**Troubleshooting: Lmod warning “rebuild your saved collection”** 
-
+#### Troubleshooting: Lmod warning “rebuild your saved collection”<a name="lmod-warn-rebuild"></a>
 Lmod allows a user to save a bundle of modules as a collection using module save <collection_name> and module restore <collection_name>. This enables you to quickly get the same list of modules loaded if you tend to use the same modules over and over. With a new module scheme came a different system MODULEPATH. For this reason, if you have some module collections saved, you will experience the following warning: “Lmod Warning: The system MODULEPATH has changed: please rebuild your saved collection.” To solve this you need to remove your old collections and create them again.
 
 * Too see the list of module collections that you currently have:
@@ -698,20 +700,19 @@ Named collection list :
 [username@login02 ~]$
 ```
 
-**Troubleshooting:  Module Error**
+#### Troubleshooting:  Module Error<a name="module-error"></a>
 
-Sometimes this error is encountered when switching from one shell to another or attempting to run the module command from within a shell script or batch job. The module command may not be inherited between the shells.  To keep this from happening, execute the following from the command line (interactive shells) or add to your shell script (including SLURM batch scripts):
+Sometimes this error is encountered when switching from one shell to another or attempting to run the module command from within a shell script or batch job. The module command may not be inherited between the shells.  To keep this from happening, execute the following command:
 
 
 ```
 [expanse-ln3:~]source /etc/profile.d/modules.sh
 ```
+OR add this command to your shell script (including Slurm batch scripts)
 
-	
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
-	
 ## <a name="managing-accounts"></a>Managing Accounts on Expanse
 * [Expanse Client Script](#manage-accts-client-script)
 * [Using Accounts in Batch Jobs](#manage-accts-batch-script)
@@ -939,7 +940,7 @@ total 3758
 drwxr-xr-x 2 user abc123       8 Jan 29 00:45 .
 drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
 -rw-r--r-- 1 user abc123     2997 Jan 29 00:25 dgemm_example.f
--rw-r--r-- 1 user abc123      618 Jan 29 00:25 dgemm-slurm.sb
+-rw-r--r-- 1 user abc123      618 Jan 29 00:25 dgemm-Slurm.sb
 -rw-r--r-- 1 user abc123      363 Jan 29 00:32 README.txt
 ```
 
@@ -983,7 +984,7 @@ with the one you want to use.
 * Contents of the batch script:
 
 ```
-[username@login01 dgemm]$ cat dgemm-slurm.sb
+[username@login01 dgemm]$ cat dgemm-Slurm.sb
 #!/bin/bash
 #SBATCH --job-name="dgemm_example"
 #SBATCH --output="dgemm_example.%j.%N.out"
@@ -1338,7 +1339,7 @@ pwd=  /home/user/DEMO/ENV_INFO
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) cpu/1.0
 ----------------------------------
-env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib64/Slurm:/cm/shared/apps/slurm/current/lib64 LS_COLORS=rs=0
+env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/Slurm/current/lib64/Slurm:/cm/shared/apps/Slurm/current/lib64 LS_COLORS=rs=0
 
 [SNIP]
 

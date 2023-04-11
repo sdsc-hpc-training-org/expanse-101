@@ -30,16 +30,19 @@ Consulting group at help@xsede.org.
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](#overview)
 * [Getting Started](#get-start)
-  * [Obtaining Expanse Accounts](#get-start-expanse-accounts)
-  * [Logging Onto Expanse](#get-start-expanse-logon)
-  * [Obtaining Example Code](#get-start-example-code)
-  * [Expanse User Portal](#get-start-user-portal)
+   * [Obtaining Expanse Accounts](#get-start-expanse-accounts)
+   * [Logging Onto Expanse](#get-start-expanse-logon)
+   * [Obtaining Example Code](#get-start-example-code)
+   * [Expanse User Portal](#get-start-user-portal)
 * [Modules](#modules)
-   * [Loading Modules During Login](#module-login-load)
+   * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
    * [Modules: Popular Lmod Commands](#module-commands)
+   * [Load and Check Modules and Environment](#load-and-check-module-env)
    * [Loading Modules During Login](#module-login-load)
-   * [Lmod warning “rebuild your saved collection”](#lmod-warn-rebuild)
-   * [Troubleshooting:Module Error](#module-error)
+   * [Troubleshooting](#module-troubleshoot)	
+
+   * [OLD: Lmod warning “rebuild your saved collection”](#/)
+ 
 * [Managing Accounts](#managing-accounts)
    * [Expanse Client Script](#manage-accts-client-script)
    * [Using Accounts in Batch Jobs](#manage-accts-batch-script)
@@ -350,9 +353,10 @@ In this Section:
 * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
 * [Modules: Popular Lmod Commands](module-commands)
 * [Load and Check Modules and Environment](#load-and-check-module-env)
+* [Troubleshooting](#module-troubleshoot)
 
 <!----
-* [Module Error: command not found](#module-error)
+* [Module Error: command not found](#module-troubleshoot)
 ---->
 
 [Back to Top](#top)
@@ -670,7 +674,9 @@ PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/
 
 
 
-### Troubleshooting: Lmod warning “rebuild your saved collection”<a name="lmod-warn-rebuild"></a>
+### [Troubleshooting]<a name="module-troubleshoot"></a>
+
+#### Troubleshooting: Lmod warning “rebuild your saved collection”<a name="lmod-warn-rebuild"></a>
 Lmod allows a user to save a bundle of modules as a collection using module save <collection_name> and module restore <collection_name>. This enables you to quickly get the same list of modules loaded if you tend to use the same modules over and over. With a new module scheme came a different system MODULEPATH. For this reason, if you have some module collections saved, you will experience the following warning: “Lmod Warning: The system MODULEPATH has changed: please rebuild your saved collection.” To solve this you need to remove your old collections and create them again.
 
 * Too see the list of module collections that you currently have:
@@ -693,7 +699,7 @@ Named collection list :
 [username@login02 ~]$
 ```
 
-### Troubleshooting:  Module Error<a name="module-error"></a>
+#### Troubleshooting:  Module Error<a name="module-error"></a>
 
 Sometimes this error is encountered when switching from one shell to another or attempting to run the module command from within a shell script or batch job. The module command may not be inherited between the shells.  To keep this from happening, execute the following command:
 

@@ -1272,23 +1272,12 @@ Expanse uses the _Simple Linux Utility for Resource Management (Slurm)_ resour
 #### Slurm Partitions <a name="run-jobs-slurm-partition"></a>
 About Partitions
 
-|	Partition Name	|	Max Walltime	|	Max Nodes/ Job	|	Max Running Jobs	|	Max Running + Queued Jobs	|	Charge Factor	|	Comments	|
-|	:----	|	:----:	|	:----:	|	:----:	|	:----:	|	:----:	|	:----	|
-|	compute	|	48 hrs	|	32	|	32	|	64	|	1	|	Used for exclusive access to regular compute nodes	|
-|	shared	|	48 hrs	|	1	|	4096	|	4096	|	1	|	Single-node jobs using fewer than 128 cores	|
-|	gpu	|	48 hrs	|	4	|	4	|	8 (32 Tres GPU)	|	1	|	Used for exclusive access to the GPU nodes	|
-|	gpu-shared	|	48 hrs	|	1	|	24	|	24 (24 Tres GPU)	|	1	|	Single-node job using fewer than 4 GPUs	|
-|	large-shared	|	48 hrs	|	1	|	1	|	4	|	1	|	Single-node jobs using large memory up to 2 TB (minimum memory required 256G)	|
-|	debug	|	30 min	|	2	|	1	|	2	|	1	|	Priority access to compute nodes set aside for testing of jobs with short walltime and limited resources	|
-|	gpu-debug	|	30 min	|	2	|	1	|	2	|	1	|	** Priority access to gpu nodes set aside for testing of jobs with short walltime and limited resources	|
-|	preempt	|	7 days	|	32	|		|	128	|	0.8	|	Discounted jobs to run on free nodes that can be pre-empted by jobs submited to any other queue (NO REFUNDS)	|
-|	gpu-preempt	|	7 days	|	1	|		|	24 (24 Tres GPU)	|	0.8	|	Discounted jobs to run on unallocated nodes that can be pre-empted by jobs submitted to higher priority queues (NO REFUNDS	|
 
 
-  |	Partition Name2	|	Max Walltime	|	Max Nodes/ Job	|	Max Running Jobs	|	Max Running + Queued Jobs	|	Charge Factor	|	Comments	|
+  |	Partition Name	|	Max Walltime	|	Max Nodes/ Job	|	Max Running Jobs	|	Max Running + Queued Jobs	|	Charge Factor	|	Comments	|
   |	:----	|	:----:	|	:----:	|	:----:	|	:----:	|	:----:	|	:----	|
-  compute	|		48 hrs	|		32	|		32	|		64	|		1		|	Exclusive access to regular compute nodes; limit applies per group	|
-  ind-compute	|		48 hrs	|		32	|		32	|		64	|		1		|	Exclusive access to Industry compute nodes; limit applies per group	|
+  compute	| 48 hrs | 32	| 32 | 64	| 1 |	Exclusive access to regular compute nodes; limit applies per group	|
+  ind-compute	|		48 hrs	|		32	| 32	|		64	|		1		|	Exclusive access to Industry compute nodes; limit applies per group	|
   shared	|		48 hrs	|		1	4096	|		4096	|		1	|		Single-node jobs using fewer than 128 cores	|
   ind-shared	|		48 hrs	|		1		|	32	|		64	|		1	|		Single-node Industry jobs using fewer than 128 cores	|
   gpu	|		48 hrs	|		4		|	4		|	8 (32 Tres GPU)		|	1	|		Used for exclusive access to the GPU nodes	|
@@ -1299,13 +1288,13 @@ About Partitions
   debug	|		30 min	|		2	|		1		|	2		|	1	|		Priority access to shared nodes set aside for testing of jobs with short walltime and limited resources	|
   gpu-debug	|		30 min	|		2	|	1		|	2	|		1		|	Priority access to gpu-shared nodes set aside for testing of jobs with short walltime and limited resources; max two gpus per job	|
   preempt	|		7 days	|		32		|		|		128	.8	|		Non-refundable discounted jobs to run on free nodes that can be pre-empted by jobs submitted to any other queue	|
-  gpu-preempt	|		7 days	|		1		|		|		24 (24 Tres GPU)	.8	Non-refundable discounted jobs to run on unallocated nodes that can be pre-empted by higher priority queues	|
+  gpu-preempt	| 7 days | 1 	|		| 24 (24 Tres GPU) |.8 |	Non-refundable discounted jobs to run on unallocated nodes that can be pre-empted by higher priority queues|
 
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>
 
 #### Slurm Job  State Codes<a name="run-jobs-slurm-status"></a>
-Slurm has a large number of states. The table below lists some
+Slurm has a large number of job states. The table below lists some
 of the most common states you will see. For full details, See
 the section on Slurm JOB STATE CODES, at the
 [Slurm Squeue data page](https://Slurm.schedmd.com/squeue.html).

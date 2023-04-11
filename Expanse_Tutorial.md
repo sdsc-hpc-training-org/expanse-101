@@ -1584,7 +1584,7 @@ int main(int argc, char** argv) {
     // Finalize the MPI environment.
     MPI_Finalize();
 }
-``` 
+```
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ]
  [ [Back to Top](#top) ]
@@ -1616,6 +1616,8 @@ sbatch hellompi-Slurm.sb
 * To run on an interactive node, you need to use the 'salloc' command.
 
 ```
+Command to allocate the node:
+```
 salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G
 salloc: Pending job allocation 21592400
 salloc: job 21592400 queued and waiting for resources
@@ -1626,8 +1628,8 @@ salloc: Nodes exp-9-[55-56] are ready for job
 [mthomas@login02 ~]$
 ```
 * You are now on an interactive node -- even though the node name on the unix prompt did not change.
-
 * Set your environment on the node:
+```
 [mthomas@login02 mpi]$ module purge
 [mthomas@login02 mpi]$ module load slurm
 [mthomas@login02 mpi]$ module load cpu

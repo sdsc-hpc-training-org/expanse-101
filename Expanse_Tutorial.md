@@ -1195,7 +1195,7 @@ srun: job 12630128 queued and waiting for resources
 srun: job 12630128 has been allocated resources
 [username@exp-7-59 ~]$
 ```
-Note that evidence that you are on an interactive node is given by the fact that your node name has changed from *login01* to *exp-7-59*. To confirm that you are on a GPU node, run the *lspci* command (which not have any output unless you are on a GPU node):
+Note that evidence that you are on an interactive node is given by the fact that your node name has changed from *login01* to *exp-7-59*. To confirm that you are on a GPU node, you can run the *lspci* command (which not have any output unless you are on a GPU node):
 ```
 [username@exp-7-59 mkl-mat-mul]$ lspci | grep -i nvidia
 18:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 32GB] (rev a1)
@@ -1203,6 +1203,29 @@ Note that evidence that you are on an interactive node is given by the fact that
 86:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 32GB] (rev a1)
 af:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 32GB] (rev a1)
 [username@exp-7-59 mkl-mat-mul]$
+```
+You can also run the *nvidia-smi* command:
+```
+Mon Apr 10 23:53:03 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 510.39.01    Driver Version: 510.39.01    CUDA Version: 11.6     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla V100-SXM2...  On   | 00000000:3B:00.0 Off |                    0 |
+| N/A   39C    P0    40W / 300W |      0MiB / 32768MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
 ```
 
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]

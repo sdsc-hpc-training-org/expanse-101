@@ -2,7 +2,7 @@
 
 [SDSC HPC Training Group](https://www.sdsc.edu/education_and_training/training_hpc.html)
 
-*Document last updated:  01/29/21*
+*Document last updated:  04/10/23*
 
 <hr>
 In this tutorial, you will learn how to compile and run jobs on Expanse,
@@ -12,13 +12,13 @@ expanse.sdsc.edu.
 
 # Misc Notes/Updates:
 *  You must have an Expanse account in order to access the system.
-  * To obtain a trial account:
-      [Expanse trial account](http://www.sdsc.edu/support/user_guides/expanse.html#trial_accounts)
+   * To obtain an account, users may submit a proposal through the [ACCESS Allocation Request System](https://access-ci.atlassian.net/)  or request a Trial Account from SDSC: consult@sdsc.edu.
+   * For more details, see https://www.sdsc.edu/support/user_guides/expanse.html#access
 *  You must be familiar with running basic Unix commands: see the
    following tutorials at:
    *  [https://github.com/sdsc-hpc-training/basic_skills](https://github.com/sdsc-hpc-training/basic_skills)
-*  The *hostname* for Expanse is simple *login01*, or *login02*
 *  The login node name is *login.expanse.sdsc.edu*
+*  The *hostname* for Expanse is simple *login01*, or *login02*
 *  The operating system for Expanse is *CentOS*
 *  The cluster management system is the *Bright Cluster Manager*
 *  The Scheduler and Resource Manager is *SLURM*

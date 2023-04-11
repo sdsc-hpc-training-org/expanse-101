@@ -11,7 +11,8 @@ cut & pasted into the terminal window, when it is connected to
 expanse.sdsc.edu.
 
 ## IMPORTANT ANNOUNCEMENT:
-*In August of 2022, the NSF ACCESS program was launched. ACCESS is designed to replace the XSEDE project. For more information, see: https://access-ci.org*
+*In August of 2022, the NSF ACCESS program was launched.
+ACCESS is designed to replace the XSEDE project. For more information, see: https://access-ci.org*
 
 # Misc Notes/Updates:
 *  You must have an Expanse account in order to access the system.
@@ -42,7 +43,7 @@ Consulting group at help@xsede.org.
    * [Modules: Popular Lmod Commands](#module-commands)
    * [Load and Check Modules and Environment](#load-and-check-module-env)
    * [Loading Modules During Login](#module-login-load)
-   * [Troubleshooting](#module-troubleshoot)	
+   * [Troubleshooting](#module-troubleshoot)
 * [Managing Accounts](#managing-accounts)
    * [Expanse Client Script](#manage-accts-client-script)
    * [Using Accounts in Batch Jobs](#manage-accts-batch-script)
@@ -210,7 +211,7 @@ In this Section:
    * For more details, see https://www.sdsc.edu/support/user_guides/expanse.html#access
 * If you had an XSEDE account, it should have been migrated to the ACCESS System. For details, see: https://identity.access-ci.org/new-user
 * Interested parties may contact the ACCESS Help Desk for help with an Expanse proposal. See: https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/72417292
-	
+
 ### Logging Onto Expanse<a name="get-start-expanse-logon"></a>
 
 Expanse supports Single Sign-On through the [XSEDE User Portal](https://portal.xsede.org), from the command line using an XSEDE-wide password (coming soon, the Expanse User Portal). While CPU and GPU resources are allocated separately, the login nodes are the same. To log in to Expanse from the command line, use the hostname:
@@ -256,7 +257,7 @@ Use the following commands to adjust your environment:
 
 -------------------------------------------------------------------------------
 Last login: Mon Apr 10 15:47:22 2023 from 12.34.56.789
-	
+
 ```
 
 #### Example of a terminal connection/Unix login session:
@@ -355,7 +356,7 @@ In this Section:
 * [Load and Check Modules and Environment](#load-and-check-module-env)
 * [Loading Modules During Login](#module-login-load)
 * [Troubleshooting](#module-troubleshoot)
-	
+
 <!----
 * comment
 ---->
@@ -1152,7 +1153,7 @@ Resetting modules to system default. Reseting $MODULEPATH back to system default
 [username@login01 ~]$ srun   --pty --account=sds173  --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1 --mem=98 -t 00:10:00 /bin/bash
 srun: job 12629939 queued and waiting for resources
 srun: job 12629939 has been allocated resources
-[username@exp-7-59 ~]$ 
+[username@exp-7-59 ~]$
 
 ```
 __GPU:__
@@ -1170,7 +1171,7 @@ Currently Loaded Modules:
 [username@login02 ~]$ srun --partition=gpu-debug --pty --account=use300 --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
 srun: job 12630128 queued and waiting for resources
 srun: job 12630128 has been allocated resources
-[username@exp-7-59 ~]$ 
+[username@exp-7-59 ~]$
 ```
 
 
@@ -2390,5 +2391,3 @@ Jacobi relaxation Calculation: 4096 x 4096 mesh
 ```
 
 [ [Back to Laplace2D (GPU/OpenACC)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
-
-

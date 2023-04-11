@@ -404,7 +404,7 @@ Here are some common module commands and their descriptions:
 | savelist | List of saved module collections. |
 |  describe  <name> | Describe the contents of a module collection. |
 |module help | Get a list of all the commands that module knows about do:
-
+ 
 Lmod commands support *short-hand* notation, for example:
 
 ```

@@ -87,18 +87,18 @@ Consulting group at consult@sdsc.edu.
 * [Compiling and Running GPU Jobs](#comp-run-gpu)
    * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
    * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
-   * [Hello World (GPU/CUDA)](#hello-world-cuda-gpu)
-       * [Hello World (GPU/CUDA): Source Code](#hello-world-cuda-source)
-       * [Hello World (GPU/CUDA): Compiling](#hello-world-cuda-compile)
-       * [Hello World (GPU/CUDA): Execute](#hello-world-execute)
-       * [Hello World (GPU/CUDA): Batch Script Submission](#hello-world-cuda-batch-submit)
-       * [Hello World (GPU/CUDA): Batch Script Output](#hello-world-cuda-batch-output)
+   * [Hello World (GPU-CUDA)](#hello-world-cuda-gpu)
+       * [Hello World (GPU-CUDA): Source Code](#hello-world-cuda-source)
+       * [Hello World (GPU-CUDA): Compiling](#hello-world-cuda-compile)
+       * [Hello World (GPU-CUDA): Execute](#hello-world-execute)
+       * [Hello World (GPU-CUDA): Batch Script Submission](#hello-world-cuda-batch-submit)
+       * [Hello World (GPU-CUDA): Batch Script Output](#hello-world-cuda-batch-output)
 
-   * [Vector Addition (GPU/CUDA)](#vec-add-cuda-gpu)
-       * [Vector Addition (GPU/CUDA): Source Code](#vec-add-cuda-source)
-       * [Vector Addition (GPU/CUDA): Compiling](#vec-add-cuda-compile)
-       * [Vector Addition (GPU/CUDA): Batch Script Submission](#vec-add-cuda-batch-submit)
-       * [Vector Addition (GPU/CUDA): Batch Script Output](#vec-add-cuda-batch-output)
+   * [Vector Addition (GPU-CUDA)](#vec-add-cuda-gpu)
+       * [Vector Addition (GPU-CUDA): Source Code](#vec-add-cuda-source)
+       * [Vector Addition (GPU-CUDA): Compiling](#vec-add-cuda-compile)
+       * [Vector Addition (GPU-CUDA): Batch Script Submission](#vec-add-cuda-batch-submit)
+       * [Vector Addition (GPU-CUDA): Batch Script Output](#vec-add-cuda-batch-output)
    * [Laplace2D (GPU/OpenACC)](#laplace2d-gpu)
        * [Laplace2D (GPU/OpenACC): Source Code](#laplace2d-gpu-source)
        * [Laplace2D (GPU/OpenACC): Compiling](#laplace2d-gpu-compile)
@@ -1369,7 +1369,7 @@ Below is an example of a batch script that prints our your environment on the co
 [username@login01 ENV_INFO]$ cat env-slurm.sb 
 #!/bin/bash
 #SBATCH --job-name="envinfo"
-#SBATCH --output="envinfo.%j.%N.out"Simple Hello (GPU/CUDA)
+#SBATCH --output="envinfo.%j.%N.out"Simple Hello (GPU-CUDA)
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -2192,20 +2192,20 @@ Steps to compile the code:
 3. Compile the Source code
 4. Run code locally, or exit interactive node and submit the batch script
 
-### Hello World (GPU/CUDA) <a name="hello-world-cuda-gpu"></a>
+### Hello World (GPU-CUDA) <a name="hello-world-cuda-gpu"></a>
 
 **Subsections:**
-* [Hello World (GPU/CUDA): Source Code](#hello-world-cuda-source)
-* [Hello World (GPU/CUDA): Compiling](#hello-world-cuda-compile)
-* [Hello World (GPU/CUDA): Execute](#hello-world-execute)
-* [Hello World (GPU/CUDA): Batch Script Submission](#hello-world-cuda-batch-submit)
-* [Hello World (GPU/CUDA): Batch Script Output](#hello-world-cuda-batch-output)
+* [Hello World (GPU-CUDA): Source Code](#hello-world-cuda-source)
+* [Hello World (GPU-CUDA): Compiling](#hello-world-cuda-compile)
+* [Hello World (GPU-CUDA): Execute](#hello-world-execute)
+* [Hello World (GPU-CUDA): Batch Script Submission](#hello-world-cuda-batch-submit)
+* [Hello World (GPU-CUDA): Batch Script Output](#hello-world-cuda-batch-output)
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Hello World (GPU/CUDA): Source Code <a name="hello-world-cuda-source"></a>
-Hello World (GPU/CUDA): Source Code:
+#### Hello World (GPU-CUDA): Source Code <a name="hello-world-cuda-source"></a>
+Hello World (GPU-CUDA): Source Code:
 
 ```
 /*
@@ -2222,10 +2222,10 @@ printf( "Hello,  SDSC HPC Training World!\n" ); return 0;
 
 ```
 
-[ [Back to  Hello World (GPU/CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
+[ [Back to  Hello World (GPU-CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
 <hr>
 
-#### Hello World (GPU/CUDA): Compiling <a name="hello-world-cuda-compile"></a>
+#### Hello World (GPU-CUDA): Compiling <a name="hello-world-cuda-compile"></a>
 Load the correct modules for the CUDA Compiler:
 ```
 module purge
@@ -2252,20 +2252,20 @@ Compile the code from the command line on the interactive node:
 -rw-r--r-- 1 username use300    372 Apr 11 02:08 hello_world.cu
 ```
 
-[ [Back to  Hello World (GPU/CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
+[ [Back to  Hello World (GPU-CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
 <hr>
 
 
-#### Hello World (GPU/CUDA): Execute<a name="hello-world-execute"></a>
+#### Hello World (GPU-CUDA): Execute<a name="hello-world-execute"></a>
 Execute the code from the command line on an interactive node:
 ```
 [username@login01 hello-world]$ ./hello_world
 Hello,  SDSC HPC Training World!
 ```
-[ [Back to  Hello World (GPU/CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
+[ [Back to  Hello World (GPU-CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
 <hr>
 
-#### Hello World (GPU/CUDA): Batch Script Submission <a name="hello-world-cuda-batch-submit"></a>
+#### Hello World (GPU-CUDA): Batch Script Submission <a name="hello-world-cuda-batch-submit"></a>
 * Exit the interactive node.
 * Submit the job using the *sbatch* command, and monitor it while it is running using the *squeue* command:
 
@@ -2304,7 +2304,7 @@ Submitted batch job 21591890
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Hello World (GPU/CUDA): Batch Script Output <a name="hello-world-cuda-batch-output">
+#### Hello World (GPU-CUDA): Batch Script Output <a name="hello-world-cuda-batch-output">
 
 ```
 [mthomas@login01 hello-world]$ ls -al *21591890*
@@ -2316,12 +2316,12 @@ Hello,  SDSC HPC Training World!
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Vector Addition (GPU/CUDA) <a name=" "></a> vec-add-cuda-gpu)
+### Vector Addition (GPU-CUDA) <a name=" "></a> vec-add-cuda-gpu)
 **Subsections:**
-* [Vector Addition (GPU/CUDA): Source Code](#vec-add-cuda-source)
-* [Vector Addition (GPU/CUDA): Compiling](#vec-add-cuda-compile)
-* [Vector Addition (GPU/CUDA): Batch Script Submission](#vec-add-cuda-batch-submit)
-* [Vector Addition (GPU/CUDA): Batch Script Output](#vec-add-cuda-batch-output)
+* [Vector Addition (GPU-CUDA): Source Code](#vec-add-cuda-source)
+* [Vector Addition (GPU-CUDA): Compiling](#vec-add-cuda-compile)
+* [Vector Addition (GPU-CUDA): Batch Script Submission](#vec-add-cuda-batch-submit)
+* [Vector Addition (GPU-CUDA): Batch Script Output](#vec-add-cuda-batch-output)
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>

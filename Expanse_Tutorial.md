@@ -1276,19 +1276,19 @@ About Partitions
 
   |	Partition Name	|	Max Walltime	|	Max Nodes/ Job	|	Max Running Jobs	|	Max Running + Queued Jobs	|	Charge Factor	|	Comments	|
   |	:----	|	:----:	|	:----:	|	:----:	|	:----:	|	:----:	|	:----	|
-  compute	| 48 hrs | 32	| 32 | 64	| 1 |	Exclusive access to regular compute nodes; limit applies per group	|
-  ind-compute	|		48 hrs	|		32	| 32	|		64	|		1		|	Exclusive access to Industry compute nodes; limit applies per group	|
-  shared	|		48 hrs	|		1	4096	|		4096	|		1	|		Single-node jobs using fewer than 128 cores	|
-  ind-shared	|		48 hrs	|		1		|	32	|		64	|		1	|		Single-node Industry jobs using fewer than 128 cores	|
-  gpu	|		48 hrs	|		4		|	4		|	8 (32 Tres GPU)		|	1	|		Used for exclusive access to the GPU nodes	|
-  ind-gpu	|		48 hrs	|		4	|		4		|	8 (32 Tres GPU)		|	1		|	Exclusive access to the Industry GPU nodes	|
-  gpu-shared	|		48 hrs	|		1		|	24	|		24 (24 Tres GPU)	|		1	|	Single-node job using fewer than 4 GPUs
-  ind-gpu-shared	|		48 hrs	|		1		|	24	|		24 (24 Tres GPU)	|		1		|	Single-node job using fewer than 4 Industry GPUs	|
-  large-shared	|		48 hrs	|		1	|		1		|	4		|	1		|	Single-node jobs using large memory up to 2 TB (minimum memory required 256G)	|
-  debug	|		30 min	|		2	|		1		|	2		|	1	|		Priority access to shared nodes set aside for testing of jobs with short walltime and limited resources	|
-  gpu-debug	|		30 min	|		2	|	1		|	2	|		1		|	Priority access to gpu-shared nodes set aside for testing of jobs with short walltime and limited resources; max two gpus per job	|
-  preempt	|		7 days	|		32		|		|		128	.8	|		Non-refundable discounted jobs to run on free nodes that can be pre-empted by jobs submitted to any other queue	|
-  gpu-preempt	| 7 days | 1 	|		| 24 (24 Tres GPU) |.8 |	Non-refundable discounted jobs to run on unallocated nodes that can be pre-empted by higher priority queues|
+  |	compute	| 48 hrs | 32	| 32 | 64	| 1 |	Exclusive access to regular compute nodes; limit applies per group	|
+  |	ind-compute	|		48 hrs	|		32	| 32	|		64	|		1		|	Exclusive access to Industry compute nodes; limit applies per group	|
+  |	shared	|		48 hrs	|		1	4096	|		4096	|		1	|		Single-node jobs using fewer than 128 cores	|
+  |	ind-shared	|		48 hrs	|		1		|	32	|		64	|		1	|		Single-node Industry jobs using fewer than 128 cores	|
+  |	gpu	|	48 hrs	|		4		|	4		|	8 (32 Tres GPU)		|	1	|		Used for exclusive access to the GPU nodes	|
+  |	ind-gpu	|	48 hrs	|		4	|		4		|	8 (32 Tres GPU)		|	1		|	Exclusive access to the Industry GPU nodes	|
+  |	gpu-shared	|	48 hrs	|		1		|	24	|		24 (24 Tres GPU)	|		1	|	Single-node job using fewer than 4 GPUs
+  |	ind-gpu-shared	|	48 hrs	|		1		|	24	|		24 (24 Tres GPU)	|		1		|	Single-node job using fewer than 4 Industry GPUs	|
+  |	large-shared	|	48 hrs | 1	| 1 |	4 |	1 |	Single-node jobs using large memory up to 2 TB (minimum memory required 256G)	|
+  |	debug	| 30 min	|	2	| 1 |	2 |	1	| Priority access to shared nodes set aside for testing of jobs with short walltime and limited resources	|
+  |	gpu-debug	|	30 min	|	2	|	1	|	2	|	1	|	Priority access to gpu-shared nodes set aside for testing of jobs with short walltime and limited resources; max two gpus per job	|
+  |	preempt	|		7 days	|		32		|		|		128	.8	|		Non-refundable discounted jobs to run on free nodes that can be pre-empted by jobs submitted to any other queue	|
+  |	gpu-preempt	| 7 days | 1 	|		| 24 (24 Tres GPU) |.8 |	Non-refundable discounted jobs to run on unallocated nodes that can be pre-empted by higher priority queues|
 
 [ [Back to Running Jobs](#run-jobs) ] [ [Back to Top](#top) ]
 <hr>

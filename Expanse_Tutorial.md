@@ -1621,21 +1621,21 @@ For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html
 
 * Set your environment on the node:
 ```
-[mthomas@login02 mpi]$ module purge
-[mthomas@login02 mpi]$ module load slurm
-[mthomas@login02 mpi]$ module load cpu
-[mthomas@login02 mpi]$ module load gcc/10.2.0
-[mthomas@login02 mpi]$ module load openmpi/4.0.4
+[username@login02 mpi]$ module purge
+[username@login02 mpi]$ module load slurm
+[username@login02 mpi]$ module load cpu
+[username@login02 mpi]$ module load gcc/10.2.0
+[username@login02 mpi]$ module load openmpi/4.0.4
 ```
 
 * Follow the compile instructions for the compiler that you want to use:
 
 ```
 module purge
-[mthomas@login02 mpi]$ module load slurm
-[mthomas@login02 mpi]$ module load cpu
-[mthomas@login02 mpi]$ module load gcc/10.2.0
-[mthomas@login02 mpi]$ module load openmpi/4.0.4
+[username@login02 mpi]$ module load slurm
+[username@login02 mpi]$ module load cpu
+[username@login02 mpi]$ module load gcc/10.2.0
+[username@login02 mpi]$ module load openmpi/4.0.4
 [username@login02 MPI]$ module list
 Currently Loaded Modules:
 1) slurm/expanse/21.08.8   2) cpu/0.15.4   3) gcc/10.2.0   4) openmpi/4.0.4
@@ -1644,7 +1644,7 @@ Currently Loaded Modules:
 * Next, compile the code:
 
 ```
-[mthomas@login02 mpi]$  mpif90 -o hello_mpi_f90 hello_mpi.f90
+[username@login02 mpi]$  mpif90 -o hello_mpi_f90 hello_mpi.f90
 ```
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
@@ -1741,7 +1741,7 @@ Batch Script Output
 * For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html
 
 ```
-[mthomas@login02 ~]$ salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G
+[username@login02 ~]$ salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G
 salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G
 salloc: Pending job allocation 21592400
 salloc: job 21592400 queued and waiting for resources
@@ -1749,7 +1749,7 @@ salloc: job 21592400 has been allocated resources
 salloc: Granted job allocation 21592400
 salloc: Waiting for resource configuration
 salloc: Nodes exp-9-[55-56] are ready for job
-[mthomas@login02 ~]$
+[username@login02 ~]$
 ```
 * Note: You are now on an interactive node -- even though the node name on the unix prompt did not change.
 * Note: You may not be in the same directory
@@ -1771,7 +1771,7 @@ salloc: Nodes exp-9-[55-56] are ready for job
 * You can now run your job from the command line using _mpirun_ or _srun_:
 
 ```
-[mthomas@login02 mpi]$ mpirun -np 8 ./hello_mpi_f90
+[username@login02 mpi]$ mpirun -np 8 ./hello_mpi_f90
  node           5 : Hello world! F90
  node           6 : Hello world! F90
  node           4 : Hello world! F90
@@ -1781,7 +1781,7 @@ salloc: Nodes exp-9-[55-56] are ready for job
  node           0 : Hello world! F90
  node           7 : Hello world! F90
 
-[mthomas@login02 mpi]$ srun --mpi=pmi2 -n 8 ./hello_mpi_f90
+[username@login02 mpi]$ srun --mpi=pmi2 -n 8 ./hello_mpi_f90
  node           0 : Hello world! F90
  node           3 : Hello world! F90
  node           2 : Hello world! F90
@@ -2311,14 +2311,14 @@ module load cuda
 ```
 Submit the job:
 ```
-[mthomas@login01 hello-world]$ sbatch hello-world.sb ; squeue -u mthomas;
+[username@login01 hello-world]$ sbatch hello-world.sb ; squeue -u username;
 Submitted batch job 21591890
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-          21591890       gpu hello_wo  mthomas PD       0:00      1 (Priority)
-[mthomas@login01 hello-world]$ squeue -u mthomas
+          21591890       gpu hello_wo  username PD       0:00      1 (Priority)
+[username@login01 hello-world]$ squeue -u username
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-          21591890       gpu hello_wo  mthomas  R       0:01      1 exp-2-60
-[mthomas@login01 hello-world]$ squeue -u mthomas
+          21591890       gpu hello_wo  username  R       0:01      1 exp-2-60
+[username@login01 hello-world]$ squeue -u username
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 ```
 
@@ -2328,9 +2328,9 @@ Submitted batch job 21591890
 #### Hello World (GPU-CUDA): Batch Script Output <a name="hello-world-cuda-batch-output">
 
 ```
-[mthomas@login01 hello-world]$ ls -al *21591890*
--rw-r--r-- 1 mthomas use300 44 Apr 11 02:20 hello_world.21591890.exp-2-60.out
-[mthomas@login01 hello-world]$ cat hello_world.21591890.exp-2-60.out
+[username@login01 hello-world]$ ls -al *21591890*
+-rw-r--r-- 1 username use300 44 Apr 11 02:20 hello_world.21591890.exp-2-60.out
+[username@login01 hello-world]$ cat hello_world.21591890.exp-2-60.out
 = 21591890
 Hello,  SDSC HPC Training World!
 ```
@@ -2350,7 +2350,7 @@ Hello,  SDSC HPC Training World!
 #### Vector Addition (GPU-CUDA): Source Code <a name="vec-add-cuda-source"></a>
 
 ```
-[mthomas@login01 addition]$ cat vector_add_gpu.cu
+[username@login01 addition]$ cat vector_add_gpu.cu
 // UCSD Phys244
 // Spring 2018
 // Andreas Goetz (agoetz@sdsc.edu)
@@ -2451,15 +2451,15 @@ int main(void){
 #### Vector Addition (GPU-CUDA): Compiling & Running <a name="vec-add-cuda-compile"></a>
 
 ```
-[mthomas@exp-7-59 addition]$ module purge
-[mthomas@exp-7-59 addition]$ module load slurm
-[mthomas@exp-7-59 addition]$ module load gpu
-[mthomas@exp-7-59 addition]$ module load cuda
-[mthomas@exp-7-59 addition]$ nvcc -o vector_add_gpu.cu
+[username@exp-7-59 addition]$ module purge
+[username@exp-7-59 addition]$ module load slurm
+[username@exp-7-59 addition]$ module load gpu
+[username@exp-7-59 addition]$ module load cuda
+[username@exp-7-59 addition]$ nvcc -o vector_add_gpu.cu
 nvcc fatal   : No input files specified; use option --help for more information
-[mthomas@exp-7-59 addition]$ nvcc -o vector_add_gpu vector_add_gpu.cu
+[username@exp-7-59 addition]$ nvcc -o vector_add_gpu vector_add_gpu.cu
 
-[mthomas@exp-7-59 addition]$ ./vector_add_gpu
+[username@exp-7-59 addition]$ ./vector_add_gpu
 
 Launching vector addition kernel...
 Vector length     = 1044480

@@ -110,7 +110,6 @@ Consulting group at help@xsede.org.
 * Supports interactive computing and science gateways.
 * Will offer Composible Systems and Cloud Bursting.
 
-
 <hr>
 
 <img src="images/expanse_heterogeneous_arch.png" alt="Expanse Heterogeneous Architecture" width="500px">
@@ -209,8 +208,9 @@ In this Section:
 * You must have a expanse account in order to access the system.
 * To obtain an account, users may submit a proposal through the [ACCESS Allocation Request System](https://access-ci.atlassian.net/)  or request a Trial Account from SDSC: consult@sdsc.edu.
    * For more details, see https://www.sdsc.edu/support/user_guides/expanse.html#access
-If you had an XSEDE account, it should have been migrated to the ACCESS System. For details, see: https://identity.access-ci.org/new-user
-
+* If you had an XSEDE account, it should have been migrated to the ACCESS System. For details, see: https://identity.access-ci.org/new-user
+* Interested parties may contact the ACCESS Help Desk for help with an Expanse proposal. See: https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/72417292
+	
 ### Logging Onto Expanse<a name="get-start-expanse-logon"></a>
 
 Expanse supports Single Sign-On through the [XSEDE User Portal](https://portal.xsede.org), from the command line using an XSEDE-wide password (coming soon, the Expanse User Portal). While CPU and GPU resources are allocated separately, the login nodes are the same. To log in to Expanse from the command line, use the hostname:
@@ -232,12 +232,11 @@ For instructions on how to use SSH,
 see [Connecting to SDSC HPC Systems Guide](https://github.com/sdsc-hpc-training-org/hpc-security). Below is the logon message – often called the *MOTD* (message of the day, located in /etc/motd). This has not been implemented at this point on Expanse
 
 ```
-[username@localhost:~] ssh -Y expanse.sdsc.edu
+[username@localhost:~] ssh -Y username@login.expanse.sdsc.edu
 Welcome to Bright release         9.0
 
-                                                        Based on CentOS Linux 8
+                                                         Based on Rocky Linux 8
                                                                     ID: #000002
-
 --------------------------------------------------------------------------------
 
                                  WELCOME TO
@@ -256,28 +255,29 @@ Use the following commands to adjust your environment:
 'module initadd <module>' - configure module to be loaded at every login
 
 -------------------------------------------------------------------------------
-Last login: Fri Nov 1 11:16:02 2020 from 76.176.117.51
+Last login: Mon Apr 10 15:47:22 2023 from 12.34.56.789
+	
 ```
 
 #### Example of a terminal connection/Unix login session:
 
 ```
-localhost:~ user$ ssh -l user login.expanse.sdsc.edu
-Last login: Wed Oct  7 11:04:17 2020 from 76.176.117.51
+localhost:~ user$ sssh -Y username@login.expanse.sdsc.edu
+Last login: Mon Apr 10 15:47:22 2023 from 12.34.56.789
 [username@login02 ~]$
 [username@login02 ~]$ whoami
-user
+username
 [username@login02 ~]$ hostname
 login01
 [username@login02 ~]$ pwd
-/home/user
+/home/username
 [username@login02 ~]$
 ```
 [ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
 <hr>
 
 ### Obtaining Tutorial Example Code<a name="get-start-example-code"></a>
-We will be clone the example code from GitHub repository located here:
+We will clone the example code from GitHub repository located here:
 https://github.com/sdsc-hpc-training-org/expanse-101
 
 The example below will be for anonymous HTTPS downloads

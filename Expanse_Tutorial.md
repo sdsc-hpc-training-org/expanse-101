@@ -1609,41 +1609,45 @@ sbatch hellompi-Slurm.sb
 
 [2b] Run using interactive node:
 
-# obtain an interactive node
-he following example will request one regular compute node, 4 cores,  in the debug partition for 30 minutes.
+* To run on an interactive node, you need to use the 'salloc' command.
 
-srun --partition=debug  --pty --account=<<project>> --nodes=1 --ntasks-per-node=4 \
-    --mem=8G -t 00:30:00 --wait=0 --export=ALL /bin/bash
+```
+salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G
+salloc: Pending job allocation 21592400
+salloc: job 21592400 queued and waiting for resources
+salloc: job 21592400 has been allocated resources
+salloc: Granted job allocation 21592400
+salloc: Waiting for resource configuration
+salloc: Nodes exp-9-[55-56] are ready for job
+[mthomas@login02 ~]$
+```
+* You are now on an interactive node -- even though the node name on the unix prompt did not change.
 
-# On the node:
-module purge
-module load slurm
-module load cpu
-module load gcc/10.2.0
-module load openmpi/4.0.4
-mpirun -np 8 ./hello_mpi_f_gnu
+* Set your environment on the node:
+[mthomas@login02 mpi]$ module purge
+[mthomas@login02 mpi]$ module load slurm
+[mthomas@login02 mpi]$ module load cpu
+[mthomas@login02 mpi]$ module load gcc/10.2.0
+[mthomas@login02 mpi]$ module load openmpi/4.0.4
 ```
 
 * Follow the compile instructions for the compiler that you want to use:
 
-
 ```
-[username@login01 MPI]$ module purge
-[username@login01 MPI]$ module load slurm
-[username@login01 MPI]$ module load cpu
-[username@login01 MPI]$ module load gcc/10.2.0
-[username@login01 MPI]$ module load openmpi/4.0.4
-[username@login01 MPI]$ module load openmpi/4.0.4
-[username@login01 MPI]$ module list
-
+module purge
+[mthomas@login02 mpi]$ module load slurm
+[mthomas@login02 mpi]$ module load cpu
+[mthomas@login02 mpi]$ module load gcc/10.2.0
+[mthomas@login02 mpi]$ module load openmpi/4.0.4
+[username@login02 MPI]$ module list
 Currently Loaded Modules:
-  1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
+1) slurm/expanse/21.08.8   2) cpu/0.15.4   3) gcc/10.2.0   4) openmpi/4.0.4
 ```
 
 * Next, compile the code:
 
 ```
-[username@login01 MPI]$ mpif90 -o hello_mpi hello_mpi.f90
+[mthomas@login02 mpi]$  mpif90 -o hello_mpi_f90 hello_mpi.f90
 ```
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
@@ -1734,14 +1738,25 @@ Batch Script Output
 <hr>
 
 #### Hello World (MPI): Interactive Jobs <a name="hello-world-mpi-interactive"></a>
-* First, obtain an interactive Node. The example below asks for 1 compute node with 128 tasks, and 249 GB of memory, for 30 minutes.
+
+* To run on an interactive node, you need to use the 'salloc' command.
+* For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html
+* salloc - Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the allocation when the command is finished.
+
 ```
-[username@login02 MPI]$srun --partition=debug  --pty --account=<<project>> --nodes=1 --ntasks-per-node=4 \
-    --mem=8G -t 00:30:00 --wait=0 --export=ALL /bin/bash
-srun: job 12630128 queued and waiting for resources
-srun: job 12630128 has been allocated resources
-[username@exp-9-55 MPI]$
+[mthomas@login02 ~]$ salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G
+salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G
+salloc: Pending job allocation 21592400
+salloc: job 21592400 queued and waiting for resources
+salloc: job 21592400 has been allocated resources
+salloc: Granted job allocation 21592400
+salloc: Waiting for resource configuration
+salloc: Nodes exp-9-[55-56] are ready for job
+[mthomas@login02 ~]$
 ```
+* Note: You are now on an interactive node -- even though the node name on the unix prompt did not change.
+* Note: You may not be in the same directory
+
 * Next, load the module environment on the compute node. Don't depend on the system to propagate the right modules to the compute node.
 ```
 [username@ exp-9-55 MPI]$ module purge
@@ -1754,25 +1769,28 @@ srun: job 12630128 has been allocated resources
 ```
 [username@exp-9-55 MPI]$ mpif90 -o hello_mpi_f_gnu hello_mpi.f90 
 ```
-* Run a job from the command line:
+* Run a job from the command line using *mpirun* or *srun*:
 ```
-[username@exp-9-55 MPI]$ mpirun -np 8 ./hello_mpi_f_gnu
- node           1 : Hello world!
- node          15 : Hello world!
- node           7 : Hello world!
- node          14 : Hello world!
- node          11 : Hello world!
- node           6 : Hello world!
- node           4 : Hello world!
- node           5 : Hello world!
- node          12 : Hello world!
- node          13 : Hello world!
- node           0 : Hello world!
- node           8 : Hello world!
- node           9 : Hello world!
- node          10 : Hello world!
- node           2 : Hello world!
- node           3 : Hello world!
+[mthomas@login02 mpi]$ mpirun -np 8 ./hello_mpi_f90
+ node           5 : Hello world! F90
+ node           6 : Hello world! F90
+ node           4 : Hello world! F90
+ node           1 : Hello world! F90
+ node           3 : Hello world! F90
+ node           2 : Hello world! F90
+ node           0 : Hello world! F90
+ node           7 : Hello world! F90
+
+[mthomas@login02 mpi]$ srun --mpi=pmi2 -n 8 ./hello_mpi_f90
+ node           0 : Hello world! F90
+ node           3 : Hello world! F90
+ node           2 : Hello world! F90
+ node           1 : Hello world! F90
+ node           4 : Hello world! F90
+ node           7 : Hello world! F90
+ node           5 : Hello world! F90
+ node           6 : Hello world! F90
+
 ```
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]

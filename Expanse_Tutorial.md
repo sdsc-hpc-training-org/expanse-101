@@ -2192,7 +2192,8 @@ Steps to compile the code:
 3. Compile the Source code
 4. Run code locally, or exit interactive node and submit the batch script
 
-### Hello World (GPU/CUDA)<a name="hello-world-cuda-gpu"></a>
+### Hello World (GPU/CUDA) <a name="hello-world-cuda-gpu"></a>
+
 **Subsections:**
 * [Hello World (GPU/CUDA): Source Code](#hello-world-cuda-source)
 * [Hello World (GPU/CUDA): Compiling](#hello-world-cuda-compile)
@@ -2203,7 +2204,7 @@ Steps to compile the code:
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Hello World (GPU/CUDA): Source Code<a name="hello-world-cuda-source"></a>
+#### Hello World (GPU/CUDA): Source Code <a name="hello-world-cuda-source"></a>
 Hello World (GPU/CUDA): Source Code:
 
 ```
@@ -2221,7 +2222,7 @@ printf( "Hello,  SDSC HPC Training World!\n" ); return 0;
 
 ```
 
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to  Hello World (GPU/CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
 <hr>
 
 #### Hello World (GPU/CUDA): Compiling <a name="hello-world-cuda-compile"></a>
@@ -2251,7 +2252,7 @@ Compile the code from the command line on the interactive node:
 -rw-r--r-- 1 username use300    372 Apr 11 02:08 hello_world.cu
 ```
 
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to  Hello World (GPU/CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
 <hr>
 
 
@@ -2261,7 +2262,7 @@ Execute the code from the command line on an interactive node:
 [username@login01 hello-world]$ ./hello_world
 Hello,  SDSC HPC Training World!
 ```
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to  Hello World (GPU/CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
 <hr>
 
 #### Hello World (GPU/CUDA): Batch Script Submission <a name="hello-world-cuda-batch-submit"></a>

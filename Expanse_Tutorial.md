@@ -35,10 +35,10 @@ Consulting group at consult@sdsc.edu.
 <a name="top">Contents:
 * [Expanse Overview & Innovative Features](#overview)
 * [Getting Started](#get-start)
-   * [Obtaining Expanse Accounts](#get-start-expanse-accounts)
-   * [Logging Onto Expanse](#get-start-expanse-logon)
-   * [Obtaining Example Code](#get-start-example-code)
-   * [Expanse User Portal](#get-start-user-portal)
+   * [Obtaining Expanse Accounts](#geting-started-expanse-accounts)
+   * [Logging Onto Expanse](#geting-started-expanse-logon)
+   * [Obtaining Example Code](#geting-started-example-code)
+   * [Expanse User Portal](#geting-started-exp-port)
 * [Modules](#modules)
    * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
    * [Modules: Popular Lmod Commands](#module-commands)
@@ -197,23 +197,23 @@ Expanse will support integration with public clouds:
 
 ## <a name="get-start"></a>Getting Started on Expanse
 In this Section:
-* [Expanse Accounts](#get-start-expanse-accounts)
-* [Logging Onto Expanse](#get-start-expanse-logon)
-* [Obtaining Example Code](#get-start-example-code)
-* [Expanse User Portal](#get-start-user-portal)
+* [Expanse Accounts](#geting-started-expanse-accounts)
+* [Logging Onto Expanse](#geting-started-expanse-logon)
+* [Obtaining Example Code](#geting-started-example-code)
+* [Expanse User Portal](#geting-started-exp-port)
 
 
 [Back to Top](#top)
 <hr>ba
 
-### Expanse Accounts<a name="get-start-expanse-accounts"></a>
+### Expanse Accounts<a name="geting-started-expanse-accounts"></a>
 * You must have a expanse account in order to access the system.
 * To obtain an account, users may submit a proposal through the [ACCESS Allocation Request System](https://access-ci.atlassian.net/)  or request a Trial Account from SDSC: consult@sdsc.edu.
    * For more details, see https://www.sdsc.edu/support/user_guides/expanse.html#access
 * If you had an XSEDE account, it should have been migrated to the ACCESS System. For details, see: https://identity.access-ci.org/new-user
 * Interested parties may contact the ACCESS Help Desk for help with an Expanse proposal. See: https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/72417292
 
-### Logging Onto Expanse<a name="get-start-expanse-logon"></a>
+### Logging Onto Expanse<a name="geting-started-expanse-logon"></a>
 
 Expanse supports Single Sign-On through the ACCESS Identity System (see: https://identity.access-ci.org/new-user), from the command line using an ACCESS-wide password. While CPU and GPU resources are allocated separately, the login nodes are the same. To log in to Expanse from the command line, use the hostname:
 
@@ -278,7 +278,7 @@ login01
 [ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
 <hr>
 
-### Obtaining Tutorial Example Code<a name="get-start-example-code"></a>
+### Obtaining Tutorial Example Code<a name="geting-started-example-code"></a>
 We will clone the example code from GitHub repository located here:
 https://github.com/sdsc-hpc-training-org/hpctr-examples
 
@@ -342,7 +342,7 @@ All examples will contain source code, along with a batch script example so you 
 [ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
 <hr>
 
-### Expanse User Portal<a name="get-start-user-portal"></a>
+### Expanse User Portal<a name="geting-started-exp-port"></a>
 
 <img src="images/expanse_user_portal.png" alt="Expanse User Portal" width="400px" />
 
@@ -356,7 +356,7 @@ The Expanse User portal provides a quick and easy way for Expanse users . Featur
 * See: https://portal.expanse.sdsc.edu
 
 Note that before you can access the Expanse Portal, you will need to authenticate (as shown in the image below). Most users will select the organization labeled "ACCESS CI (formerly XSEDE)" for login. Contact SDSC consulting (consult@sdsc.edu) if you have trouble authenticating.
-<img src="images/expanse-portal-authentication.png" alt="Expanse User Portal" width="400px" />
+<img src="images/geting-started-exp-port-authentication.png" alt="Expanse User Portal" width="400px" />
 
 
 [ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
@@ -817,8 +817,8 @@ As with the case above, some users will have access to multiple accounts (e.g. a
 
 ### <a name="manage-accts-users"></a>Managing Users on an Account
 Only project PIs and co-PIs can add or remove users from an account. This can only be done
-via the [XSEDE portal](https://portal.access-ci.org) account (there is no command line interface for this).
-After logging in, go to the Add User page for the account.
+via the ACCESS Allocations Management page at: https://allocations.access-ci.org/ web page (there is no command line interface for this).
+After logging in, go to the Manage User page for the account.
 
 
 [ [Back to Managing Accounts](#managing-accounts) ] [ [Back to Top](#top) ]

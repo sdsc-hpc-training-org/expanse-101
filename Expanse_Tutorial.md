@@ -1739,9 +1739,9 @@ Batch Script Output
 
 #### Hello World (MPI): Interactive Jobs <a name="hello-world-mpi-interactive"></a>
 
-* To run on an interactive node, you need to use the 'salloc' command.
+* To run on an interactive node, you need to use the _salloc_ command.
 * For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html
-* salloc - Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the allocation when the command is finished.
+* _salloc_ - Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the allocation when the command is finished.
 
 ```
 [mthomas@login02 ~]$ salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G

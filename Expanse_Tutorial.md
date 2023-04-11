@@ -87,6 +87,13 @@ Consulting group at consult@sdsc.edu.
 * [Compiling and Running GPU Jobs](#comp-run-gpu)
    * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
    * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
+   * [Simple Hello (GPU/CUDA)](#simple-hello-cuda-gpu)
+       * [Simple Hello (GPU/CUDA): Source Code](#simple-hello-cuda-source)
+       * [Simple Hello (GPU/CUDA): Compiling](#simple-hello-cuda-compile)
+       * [Simple Hello (GPU/CUDA): Execute](#simple-hello-execute)
+       * [Simple Hello (GPU/CUDA): Batch Script Submission](#simple-hello-cuda-batch-submit)
+       * [Simple Hello (GPU/CUDA): Batch Script Output](#simple-hello-cuda-batch-output)
+
    * [Vector Addition (GPU/CUDA)](#vec-add-cuda-gpu)
        * [Vector Addition (GPU/CUDA): Source Code](#vec-add-cuda-source)
        * [Vector Addition (GPU/CUDA): Compiling](#vec-add-cuda-compile)
@@ -1275,7 +1282,7 @@ About Partitions
 
 
   |	Partition Name	|	Max Walltime	|	Max Nodes/ Job	|	Max Running Jobs	|	Max Running + Queued Jobs	|	Charge Factor	|	Comments	|
-  |	:----	|	:----:	|	:----:	|	:----:	|	:----:	|	:----	|	:----	|
+  |	:----	|	:----:	|	:----:	|	:----:	|	:----:	|	:----:	|	:----	|
   |	compute	    | 48 hrs  | 32	  | 32 | 64	| 1 |	Exclusive access to regular compute nodes; limit applies per group	|
   |	ind-compute	|	48 hrs	|		32	| 32	|		64	|		1		|	Exclusive access to Industry compute nodes; limit applies per group	|
   |	shared    	|	48 hrs	|		1	  | 4096	|		4096	|		1	|		Single-node jobs using fewer than 128 cores	|
@@ -2088,7 +2095,10 @@ module load slurm
 module load gpu
 module load cuda
 ```
-   * Note that Expanse has several CUDA compiler libraries, and you can see them by
+* Notes:
+  * NVIDIA compiler command is *nvcc*
+  * The Portland/PGI compilier commabnd is "pgcc"
+  * Expanse has several CUDA compiler libraries, and you can see them by
    running *module avail* (once you have loaded the gpu module)
 
    ```
@@ -2124,23 +2134,6 @@ srun: job 1089081 has been allocated resources
 
 ```
 
-* Change to the tutorial *OpenAC*  directory:
-
-```
-[username@exp-7-59 OpenACC]$ ll
-total 71
--rw-r--r-- 1 user abc123  2136 Oct  7 11:28 laplace2d.c
--rwxr-xr-x 1 user abc123 52056 Oct  7 11:28 laplace2d.openacc.exe
--rw-r--r-- 1 user abc123   234 Oct  7 11:28 OpenACC.108739.exp-7-57.out
--rw-r--r-- 1 user abc123   307 Oct  8 00:21 openacc-gpu-shared.sb
--rw-r--r-- 1 user abc123  1634 Oct  7 11:28 README.txt
--rw-r--r-- 1 user abc123  1572 Oct  7 11:28 timer.h
-```
-
-
-
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
-<hr>
 
 #### Obtaining GPU/CUDA: Node Information
 
@@ -2198,6 +2191,16 @@ Steps to compile the code:
 3. Compile the Source code
 4. Run code locally, or exit interactive node and submit the batch script
 
+### [Simple Hello (GPU/CUDA)](#simple-hello-cuda-gpu)
+**Subsections:**
+* [Simple Hello (GPU/CUDA): Source Code](#simple-hello-cuda-source)
+* [Simple Hello (GPU/CUDA): Compiling](#simple-hello-cuda-compile)
+* [Simple Hello (GPU/CUDA): Execute](#simple-hello-execute)
+* [Simple Hello (GPU/CUDA): Batch Script Submission](#simple-hello-cuda-batch-submit)
+* [Simple Hello (GPU/CUDA): Batch Script Output](#simple-hello-cuda-batch-output)
+
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
 ### [Vector Addition (GPU/CUDA)](#vec-add-cuda-gpu)
 **Subsections:**
 * [Vector Addition (GPU/CUDA): Source Code](#vec-add-cuda-source)
@@ -2205,7 +2208,8 @@ Steps to compile the code:
 * [Vector Addition (GPU/CUDA): Batch Script Submission](#vec-add-cuda-batch-submit)
 * [Vector Addition (GPU/CUDA): Batch Script Output](#vec-add-cuda-batch-output)
 
-
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
 ### [Laplace2D (GPU/OpenACC)](#laplace2d-gpu)
 **Subsections:**
 * [Laplace2D (GPU/OpenACC): Source Code](#laplace2d-gpu-source)

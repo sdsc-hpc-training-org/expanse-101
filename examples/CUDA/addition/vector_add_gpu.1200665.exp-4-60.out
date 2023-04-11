@@ -1,9 +1,0 @@
-
-Launching vector addition kernel...
-Vector length     = 1044480
-Blocks            = 2040
-Threads per block = 512
-Kernel copies     = 1044480
-
- Success! All elements match.
-

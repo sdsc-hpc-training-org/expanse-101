@@ -287,7 +287,7 @@ The example below will be for anonymous HTTPS downloads from GitHub. Note that G
 * Create a test directory hold the expanse example files (optional):
 
 ```
-[mthomas@login01 ~]$ git clone git@github.com:sdsc-hpc-training-org/hpctr-examples.git
+[username@login01 ~]$ git clone git@github.com:sdsc-hpc-training-org/hpctr-examples.git
 Cloning into 'hpctr-examples'...
 Warning: untrusted X11 forwarding setup failed: xauth key data not generated
 remote: Enumerating objects: 352, done.
@@ -297,24 +297,24 @@ remote: Total 352 (delta 128), reused 334 (delta 119), pack-reused 0
 Receiving objects: 100% (352/352), 27.62 MiB | 19.88 MiB/s, done.
 Resolving deltas: 100% (128/128), done.
 Updating files: 100% (310/310), done.
-[mthomas@login01 ~]$ cd hpctr-examples/
-[mthomas@login01 hpctr-examples]$ ll
+[username@login01 ~]$ cd hpctr-examples/
+[username@login01 hpctr-examples]$ ll
 total 272
-drwxr-xr-x 12 mthomas use300    15 Apr 10 22:26 .
-drwxr-x--- 41 mthomas use300    63 Apr 10 22:26 ..
-drwxr-xr-x  9 mthomas use300    10 Apr 10 22:26 basic_par
-drwxr-xr-x  3 mthomas use300     9 Apr 10 22:26 calc-prime
-drwxr-xr-x  6 mthomas use300     7 Apr 10 22:26 cuda
-drwxr-xr-x  2 mthomas use300     5 Apr 10 22:26 env_info
-drwxr-xr-x  8 mthomas use300    13 Apr 10 22:26 .git
--rw-r--r--  1 mthomas use300  1799 Apr 10 22:26 .gitignore
-drwxr-xr-x  2 mthomas use300     9 Apr 10 22:26 hybrid
--rw-r--r--  1 mthomas use300 35149 Apr 10 22:26 LICENSE
-drwxr-xr-x  4 mthomas use300     4 Apr 10 22:26 mkl
-drwxr-xr-x  2 mthomas use300    15 Apr 10 22:26 mpi
-drwxr-xr-x  2 mthomas use300    17 Apr 10 22:26 openacc
-drwxr-xr-x  2 mthomas use300     8 Apr 10 22:26 openmp
--rw-r--r--  1 mthomas use300  5772 Apr 10 22:26 README.md
+drwxr-xr-x 12 username use300    15 Apr 10 22:26 .
+drwxr-x--- 41 username use300    63 Apr 10 22:26 ..
+drwxr-xr-x  9 username use300    10 Apr 10 22:26 basic_par
+drwxr-xr-x  3 username use300     9 Apr 10 22:26 calc-prime
+drwxr-xr-x  6 username use300     7 Apr 10 22:26 cuda
+drwxr-xr-x  2 username use300     5 Apr 10 22:26 env_info
+drwxr-xr-x  8 username use300    13 Apr 10 22:26 .git
+-rw-r--r--  1 username use300  1799 Apr 10 22:26 .gitignore
+drwxr-xr-x  2 username use300     9 Apr 10 22:26 hybrid
+-rw-r--r--  1 username use300 35149 Apr 10 22:26 LICENSE
+drwxr-xr-x  4 username use300     4 Apr 10 22:26 mkl
+drwxr-xr-x  2 username use300    15 Apr 10 22:26 mpi
+drwxr-xr-x  2 username use300    17 Apr 10 22:26 openacc
+drwxr-xr-x  2 username use300     8 Apr 10 22:26 openmp
+-rw-r--r--  1 username use300  5772 Apr 10 22:26 README.md
 
 ```
 
@@ -785,7 +785,7 @@ Use "expanse-client [command] --help" for more information about a command.
 * To see who is on an account:
 
 ```
-[mthomas@login01 hpctr-examples]$ expanse-client project abc123
+[username@login01 hpctr-examples]$ expanse-client project abc123
  Resource          expanse
  Project           abc123
  TG Project        xyz789  
@@ -1255,7 +1255,7 @@ Expanse uses the _Simple Linux Utility for Resource Management (Slurm)_ resour
 
 | logging on to Expanse | Slurm Architecture |
 | :----- | :-----: |
-| <img src="images/login-nodes-cluster-nodes.png" alt="Login nodes to cluster diagram" width="300px" /> | <img src="images/Slurm-sched-arch.png" alt="Slurm Scheduler Architecture" width="400px" /> |
+| <img src="images/login-nodes-cluster-nodes.png" alt="Login nodes to cluster diagram" width="300px" /> | <img src="images/slurm-sched-arch.png" alt="Slurm Scheduler Architecture" width="400px" /> |
 | User logs onto Expanse, and submits a batch script to the Slurm Controller daemon | Slurm parses the batch script for correct syntax and then queues up the job until the requested resources are available |
 
 * Slurm is the "Glue" for parallel computer to schedule and execute jobs

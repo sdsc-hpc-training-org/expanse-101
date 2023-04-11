@@ -40,9 +40,6 @@ Consulting group at help@xsede.org.
    * [Load and Check Modules and Environment](#load-and-check-module-env)
    * [Loading Modules During Login](#module-login-load)
    * [Troubleshooting](#module-troubleshoot)	
-
-   * [OLD: Lmod warning “rebuild your saved collection”](#/)
- 
 * [Managing Accounts](#managing-accounts)
    * [Expanse Client Script](#manage-accts-client-script)
    * [Using Accounts in Batch Jobs](#manage-accts-batch-script)

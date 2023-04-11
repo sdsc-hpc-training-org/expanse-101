@@ -2201,6 +2201,64 @@ Steps to compile the code:
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
+
+* Simple Hello (GPU/CUDA): Source Code]<a name="simple-hello-cuda-source"></a>
+```
+/*
+* Copyright 1993-2010 NVIDIA Corporation. All rights reserved. *
+* NVIDIA Corporation and its licensors retain all intellectual property and
+*
+* Updated by Mary Thomas, April 2023, for simple cuda compile example
+*/
+#include <stdio.h>
+__global__ void kernel( void ) { }
+int main( void ) { kernel<<<1,1>>>();
+printf( "Hello, Simple Cuda!\n" ); return 0;
+}
+
+```
+
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
+
+* Simple Hello (GPU/CUDA): Compiling]<a name="simple-hello-cuda-compile"></a>
+Load the correct modules for the CUDA Compiler:
+```
+module purge
+module load slurm
+module load gpu
+module load cuda
+```
+Be sure to purge the old environment:
+```
+[mthomas@login01 simple_hello]$ module purge
+[mthomas@login01 simple_hello]$ module load slurm
+[mthomas@login01 simple_hello]$ module load gpu
+[mthomas@login01 simple_hello]$ module load cuda
+[mthomas@login01 simple_hello]$ module list
+
+Currently Loaded Modules:
+  1) slurm/expanse/21.08.8   2) gpu/0.15.4   3) cuda/11.0.2
+```
+
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
+
+* Simple Hello (GPU/CUDA): Execute]<a name="simple-hello-execute"></a>
+
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
+
+* Simple Hello (GPU/CUDA): Batch Script Submission]<a name="simple-hello-cuda-batch-submit"></a>
+
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
+
+* Simple Hello (GPU/CUDA): Batch Script Output]<a name="simple-hello-cuda-batch-output">
+
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+<hr>
+
 ### [Vector Addition (GPU/CUDA)](#vec-add-cuda-gpu)
 **Subsections:**
 * [Vector Addition (GPU/CUDA): Source Code](#vec-add-cuda-source)

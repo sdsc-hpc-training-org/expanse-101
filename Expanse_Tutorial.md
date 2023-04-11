@@ -2224,7 +2224,7 @@ printf( "Hello,  SDSC HPC Training World!\n" ); return 0;
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-* Hello World (GPU/CUDA): Compiling<a name="hello-world-cuda-compile"></a>
+#### Hello World (GPU/CUDA): Compiling <a name="hello-world-cuda-compile"></a>
 Load the correct modules for the CUDA Compiler:
 ```
 module purge
@@ -2265,6 +2265,8 @@ Hello,  SDSC HPC Training World!
 <hr>
 
 #### Hello World (GPU/CUDA): Batch Script Submission <a name="hello-world-cuda-batch-submit"></a>
+* Exit the interactive node.
+* Submit the job using the *sbatch* command, and monitor it while it is running using the *squeue* command:
 
 Batch script contents:
 ```
@@ -2285,9 +2287,7 @@ module load slurm
 module load gpu
 module load cuda
 ```
-* Exit the interactive node.
-* Submit the job using the *sbatch* command, and monitor it while it is running using the *squeue* command:
-
+Submit the job:
 ```
 [mthomas@login01 hello-world]$ sbatch hello-world.sb ; squeue -u mthomas;
 Submitted batch job 21591890

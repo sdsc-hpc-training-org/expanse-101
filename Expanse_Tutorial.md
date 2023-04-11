@@ -1614,7 +1614,7 @@ sbatch hellompi-Slurm.sb
 [2b] Run using interactive node:
 
 To run on an interactive node, you need to use the salloc command.
-salloc - Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the allocation when the command is finished.
+_salloc_ - Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the allocation when the command is finished.
 For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html
 
 ```
@@ -1768,7 +1768,7 @@ salloc: Nodes exp-9-[55-56] are ready for job
 [username@exp-9-55 MPI]$ mpif90 -o hello_mpi_f_gnu hello_mpi.f90 
 ```
 
-* Run a job from the command line using *mpirun* or *srun*:
+* You can now run your job from the command line using _mpirun_ or _srun_:
 
 ```
 [mthomas@login02 mpi]$ mpirun -np 8 ./hello_mpi_f90

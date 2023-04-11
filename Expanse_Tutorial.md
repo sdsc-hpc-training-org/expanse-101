@@ -37,7 +37,6 @@ Consulting group at help@xsede.org.
 * [Modules](#modules)
    * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
    * [Popular Lmod Commands](#module-commands)
-   * [Loading and Checking Modules and Environments](#load-and-check-module-env)
    * [Loading Modules at Login](#module-login-load)
    * [Troubleshooting](#module-troubleshoot)	
 * [Managing Accounts](#managing-accounts)
@@ -701,14 +700,14 @@ Named collection list :
 
 **Troubleshooting:  Module Error**
 
-Sometimes this error is encountered when switching from one shell to another or attempting to run the module command from within a shell script or batch job. The module command may not be inherited between the shells.  To keep this from happening, execute the following command:
+Sometimes this error is encountered when switching from one shell to another or attempting to run the module command from within a shell script or batch job. The module command may not be inherited between the shells.  To keep this from happening, execute the following from the command line (interactive shells) or add to your shell script (including SLURM batch scripts):
 
 
 ```
 [expanse-ln3:~]source /etc/profile.d/modules.sh
 ```
-OR add this command to your shell script (including Slurm batch scripts)
 
+	
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 

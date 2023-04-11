@@ -1369,7 +1369,7 @@ Below is an example of a batch script that prints our your environment on the co
 [username@login01 ENV_INFO]$ cat env-slurm.sb 
 #!/bin/bash
 #SBATCH --job-name="envinfo"
-#SBATCH --output="envinfo.%j.%N.out"
+#SBATCH --output="envinfo.%j.%N.out"Simple Hello (GPU/CUDA)
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -1465,7 +1465,7 @@ sbatch hello_mpi_Slurm.sb
 [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Checking Your Environment<a name="heck-env"></a>
+### Checking Your Environment<a name="check-env"></a>
 This simple batch script will show you how to check your user environment
 and to also verify that your Slurm environment is working.
 
@@ -1504,6 +1504,7 @@ echo "expanse-client user -p: " `expanse-client user -p`
 echo "----------------------------------"
 
 ```
+* Note that you can also see some Slurm environment variables, such as the JOB_ID. See the Slurm page: https://www.glue.umd.edu/hpcc/help/slurmenv.html
 * Submit the batch script and monitor until the job is allocated a node,
 and completes execution:
 
@@ -2202,7 +2203,7 @@ Steps to compile the code:
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-#### Hello World (GPU/CUDA): Source Code]<a name="hello-world-cuda-source"></a>
+#### Hello World (GPU/CUDA): Source Code<a name="hello-world-cuda-source"></a>
 Hello World (GPU/CUDA): Source Code:
 
 ```
@@ -2223,7 +2224,7 @@ printf( "Hello,  SDSC HPC Training World!\n" ); return 0;
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
 <hr>
 
-* Hello World (GPU/CUDA): Compiling]<a name="hello-world-cuda-compile"></a>
+* Hello World (GPU/CUDA): Compiling<a name="hello-world-cuda-compile"></a>
 Load the correct modules for the CUDA Compiler:
 ```
 module purge

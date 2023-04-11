@@ -1552,7 +1552,10 @@ Submitted batch job 1088090
    end
 [username@login01 MPI]$ 
 ```
+
 * Source Code in C:
+
+
 ```
 [username@login01 MPI]$ cat hello_mpi.c
 #include <mpi.h>
@@ -1581,7 +1584,8 @@ int main(int argc, char** argv) {
     // Finalize the MPI environment.
     MPI_Finalize();
 }
-```
+``` 
+
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ]
  [ [Back to Top](#top) ]
 <hr>
@@ -1740,8 +1744,8 @@ Batch Script Output
 #### Hello World (MPI): Interactive Jobs <a name="hello-world-mpi-interactive"></a>
 
 * To run on an interactive node, you need to use the _salloc_ command.
-* For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html
 * _salloc_ - Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the allocation when the command is finished.
+* For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html
 
 ```
 [mthomas@login02 ~]$ salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G

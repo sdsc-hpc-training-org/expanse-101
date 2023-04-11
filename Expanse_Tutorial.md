@@ -37,7 +37,7 @@ Consulting group at help@xsede.org.
 * [Modules](#modules)
    * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
    * [Modules: Popular Lmod Commands](#module-commands)
-   * [Loading and Checking Modules and Environments](#check-module-env)
+   * [Loading and Checking Modules and Environments](#load-and-check-module-env)
    * [Loading Modules at Login](#module-login-load)
    * [Troubleshooting](#module-troubleshoot)	
 * [Managing Accounts](#managing-accounts)
@@ -349,7 +349,7 @@ The Environment Modules package provides for dynamic modification of your shell 
 In this Section:
 * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
 * [Modules: Popular Lmod Commands](#module-commands)
-* [Loading and Checking Modules and Environments](#check-module-env)
+* [Loading and Checking Modules and Environments](#load-and-check-module-env)
 * [Loading Modules at Login](#module-login-load)
 * [Troubleshooting](#module-troubleshoot)
 	 
@@ -513,6 +513,7 @@ Use ```module spider``` to find all possible modules and extensions.
 <hr>
 
 ### Loading and Checking Modules and Environments<a name="load-and-check-module-env"></a>
+
 In this example, we will add the Slurm library, and and verify that it is in your environment
 * Check  module environment after loggin on to the system:
 

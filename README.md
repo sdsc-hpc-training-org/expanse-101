@@ -26,7 +26,7 @@ Please read the Expanse user guide and familiarize yourself with the hardware, f
 * Next scheduled presentation will be given in April, 2023 (date to be determined)
 
 ### Hands-on Self-guided Tutorial (using markdown file):
-* [Self-guided Tutorial -- markdown version](https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/Expanse_Tutorial.md)
+* Expanse_Tutorial.md
 
 ### Link to Example code:
 * [https://github.com/sdsc-hpc-training-org/hpctr-examples](https://github.com/sdsc-hpc-training-org/hpctr-examples)

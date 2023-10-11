@@ -506,11 +506,13 @@ Use ```module spider``` to find all possible modules and extensions.
 -------------------------------------------------------------------------------------
     You will need to load the set of module(s) on any one of the lines below before the "intel-mpi/2019.8.254" module is available to load.
 
-      cpu/1.0  gcc/10.2.0
-      cpu/1.0  intel/19.1.1.217
-      gpu/1.0
-      gpu/1.0  intel/19.0.5.281
-      gpu/1.0  pgi/20.4
+      cpu/0.15.4  gcc/10.2.0
+      cpu/0.15.4  gcc/9.2.0
+      cpu/0.15.4  intel/19.1.1.217
+      gpu/0.15.4
+      gpu/0.15.4  intel/17.0.7
+      gpu/0.15.4  intel/19.0.5.281
+      gpu/0.15.4  pgi/20.4
 
     Help:
       Intel MPI
@@ -541,22 +543,26 @@ Use ```module spider``` to find all possible modules and extensions.
 
 ### <a name="load-and-check-module-env"></a>Load and Check Modules and Environment
 In this example, we will add the Slurm library, and and verify that it is in your environment
-* Check  module environment after loggin on to the system:
+* Check  module environment after logging on to the system
+* Note: the module environment can change, depending on when different libraries are updated.
 
 ```
 (base) [username@login01 ~]$ module li
 
 Currently Loaded Modules:
-  1) shared   2) slurm/expanse/20.02.3   3) cpu/0.15.4   4) DefaultModules
+  1) shared            3) slurm/expanse/21.08.8   5) DefaultModules
+  2) cpu/0.17.3b (c)   4) sdsc/1.0
+
+  Where:
+   c:  built natively for AMD Rome
 ```
 
-* Note that Slurm (the cluster resource manager) is not in the environment.
-Check environment looking for Slurm commands
+* Note that MPI is not in the environment. Check environment looking for MPI commands
 
 
 ```
-(base) [username@login01 ~]$ which squeue
-/usr/bin/which: no squeue in (/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin)
+(base) [username@login01 ~]$ which mpicc
+/usr/bin/which: no mpicc in (/cm/shared/apps/sdsc/1.0/bin:/cm/shared/apps/sdsc/1.0/sbin:/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
 ```
 
 * Since Slurm commands do not exist,  we need to load that module:

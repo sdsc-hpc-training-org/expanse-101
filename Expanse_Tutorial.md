@@ -75,6 +75,7 @@ Consulting group at consult@sdsc.edu.
         * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
         * [Hello World (MPI): Batch Script Output](#hello-world-mpi-batch-output)
         * [Hello World (MPI): Interactive Jobs](#hello-world-mpi-interactive)
+   * [Calc_PI MPI](#calc-prime-mpi")
    * [Hello World (OpenMP)](#hello-world-omp)
         * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
         * [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
@@ -1309,14 +1310,14 @@ with the one you want to use.
 #SBATCH --export=ALL
 #SBATCH -t 00:30:00
 
-#This job runs with 1 nodes, 128 cores per node for a total of 256 cores.
+#This job runs with 1 node with 1 cores per node for a total of 256 cores.
 ## Environment
 module purge
 module load slurm gpu
 module load intel mvapich2 intel-mkl
 
 ## Use srun to run the job
-srun --mpi=pmi2 -n 128 --cpu-bind=rank dgemm_example
+srun --mpi=pmi2 -n 1--cpu-bind=rank dgemm_example
 ```
 
 * An example of the output:
@@ -1819,9 +1820,9 @@ Submitted batch job 1088090
 <hr>
 
 #### Hello World (MPI): Source Code <a name="hello-world-mpi-source"></a>
-* Change to the tutorial `MPI` examples directory:
-* Source code with basic MPI elements:
-* Source code in F90
+* Change to the tutorial `mpi` examples directory:
+* Contains source code with basic MPI elements
+* Contains source code in F90
 ```
 [username@login01 MPI]$ cat hello_mpi.f90 
 !  Fortran example  
@@ -1884,11 +1885,11 @@ int main(int argc, char** argv) {
 [1] Compile:
 
 #### MODULE ENV: updated 01/28/2020 (MPT)
- module purge
- module load slurm
- module load cpu
- module load gcc/10.2.0
- module load openmpi/4.0.4
+module purge
+module load slurm
+module load cpu
+module load gcc/10.2.0
+module load openmpi/4.0.4
 
 mpif90 -o hello_mpi hello_mpi.f90
 
@@ -1956,11 +1957,11 @@ in order to run the code. The contents of the default batch script are:
 # This job runs with 3 nodes, and a total of 12 cores.
 ## Environment
 ### MODULE ENV: updated 01/28/2020 (MPT)
- module purge
- module load slurm
- module load cpu
- module load gcc/10.2.0
- module load openmpi/4.0.4
+module purge
+module load slurm
+module load cpu
+module load gcc/10.2.0
+module load openmpi/4.0.4
 
 ## Use srun to run the job
 srun --mpi=pmi2 -n 12 --cpu-bind=rank ./hello_mpi
@@ -2080,6 +2081,39 @@ salloc: Nodes exp-9-[55-56] are ready for job
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
+
+### CalcPrime MPI <a name="calc-prime-mpi"></a>
+
+### Calc_PI MPI <a name="calc-prime-mpi"></a>
+* cd to the *hpctr-examples/calc_pi* directory
+* Contains source code, batch script and a README.txt file
+
+```
+[mthomas@login01 calc_pi]$ ll
+total 107
+drwxr-xr-x  2 mthomas use300     9 Oct 11 01:35 .
+drwxr-xr-x 15 mthomas use300    18 Oct 11 01:26 ..
+-rwxr-xr-x  1 mthomas use300 22440 Oct 11 01:34 pi_mpi
+-rw-r--r--  1 mthomas use300   948 Oct 10 21:50 pi_mpi.c
+-rw-r--r--  1 mthomas use300   492 Oct 11 01:34 pi-mpi.sb
+-rw-r--r--  1 mthomas use300   234 Oct 11 01:33 README.txt
+```
+
+* To compile with the GNU C compiler, and to run this on 1 node with 24 cores, load the gcc/openmpi environment:
+
+```
+[mthomas@login01 calc_pi]$ module purge
+[mthomas@login01 calc_pi]$ module load slurm
+[mthomas@login01 calc_pi]$ module load cpu/0.15.4  
+[mthomas@login01 calc_pi]$ module load gcc/10.2.0
+[mthomas@login01 calc_pi]$ module load openmpi/4.0.4
+[mthomas@login01 calc_pi]$ mpicc -o pi_mpi pi_mpi.c
+[mthomas@login01 calc_pi]$ sbatch pi-mpi.sb
+Submitted batch job 25648221
+
+
+
+
 
 ### Hello World (OpenMP) <a name="hello-world-omp"></a>
 **Subsections:**

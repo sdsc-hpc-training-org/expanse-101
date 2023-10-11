@@ -75,8 +75,6 @@ Consulting group at consult@sdsc.edu.
         * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
         * [Hello World (MPI): Batch Script Output](#hello-world-mpi-batch-output)
         * [Hello World (MPI): Interactive Jobs](#hello-world-mpi-interactive)
-   * [Calc_PI MPI](#calc-pi-mpi)
-   * [Calc_Prime MPI](#calc-prime-mpi)
    * [Hello World (OpenMP)](#hello-world-omp)
         * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
         * [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
@@ -1117,7 +1115,7 @@ In this tutorial, we include several hands-on examples that cover many of the ca
 
 * MPI
 * OpenMP
-* Hybrid
+* HYBRID
 * GPU
 * Local scratch
 
@@ -1150,22 +1148,11 @@ Suggested Compilers to used based on programming model and languages:
 
 * If you have modified your environment, you can reload by executing the module purge & load commands at the Linux prompt, or placing the load command in your startup file (~/.cshrc or ~/.bashrc)
 
-In this example, we show how to reload your environment and how to use the `swap` command. In this example, we were using the intel compilers. We'll load the following:
-
-```
-module purge
-module load slurm
-module load cpu/0.15.4
-module load gcc
-module load openmpi/4.0.4
-```
-
-* and use them to reset the environment
-  
+In this example, we show how to reload your environment and how to use the ```swap``` command.
 ```
 [username@login02 ~]$ module list
 Currently Loaded Modules:
-  1) shared   2) cpu/1.0   3) DefaultModules   4) intel/ 19.1.1.217
+  1) shared   2) cpu/1.0   3) DefaultModules   4) hdf5/1.10.1   5) intel/ 19.1.1.217
 ## need to change multiple modules
 [username@login02 ~]$ module purge
 [username@login02 ~]$ module list
@@ -1176,7 +1163,7 @@ No modules loaded
 [username@login02 ~]$ module load openmpi/4.0.4
 [username@login02 ~]$ module list
 Currently Loaded Modules:
-  1) slurm/expanse/21.08.8   2) cpu/0.15.4   3) gcc/10.2.0   4) openmpi/4.0.4
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
 [username@login02 MPI]$ module swap gcc aocc
 Due to MODULEPATH changes, the following have been reloaded:
   1) openmpi/4.0.4
@@ -1184,40 +1171,6 @@ Due to MODULEPATH changes, the following have been reloaded:
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) cpu/1.0   3) aocc/2.2.0   4) openmpi/4.0.4
 [username@login02 ~]$ 
-```
-
-* compile serial code example:
-
-```
-[mthomas@login01 simple]$ cat hello-serial.c 
-/******************************************************************************
-* FILE: hello.c
-*  by Mary Thomas, SDSC
-******************************************************************************/
-#include <stdio.h>
-#include <stdlib.h>
-int main (int argc, char *argv[])
-{
-  char *name1 = "Dave";
-   char *name2 = argv[1];
-   if( argc > 1){
-      printf("Hello %s\n", name2);
-   } else {
-      printf("Hello %s\n", name1);
-   }
-}
-[mthomas@login01 simple]$ clang -o hello-serial hello-serial.c 
-[mthomas@login01 simple]$ ./hello-serial Mary
-Hello Mary
-```
-
-* Note that we could have loaded the AOCC compiler with these modules, but now you know how to use the `swap` command:
-
-```
-module purge
-module load slurm
-module load cpu/0.15.4
-module load aocc/2.2.0
 ```
 
 [ [Back to Compilers](#compilers-toc) ] [ [Back to Top](#top)
@@ -1250,19 +1203,17 @@ computes the real matrix ```C=alpha*A*B+beta*C``` using Intel(R) MKL
 total 3758
 drwxr-xr-x 2 user abc123       8 Jan 29 00:45 .
 drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
--rw-r--r-- 1 user abc123     2997 Jan 29 00:25 dgemm_mat_mul.f
+-rw-r--r-- 1 user abc123     2997 Jan 29 00:25 dgemm_example.f
 -rw-r--r-- 1 user abc123      618 Jan 29 00:25 dgemm-Slurm.sb
 -rw-r--r-- 1 user abc123      363 Jan 29 00:32 README.txt
 ```
 
 * Code snippets:
 ```
-!*******************************************************************************
-!   This example computes real matrix C=alpha*A*B+beta*C using Intel(R) MKL 
-!   subroutine DGEMM, where A,B, and C are matrices and alpha and beta are 
-!   double precision scalars.
  PROGRAM   MAIN
+
       IMPLICIT NONE
+
       DOUBLE PRECISION ALPHA, BETA
       INTEGER          M, P, N, I, J
       PARAMETER        (M=2000, P=200, N=1000)
@@ -1270,9 +1221,7 @@ drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
 [SNIP]
       PRINT *, "Computing matrix product using Intel(R) MKL DGEMM "
       CALL DGEMM('N','N',M,N,P,ALPHA,A,M,B,P,BETA,C,M)
-
 [SNIP]
-
 ```
 
 * README.txt contents:
@@ -1286,13 +1235,13 @@ module purge
 module load slurm gpu
 module load intel mvapich2 intel-mkl
 
-ifort -o dgemm_mat_mul  -mkl -static-intel dgemm_mat_mul.f
+ifort -o dgemm_example  -mkl -static-intel dgemm_example.f
 
 [2] Run:
 
 sbatch dgemm-slurm.sb
 
-NOTE: for other compilers, replace "ifort"
+NOTE: for other compilers, replace "gcc"
 with the one you want to use.
 ```
 
@@ -1311,14 +1260,14 @@ with the one you want to use.
 #SBATCH --export=ALL
 #SBATCH -t 00:30:00
 
-#This job runs with 1 node with 1 cores per node for a total of 256 cores.
+#This job runs with 1 nodes, 128 cores per node for a total of 256 cores.
 ## Environment
 module purge
 module load slurm gpu
 module load intel mvapich2 intel-mkl
 
 ## Use srun to run the job
-srun --mpi=pmi2 -n 1--cpu-bind=rank dgemm_example
+srun --mpi=pmi2 -n 128 --cpu-bind=rank dgemm_example
 ```
 
 * An example of the output:
@@ -1821,9 +1770,9 @@ Submitted batch job 1088090
 <hr>
 
 #### Hello World (MPI): Source Code <a name="hello-world-mpi-source"></a>
-* Change to the tutorial `mpi` examples directory:
-* Contains source code with basic MPI elements
-* Contains source code in F90
+* Change to the tutorial `MPI` examples directory:
+* Source code with basic MPI elements:
+* Source code in F90
 ```
 [username@login01 MPI]$ cat hello_mpi.f90 
 !  Fortran example  
@@ -1886,11 +1835,11 @@ int main(int argc, char** argv) {
 [1] Compile:
 
 #### MODULE ENV: updated 01/28/2020 (MPT)
-module purge
-module load slurm
-module load cpu
-module load gcc/10.2.0
-module load openmpi/4.0.4
+ module purge
+ module load slurm
+ module load cpu
+ module load gcc/10.2.0
+ module load openmpi/4.0.4
 
 mpif90 -o hello_mpi hello_mpi.f90
 
@@ -1958,11 +1907,11 @@ in order to run the code. The contents of the default batch script are:
 # This job runs with 3 nodes, and a total of 12 cores.
 ## Environment
 ### MODULE ENV: updated 01/28/2020 (MPT)
-module purge
-module load slurm
-module load cpu
-module load gcc/10.2.0
-module load openmpi/4.0.4
+ module purge
+ module load slurm
+ module load cpu
+ module load gcc/10.2.0
+ module load openmpi/4.0.4
 
 ## Use srun to run the job
 srun --mpi=pmi2 -n 12 --cpu-bind=rank ./hello_mpi
@@ -2083,39 +2032,6 @@ salloc: Nodes exp-9-[55-56] are ready for job
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### Calc_PI MPI <a name="calc-pi-mpi"></a>
-* cd to the *hpctr-examples/calc_pi* directory
-* Contains source code, batch script and a README.txt file
-
-```
-[mthomas@login01 calc_pi]$ ll
-total 107
-drwxr-xr-x  2 mthomas use300     9 Oct 11 01:35 .
-drwxr-xr-x 15 mthomas use300    18 Oct 11 01:26 ..
--rwxr-xr-x  1 mthomas use300 22440 Oct 11 01:34 pi_mpi
--rw-r--r--  1 mthomas use300   948 Oct 10 21:50 pi_mpi.c
--rw-r--r--  1 mthomas use300   492 Oct 11 01:34 pi-mpi.sb
--rw-r--r--  1 mthomas use300   234 Oct 11 01:33 README.txt
-```
-
-* To compile with the GNU C compiler, and to run this on 1 node with 24 cores, load the gcc/openmpi environment:
-
-```
-[mthomas@login01 calc_pi]$ module purge
-[mthomas@login01 calc_pi]$ module load slurm
-[mthomas@login01 calc_pi]$ module load cpu/0.15.4  
-[mthomas@login01 calc_pi]$ module load gcc/10.2.0
-[mthomas@login01 calc_pi]$ module load openmpi/4.0.4
-[mthomas@login01 calc_pi]$ mpicc -o pi_mpi pi_mpi.c
-[mthomas@login01 calc_pi]$ sbatch pi-mpi.sb
-Submitted batch job 25648221
-```
-
-### CalcPrime MPI <a name="calc-prime-mpi"></a>
-
-
-
-
 ### Hello World (OpenMP) <a name="hello-world-omp"></a>
 **Subsections:**
 * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
@@ -2154,9 +2070,11 @@ Submitted batch job 25648221
 ```
 module purge
 module load slurm
-module load cpu
+module load cpu/0.15.4
 module load aocc
-module list
+module load openmpi/4.0.4
+
+
 
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) cpu/0.15.4   3) aocc/2.2.0
@@ -2193,8 +2111,9 @@ flang -fopenmp -o hello_openmp hello_openmp.f90
 # AOCC environment
 module purge
 module load slurm
-module load cpu
+module load cpu/0.15.4
 module load aocc
+module load openmpi/4.0.4
 
 #SET the number of openmp threads
 export OMP_NUM_THREADS=16

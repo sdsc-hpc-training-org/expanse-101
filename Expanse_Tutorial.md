@@ -697,8 +697,6 @@ Currently Loaded Modules:
 
 
 ```
-module spider openmpi/4.1.1
--bash: $: command not found
 [username@login01 hpctr-examples]$ module spider openmpi/4.1.1
 
 ----------------------------------------------------------------------------
@@ -721,6 +719,7 @@ module spider openmpi/4.1.1
 
 ```
 * load the modules above
+  
 ```
 [username@login01 hpctr-examples]$ module load cpu/0.17.3b  gcc/10.2.0/npcyll4
 [username@login01 hpctr-examples]$ module list
@@ -753,7 +752,9 @@ Currently Loaded Modules:
 [username@login01 hpctr-examples]$ which mpicc
 /cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpicc
 ```
+
 * Notice the long and complicated file path. Try listing the contents of the directory will give you 45 directories. This is the motivation for Modules:
+
 ```
 [username@login01 hpctr-examples]$ ls -al /cm/shared/apps
 total 1
@@ -770,7 +771,7 @@ drwxr-xr-x  5 root root  3 Oct 19  2020 xsede
 
 ```
 * Display loaded module details:
-* 
+  
 ```
 [username@login01 hpctr-examples]$ module display openmpi/4.1.1/ygduf2r
 ----------------------------------------------------------------------------
@@ -780,8 +781,7 @@ whatis("Name : openmpi")
 whatis("Version : 4.1.1")
 whatis("Target : zen2")
 whatis("Short description : An open source Message Passing Interface implementation.")
-whatis("Configure options : --enable-shared --disable-silent-rules --disable-builtin-atomics --with-pmi=/cm/shared/apps/slurm/21.08.8 --enable-static --with-zlib=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/zlib-1.2.11-ws4iari52j2lphd52i7kd72yj37o32zt --enable-mca-no-build=plm-rsh --enable-mpi1-compatibility --without-cma --without-psm2 --without-fca --without-knem --without-verbs --without-hcoll --without-psm --with-ucx=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/ucx-1.10.1-dnpjjucppo5hjn4wln4bbekczzk7covs --without-xpmem --without-mxm --without-ofi --without-cray-xpmem --without-sge --without-tm --without-alps --without-lsf --without-loadleveler --with-slurm --disable-memchecker --with-lustre=/usr --with-pmix=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/pmix-3.2.1-dpvrfipkueh55vsqz2k6z2bmumrwy4s5 --with-libevent=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/libevent-2.1.8-bimlmtn2x74wxpfxjy6yioltrzjdmeio --with-hwloc=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/hwloc-2.6.0-7rqkdv4vgf63waqaftjer77mqpbwrrok --disable-java --disable-mpi-java --with-gpfs=no --without-sqlite3 --disable-mpi-thread-multiple --without-cuda --enable-wrapper-rpath --disable-wrapper-runpath --disable-mpi-cxx --disable-cxx-exceptions --with-wrapper-ldflags=-Wl,-rpath,/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen/gcc-8.5.0/gcc-10.2.0-npcyll4gxjhf4tejksmdzlsl3d3usqpd/lib/gcc/x86_64-pc-linux-gnu/10.2.0 -Wl,-rpath,/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen/gcc-8.5.0/gcc-10.2.0-npcyll4gxjhf4tejksmdzlsl3d3usqpd/lib64")
-help([[An open source Message Passing Interface implementation. The Open MPI
+[SNIP]
 Project is an open source Message Passing Interface implementation that
 is developed and maintained by a consortium of academic, research, and
 industry partners. Open MPI is therefore able to combine the expertise,
@@ -1052,9 +1052,11 @@ After logging in, go to the Manage User page for the account.
 ## <a name="job-charging"></a>Job Charging
 
 The basic charge unit for all SDSC machines, including Expanse, is the Service Unit (SU). This corresponds to:
-* Use of one compute core utilizing less than or equal to 2G of data for one hour
+* 1 CPU - use of one compute core utilizing less than or equal to 2G of data for one hour.
 * 1 GPU using less than 96G of data for 1 hour.
-Note: your charges are based on the resources that are tied up by your job and don't necessarily reflect how the resources are used. Charges are based on either the number of cores or the fraction of the memory requested, whichever is larger. The minimum charge for any job is 1 SU.
+* Shared resources - based on either the number of cores or the fraction of the memory requested, whichever is larger
+* Charges are based on  resources that are tied up by your job not how the resources are used. 
+* The minimum charge for any job is 1 SU.
 
 See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#charging) for more details and factors that affect job charging.
 

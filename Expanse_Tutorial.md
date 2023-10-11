@@ -448,7 +448,7 @@ Lmod commands support *short-hand* notation, for example:
 * Default environment for a new user/new login: `list`, `li`
 
 ```
-(base) [username@login01 expanse-101]$ module list
+[username@login01 expanse-101]$ module list
 Currently Loaded Modules:
 1) shared   2) slurm/expanse/20.02.3   3) cpu/0.15.4   4) DefaultModules
 ```
@@ -458,7 +458,7 @@ Currently Loaded Modules:
 ```
 $ module av
 [username@expanse-ln3:~] module av
-(base) [username@login01 expanse-101]$ module available
+[username@login01 expanse-101]$ module available
 
 --------------- /cm/shared/apps/spack/cpu/lmod/linux-centos8-x86_64/Core ----------------
    abaqus/2018     gaussian/16.C.01        gmp/6.1.2           mpfr/4.0.2
@@ -500,8 +500,8 @@ See https://lmod.readthedocs.io/en/latest/060_locating.html for details.
 Use ```module spider``` to find all possible modules and extensions.
 
 ```
-(base) [username@login02 ~]$ module spider MPI
-[mthomas@login01 hpctr-examples]$ module spider MPI
+[username@login02 ~]$ module spider MPI
+[username@login01 hpctr-examples]$ module spider MPI
 
 ----------------------------------------------------------------------------
   intel-mpi: intel-mpi/2019.8.254
@@ -675,7 +675,7 @@ In this example, we will add the Slurm library, and and verify that it is in you
 * Note: the module environment can change, depending on when different libraries are updated.
 
 ```
-(base) [username@login01 ~]$ module li
+[username@login01 ~]$ module li
 
 Currently Loaded Modules:
   1) shared            3) slurm/expanse/21.08.8   5) DefaultModules
@@ -689,83 +689,166 @@ Currently Loaded Modules:
 
 
 ```
-(base) [username@login01 ~]$ which mpicc
+[username@login01 ~]$ which mpicc
 /usr/bin/which: no mpicc in (/cm/shared/apps/sdsc/1.0/bin:/cm/shared/apps/sdsc/1.0/sbin:/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
 ```
 
-* Since Slurm commands do not exist,  we need to load that module:
+* Since MPI commands do not appear in our environment, we need to load that module:
 
 
 ```
-(base) [username@login01 ~]$ module load slurm
-(base) [username@login01 ~]$ which squeue
-/cm/shared/apps/Slurm/current/bin/squeue
-```
+module spider openmpi/4.1.1
+-bash: $: command not found
+[username@login01 hpctr-examples]$ module spider openmpi/4.1.1
 
+----------------------------------------------------------------------------
+  openmpi/4.1.1: openmpi/4.1.1/ygduf2r
+----------------------------------------------------------------------------
+
+    You will need to load all module(s) on any one of the lines below before the "openmpi/4.1.1/ygduf2r" module is available to load.
+
+      cpu/0.17.3b  gcc/10.2.0/npcyll4
+ 
+    Help:
+      An open source Message Passing Interface implementation. The Open MPI
+      Project is an open source Message Passing Interface implementation that
+      is developed and maintained by a consortium of academic, research, and
+      industry partners. Open MPI is therefore able to combine the expertise,
+      technologies, and resources from all across the High Performance
+      Computing community in order to build the best MPI library available.
+      Open MPI offers advantages for system and software vendors, application
+      developers and computer science researchers.
+
+```
+* load the modules above
+```
+[username@login01 hpctr-examples]$ module load cpu/0.17.3b  gcc/10.2.0/npcyll4
+[username@login01 hpctr-examples]$ module list
+
+Currently Loaded Modules:
+  1) shared                  3) sdsc/1.0         5) cpu/0.17.3b        (c)
+  2) slurm/expanse/21.08.8   4) DefaultModules   6) gcc/10.2.0/npcyll4
+
+  Where:
+   c:  built natively for AMD Rome
+
+ 
+
+[username@login01 hpctr-examples]$ which mpicc
+/usr/bin/which: no mpicc in (/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen/gcc-8.5.0/gcc-10.2.0-npcyll4gxjhf4tejksmdzlsl3d3usqpd/bin:/cm/shared/apps/sdsc/1.0/bin:/cm/shared/apps/sdsc/1.0/sbin:/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
+[username@login01 hpctr-examples]$ module load openmpi/4.1.1
+[username@login01 hpctr-examples]$ module list
+
+Currently Loaded Modules:
+  1) shared                  5) cpu/0.17.3b           (c)
+  2) slurm/expanse/21.08.8   6) gcc/10.2.0/npcyll4
+  3) sdsc/1.0                7) ucx/1.10.1/dnpjjuc
+  4) DefaultModules          8) openmpi/4.1.1/ygduf2r
+
+  Where:
+   c:  built natively for AMD Rome
+
+ 
+
+[username@login01 hpctr-examples]$ which mpicc
+/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpicc
+```
+* Notice the long and complicated file path. Try listing the contents of the directory will give you 45 directories. This is the motivation for Modules:
+```
+[username@login01 hpctr-examples]$ ls -al /cm/shared/apps
+total 1
+drwxr-xr-x 43 root root 42 Apr 14 09:22 .
+drwxr-xr-x  8 root root  7 May  5  2022 ..
+drwxr-xr-x  4 root root  2 Aug 18  2022 access
+drwxr-xr-x  9 root root  8 Jun  1  2021 AMDuProf_3.4.475
+drwxr-xr-x  3 root root  1 Aug 26  2020 blacs
+drwxr-xr-x  3 root root  1 Aug 26  2020 blas
+[SNIP]
+drwxr-xr-x  3 root root  1 Jun 21  2022 uge
+drwxr-xr-x  3 root root  1 Jul 31  2021 vis
+drwxr-xr-x  5 root root  3 Oct 19  2020 xsede
+
+```
 * Display loaded module details:
-
-
+* 
 ```
-(base) [username@login02 ~]$ module display Slurm
--------------------------------------------------------------------------------------
-   /cm/local/modulefiles/slurm/expanse/20.02.3:
--------------------------------------------------------------------------------------
-whatis("Adds Slurm to your environment ")
-setenv("CMD_WLM_CLUSTER_NAME","expanse")
-setenv("Slurm_CONF","/cm/shared/apps/Slurm/var/etc/expanse/Slurm.conf")
-prepend_path("PATH","/cm/shared/apps/Slurm/current/bin")
-prepend_path("PATH","/cm/shared/apps/Slurm/current/sbin")
-prepend_path("MANPATH","/cm/shared/apps/Slurm/current/man")
-prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64")
-prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64/Slurm")
-prepend_path("LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64")
-prepend_path("LIBRARY_PATH","/cm/shared/apps/Slurm/current/lib64/Slurm")
-prepend_path("CPATH","/cm/shared/apps/Slurm/current/include")
-help([[ Adds Slurm to your environment
-]])
+[username@login01 hpctr-examples]$ module display openmpi/4.1.1/ygduf2r
+----------------------------------------------------------------------------
+   /cm/shared/apps/spack/0.17.3/cpu/b/share/spack/lmod/linux-rocky8-x86_64/gcc/10.2.0/openmpi/4.1.1/ygduf2r.lua:
+----------------------------------------------------------------------------
+whatis("Name : openmpi")
+whatis("Version : 4.1.1")
+whatis("Target : zen2")
+whatis("Short description : An open source Message Passing Interface implementation.")
+whatis("Configure options : --enable-shared --disable-silent-rules --disable-builtin-atomics --with-pmi=/cm/shared/apps/slurm/21.08.8 --enable-static --with-zlib=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/zlib-1.2.11-ws4iari52j2lphd52i7kd72yj37o32zt --enable-mca-no-build=plm-rsh --enable-mpi1-compatibility --without-cma --without-psm2 --without-fca --without-knem --without-verbs --without-hcoll --without-psm --with-ucx=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/ucx-1.10.1-dnpjjucppo5hjn4wln4bbekczzk7covs --without-xpmem --without-mxm --without-ofi --without-cray-xpmem --without-sge --without-tm --without-alps --without-lsf --without-loadleveler --with-slurm --disable-memchecker --with-lustre=/usr --with-pmix=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/pmix-3.2.1-dpvrfipkueh55vsqz2k6z2bmumrwy4s5 --with-libevent=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/libevent-2.1.8-bimlmtn2x74wxpfxjy6yioltrzjdmeio --with-hwloc=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/hwloc-2.6.0-7rqkdv4vgf63waqaftjer77mqpbwrrok --disable-java --disable-mpi-java --with-gpfs=no --without-sqlite3 --disable-mpi-thread-multiple --without-cuda --enable-wrapper-rpath --disable-wrapper-runpath --disable-mpi-cxx --disable-cxx-exceptions --with-wrapper-ldflags=-Wl,-rpath,/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen/gcc-8.5.0/gcc-10.2.0-npcyll4gxjhf4tejksmdzlsl3d3usqpd/lib/gcc/x86_64-pc-linux-gnu/10.2.0 -Wl,-rpath,/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen/gcc-8.5.0/gcc-10.2.0-npcyll4gxjhf4tejksmdzlsl3d3usqpd/lib64")
+help([[An open source Message Passing Interface implementation. The Open MPI
+Project is an open source Message Passing Interface implementation that
+is developed and maintained by a consortium of academic, research, and
+industry partners. Open MPI is therefore able to combine the expertise,
+technologies, and resources from all across the High Performance
+Computing community in order to build the best MPI library available.
+Open MPI offers advantages for system and software vendors, application
+developers and computer science researchers.]])
+family("mpi")
+prepend_path("MODULEPATH","/cm/shared/apps/spack/0.17.3/cpu/b/share/spack/lmod/linux-rocky8-x86_64/openmpi/4.1.1-ygduf2r/gcc/10.2.0")
+setenv("LMOD_MPI_NAME","openmpi")
+setenv("LMOD_MPI_VERSION","4.1.1-ygduf2r")
+prepend_path("LD_LIBRARY_PATH","/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/lib")
+prepend_path("PATH","/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin")
+prepend_path("MANPATH","/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/share/man")
+prepend_path("PKG_CONFIG_PATH","/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/lib/pkgconfig")
+prepend_path("CMAKE_PREFIX_PATH","/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/")
+setenv("MPICC","/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpicc")
+setenv("MPICXX","/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpic++")
+setenv("MPIF77","/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpif77")
+setenv("MPIF90","/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpif90")
+setenv("OPENMPIHOME","/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv")
+
+
 ```
 
 Once you have loaded the modules, you can check the system variables that are available for you to use.
-* To see all variable, run the <b>`env`</b> command. Typically, you will see more than 60 lines containing information such as your login name, shell, your home directory:
+* To see all variable, run the <b>`env`</b> command. For the environment that we created, the command below produced 107 lines containing information such as your login name, shell, your home directory, and paths to the different libraries and modules that you have loaded:
 
 
 ```
-[username@expanse-ln3 IBRUN]$ env
-CONDA_EXE=/home/user/miniconda3/bin/conda
-__LMOD_REF_COUNT_PATH=/cm/shared/apps/Slurm/current/sbin:1;/cm/shared/apps/Slurm/current/bin:1;/home/user/miniconda3/bin/conda:1;/home/user/miniconda3/bin:1;/home/user/miniconda3/condabin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/dell/srvadmin/bin:1;/home/user/.local/bin:1;/home/user/bin:1
-HOSTNAME=login02
-USER=user
-HOME=/home/user
-CONDA_PYTHON_EXE=/home/user/miniconda3/bin/python
-BASH_ENV=/usr/share/lmod/lmod/init/bash
-BASHRC_READ=1
-LIBRARY_PATH=/cm/shared/apps/Slurm/current/lib64/Slurm:/cm/shared/apps/Slurm/current/lib64
-Slurm_CONF=/cm/shared/apps/Slurm/var/etc/expanse/Slurm.conf
-LOADEDMODULES=shared:cpu/1.0:DefaultModules:slurm/expanse/20.02.3
-__LMOD_REF_COUNT_MANPATH=/cm/shared/apps/Slurm/current/man:1;/usr/share/lmod/lmod/share/man:1;/usr/local/. . . .
-MANPATH=/cm/shared/apps/Slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
-MODULEPATH=/cm/shared/apps/spack/cpu/lmod/linux-centos8-x86_64/Core:/cm/local/modulefiles:/etc/modulefiles:/usr/share/modulefiles:/usr/share/Modules/modulefiles:/cm/shared/modulefiles
-MODULEPATH_ROOT=/usr/share/modulefiles
-PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
-_LMFILES_=/cm/local/modulefiles/shared:/cm/local/modulefiles/cpu/1.0.lua:/usr/share/modulefiles/DefaultModules.lua:/cm/local/modulefiles/slurm/expanse/20.02.3
-MODULESHOME=/usr/share/lmod/lmod
-CONDA_DEFAULT_ENV=base
+[username@login01 hpctr-examples]$ env
+LS_COLORS=rs=0:di=38;5;33:ln=38;5;51:mh=00:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=01;05;37;41:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:[SNIP]
+__LMOD_REF_COUNT_PATH=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin:1;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/ucx-1.10.1-dnpjjucppo5hjn4wln4bbekczzk7covs/bin:1;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen/gcc-8.5.0/gcc-10.2.0-npcyll4gxjhf4tejksmdzlsl3d3usqpd/bin:1;/cm/shared/apps/sdsc/1.0/bin:1;/cm/shared/apps/sdsc/1.0/sbin:1;/cm/shared/apps/slurm/current/sbin:1;/cm/shared/apps/slurm/current/bin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1
+[SNIP]
+MPICXX=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpic++
+[SNIP]
+PWD=/home/username/hpc-onboard/hpctr-examples
+ENABLE_LMOD=1
+HOME=/home/username
+[SNIP]
+__LMOD_REF_COUNT_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib64/slurm:1;/cm/shared/apps/slurm/current/lib64:1
+OPENMPIHOME=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv
+LIBRARY_PATH=/cm/shared/apps/slurm/current/lib64/slurm:/cm/shared/apps/slurm/current/lib64
+[SNIP]
+MPIF77=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpif77
+SDSC_SBIN=/cm/shared/apps/sdsc/1.0/sbin
+
+[SNIP]
+LMOD_FAMILY_MPI=openmpi/4.1.1
+BASH_FUNC_which%%=() {  ( alias;
+ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+}
+BASH_FUNC_module%%=() {  eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+BASH_FUNC_ml%%=() {  eval $($LMOD_DIR/ml_cmd "$@")
+}
+_=/usr/bin/env
+[username@login01 hpctr-examples]$
+
+
 ```
 
 To see the value for any of these variables, use the `echo` command. In this example we show how to activate your miniconda environment so you can run Jupyter Notebooks:
 
 ```
-(base) [username@login02 ~]$ echo $CONDA_PYTHON_EXE
-[username@login02 ~]$
-[username@login02 ~]$ conda activate
--bash: conda: command not found
-[username@login02 ~]$ . /home/$USER/miniconda3/etc/profile.d/conda.sh
-[username@login02 ~]$ conda activate
-(base) [username@login02 ~]$ which jupyter
-~/miniconda3/bin/jupyter
-(base) [username@login02 ~]$ echo $CONDA_PYTHON_EXE
-/home/user/miniconda3/bin/python
-(base) [username@login02 ~]$
+[username@login01 hpctr-examples]$ echo $LMOD_FAMILY_MPI
+openmpi/4.1.1
 ```
 
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
@@ -820,12 +903,12 @@ module load hdf5
 * Next LOGOUT and LOG BACK IN:
 
 ```
-(base) [username@login02 ~]$ env | grep Slurm
+[username@login02 ~]$ env | grep Slurm
 [snip]
 MANPATH=/cm/shared/apps/Slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
 PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
 [snip]
-(base) [username@login02 ~]$ which squeue
+[username@login02 ~]$ which squeue
 /cm/shared/apps/Slurm/current/bin/squeue
 ```
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]

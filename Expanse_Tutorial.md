@@ -494,17 +494,20 @@ $ module av
 
 ```
 
-*Note:* Module defaults are chosen based on Find First Rules due to Name/Version/Version modules found in the module tree.
+*Note:* Module defaults are chosen based on *Find First Rules* due to Name/Version/Version modules found in the module tree.
 See https://lmod.readthedocs.io/en/latest/060_locating.html for details.
 
 Use ```module spider``` to find all possible modules and extensions.
 
 ```
 (base) [username@login02 ~]$ module spider MPI
--------------------------------------------------------------------------------------
+[mthomas@login01 hpctr-examples]$ module spider MPI
+
+----------------------------------------------------------------------------
   intel-mpi: intel-mpi/2019.8.254
--------------------------------------------------------------------------------------
-    You will need to load the set of module(s) on any one of the lines below before the "intel-mpi/2019.8.254" module is available to load.
+----------------------------------------------------------------------------
+
+    You will need to load all module(s) on any one of the lines below before the "intel-mpi/2019.8.254" module is available to load.
 
       cpu/0.15.4  gcc/10.2.0
       cpu/0.15.4  gcc/9.2.0
@@ -513,29 +516,154 @@ Use ```module spider``` to find all possible modules and extensions.
       gpu/0.15.4  intel/17.0.7
       gpu/0.15.4  intel/19.0.5.281
       gpu/0.15.4  pgi/20.4
-
+ 
     Help:
       Intel MPI
--------------------------------------------------------------------------------------
-  openmpi:
--------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------
+  intel-mpi/2019.10.317:
+----------------------------------------------------------------------------
      Versions:
+        intel-mpi/2019.10.317/ezrfjne
+        intel-mpi/2019.10.317/jhyxn2g
+        intel-mpi/2019.10.317/kdx4qap
+        intel-mpi/2019.10.317/uwgziob
+
+----------------------------------------------------------------------------
+  For detailed information about a specific "intel-mpi/2019.10.317" package (including how to load the modules) use the module's full name. Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider intel-mpi/2019.10.317/uwgziob
+----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
+  mpip: mpip/3.4.1
+----------------------------------------------------------------------------
+
+    You will need to load all module(s) on any one of the lines below before the "mpip/3.4.1" module is available to load.
+
+      cpu/0.15.4  gcc/10.2.0  openmpi/4.0.4
+      cpu/0.15.4  gcc/10.2.0  openmpi/4.0.4-openib
+ 
+    Help:
+      mpiP: Lightweight, Scalable MPI Profiling
+----------------------------------------------------------------------------
+  mpip/3.5:
+----------------------------------------------------------------------------
+     Versions:
+        mpip/3.5/aowedam
+        mpip/3.5/blkwu65
+        mpip/3.5/mjhw2bi
+        mpip/3.5/o2hhyev
+        mpip/3.5/owpz5hl
+        mpip/3.5/plw5vw6
+        mpip/3.5/useousx
+        mpip/3.5/w64qya2
+        mpip/3.5/x4p5f6i
+        mpip/3.5/3g6o4ug
+        mpip/3.5/7nngdrh
+
+----------------------------------------------------------------------------
+  For detailed information about a specific "mpip/3.5" package (including how to load the modules) use the module's full name. Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider mpip/3.5/7nngdrh
+----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
+  openmpi:
+----------------------------------------------------------------------------
+     Versions:
+        openmpi/3.1.6-cxx
+        openmpi/3.1.6-threads
         openmpi/3.1.6
         openmpi/4.0.4-nocuda
+        openmpi/4.0.4-openib
         openmpi/4.0.4
--------------------------------------------------------------------------------------
+        openmpi/4.0.5
+        openmpi/4.1.1
+
+----------------------------------------------------------------------------
   For detailed information about a specific "openmpi" package (including how to load the modules) use the module's full name. Note that names that have a trailing (E) are extensions provided by other modules.
   For example:
 
-     $ module spider openmpi/4.0.4
--------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------
-  openmpi/gcc/64: openmpi/gcc/64/1.10.7
--------------------------------------------------------------------------------------
-    You will need to load all module(s) on any one of the lines below before the "openmpi/gcc/64/1.10.7" module is available to load.
-      shared
+     $ module spider openmpi/4.1.1
+----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
+  openmpi/4.1.1: openmpi/4.1.1/ygduf2r
+----------------------------------------------------------------------------
+
+    You will need to load all module(s) on any one of the lines below before the "openmpi/4.1.1/ygduf2r" module is available to load.
+
+      cpu/0.17.3b  gcc/10.2.0/npcyll4
+ 
     Help:
-        Adds OpenMPI to your environment variables,      
+      An open source Message Passing Interface implementation. The Open MPI
+      Project is an open source Message Passing Interface implementation that
+      is developed and maintained by a consortium of academic, research, and
+      industry partners. Open MPI is therefore able to combine the expertise,
+      technologies, and resources from all across the High Performance
+      Computing community in order to build the best MPI library available.
+      Open MPI offers advantages for system and software vendors, application
+      developers and computer science researchers.
+  ----------------------------------------------------------------------------
+  openmpi/4.1.3:
+----------------------------------------------------------------------------
+     Versions:
+        openmpi/4.1.3/gzzscfu
+        openmpi/4.1.3/luhyajc
+        openmpi/4.1.3/oq3qvsv
+        openmpi/4.1.3/u2lt4pl
+        openmpi/4.1.3/v2ei3ge
+        openmpi/4.1.3/xigazqd
+
+----------------------------------------------------------------------------
+  For detailed information about a specific "openmpi/4.1.3" package (including how to load the modules) use the module's full name. Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider openmpi/4.1.3/xigazqd
+----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
+  openmpi/mlnx/gcc/64: openmpi/mlnx/gcc/64/4.1.5a1
+----------------------------------------------------------------------------
+
+    This module can be loaded directly: module load openmpi/mlnx/gcc/64/4.1.5a1
+
+    Help:
+        Adds OpenMPI to your environment variables,
+----------------------------------------------------------------------------
+  py-mpi4py: py-mpi4py/3.0.3
+----------------------------------------------------------------------------
+    You will need to load all module(s) on any one of the lines below before the "py-mpi4py/3.0.3" module is available to load.
+
+      cpu/0.15.4  gcc/10.2.0  mvapich2/2.3.6
+      cpu/0.15.4  gcc/10.2.0  openmpi/4.0.4
+      cpu/0.15.4  gcc/10.2.0  openmpi/4.0.4-openib
+      gpu/0.15.4  openmpi/4.0.4
+ 
+    Help:
+      This package provides Python bindings for the Message Passing Interface
+      (MPI) standard. It is implemented on top of the MPI-1/MPI-2
+      specification and exposes an API which grounds on the standard MPI-2 C++
+      bindings.
+----------------------------------------------------------------------------
+  py-mpi4py/3.1.2:
+----------------------------------------------------------------------------
+     Versions:
+        py-mpi4py/3.1.2/cllp7nt
+        py-mpi4py/3.1.2/kas2whp
+        py-mpi4py/3.1.2/silsqln
+        py-mpi4py/3.1.2/3lfjrdm
+        py-mpi4py/3.1.2/7ebfcgr
+----------------------------------------------------------------------------
+  For detailed information about a specific "py-mpi4py/3.1.2" package (including how to load the modules) use the module's full name. Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider py-mpi4py/3.1.2/7ebfcgr
+----------------------------------------------------------------------------     
 ```
 
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]

@@ -75,7 +75,8 @@ Consulting group at consult@sdsc.edu.
         * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
         * [Hello World (MPI): Batch Script Output](#hello-world-mpi-batch-output)
         * [Hello World (MPI): Interactive Jobs](#hello-world-mpi-interactive)
-   * [Calc_PI MPI](#calc-prime-mpi")
+   * [Calc_PI MPI](#calc-pi-mpi)
+   * [Calc_Prime MPI](#calc-prime-mpi)
    * [Hello World (OpenMP)](#hello-world-omp)
         * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
         * [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
@@ -2082,9 +2083,7 @@ salloc: Nodes exp-9-[55-56] are ready for job
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
 
-### CalcPrime MPI <a name="calc-prime-mpi"></a>
-
-### Calc_PI MPI <a name="calc-prime-mpi"></a>
+### Calc_PI MPI <a name="calc-pi-mpi"></a>
 * cd to the *hpctr-examples/calc_pi* directory
 * Contains source code, batch script and a README.txt file
 
@@ -2110,7 +2109,9 @@ drwxr-xr-x 15 mthomas use300    18 Oct 11 01:26 ..
 [mthomas@login01 calc_pi]$ mpicc -o pi_mpi pi_mpi.c
 [mthomas@login01 calc_pi]$ sbatch pi-mpi.sb
 Submitted batch job 25648221
+```
 
+### CalcPrime MPI <a name="calc-prime-mpi"></a>
 
 
 

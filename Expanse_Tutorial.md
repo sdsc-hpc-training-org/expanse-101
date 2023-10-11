@@ -2353,8 +2353,9 @@ Hello from thread 15 out of 16 from process 0 out of 2 on exp-10-07
 #Environment for the CUDA Compiler
 module purge
 module load slurm
-module load gpu
-module load cuda
+module load gpu/0.15.4
+module load gcc/7.2.0
+module load cuda/11.0.2
 ```
 * Notes:
   * NVIDIA compiler command is *nvcc*
@@ -2376,8 +2377,8 @@ module load cuda
 #Environment for the PGI Compiler
 module purge
 module load slurm
-module load gpu
-module load pgi
+module load gpu/0.15.4
+module load pgi/20.4
 ```
 
 [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
@@ -2387,14 +2388,14 @@ module load pgi
 * Interactive GPU node:
 
 ```
-[username@login01 OpenACC]$srun --partition=gpu-debug --pty --account=<<project>> --ntasks-per-node=10 \
-    --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+[username@login01 OpenACC]$srun --partition=gpu-debug --pty --account=use300 --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
 srun: job 1089081 queued and waiting for resources
 srun: job 1089081 has been allocated resources
 [username@exp-7-59 OpenACC]$
 
 ```
 
+* You can tell you are on an interactive compute node because the node name has changed from "login01" to "exp-7-59"
 
 #### Obtaining GPU/CUDA: Node Information
 
@@ -2402,14 +2403,18 @@ srun: job 1089081 has been allocated resources
 
 ```
 [username@exp-7-59 OpenACC]$
-[username@exp-7-59 OpenACC]$ module purge
-[username@exp-7-59 OpenACC]$ module load slurm
-[username@exp-7-59 OpenACC]$ module load gpu
-[username@exp-7-59 OpenACC]$ module load pgi
-[username@exp-7-59 OpenACC]$ module list
+[mthomas@exp-7-59 ~]$ module purge
+[mthomas@exp-7-59 ~]$ module load slurm
+[mthomas@exp-7-59 ~]$ module load gpu/0.15.4
+[mthomas@exp-7-59 ~]$ module load gcc/7.2.0
+[mthomas@exp-7-59 ~]$ module load cuda/11.0.2
+[mthomas@exp-7-59 ~]$ module list
 
 Currently Loaded Modules:
-  1) slurm/expanse/20.02.3   2) gpu/0.15.4   3) pgi/20.4
+  1) slurm/expanse/21.08.8   2) gpu/0.15.4 (g)   3) gcc/7.2.0   4) cuda/11.0.2
+
+  Where:
+   g:  built natively for Intel Skylake
 
 ```
 
@@ -2417,20 +2422,20 @@ Currently Loaded Modules:
 
 ```
 
-[username@exp-7-59 OpenACC]$ nvidia-smi
-Fri Jan 29 12:33:25 2021       
+[mthomas@exp-7-59 ~]$ nvidia-smi
+Wed Oct 11 04:10:33 2023       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 450.51.05    Driver Version: 450.51.05    CUDA Version: 11.0     |
+| NVIDIA-SMI 525.85.12    Driver Version: 525.85.12    CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  Tesla V100-SXM2...  On   | 00000000:18:00.0 Off |                    0 |
-| N/A   32C    P0    41W / 300W |      0MiB / 32510MiB |      0%      Default |
+| N/A   34C    P0    41W / 300W |      0MiB / 32768MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-
+                                                                               
 +-----------------------------------------------------------------------------+
 | Processes:                                                                  |
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |

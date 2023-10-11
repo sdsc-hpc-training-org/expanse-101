@@ -44,6 +44,7 @@ Consulting group at consult@sdsc.edu.
    * [Modules: Popular Lmod Commands](#module-commands)
    * [Load and Check Modules and Environment](#load-and-check-module-env)
    * [Loading Modules During Login](#module-login-load)
+   * [Saving Module Schemes](#module-schemes)
    * [Troubleshooting](#module-troubleshoot)
 * [Managing Accounts](#managing-accounts)
    * [Expanse Client Script](#manage-accts-client-script)
@@ -378,6 +379,7 @@ In this Section:
 * [Popular Lmod Commands](module-commands)
 * [Load and Check Modules and Environment](#load-and-check-module-env)
 * [Loading Modules During Login](#module-login-load)
+* [Saving Module Schemes](#module-schemes)
 * [Troubleshooting](#module-troubleshoot)
 
 <!----
@@ -914,30 +916,45 @@ PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
+### [Saving Module Schemes]]<a name="module-schemes"></a>
+* Lmod allows a you to save a bundle of modules as a collection using module save <collection_name> and module restore <collection_name>.
+* This enables you to quickly get the same list of modules loaded if you tend to use the same modules over and over.
+* With a new module scheme comes a different system MODULEPATH.
+
+```
+[mthomas@login01 hpctr-examples]$ module save tutorial-openmpi-list
+Saved current collection of modules to: "tutorial-openmpi-list"
+```
+* To see what is saved:
+
+```
+[mthomas@login01 hpctr-examples]$ module savelist
+Named collection list :
+  1) tutorial-openmpi-list
+```
 
 
 ### [Troubleshooting]<a name="module-troubleshoot"></a>
 
 #### Troubleshooting: Lmod warning “rebuild your saved collection”<a name="lmod-warn-rebuild"></a>
-Lmod allows a user to save a bundle of modules as a collection using module save <collection_name> and module restore <collection_name>. This enables you to quickly get the same list of modules loaded if you tend to use the same modules over and over. With a new module scheme came a different system MODULEPATH. For this reason, if you have some module collections saved, you will experience the following warning: “Lmod Warning: The system MODULEPATH has changed: please rebuild your saved collection.” To solve this you need to remove your old collections and create them again.
+* With each new module scheme comes a different system MODULEPATH. For this reason, if you have some module collections saved, you may experience the following warning: “Lmod Warning: The system MODULEPATH has changed: please rebuild your saved collection.” To solve this you need to remove your old collections and create them again.
 
 * Too see the list of module collections that you currently have:
 
 ```
-[username@login02 ~]$ module savelist
+[mthomas@login01 hpctr-examples]$ module savelist
 Named collection list :
-  1) default  2) hdf5_env
+  1) tutorial-openmpi-list
 
 ```
 
 * To remove or disable a saved collection:
 
 ```
-[username@login02 ~]$ module disable hdf5_env
-Disabling hdf5_env collection by renaming with a "~"
+[username@login02 ~]$ module disable tutorial-openmpi-list
+Disabling tutorial-openmpi-list collection by renaming with a "~"
 [username@login02 ~]$ module savelist
-Named collection list :
-  1) default
+No named collections.
 [username@login02 ~]$
 ```
 

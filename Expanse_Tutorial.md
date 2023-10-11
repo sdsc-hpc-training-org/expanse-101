@@ -2716,11 +2716,35 @@ int main(void){
 [username@exp-7-59 addition]$ module load slurm
 [username@exp-7-59 addition]$ module load gpu
 [username@exp-7-59 addition]$ module load cuda
-[username@exp-7-59 addition]$ nvcc -o vector_add_gpu.cu
-nvcc fatal   : No input files specified; use option --help for more information
 [username@exp-7-59 addition]$ nvcc -o vector_add_gpu vector_add_gpu.cu
+[username@exp-7-59 addition]$ exit
+```
 
-[username@exp-7-59 addition]$ ./vector_add_gpu
+
+
+[ [Back to Vector Addition](#vec-add-cuda-gpu) ] [ [Back to Top](#top) ]
+<hr>
+
+#### Vector Addition (GPU-CUDA): Batch Script Submission <a name="vec-add-cuda-batch-submit"></a>
+
+* Once you are done compiling, exit the GPU node, and submit the batchscript:
+
+[mthomas@login01 addition]$ sbatch vector_add_gpu.sb 
+Submitted batch job 25649417
+[mthomas@login01 addition]$ squeue -u mthomas
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          25649417 gpu-share vector_a  mthomas  R       0:00      1 exp-14-60
+
+
+
+[ [Back to Vector Addition](#vec-add-cuda-gpu) ] [ [Back to Top](#top) ]
+<hr>
+
+#### Vector Addition (GPU-CUDA): Batch Script Output <a name="vec-add-cuda-batch-output"></a>
+
+
+  ```
+[mthomas@login01 addition]$ cat vector_add_gpu.25649417.exp-14-60.out
 
 Launching vector addition kernel...
 Vector length     = 1044480
@@ -2728,18 +2752,11 @@ Blocks            = 2040
 Threads per block = 512
 Kernel copies     = 1044480
 
-Success! All elements match.
+ Success! All elements match.
+
+[mthomas@login01 addition]$ 
 ```
 
-[ [Back to Vector Addition](#vec-add-cuda-gpu) ] [ [Back to Top](#top) ]
-<hr>
-
-#### Vector Addition (GPU-CUDA): Batch Script Submission <a name="vec-add-cuda-batch-submit"></a>
-
-[ [Back to Vector Addition](#vec-add-cuda-gpu) ] [ [Back to Top](#top) ]
-<hr>
-
-#### Vector Addition (GPU-CUDA): Batch Script Output <a name="vec-add-cuda-batch-output"></a>
 
 [ [Back to Vector Addition](#vec-add-cuda-gpu) ] [ [Back to Top](#top) ]
 <hr>

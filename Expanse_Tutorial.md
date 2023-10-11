@@ -11,7 +11,7 @@ where to run them, and how to run batch jobs. The commands below can be
 cut & pasted into the terminal window, when it is connected to
 expanse.sdsc.edu.
 
-## IMPORTANT ANNOUNCEMENT:
+## NOTE:
 *In August of 2022, the NSF ACCESS program was launched.
 ACCESS is designed to replace the XSEDE project. For more information, see: https://access-ci.org*
 
@@ -286,15 +286,15 @@ login01
 <hr>
 
 ### Obtaining Tutorial Example Code<a name="geting-started-example-code"></a>
-We will clone the example code from GitHub repository located here:
-https://github.com/sdsc-hpc-training-org/hpctr-examples
+We will clone the example code from GitHub repository using anonymous HTTPS downloads from GitHub. 
+https://github.com/sdsc-hpc-training-org/hpctr-examples.git
 
-The example below will be for anonymous HTTPS downloads from GitHub. Note that GitHub has increased it's security requirements, and you may have to deal with that. See: https://docs.github.com/en/authentication
+Note that GitHub has increased it's security requirements, and you may have to deal with that. See: https://docs.github.com/en/authentication
 
 * Create a test directory hold the expanse example files (optional):
 
 ```
-[username@login01 ~]$ git clone git@github.com:sdsc-hpc-training-org/hpctr-examples.git
+[username@login01 ~]$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
 Cloning into 'hpctr-examples'...
 Warning: untrusted X11 forwarding setup failed: xauth key data not generated
 remote: Enumerating objects: 352, done.
@@ -344,7 +344,7 @@ drwxr-xr-x 2 user abc123   6 Jan 28 22:39 OpenACC
 drwxr-xr-x 2 user abc123   6 Jan 28 22:39 OPENMP
 
 ```
-All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse.
+All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse. Optionally, you can clone the tutorial as well:   https://github.com/sdsc-hpc-training-org/expanse-101.git
 
 [ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
 <hr>
@@ -439,7 +439,7 @@ Lmod commands support *short-hand* notation, for example:
    ml foo == module load foo
    ml -bar”  == module unload bar
 ```
-*SDSC Guidance:   add module calls to your environment and batch scripts*
+*SDSC Guidance:   `add module calls to your environment and batch scripts`*
 
 
 

@@ -1115,7 +1115,7 @@ In this tutorial, we include several hands-on examples that cover many of the ca
 
 * MPI
 * OpenMP
-* HYBRID
+* Hybrid
 * GPU
 * Local scratch
 
@@ -1148,11 +1148,20 @@ Suggested Compilers to used based on programming model and languages:
 
 * If you have modified your environment, you can reload by executing the module purge & load commands at the Linux prompt, or placing the load command in your startup file (~/.cshrc or ~/.bashrc)
 
-In this example, we show how to reload your environment and how to use the ```swap``` command.
+In this example, we show how to reload your environment and how to use the ```swap``` command. In this example, we were using the intel compilers. We'll load the following:
+
+```
+module purge
+module load slurm
+module load cpu/0.15.4
+module load gcc
+module load openmpi/4.0.4
+```
+* and use them to reset the environment
 ```
 [username@login02 ~]$ module list
 Currently Loaded Modules:
-  1) shared   2) cpu/1.0   3) DefaultModules   4) hdf5/1.10.1   5) intel/ 19.1.1.217
+  1) shared   2) cpu/1.0   3) DefaultModules   4) intel/ 19.1.1.217
 ## need to change multiple modules
 [username@login02 ~]$ module purge
 [username@login02 ~]$ module list
@@ -1163,7 +1172,7 @@ No modules loaded
 [username@login02 ~]$ module load openmpi/4.0.4
 [username@login02 ~]$ module list
 Currently Loaded Modules:
-  1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
+  1) slurm/expanse/21.08.8   2) cpu/0.15.4   3) gcc/10.2.0   4) openmpi/4.0.4
 [username@login02 MPI]$ module swap gcc aocc
 Due to MODULEPATH changes, the following have been reloaded:
   1) openmpi/4.0.4
@@ -1171,6 +1180,35 @@ Due to MODULEPATH changes, the following have been reloaded:
 Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) cpu/1.0   3) aocc/2.2.0   4) openmpi/4.0.4
 [username@login02 ~]$ 
+```
+* compile serial code example:
+
+```
+[mthomas@login01 simple]$ cat hello-serial.c 
+/******************************************************************************
+* FILE: hello.c
+*  by Mary Thomas, SDSC
+******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (int argc, char *argv[])
+{
+   char *name = argv[1];
+   printf("Hello %s\n", name);
+}
+[mthomas@login01 simple]$ clang -o hello-serial hello-serial.c 
+[mthomas@login01 simple]$ ./hello-serial Mary
+Hello Mary
+```
+
+* Note that we could have loaded the AOCC compiler with these modules, but now you know how to use the `swap` command:
+
+```
+module purge
+module load slurm
+module load cpu/0.15.4
+module load aocc/2.2.0
 ```
 
 [ [Back to Compilers](#compilers-toc) ] [ [Back to Top](#top)

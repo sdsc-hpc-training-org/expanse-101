@@ -1148,7 +1148,7 @@ Suggested Compilers to used based on programming model and languages:
 
 * If you have modified your environment, you can reload by executing the module purge & load commands at the Linux prompt, or placing the load command in your startup file (~/.cshrc or ~/.bashrc)
 
-In this example, we show how to reload your environment and how to use the ```swap``` command. In this example, we were using the intel compilers. We'll load the following:
+In this example, we show how to reload your environment and how to use the `swap` command. In this example, we were using the intel compilers. We'll load the following:
 
 ```
 module purge
@@ -1157,7 +1157,9 @@ module load cpu/0.15.4
 module load gcc
 module load openmpi/4.0.4
 ```
+
 * and use them to reset the environment
+  
 ```
 [username@login02 ~]$ module list
 Currently Loaded Modules:
@@ -1181,6 +1183,7 @@ Currently Loaded Modules:
   1) slurm/expanse/20.02.3   2) cpu/1.0   3) aocc/2.2.0   4) openmpi/4.0.4
 [username@login02 ~]$ 
 ```
+
 * compile serial code example:
 
 ```
@@ -1191,11 +1194,15 @@ Currently Loaded Modules:
 ******************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
-
 int main (int argc, char *argv[])
 {
-   char *name = argv[1];
-   printf("Hello %s\n", name);
+  char *name1 = "Dave";
+   char *name2 = argv[1];
+   if( argc > 1){
+      printf("Hello %s\n", name2);
+   } else {
+      printf("Hello %s\n", name1);
+   }
 }
 [mthomas@login01 simple]$ clang -o hello-serial hello-serial.c 
 [mthomas@login01 simple]$ ./hello-serial Mary
@@ -1241,17 +1248,19 @@ computes the real matrix ```C=alpha*A*B+beta*C``` using Intel(R) MKL
 total 3758
 drwxr-xr-x 2 user abc123       8 Jan 29 00:45 .
 drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
--rw-r--r-- 1 user abc123     2997 Jan 29 00:25 dgemm_example.f
+-rw-r--r-- 1 user abc123     2997 Jan 29 00:25 dgemm_mat_mul.f
 -rw-r--r-- 1 user abc123      618 Jan 29 00:25 dgemm-Slurm.sb
 -rw-r--r-- 1 user abc123      363 Jan 29 00:32 README.txt
 ```
 
 * Code snippets:
 ```
+!*******************************************************************************
+!   This example computes real matrix C=alpha*A*B+beta*C using Intel(R) MKL 
+!   subroutine DGEMM, where A,B, and C are matrices and alpha and beta are 
+!   double precision scalars.
  PROGRAM   MAIN
-
       IMPLICIT NONE
-
       DOUBLE PRECISION ALPHA, BETA
       INTEGER          M, P, N, I, J
       PARAMETER        (M=2000, P=200, N=1000)
@@ -1259,7 +1268,9 @@ drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
 [SNIP]
       PRINT *, "Computing matrix product using Intel(R) MKL DGEMM "
       CALL DGEMM('N','N',M,N,P,ALPHA,A,M,B,P,BETA,C,M)
+
 [SNIP]
+
 ```
 
 * README.txt contents:
@@ -1273,13 +1284,13 @@ module purge
 module load slurm gpu
 module load intel mvapich2 intel-mkl
 
-ifort -o dgemm_example  -mkl -static-intel dgemm_example.f
+ifort -o dgemm_mat_mul  -mkl -static-intel dgemm_mat_mul.f
 
 [2] Run:
 
 sbatch dgemm-slurm.sb
 
-NOTE: for other compilers, replace "gcc"
+NOTE: for other compilers, replace "ifort"
 with the one you want to use.
 ```
 

@@ -1,27 +1,26 @@
-ACCESS# Expanse 101 Tutorial
+## Expanse 101 Tutorial
 
 [SDSC HPC Training Group](https://www.sdsc.edu/education_and_training/training_hpc.html)
 
-*Document last updated:  04/10/23*
+*Document last updated:  06/16/24*
 
 <hr>
 The [Expanse system](https://expanse.sdsc.edu) is an NSF-funded system that was made available through the eXtreme Science and Engineering Discovery Environment (XSEDE) program (https://www.access-ci.org), which is now part of the NSF Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS program).
+
 In this tutorial, you will learn how to compile and run jobs on Expanse,
 where to run them, and how to run batch jobs. The commands below can be
 cut & pasted into the terminal window, when it is connected to
 expanse.sdsc.edu.
 
-## NOTE:
-*In August of 2022, the NSF ACCESS program was launched.
+## Misc Notes/Updates:
+* In August of 2022, the NSF ACCESS program was launched.
 ACCESS is designed to replace the XSEDE project. For more information, see: https://access-ci.org*
-
-# Misc Notes/Updates:
 *  You must have an Expanse account in order to access the system.
    * To obtain an account, users may submit a proposal through the [ACCESS Allocation Request System](https://access-ci.atlassian.net/)  or request a Trial Account from SDSC: consult@sdsc.edu.
    * For more details, see https://www.sdsc.edu/support/user_guides/expanse.html#access
 *  You must be familiar with running basic Unix commands: see the
    following tutorials at:
-   *  [https://github.com/sdsc-hpc-training/basic_skills](https://github.com/sdsc-hpc-training/basic_skills)
+   *  https://github.com/sdsc-hpc-training-org/basic_skills
 *  The login node name is *login.expanse.sdsc.edu*
 *  The *hostname* for Expanse is simple *login01*, or *login02*
 *  The operating system for Expanse is *CentOS*

@@ -17,7 +17,7 @@ system: https://github.com/sdsc-hpc-training-org/basic_skills.*
 ### Expanse User Guide
 Please read the Expanse user guide and familiarize yourself with the hardware, file systems, batch job submission, compilers and modules. The guide can be found here:
 
-[http://www.sdsc.edu/support/user_guides/expanse.html](https://www.sdsc.edu/support/user_guides/expanse.html)
+http://www.sdsc.edu/support/user_guides/expanse.html
 
 ### Interactive Video Link:
 * This material was presented as part of a webinar presented in September, 2021.

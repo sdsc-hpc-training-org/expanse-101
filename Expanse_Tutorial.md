@@ -21,10 +21,13 @@ ACCESS is designed to replace the XSEDE project. For more information, see: http
 *  You must be familiar with running basic Unix commands: see the
    following tutorials at:
    *  https://github.com/sdsc-hpc-training-org/basic_skills
-   | :----: | | :------|
+   
    | DESCRIPTION  |  RESOURCE |
+   | :----: | | :------ |
    | login node name | ```*login.expanse.sdsc.edu*``` |
    | A | ```B``` |
+
+   
 *  The login node name is *login.expanse.sdsc.edu*
 *  The *hostname* for Expanse is  *login01*, or *login02*
 *  The operating system for Expanse is *CentOS*

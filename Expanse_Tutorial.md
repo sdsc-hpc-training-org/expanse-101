@@ -16,13 +16,17 @@ expanse.sdsc.edu.
 * In August of 2022, the NSF ACCESS program was launched.
 ACCESS is designed to replace the XSEDE project. For more information, see: https://access-ci.org*
 *  You must have an Expanse account in order to access the system.
-   * To obtain an account, users may submit a proposal through the [ACCESS Allocation Request System](https://access-ci.atlassian.net/)  or request a Trial Account from SDSC: consult@sdsc.edu.
+   * To obtain an account, users may submit a proposal through the ACCESS Allocation Request System at https://access-ci.org/about/get-started/#start, or request a Trial Account from SDSC: consult@sdsc.edu.
    * For more details, see https://www.sdsc.edu/support/user_guides/expanse.html#access
 *  You must be familiar with running basic Unix commands: see the
    following tutorials at:
    *  https://github.com/sdsc-hpc-training-org/basic_skills
+   | :----: | | :------|
+   | DESCRIPTION  |  RESOURCE |
+   | login node name | ```*login.expanse.sdsc.edu*``` |
+   | A | ```B``` |
 *  The login node name is *login.expanse.sdsc.edu*
-*  The *hostname* for Expanse is simple *login01*, or *login02*
+*  The *hostname* for Expanse is  *login01*, or *login02*
 *  The operating system for Expanse is *CentOS*
 *  The cluster management system is the *Bright Cluster Manager*
 *  The Scheduler and Resource Manager is *SLURM*

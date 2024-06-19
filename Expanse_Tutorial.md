@@ -27,6 +27,11 @@ ACCESS is designed to replace the XSEDE project. For more information, see: http
 | login node name | login.expanse.sdsc.edu |
 | A | B |
 
+| Month    | Savings |
+| -------- | ------- |
+| January  | $250    |
+| February | $80     |
+| March    | $420    |
    
 *  The login node name is *login.expanse.sdsc.edu*
 *  The *hostname* for Expanse is  *login01*, or *login02*

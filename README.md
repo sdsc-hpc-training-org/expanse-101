@@ -1,7 +1,7 @@
 ---
 sort: 1
 ---
-# [Expanse 101 Tutorial](https://github.com/sdsc-hpc-training-org/expanse-101/)
+# [1. Expanse 101 Tutorial](https://github.com/sdsc-hpc-training-org/expanse-101/)
 *Document last updated:  04/10/2023*
 
 *In this tutorial, you will learn how to compile and run jobs on Expanse,

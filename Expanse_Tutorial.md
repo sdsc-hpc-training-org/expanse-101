@@ -21,24 +21,17 @@ ACCESS is designed to replace the XSEDE project. For more information, see: http
 *  You must be familiar with running basic Unix commands: see the
    following tutorials at:
    *  https://github.com/sdsc-hpc-training-org/basic_skills
-   
-| DESCRIPTION  |  RESOURCE |
-| ---- | | ------ |
-| login node name | login.expanse.sdsc.edu |
-| A | B |
-
-| Month    | Savings |
-| -------- | ------- |
-| January  | $250    |
-| February | $80     |
-| March    | $420    |
-   
-*  The login node name is *login.expanse.sdsc.edu*
-*  The *hostname* for Expanse is  *login01*, or *login02*
-*  The operating system for Expanse is *CentOS*
-*  The cluster management system is the *Bright Cluster Manager*
-*  The Scheduler and Resource Manager is *SLURM*
 *  Additional programming examples can be found here:  https://github.com/sdsc-hpc-training-org/hpctr-examples
+*  __Key Variables to Know:__
+   *
+   | Description  |  Resource |
+   | ------ | ----- |
+   | login node name | login.expanse.sdsc.edu |
+   | hostnames for Expanse| login01 , or   login02 |
+   | Operating system |  CentOS |
+   | Cluster management system | Bright Cluster Manager |
+   | Scheduler and Resource Manager | SLURM |
+
 
 If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at consult@sdsc.edu.

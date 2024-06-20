@@ -3005,7 +3005,8 @@ Jacobi relaxation Calculation: 4096 x 4096 mesh
   900, 0.000269
  total: 1.029057 s
 [username@login01] OpenACC]$
-
 ```
 
-[ [Back to Laplace2D (GPU/OpenACC)](#laplace2d-gpu) ] [ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+[ [Back to Laplace2D (GPU/OpenACC)](#laplace2d-gpu) ] 
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] 
+[ [Back to Top](#top) ]

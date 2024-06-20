@@ -5,7 +5,7 @@
 *Document last updated:  06/16/24*
 
 <hr>
-The [Expanse system](https://expanse.sdsc.edu) is an NSF-funded system that was made available through the eXtreme Science and Engineering Discovery Environment (XSEDE) program (https://www.access-ci.org), which is now part of the NSF Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS program).
+The [Expanse system](https://expanse.sdsc.edu) is an NSF-funded system that was made available through the eXtreme Science and Engineering Discovery Environment (XSEDE) program, and is now part of the NSF Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support [ACCESS program](https://www.access-ci.org).
 
 In this tutorial, you will learn how to compile and run jobs on Expanse,
 where to run them, and how to run batch jobs. The commands below can be

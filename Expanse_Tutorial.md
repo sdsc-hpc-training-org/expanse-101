@@ -23,7 +23,8 @@ ACCESS is designed to replace the XSEDE project. For more information, see: http
    *  https://github.com/sdsc-hpc-training-org/basic_skills
 *  Additional programming examples can be found here:  https://github.com/sdsc-hpc-training-org/hpctr-examples
 *  __Key Variables to Know:__
-   *
+
+  
    | Description  |  Resource |
    | ------ | ----- |
    | login node name | login.expanse.sdsc.edu |

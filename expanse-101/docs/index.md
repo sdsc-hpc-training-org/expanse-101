@@ -37,7 +37,10 @@ ACCESS is designed to replace the XSEDE project. For more information, see: http
 If you have any difficulties completing these tasks, please contact SDSC
 Consulting group at consult@sdsc.edu.
 
-<a name="top">Contents:
+<a name="top">
+
+Contents:
+
 * [Expanse Overview & Innovative Features](#overview)
 * [Getting Started](#get-start)
    * [Obtaining Expanse Accounts](#geting-started-expanse-accounts)
@@ -99,7 +102,6 @@ Consulting group at consult@sdsc.edu.
        * [Hello World (GPU-CUDA): Execute](#hello-world-execute)
        * [Hello World (GPU-CUDA): Batch Script Submission](#hello-world-cuda-batch-submit)
        * [Hello World (GPU-CUDA): Batch Script Output](#hello-world-cuda-batch-output)
-
    * [Vector Addition (GPU-CUDA)](#vec-add-cuda-gpu)
        * [Vector Addition (GPU-CUDA): Source Code](#vec-add-cuda-source)
        * [Vector Addition (GPU-CUDA): Compiling & Running](#vec-add-cuda-compile)
@@ -209,7 +211,9 @@ Expanse will support integration with public clouds:
 
 
 ## <a name="get-start"></a>Getting Started on Expanse
+
 In this Section:
+
 * [Expanse Accounts](#geting-started-expanse-accounts)
 * [Logging Onto Expanse](#geting-started-expanse-logon)
 * [Obtaining Example Code](#geting-started-example-code)
@@ -217,18 +221,18 @@ In this Section:
 
 
 [Back to Top](#top)
-<hr>ba
+<hr>
 
 ### Expanse Accounts<a name="geting-started-expanse-accounts"></a>
 * You must have a expanse account in order to access the system.
-* To obtain an account, users may submit a proposal through the [ACCESS Allocation Request System](https://access-ci.atlassian.net/)  or request a Trial Account from SDSC: consult@sdsc.edu.
-   * For more details, see https://www.sdsc.edu/support/user_guides/expanse.html#access
-* If you had an XSEDE account, it should have been migrated to the ACCESS System. For details, see: https://identity.access-ci.org/new-user
-* Interested parties may contact the ACCESS Help Desk for help with an Expanse proposal. See: https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/72417292
+* To obtain an account, users may submit a proposal through the [ACCESS Allocation Request System](https://access-ci.atlassian.net/)  or request a Trial Account from SDSC: [consult@sdsc.edu](mailto:consult@sdsc.edu).
+   * For more details, see [https://www.sdsc.edu/support/user_guides/expanse.html#access](https://www.sdsc.edu/support/user_guides/expanse.html#access)
+* If you had an XSEDE account, it should have been migrated to the ACCESS System. For details, see: [https://identity.access-ci.org/new-user](https://identity.access-ci.org/new-user)
+* Interested parties may contact the ACCESS Help Desk for help with an Expanse proposal. See: [https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/72417292](https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/72417292)
 
 ### Logging Onto Expanse<a name="geting-started-expanse-logon"></a>
 
-Expanse supports Single Sign-On through the ACCESS Identity System (see: https://identity.access-ci.org/new-user), from the command line using an ACCESS-wide password. While CPU and GPU resources are allocated separately, the login nodes are the same. To log in to Expanse from the command line, use the hostname:
+Expanse supports Single Sign-On through the ACCESS Identity System (see: [https://identity.access-ci.org/new-user](https://identity.access-ci.org/new-user)), from the command line using an ACCESS-wide password. While CPU and GPU resources are allocated separately, the login nodes are the same. To log in to Expanse from the command line, use the hostname:
 
 ```
 login.expanse.sdsc.edu
@@ -241,7 +245,7 @@ ssh <username>@login.expanse.sdsc.edu
 ssh -l <username> login.expanse.sdsc.edu
 ```
 Details about how to access Expanse under different circumstances are described in the Expanse User Guide:
-https://www.sdsc.edu/support/user_guides/expanse.html#access
+[https://www.sdsc.edu/support/user_guides/expanse.html#access](https://www.sdsc.edu/support/user_guides/expanse.html#access)
 
 For instructions on how to use SSH,
 see [Connecting to SDSC HPC Systems Guide](https://github.com/sdsc-hpc-training-org/hpc-security). Below is the logon message – often called the *MOTD* (message of the day, located in /etc/motd). This has not been implemented at this point on Expanse
@@ -293,9 +297,9 @@ login01
 
 ### Obtaining Tutorial Example Code<a name="geting-started-example-code"></a>
 We will clone the example code from GitHub repository using anonymous HTTPS downloads from GitHub. 
-https://github.com/sdsc-hpc-training-org/hpctr-examples.git
+[https://github.com/sdsc-hpc-training-org/hpctr-examples.git](https://github.com/sdsc-hpc-training-org/hpctr-examples.git)
 
-Note that GitHub has increased it's security requirements, and you may have to deal with that. See: https://docs.github.com/en/authentication
+Note that GitHub has increased it's security requirements, and you may have to deal with that. See: [https://docs.github.com/en/authentication](https://docs.github.com/en/authentication)
 
 * Create a test directory hold the expanse example files (optional):
 
@@ -332,7 +336,7 @@ drwxr-xr-x  2 username use300     8 Apr 10 22:26 openmp
 ```
 
 *Note*: you can learn to create and modify directories as part of the *Getting Started* and *Basic Skills* preparation found here:
-https://github.com/sdsc-hpc-training-org/basic_skills
+[https://github.com/sdsc-hpc-training-org/basic_skills](https://github.com/sdsc-hpc-training-org/basic_skills)
 
 The examples directory contains the code we will cover in this tutorial:
 
@@ -350,7 +354,7 @@ drwxr-xr-x 2 user abc123   6 Jan 28 22:39 OpenACC
 drwxr-xr-x 2 user abc123   6 Jan 28 22:39 OPENMP
 
 ```
-All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse. Optionally, you can clone the tutorial as well:   https://github.com/sdsc-hpc-training-org/expanse-101.git
+All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse. Optionally, you can clone the tutorial as well:   [https://github.com/sdsc-hpc-training-org/expanse-101.git](https://github.com/sdsc-hpc-training-org/basic_skills)
 
 [ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
 <hr>
@@ -359,7 +363,8 @@ All examples will contain source code, along with a batch script example so you 
 
 <img src="images/expanse_user_portal.png" alt="Expanse User Portal" width="400px" />
 
-The Expanse User portal provides a quick and easy way for Expanse users . Features include:
+The Expanse User portal provides a quick and easy way for Expanse users. Features include:
+
 * Logging in, transfering and editing files
 * Submitting and monitoring jobs
 * Running HPC applications
@@ -369,7 +374,9 @@ The Expanse User portal provides a quick and easy way for Expanse users . Featur
 * See: https://portal.expanse.sdsc.edu
 
 Note that before you can access the Expanse Portal, you will need to authenticate (as shown in the image below). Most users will select the organization labeled "ACCESS CI (formerly XSEDE)" for login. Contact SDSC consulting (consult@sdsc.edu) if you have trouble authenticating.
-<img src="images/geting-started-exp-port-authentication.png" alt="Expanse User Portal" width="400px" />
+
+
+<img src="images/geting-started-exp-port-authentication.png" alt="Image of the Expanse User Portal" width="400px" />
 
 
 [ [Back to Getting Started](#get-start) ] [ [Back to Top](#top) ]
@@ -380,16 +387,13 @@ Note that before you can access the Expanse Portal, you will need to authenticat
 The Environment Modules package provides for dynamic modification of your shell environment. Module commands set, change, or delete environment variables, typically in support of a particular application. They also let the user choose between different versions of the same software or different combinations of related codes. See the [Expanse User Guide](https://www.sdsc.edu/support/user_guides/expanse.html#modules).
 
 In this Section:
+
 * [Introduction to the Lua Lmod Module System](#module-lmod-intro)
 * [Popular Lmod Commands](module-commands)
 * [Load and Check Modules and Environment](#load-and-check-module-env)
 * [Loading Modules During Login](#module-login-load)
 * [Saving Module Schemes](#module-schemes)
 * [Troubleshooting](#module-troubleshoot)
-
-<!----
-* comment
----->
 
 [Back to Top](#top)
 <hr>
@@ -677,7 +681,9 @@ Use ```module spider``` to find all possible modules and extensions.
 <hr>
 
 ### <a name="load-and-check-module-env"></a>Load and Check Modules and Environment
+
 In this example, we will add the Slurm library, and and verify that it is in your environment
+
 * Check  module environment after logging on to the system
 * Note: the module environment can change, depending on when different libraries are updated.
 
@@ -815,7 +821,8 @@ setenv("OPENMPIHOME","/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-
 ```
 
 Once you have loaded the modules, you can check the system variables that are available for you to use.
-* To see all variable, run the <b>`env`</b> command. For the environment that we created, the command below produced 107 lines containing information such as your login name, shell, your home directory, and paths to the different libraries and modules that you have loaded:
+
+* To see all variables, run the <b>`env`</b> command. For the environment that we created, the command below produced 107 lines containing information such as your login name, shell, your home directory, and paths to the different libraries and modules that you have loaded:
 
 
 ```
@@ -863,6 +870,7 @@ openmpi/4.1.1
 
 ### Loading Modules at Login <a name="module-login-load"></a>
 You can override, and add to the standard set of login modules in two ways.
+
 1. The first is adding module commands to your personal startup files.
 2. The second way is through the “module save” command.
 *Note: make sure that you always want the module loaded at login*
@@ -921,7 +929,7 @@ PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/
 [ [Back to Modules](#modules) ] [ [Back to Top](#top) ]
 <hr>
 
-### [Saving Module Schemes]]<a name="module-schemes"></a>
+### Saving Module Schemes <a name="module-schemes"></a>
 * Lmod allows a you to save a bundle of modules as a collection using module save <collection_name> and module restore <collection_name>.
 * This enables you to quickly get the same list of modules loaded if you tend to use the same modules over and over.
 * With a new module scheme comes a different system MODULEPATH.
@@ -939,7 +947,7 @@ Named collection list :
 ```
 
 
-### [Troubleshooting]<a name="module-troubleshoot"></a>
+### Troubleshooting <a name="module-troubleshoot"></a>
 
 #### Troubleshooting: Lmod warning “rebuild your saved collection”<a name="lmod-warn-rebuild"></a>
 * With each new module scheme comes a different system MODULEPATH. For this reason, if you have some module collections saved, you may experience the following warning: “Lmod Warning: The system MODULEPATH has changed: please rebuild your saved collection.” To solve this you need to remove your old collections and create them again.
@@ -1301,7 +1309,7 @@ Top left corner of matrix A:
  -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10
  -1.8587E+10  -1.8587E+10  -1.8587E+10  -1.8587E+10  -1.8588E+10  -1.8588E+10
  -2.2567E+10  -2.2567E+10  -2.2567E+10  -2.2567E+10  -2.2568E+10  -2.2568E+10
- ```
+```
 
 
 For more information on the Intel compilers run: [ifort | icc | icpc] -help
@@ -1341,7 +1349,11 @@ module load pgi mvapich2_ib
 
 For AVX support, compile with -fast
 
-For more information on the PGI compilers: man [pgf90 | pgcc | pgCC]
+For more information on the PGI compilers: 
+
+```
+man [pgf90 | pgcc | pgCC]
+```
 
 | |Serial | MPI | OpenMP | MPI+OpenMP|
 |---|---|---|---|---|
@@ -1481,6 +1493,7 @@ Mon Apr 10 23:53:03 2023
 
 #### Command Line Jobs <a name="run-jobs-cmdline"></a>
 The login nodes are meant for compilation, file editing, simple data analysis, and other tasks that use minimal compute resources. <em>Do not run parallel or large jobs on the login nodes - even for simple tests</em>. Even if you could run a simple test on the command line on the login node, full tests should not be run on the login node because the performance will be adversely impacted by all the other tasks and login activities of the other users who are logged onto the same node. For example, at the moment that this note was written,  a `gzip` process was consuming 98% of the CPU time on the Comet HPC system:
+
     ```
     [username@comet-ln3 OPENMP]$ top
     ...
@@ -1494,10 +1507,16 @@ Commands that you type into the terminal and run on the sytem are considered *jo
 <hr>
 
 ### Slurm Resource Manager <a name="run-jobs-slurm"></a>
+
 **Sections:**
+
  * [Slurm Partitions](#run-jobs-slurm-partition)
  * [Common Slurm Commands](#run-jobs-slurm-commands)
  * [Slurm Job Status States](#run-jobs-slurm-status)
+
+<!--
+Checkpoint: Aarush proofread till here 2/9/26
+-->
 
 Expanse uses the _Simple Linux Utility for Resource Management (Slurm)_ resource manager. Slurm is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://Slurm.schedmd.com/documentation.html](https://Slurm.schedmd.com/documentation.html). Follow this link to the [Slurm Quick Start Guide](https://Slurm.schedmd.com/quickstart.html)
 

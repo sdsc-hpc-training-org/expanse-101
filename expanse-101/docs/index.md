@@ -1514,9 +1514,7 @@ Commands that you type into the terminal and run on the sytem are considered *jo
  * [Common Slurm Commands](#run-jobs-slurm-commands)
  * [Slurm Job Status States](#run-jobs-slurm-status)
 
-<!--
-Checkpoint: Aarush proofread till here 2/9/26
--->
+
 
 Expanse uses the _Simple Linux Utility for Resource Management (Slurm)_ resource manager. Slurm is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  [https://Slurm.schedmd.com/documentation.html](https://Slurm.schedmd.com/documentation.html). Follow this link to the [Slurm Quick Start Guide](https://Slurm.schedmd.com/quickstart.html)
 
@@ -1679,6 +1677,7 @@ env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/Slurm/current/lib6
 ## Compiling and Running CPU Jobs<a name="comp-and-run-cpu-jobs"></a>
 
 **Sections:**
+
    * [Checking Your Environment](#check-env)
    * [Hello World (MPI)](#hello-world-mpi)
    * [Hello World (OpenMP)](#hello-world-omp)
@@ -1784,6 +1783,7 @@ Submitted batch job 1088090
 
 ### Hello World (MPI) <a name="hello-world-mpi"></a>
 **Subsections:**
+
 * [Hello World (MPI): Source Code](#hello-world-mpi-source)
 * [Hello World (MPI): Compiling](#hello-world-mpi-compile)
 * [Hello World (MPI): Batch Script Submission](#hello-world-mpi-batch-submit)
@@ -1854,29 +1854,29 @@ int main(int argc, char** argv) {
 * To compile, checkout the instructions in the **README.txt** file.
 * Follow the instructions in the batch script provided for the compiler you want to test.
 
+
 ```
-[username@login01] MPI]$ cat README.txt 
-[1] Compile:
+  [username@login01] MPI]$ cat README.txt 
+  [1] Compile:
 
-#### MODULE ENV: updated 01/28/2020 (MPT)
- module purge
- module load slurm
- module load cpu
- module load gcc/10.2.0
- module load openmpi/4.0.4
+  #### MODULE ENV: updated 01/28/2020 (MPT)
+  module purge
+  module load slurm
+  module load cpu
+  module load gcc/10.2.0
+  module load openmpi/4.0.4
 
-mpif90 -o hello_mpi hello_mpi.f90
+  mpif90 -o hello_mpi hello_mpi.f90
 
-[2a] Run using Slurm:
+  [2a] Run using Slurm:
 
-sbatch hellompi-Slurm.sb
+  sbatch hellompi-Slurm.sb
 
-[2b] Run using interactive node:
+  [2b] Run using interactive node:
 
-To run on an interactive node, you need to use the salloc command.
-_salloc_ - Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the allocation when the command is finished.
-For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html
-
+  To run on an interactive node, you need to use the salloc command.
+  _salloc_ - Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the allocation when the command is finished.
+  For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html
 ```
 
 * Set your environment on the node:
@@ -1989,7 +1989,7 @@ Batch Script Output
  node         188 : Hello world!
  node         246 : Hello world!
 
- ```
+```
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
@@ -2057,7 +2057,9 @@ salloc: Nodes exp-9-[55-56] are ready for job
 <hr>
 
 ### Hello World (OpenMP) <a name="hello-world-omp"></a>
+
 **Subsections:**
+
 * [Hello World (OpenMP): Source Code](#hello-world-omp-source)
 * [Hello World (OpenMP): Compiling](#hello-world-omp-compile)
 * [Hello World (OpenMP): Batch Script Submission](#hello-world-omp-batch-submit)
@@ -2193,7 +2195,9 @@ Batch Script Output
 
 
 ### Compiling and Running Hybrid (MPI + OpenMP) Jobs <a name="hybrid-mpi-omp"></a>
+
 **Subsections:**
+
 * [Hybrid (MPI + OpenMP): Source Code](#hybrid-mpi-omp-source)
 * [Hybrid (MPI + OpenMP): Compiling](#hybrid-mpi-omp-compile)
 * [Hybrid (MPI + OpenMP): Batch Script Submission](#hybrid-mpi-omp-batch-submit)
@@ -2337,7 +2341,9 @@ Hello from thread 15 out of 16 from process 0 out of 2 on exp-10-07
 <hr>
 
 ## Compiling and Running GPU Jobs <a name="comp-run-gpu"></a>
+
 **Sections**
+
 * [Using Expanse GPU Nodes](#comp-run-gpu-nodes)
 * [Using Interactive GPU Nodes](#comp-run-gpu-interactive)
 * [Laplace2D (GPU/OpenACC): Source Code](#laplace2d-gpu)
@@ -2368,10 +2374,11 @@ Hello from thread 15 out of 16 from process 0 out of 2 on exp-10-07
 * Login nodes are not the same as the GPU nodes:
    *  _GPU codes must be compiled by requesting an interactive session on a GPU nodes_
 * Batch: GPU nodes can be accessed via either the "gpu" or the "gpu-shared" partitions.
-   *  #SBATCH -p gpu
-   * or #SBATCH -p gpu-shared
+   * `#SBATCH -p gpu`
+   * or `#SBATCH -p gpu-shared`
 * Be sure to setup  your CUDA environment for the compiler that you want to use:   
    * For CUDA codes, you will need the cuda Compiler. Expanse has several CUDA compiler libraries
+
 
 ```
 #Environment for the CUDA Compiler
@@ -2381,19 +2388,21 @@ module load gpu/0.15.4
 module load gcc/7.2.0
 module load cuda/11.0.2
 ```
+
+
 * Notes:
   * NVIDIA compiler command is *nvcc*
   * The Portland/PGI compilier commabnd is "pgcc"
   * Expanse has several CUDA compiler libraries, and you can see them by
    running *module avail* (once you have loaded the gpu module)
 
-   ```
-   ------------------------------------ /cm/shared/modulefiles ------------------------------------
-      cuda10.2/blas/10.2.89      cuda10.2/profiler/10.2.89    sdsc/1.0
-      cuda10.2/fft/10.2.89       cuda10.2/toolkit/10.2.89     xsede/xdusage/2.1-1
-      cuda10.2/nsight/10.2.89    default-environment
+```
+------------------------------------ /cm/shared/modulefiles ------------------------------------
+  cuda10.2/blas/10.2.89      cuda10.2/profiler/10.2.89    sdsc/1.0
+  cuda10.2/fft/10.2.89       cuda10.2/toolkit/10.2.89     xsede/xdusage/2.1-1
+  cuda10.2/nsight/10.2.89    default-environment
 
-   ```
+```
 
    * For OpenACC codes, you will need the PGI Compiler:
 
@@ -2469,7 +2478,9 @@ Wed Oct 11 04:10:33 2023
 +-----------------------------------------------------------------------------+
 
 ```
-[ [Back to Compile and Run GPU Jobs](#comp-run-gpu) ] [ [Back to Top](#top) ]
+
+[ [Back to Compile and Run GPU Jobs](#comp-run-gpu)] [ [Back to Top](#top) ]
+
 <hr>
 
 #### GPU Compiling:
@@ -2511,7 +2522,14 @@ printf( "Hello,  SDSC HPC Training World!\n" ); return 0;
 
 ```
 
-[ [Back to  Hello World (GPU-CUDA)](#hello-world-cuda-gpu]] [ [Back to Top](#top) ]
+<!--
+Checkpoint: Aarush proofread till here 2/9/26
+-->
+
+<a href="#hello-world-cuda-gpu">[Back to Hello World GPU-CUDA]</a>
+<a href="#top">[Back to Top]</a>
+
+
 <hr>
 
 #### Hello World (GPU-CUDA): Compiling <a name="hello-world-cuda-compile"></a>

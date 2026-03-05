@@ -1,1 +1,13 @@
 site_name: Expanse 101
+nav:
+  - Home: index.md
+  - Overview: overview.md
+  - Getting Started: getting-started.md
+  - Modules: modules.md
+  - Accounts and Charging: accounts-and-charging.md
+  - Compiling and Linking: compiling-linking.md
+  - Running Jobs: running-jobs.md
+  - CPU Jobs: cpu-jobs.md
+  - GPU Jobs: gpu-jobs.md
+  - Examples:
+      - Expanse 101 -- Examples: examples/README.md

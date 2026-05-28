@@ -25,7 +25,7 @@ http://www.sdsc.edu/support/user_guides/expanse.html
 * [Interactive Video (Sept, 2021)](https://education.sdsc.edu/training/interactive/202109_accessing_and_running_jobs_on_expanse/index.html?id=202109_ExpanseWebinar-M.Thomas)
 
 ### Hands-on Self-guided Tutorial (using markdown file):
-* Expanse_Tutorial.md
+* https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/expanse-101/docs/index.md
 
 ### Link to Example code:
 * [https://github.com/sdsc-hpc-training-org/hpctr-examples](https://github.com/sdsc-hpc-training-org/hpctr-examples)

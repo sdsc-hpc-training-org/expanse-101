@@ -2,7 +2,7 @@
 sort: 1
 ---
 # [Expanse 101 Tutorial](https://github.com/sdsc-hpc-training-org/expanse-101/)
-*Document last updated:  04/10/2023*
+*Document last updated:  05/25/2026*
 
 *In this tutorial, you will learn how to compile and run jobs on Expanse,
 where to run them, and how to run batch jobs. The commands below can be
@@ -22,8 +22,7 @@ http://www.sdsc.edu/support/user_guides/expanse.html
 ### Interactive Video Link:
 * This material was presented as part of a webinar presented in September, 2021.
 * The link to the most recent recorded video (September, 2021):
-* [Interactive Video (Sept, 2021)](https://education.sdsc.edu/training/interactive/202109_accessing_and_running_jobs_on_expanse/index.html)
-* Next scheduled presentation will be given in April, 2023 (date to be determined)
+* [Interactive Video (Sept, 2021)](https://education.sdsc.edu/training/interactive/202109_accessing_and_running_jobs_on_expanse/index.html?id=202109_ExpanseWebinar-M.Thomas)
 
 ### Hands-on Self-guided Tutorial (using markdown file):
 * Expanse_Tutorial.md

@@ -1,6 +1,6 @@
 ## Expanse 101 Tutorial
 
-[SDSC HPC Training Group](https://www.sdsc.edu/education_and_training/training_hpc.html)
+[SDSC HPC Training](https://www.sdsc.edu/education_and_training/training_hpc.html)
 
 *Document last updated:  06/8/26*
 

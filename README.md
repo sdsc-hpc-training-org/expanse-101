@@ -18,10 +18,12 @@ Please read the Expanse user guide and familiarize yourself with the hardware, f
 
 http://www.sdsc.edu/support/user_guides/expanse.html
 
+[
 ### Interactive Video Link:
 * This material was presented as part of a webinar presented in September, 2021.
 * The link to the most recent recorded video (September, 2021):
 * [Interactive Video (Sept, 2021)](https://education.sdsc.edu/training/interactive/202109_accessing_and_running_jobs_on_expanse/index.html?id=202109_ExpanseWebinar-M.Thomas)
+]: #
 
 ### Hands-on Self-guided Tutorial (using markdown file):
 * https://github.com/sdsc-hpc-training-org/expanse-101/blob/main/expanse-101/docs/index.md

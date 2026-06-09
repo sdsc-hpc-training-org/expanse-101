@@ -7,7 +7,7 @@ sort: 1
 In this tutorial, you will learn how to compile and run jobs on Expanse,
 where to run them, and how to run batch jobs. The current Expanse 101 tutorial can be found here:
 
-## https://hpc-training.sdsc.edu/hpc-training-docs/expanse-101/expanse-101/modules
+_https://hpc-training.sdsc.edu/hpc-training-docs/expanse-101/expanse-101/modules_
 
 
 

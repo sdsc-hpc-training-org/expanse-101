@@ -1,15 +1,14 @@
 ---
 sort: 1
 ---
-# [Expanse 101 Tutorial](https://hpc-training.sdsc.edu/hpc-training-docs/expanse-101/expanse-101/modules)
+# Expanse 101 Tutorial
 *Document last updated:  06/08/2026*
 
-*In this tutorial, you will learn how to compile and run jobs on Expanse,
-where to run them, and how to run batch jobs. The commands below can be
-cut & pasted into the terminal window, which is connected to
-expanse.sdsc.edu. For instructions on how to do this, see the tutorial
-on how to use a terminal application and SSH go connect to an SDSC HPC
-system: https://github.com/sdsc-hpc-training-org/basic_skills.*
+In this tutorial, you will learn how to compile and run jobs on Expanse,
+where to run them, and how to run batch jobs. The current Expanse 101 tutorial can be found here:
+
+## https://hpc-training.sdsc.edu/hpc-training-docs/expanse-101/expanse-101/modules
+
 
 
 ## Related Links:

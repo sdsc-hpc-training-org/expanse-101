@@ -2,7 +2,7 @@
 
 [SDSC HPC Training Group](https://www.sdsc.edu/education_and_training/training_hpc.html)
 
-*Document last updated:  06/16/24*
+*Document last updated:  06/8/26*
 
 <hr>
 The Expanse system (https://expanse.sdsc.edu) is an NSF-funded system that is made available through the 

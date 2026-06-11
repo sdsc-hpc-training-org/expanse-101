@@ -1,4 +1,4 @@
-## Expanse 101 Tutorial
+# Expanse 101 Tutorial
 
 [SDSC HPC Training Group](https://www.sdsc.edu/education_and_training/training_hpc.html)
 
@@ -2771,6 +2771,7 @@ int main(void){
 
 * Once you are done compiling, exit the GPU node, and submit the batchscript:
 
+```
 [mthomas@login01 addition]$ sbatch vector_add_gpu.sb 
 Submitted batch job 25649417
 [mthomas@login01 addition]$ squeue -u mthomas

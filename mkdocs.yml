@@ -1,1 +1,13 @@
 site_name: Expanse 101
+
+theme:
+  name: readthedocs
+
+nav:
+  - Home: index.md
+  - Examples: examples/README.md
+
+markdown_extensions:
+  toc:
+    permalink: true
+    toc_depth: 1-3

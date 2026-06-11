@@ -1,0 +1,3399 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Expanse 101</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Expanse 101
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#misc-notesupdates">Misc Notes/Updates:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#expanse-overview">Expanse Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#hpc-for-the-long-tail-of-science">HPC for the long tail of science:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#system-summary">System Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#expanse-scaleable-compute-unit">Expanse Scaleable Compute Unit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#expanse-connectivity-fabric">Expanse Connectivity Fabric</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#amd-epyc-7742-processor-architecture">AMD EPYC 7742 Processor Architecture</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#new-expanse-features">New Expanse Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started-on-expanse">Getting Started on Expanse</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#expanse-accounts">Expanse Accounts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#logging-onto-expanse">Logging Onto Expanse</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#obtaining-tutorial-example-code">Obtaining Tutorial Example Code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#expanse-user-portal">Expanse User Portal</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#environment-modules-customizing-your-user-environment">Environment Modules: Customizing Your User Environment</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#introduction-to-the-lua-lmod-module-system">Introduction to the Lua Lmod Module System</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#modules-popular-lmod-commands">Modules: Popular Lmod Commands</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#load-and-check-modules-and-environment">Load and Check Modules and Environment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#loading-modules-at-login">Loading Modules at Login</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#saving-module-schemes">Saving Module Schemes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#managing-accounts-on-expanse">Managing Accounts on Expanse</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#expanse-client-script">Expanse-Client Script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-accounts-in-batch-jobs">Using Accounts in Batch Jobs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#managing-users-on-an-account">Managing Users on an Account</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#job-charging">Job Charging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#compiling-linking-code">Compiling &amp; Linking Code</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#cpugpu-compilers">CPU/GPU Compilers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#amd-optimizing-cc-compiler-aocc">AMD Optimizing C/C++ Compiler (AOCC)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-aocc-compilers">Using the AOCC Compilers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#intel-compilers">Intel Compilers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gnu-compilers">GNU Compilers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pgi-compilers">PGI Compilers</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running-jobs-on-expanse">Running Jobs on Expanse</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#parallel-models">Parallel Models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods-for-running-jobs-on-expanse">Methods for Running Jobs on Expanse</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#slurm-resource-manager">Slurm Resource Manager</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#compiling-and-running-cpu-jobs">Compiling and Running CPU Jobs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#general-steps-compilingrunning-jobs">General Steps: Compiling/Running Jobs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checking-your-environment">Checking Your Environment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hello-world-mpi">Hello World (MPI)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hello-world-openmp">Hello World (OpenMP)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compiling-and-running-hybrid-mpi-openmp-jobs">Compiling and Running Hybrid (MPI + OpenMP) Jobs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#compiling-and-running-gpu-jobs">Compiling and Running GPU Jobs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#using-expanse-gpu-nodes">Using Expanse GPU Nodes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hello-world-gpu-cuda">Hello World (GPU-CUDA)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vector-addition-gpu-cuda">Vector Addition (GPU-CUDA)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#laplace2d-gpuopenacc">Laplace2D (GPU/OpenACC)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="examples/">Examples</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Expanse 101</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="expanse-101-tutorial">Expanse 101 Tutorial<a class="headerlink" href="#expanse-101-tutorial" title="Permanent link">&para;</a></h1>
+<p><a href="https://www.sdsc.edu/education_and_training/training_hpc.html">SDSC HPC Training Group</a></p>
+<p><em>Document last updated:  06/16/24</em></p>
+<hr>
+<p>The <a href="https://expanse.sdsc.edu">Expanse system</a> is an NSF-funded system that was made available through the eXtreme Science and Engineering Discovery Environment (XSEDE) program, and is now part of the NSF Advanced Cyberinfrastructure Coordination Ecosystem: Services &amp; Support <a href="https://www.access-ci.org">ACCESS program</a>.</p>
+<p>In this tutorial, you will learn how to compile and run jobs on Expanse,
+where to run them, and how to run batch jobs. The commands below can be
+cut &amp; pasted into the terminal window, when it is connected to
+expanse.sdsc.edu.</p>
+<h2 id="misc-notesupdates">Misc Notes/Updates:<a class="headerlink" href="#misc-notesupdates" title="Permanent link">&para;</a></h2>
+<ul>
+<li>In August of 2022, the NSF ACCESS program was launched.
+ACCESS is designed to replace the XSEDE project. For more information, see: https://access-ci.org*</li>
+<li>You must have an Expanse account in order to access the system.</li>
+<li>To obtain an account, users may submit a proposal through the ACCESS Allocation Request System at https://access-ci.org/about/get-started/#start, or request a Trial Account from SDSC: consult@sdsc.edu.</li>
+<li>For more details, see https://www.sdsc.edu/support/user_guides/expanse.html#access</li>
+<li>You must be familiar with running basic Unix commands: see the
+   following tutorials at:</li>
+<li>https://github.com/sdsc-hpc-training-org/basic_skills</li>
+<li>Additional programming examples can be found here:  https://github.com/sdsc-hpc-training-org/hpctr-examples</li>
+<li><strong>Some basic Expanse Information:</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>login node name</td>
+<td>login.expanse.sdsc.edu</td>
+</tr>
+<tr>
+<td>hostnames for Expanse</td>
+<td>login01 , or   login02</td>
+</tr>
+<tr>
+<td>Operating system</td>
+<td>CentOS</td>
+</tr>
+<tr>
+<td>Cluster management system</td>
+<td>Bright Cluster Manager</td>
+</tr>
+<tr>
+<td>Scheduler and Resource Manager</td>
+<td>SLURM</td>
+</tr>
+</tbody>
+</table>
+<p>If you have any difficulties completing these tasks, please contact SDSC
+Consulting group at consult@sdsc.edu.</p>
+<p><a name="top"></p>
+<p>Contents:</p>
+<ul>
+<li><a href="#overview">Expanse Overview &amp; Innovative Features</a></li>
+<li><a href="#get-start">Getting Started</a></li>
+<li><a href="#geting-started-expanse-accounts">Obtaining Expanse Accounts</a></li>
+<li><a href="#geting-started-expanse-logon">Logging Onto Expanse</a></li>
+<li><a href="#geting-started-example-code">Obtaining Example Code</a></li>
+<li><a href="#geting-started-exp-port">Expanse User Portal</a></li>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#module-lmod-intro">Introduction to the Lua Lmod Module System</a></li>
+<li><a href="#module-commands">Modules: Popular Lmod Commands</a></li>
+<li><a href="#load-and-check-module-env">Load and Check Modules and Environment</a></li>
+<li><a href="#module-login-load">Loading Modules During Login</a></li>
+<li><a href="#module-schemes">Saving Module Schemes</a></li>
+<li><a href="#module-troubleshoot">Troubleshooting</a></li>
+<li><a href="#managing-accounts">Managing Accounts</a></li>
+<li><a href="#manage-accts-client-script">Expanse Client Script</a></li>
+<li><a href="#manage-accts-batch-script">Using Accounts in Batch Jobs</a></li>
+<li><a href="#manage-accts-users">Managing Users on an Account</a>  </li>
+<li><a href="#job-charging">Job Charging</a></li>
+<li><a href="#compilers">Compiling &amp; Linking</a></li>
+<li><a href="#compilers-supported&quot;">Supported Compilers</a></li>
+<li><a href="#compilers-amd">AMD Optimizing C/C++ Compiler (AOCC)</a></li>
+<li><a href="#compilers-intel">Intel Compilers</a></li>
+<li><a href="#compilers-gnu">GNU Compilers</a></li>
+<li><a href="#compilers-pgi">PGI Compilers</a></li>
+<li><a href="#run-jobs">Running Jobs</a></li>
+<li><a href="#run-jobs-par-models">Parallel Models</a></li>
+<li><a href="#run-jobs-methods">Methods for  Running Jobs on Expanse</a><ul>
+<li><a href="#run-jobs-methods-batch">Batch Jobs</a></li>
+<li><a href="#run-jobs-methods-ineractive">Interactive Jobs</a></li>
+</ul>
+</li>
+<li><a href="#run-jobs-slurm">Slurm Resource Manager</a><ul>
+<li><a href="#run-jobs-slurm-status">Slurm Job Status States</a></li>
+<li><a href="#run-jobs-slurm-partition">Slurm Partitions</a></li>
+<li><a href="#run-jobs-slurm-commands">Slurm Commands</a></li>
+<li><a href="#run-jobs-slurm-batch">Slurm Batch Script Example</a></li>
+</ul>
+</li>
+<li><a href="#comp-and-run-cpu-jobs">Compiling and Running CPU Jobs</a></li>
+<li><a href="#check-env">Checking Your Environment</a></li>
+<li><a href="#hello-world-mpi">Hello World (MPI)</a>
+        * <a href="#hello-world-mpi-source">Hello World (MPI): Source Code</a>
+        * <a href="#hello-world-mpi-compile">Hello World (MPI): Compiling</a>
+        * <a href="#hello-world-mpi-batch-submit">Hello World (MPI): Batch Script Submission</a>
+        * <a href="#hello-world-mpi-batch-output">Hello World (MPI): Batch Script Output</a>
+        * <a href="#hello-world-mpi-interactive">Hello World (MPI): Interactive Jobs</a></li>
+<li><a href="#hello-world-omp">Hello World (OpenMP)</a>
+        * <a href="#hello-world-omp-source">Hello World (OpenMP): Source Code</a>
+        * <a href="#hello-world-omp-compile">Hello World (OpenMP): Compiling</a>
+        * <a href="#hello-world-omp-batch-submit">Hello World (OpenMP): Batch Script Submission</a>
+        * <a href="#hello-world-omp-batch-output">Hello World (OpenMP): Batch Script Output</a></li>
+<li><a href="#hybrid-mpi-omp">Compiling and Running Hybrid (MPI + OpenMP) Jobs</a>
+        * <a href="#hybrid-mpi-omp-source">Hybrid (MPI + OpenMP): Source Code</a>
+        * <a href="#hybrid-mpi-omp-compile">Hybrid (MPI + OpenMP): Compiling</a>
+        * <a href="#hybrid-mpi-omp-batch-submit">Hybrid (MPI + OpenMP): Batch Script Submission</a>
+        * <a href="#hybrid-mpi-omp-batch-output">Hybrid (MPI + OpenMP): Batch Script Output</a></li>
+<li><a href="#comp-run-gpu">Compiling and Running GPU Jobs</a></li>
+<li><a href="#comp-run-gpu-nodes">Using Expanse GPU Nodes</a></li>
+<li><a href="#comp-run-gpu-interactive">Using Interactive GPU Nodes</a></li>
+<li><a href="#hello-world-cuda-gpu">Hello World (GPU-CUDA)</a><ul>
+<li><a href="#hello-world-cuda-source">Hello World (GPU-CUDA): Source Code</a></li>
+<li><a href="#hello-world-cuda-compile">Hello World (GPU-CUDA): Compiling</a></li>
+<li><a href="#hello-world-execute">Hello World (GPU-CUDA): Execute</a></li>
+<li><a href="#hello-world-cuda-batch-submit">Hello World (GPU-CUDA): Batch Script Submission</a></li>
+<li><a href="#hello-world-cuda-batch-output">Hello World (GPU-CUDA): Batch Script Output</a></li>
+</ul>
+</li>
+<li><a href="#vec-add-cuda-gpu">Vector Addition (GPU-CUDA)</a><ul>
+<li><a href="#vec-add-cuda-source">Vector Addition (GPU-CUDA): Source Code</a></li>
+<li><a href="#vec-add-cuda-compile">Vector Addition (GPU-CUDA): Compiling &amp; Running</a></li>
+<li><a href="#vec-add-cuda-batch-submit">Vector Addition (GPU-CUDA): Batch Script Submission</a></li>
+<li><a href="#vec-add-cuda-batch-output">Vector Addition (GPU-CUDA): Batch Script Output</a></li>
+</ul>
+</li>
+<li><a href="#laplace2d-gpu">Laplace2D (GPU/OpenACC)</a><ul>
+<li><a href="#laplace2d-gpu-source">Laplace2D (GPU/OpenACC): Source Code</a></li>
+<li><a href="#laplace2d-gpu-compile">Laplace2D (GPU/OpenACC): Compiling</a></li>
+<li><a href="#laplace2d-gpu-batch-submit">Laplace2D (GPU/OpenACC): Batch Script Submission</a></li>
+<li><a href="#laplace2d-gpu-batch-output">Laplace2D (GPU/OpenACC): Batch Script Output</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+
+<p><img src="images/expanse_overview.png" alt="Expanse Overview" width="500px"></p>
+<h2 id="expanse-overview">Expanse Overview <a name="overview"></a><a class="headerlink" href="#expanse-overview" title="Permanent link">&para;</a></h2>
+<h3 id="hpc-for-the-long-tail-of-science">HPC for the <em>long tail</em> of science:<a class="headerlink" href="#hpc-for-the-long-tail-of-science" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Designed by Dell and SDSC delivering 5.16 peak petaflops</li>
+<li>Designed and operated on the principle that the majority of computational research is performed at modest scale: large number jobs that run for less than 48 hours, but can be computationally intensvie and generate large amounts of data.</li>
+<li>An NSF-funded system that was made available through the eXtreme Science and Engineering Discovery Environment (XSEDE) program (https://www.xsede.org), which is now part of the NSF Advanced Cyberinfrastructure Coordination Ecosystem: Services &amp; Support (ACCESS program).</li>
+<li>Supports interactive computing and science gateways.</li>
+<li>Will offer Composible Systems and Cloud Bursting.</li>
+</ul>
+<hr>
+
+<p><img src="images/expanse_heterogeneous_arch.png" alt="Expanse Heterogeneous Architecture" width="500px"></p>
+<h3 id="system-summary">System Summary<a class="headerlink" href="#system-summary" title="Permanent link">&para;</a></h3>
+<ul>
+<li>13 SDSC Scalable Compute Units (SSCU)</li>
+<li>728 x 2s Standard Compute Nodes</li>
+<li>93,184 Compute Cores</li>
+<li>200 TB DDR4 Memory</li>
+<li>52x 4-way GPU Nodes w/NVLINK</li>
+<li>208 V100s | * 4x 2TB Large Memory Nodes</li>
+<li>HDR 100 non-blocking Fabric</li>
+<li>12 PB Lustre High Performance</li>
+<li>Storage</li>
+<li>7 PB Ceph Object Storage</li>
+<li>1.2 PB on-node NVMe</li>
+<li>Dell EMC PowerEdge</li>
+<li>Direct Liquid Cooled</li>
+</ul>
+<hr>
+
+<h3 id="expanse-scaleable-compute-unit">Expanse Scaleable Compute Unit<a class="headerlink" href="#expanse-scaleable-compute-unit" title="Permanent link">&para;</a></h3>
+<p><img src="images/expanse_sccu.png" alt="Expanse Scaleable Compute Unit" width="700px"></p>
+<hr>
+
+<h3 id="expanse-connectivity-fabric">Expanse Connectivity Fabric<a class="headerlink" href="#expanse-connectivity-fabric" title="Permanent link">&para;</a></h3>
+<p><img src="images/expanse_connectivity_fabric.png" alt="Expanse Connectivity Fabric" width="700px" /></p>
+<hr>
+
+<h3 id="amd-epyc-7742-processor-architecture">AMD EPYC 7742 Processor Architecture<a class="headerlink" href="#amd-epyc-7742-processor-architecture" title="Permanent link">&para;</a></h3>
+<p><img src="images/amd-epyc-7742-processor-arch.png" alt="AMD EPYC 7742 Processor Architecture" width="300px" /></p>
+<ul>
+<li>8 Core Complex Dies (CCDs).</li>
+<li>CCDs connect to memory, I/O, and each other through the I/O Die.</li>
+<li>8 memory channels per socket.</li>
+<li>DDR4 memory at 3200MHz.</li>
+<li>PCI Gen4, up to 128 lanes of high speed I/O.</li>
+<li>Memory and I/O can be abstracted into separate quadrants each with 2 DIMM channels and 32 I/O lanes.</li>
+<li>2 Core Complexes (CCXs) per CCD</li>
+<li>4 Zen2 cores in each CCX share a16ML3 cache. Total of 16x16=256MB L3 cache.</li>
+<li>Each core includes a private 512KB L2 cache.  </li>
+</ul>
+<hr>
+<h3 id="new-expanse-features">New Expanse Features<a class="headerlink" href="#new-expanse-features" title="Permanent link">&para;</a></h3>
+<h4 id="composable-systems">Composable Systems<a class="headerlink" href="#composable-systems" title="Permanent link">&para;</a></h4>
+<p><img src="images/expanse_composable_systems.png" alt="Expanse Composable Systems" width="400px" />
+Composable Systems will support complex, distributed, workflows – making Expanse part of a larger CI ecosystem.</p>
+<ul>
+<li>Bright Cluster Manager + Kubernetes</li>
+<li>Core components developed via NSF- funded CHASE-CI (NSF Award # 1730158), and the Pacific Research Platform (NSF Award # 1541349)</li>
+<li>Requests for a composable system will be part of an XRAC request</li>
+<li>Advanced User Support resources available to assist with projects - this is part of our operations funding.</li>
+<li>Webinar scheduled for April 2021. See: https://www.sdsc.edu/education_and_training/training_hpc.html</li>
+</ul>
+<h4 id="cloud-bursting">Cloud Bursting<a class="headerlink" href="#cloud-bursting" title="Permanent link">&para;</a></h4>
+<p>Expanse will support integration with public clouds:</p>
+<p><img src="images/expanse_cloud_burst_aws.png" alt="Expanse Cloud Bursting to AWS" width="400px" /></p>
+<ul>
+<li>Supports projects that share data, need access to novel technologies, and integrate cloud resources into workflows</li>
+<li>Slurm + in-house developed software + Terraform (Hashicorp)</li>
+<li>Early work funded internally and via NSF E-CAS/Internet2 project for CIPRES (Exploring Cloud for the Acceleration of Science, Award #1904444).</li>
+<li>Approach is cloud-agnostic and will support the major cloud providers.</li>
+<li>Users submit directly via Slurm, or as part of a composed system.</li>
+<li>Options for data movement: data in the cloud; remote mounting of file systems; cached filesystems (e.g., StashCache), and data transfer during the job.</li>
+<li>Funding for users cloud resources is not part of an Expanse award: the researcher must have access to cloud computing credits via other NSF awards and funding.</li>
+</ul>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+
+<h2 id="getting-started-on-expanse"><a name="get-start"></a>Getting Started on Expanse<a class="headerlink" href="#getting-started-on-expanse" title="Permanent link">&para;</a></h2>
+<p>In this Section:</p>
+<ul>
+<li><a href="#geting-started-expanse-accounts">Expanse Accounts</a></li>
+<li><a href="#geting-started-expanse-logon">Logging Onto Expanse</a></li>
+<li><a href="#geting-started-example-code">Obtaining Example Code</a></li>
+<li><a href="#geting-started-exp-port">Expanse User Portal</a></li>
+</ul>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+
+<h3 id="expanse-accounts">Expanse Accounts<a name="geting-started-expanse-accounts"></a><a class="headerlink" href="#expanse-accounts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>You must have a expanse account in order to access the system.</li>
+<li>To obtain an account, users may submit a proposal through the <a href="https://access-ci.atlassian.net/">ACCESS Allocation Request System</a>  or request a Trial Account from SDSC: <a href="mailto:consult@sdsc.edu">consult@sdsc.edu</a>.</li>
+<li>For more details, see <a href="https://www.sdsc.edu/support/user_guides/expanse.html#access">https://www.sdsc.edu/support/user_guides/expanse.html#access</a></li>
+<li>If you had an XSEDE account, it should have been migrated to the ACCESS System. For details, see: <a href="https://identity.access-ci.org/new-user">https://identity.access-ci.org/new-user</a></li>
+<li>Interested parties may contact the ACCESS Help Desk for help with an Expanse proposal. See: <a href="https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/72417292">https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/72417292</a></li>
+</ul>
+<h3 id="logging-onto-expanse">Logging Onto Expanse<a name="geting-started-expanse-logon"></a><a class="headerlink" href="#logging-onto-expanse" title="Permanent link">&para;</a></h3>
+<p>Expanse supports Single Sign-On through the ACCESS Identity System (see: <a href="https://identity.access-ci.org/new-user">https://identity.access-ci.org/new-user</a>), from the command line using an ACCESS-wide password. While CPU and GPU resources are allocated separately, the login nodes are the same. To log in to Expanse from the command line, use the hostname:</p>
+<pre><code>login.expanse.sdsc.edu
+</code></pre>
+<p>The following are examples of Secure Shell (ssh) commands that may be used to log in to Expanse:</p>
+<pre><code>ssh &lt;username&gt;@login.expanse.sdsc.edu
+ssh -l &lt;username&gt; login.expanse.sdsc.edu
+</code></pre>
+<p>Details about how to access Expanse under different circumstances are described in the Expanse User Guide:
+<a href="https://www.sdsc.edu/support/user_guides/expanse.html#access">https://www.sdsc.edu/support/user_guides/expanse.html#access</a></p>
+<p>For instructions on how to use SSH,
+see <a href="https://github.com/sdsc-hpc-training-org/hpc-security">Connecting to SDSC HPC Systems Guide</a>. Below is the logon message – often called the <em>MOTD</em> (message of the day, located in /etc/motd). This has not been implemented at this point on Expanse</p>
+<pre><code>[username@localhost:~] ssh -Y username@login.expanse.sdsc.edu
+Welcome to Bright release         9.0
+
+                                                         Based on Rocky Linux 8
+                                                                    ID: #000002
+--------------------------------------------------------------------------------
+
+                                 WELCOME TO
+                  _______  __ ____  ___    _   _______ ______
+                 / ____/ |/ // __ \/   |  / | / / ___// ____/
+                / __/  |   // /_/ / /| | /  |/ /\__ \/ __/
+               / /___ /   |/ ____/ ___ |/ /|  /___/ / /___
+              /_____//_/|_/_/   /_/  |_/_/ |_//____/_____/
+
+--------------------------------------------------------------------------------
+
+Use the following commands to adjust your environment:
+
+'module avail'            - show available modules
+'module add &lt;module&gt;'     - adds a module to your environment for this session
+'module initadd &lt;module&gt;' - configure module to be loaded at every login
+
+-------------------------------------------------------------------------------
+Last login: Mon Apr 10 15:47:22 2023 from 12.34.56.789
+
+</code></pre>
+<h4 id="example-of-a-terminal-connectionunix-login-session">Example of a terminal connection/Unix login session:<a class="headerlink" href="#example-of-a-terminal-connectionunix-login-session" title="Permanent link">&para;</a></h4>
+<pre><code>localhost:~ user$ sssh -Y username@login.expanse.sdsc.edu
+Last login: Mon Apr 10 15:47:22 2023 from 12.34.56.789
+[username@login02 ~]$
+[username@login02 ~]$ whoami
+username
+[username@login02 ~]$ hostname
+login01
+[username@login02 ~]$ pwd
+/home/username
+[username@login02 ~]$
+</code></pre>
+<p>[ <a href="#get-start">Back to Getting Started</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="obtaining-tutorial-example-code">Obtaining Tutorial Example Code<a name="geting-started-example-code"></a><a class="headerlink" href="#obtaining-tutorial-example-code" title="Permanent link">&para;</a></h3>
+<p>We will clone the example code from GitHub repository using anonymous HTTPS downloads from GitHub. 
+<a href="https://github.com/sdsc-hpc-training-org/hpctr-examples.git">https://github.com/sdsc-hpc-training-org/hpctr-examples.git</a></p>
+<p>Note that GitHub has increased it's security requirements, and you may have to deal with that. See: <a href="https://docs.github.com/en/authentication">https://docs.github.com/en/authentication</a></p>
+<ul>
+<li>Create a test directory hold the expanse example files (optional):</li>
+</ul>
+<pre><code>[username@login01] ~]$ git clone https://github.com/sdsc-hpc-training-org/expanse-101.git
+Cloning into 'hpctr-examples'...
+Warning: untrusted X11 forwarding setup failed: xauth key data not generated
+remote: Enumerating objects: 352, done.
+remote: Counting objects: 100% (352/352), done.
+remote: Compressing objects: 100% (227/227), done.
+remote: Total 352 (delta 128), reused 334 (delta 119), pack-reused 0
+Receiving objects: 100% (352/352), 27.62 MiB | 19.88 MiB/s, done.
+Resolving deltas: 100% (128/128), done.
+Updating files: 100% (310/310), done.
+[username@login01] ~]$ cd hpctr-examples/
+[username@login01] hpctr-examples]$ ll
+total 272
+drwxr-xr-x 12 username use300    15 Apr 10 22:26 .
+drwxr-x--- 41 username use300    63 Apr 10 22:26 ..
+drwxr-xr-x  9 username use300    10 Apr 10 22:26 basic_par
+drwxr-xr-x  3 username use300     9 Apr 10 22:26 calc-prime
+drwxr-xr-x  6 username use300     7 Apr 10 22:26 cuda
+drwxr-xr-x  2 username use300     5 Apr 10 22:26 env_info
+drwxr-xr-x  8 username use300    13 Apr 10 22:26 .git
+-rw-r--r--  1 username use300  1799 Apr 10 22:26 .gitignore
+drwxr-xr-x  2 username use300     9 Apr 10 22:26 hybrid
+-rw-r--r--  1 username use300 35149 Apr 10 22:26 LICENSE
+drwxr-xr-x  4 username use300     4 Apr 10 22:26 mkl
+drwxr-xr-x  2 username use300    15 Apr 10 22:26 mpi
+drwxr-xr-x  2 username use300    17 Apr 10 22:26 openacc
+drwxr-xr-x  2 username use300     8 Apr 10 22:26 openmp
+-rw-r--r--  1 username use300  5772 Apr 10 22:26 README.md
+
+</code></pre>
+<p><em>Note</em>: you can learn to create and modify directories as part of the <em>Getting Started</em> and <em>Basic Skills</em> preparation found here:
+<a href="https://github.com/sdsc-hpc-training-org/basic_skills">https://github.com/sdsc-hpc-training-org/basic_skills</a></p>
+<p>The examples directory contains the code we will cover in this tutorial:</p>
+<pre><code>[username@login01] examples]$ ll
+total 141
+drwxr-xr-x 9 user abc123  9 Jan 28 22:44 .
+drwxr-xr-x 5 user abc123  10 Jan 28 22:44 ..
+drwxr-xr-x 6 user abc123   7 Jan 28 22:44 CUDA
+drwxr-xr-x 6 user abc123   7 Jan 28 22:39 cuda-samples
+drwxr-xr-x 2 user abc123   3 Jan 28 22:39 ENV_INFO
+drwxr-xr-x 2 user abc123   6 Jan 28 22:39 HYBRID
+drwxr-xr-x 2 user abc123   6 Jan 28 22:39 MPI
+drwxr-xr-x 2 user abc123   6 Jan 28 22:39 OpenACC
+drwxr-xr-x 2 user abc123   6 Jan 28 22:39 OPENMP
+
+</code></pre>
+<p>All examples will contain source code, along with a batch script example so you can compile and run all examples on Expanse. Optionally, you can clone the tutorial as well:   <a href="https://github.com/sdsc-hpc-training-org/basic_skills">https://github.com/sdsc-hpc-training-org/expanse-101.git</a></p>
+<p>[ <a href="#get-start">Back to Getting Started</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="expanse-user-portal">Expanse User Portal<a name="geting-started-exp-port"></a><a class="headerlink" href="#expanse-user-portal" title="Permanent link">&para;</a></h3>
+<p><img src="images/expanse_user_portal.png" alt="Expanse User Portal" width="400px" /></p>
+<p>The Expanse User portal provides a quick and easy way for Expanse users. Features include:</p>
+<ul>
+<li>Logging in, transfering and editing files</li>
+<li>Submitting and monitoring jobs</li>
+<li>Running HPC applications</li>
+<li>Launching interactive applications such as MATLAB, Rstudio and Jupyter Notebooks.</li>
+<li>Integrated web-based environment for file management and job submission.</li>
+<li>All Users with valid Expanse Allocation and ACCESS Based credentials have access via their ACCESS credentials..</li>
+<li>See: https://portal.expanse.sdsc.edu</li>
+</ul>
+<p>Note that before you can access the Expanse Portal, you will need to authenticate (as shown in the image below). Most users will select the organization labeled "ACCESS CI (formerly XSEDE)" for login. Contact SDSC consulting (consult@sdsc.edu) if you have trouble authenticating.</p>
+<p><img src="images/geting-started-exp-port-authentication.png" alt="Image of the Expanse User Portal" width="400px" /></p>
+<p>[ <a href="#get-start">Back to Getting Started</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h2 id="environment-modules-customizing-your-user-environment"><a name="modules"></a>Environment Modules: Customizing Your User Environment<a class="headerlink" href="#environment-modules-customizing-your-user-environment" title="Permanent link">&para;</a></h2>
+<p>The Environment Modules package provides for dynamic modification of your shell environment. Module commands set, change, or delete environment variables, typically in support of a particular application. They also let the user choose between different versions of the same software or different combinations of related codes. See the <a href="https://www.sdsc.edu/support/user_guides/expanse.html#modules">Expanse User Guide</a>.</p>
+<p>In this Section:</p>
+<ul>
+<li><a href="#module-lmod-intro">Introduction to the Lua Lmod Module System</a></li>
+<li><a href="module-commands">Popular Lmod Commands</a></li>
+<li><a href="#load-and-check-module-env">Load and Check Modules and Environment</a></li>
+<li><a href="#module-login-load">Loading Modules During Login</a></li>
+<li><a href="#module-schemes">Saving Module Schemes</a></li>
+<li><a href="#module-troubleshoot">Troubleshooting</a></li>
+</ul>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+
+<h3 id="introduction-to-the-lua-lmod-module-system">Introduction to the Lua Lmod Module System<a name="module-lmod-intro"></a><a class="headerlink" href="#introduction-to-the-lua-lmod-module-system" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Expanse uses Lmod, a Lua based module system.</li>
+<li>See: <a href="https://lmod.readthedocs.io/en/latest/010_user.html">https://lmod.readthedocs.io/en/latest/010_user.html</a></li>
+<li>Users setup custom environments by loading available modules into the shell environment, including needed compilers and libraries and the batch scheduler.</li>
+<li>What’s the same as Comet:</li>
+<li>Dynamic modification of your shell environment</li>
+<li>User can set, change, or delete environment variables</li>
+<li>User chooses between different versions of the same software or different combinations of related codes.</li>
+<li>Modules: What’s Different?</li>
+<li><em>Users will need to load the scheduler (e.g. Slurm)</em></li>
+<li>Depending on which hardware users are working on, <em>users will need to load either the <code>gpu</code> or <code>cpu</code> modules</em>.</li>
+<li>Users will not see all available modules when they run command "module available" without loading a compiler.</li>
+<li>Use the command "module spider" option to see if a particular package exists and can be loaded, run command<ul>
+<li>module spider <package></li>
+<li>module keywords <term></li>
+</ul>
+</li>
+<li>For additional details, and to identify module dependencies modules, use the command<ul>
+<li>module spider <application_name></li>
+</ul>
+</li>
+<li>The module paths are different for the CPU and GPU nodes. Users can enable the paths by loading the following modules:               <ul>
+<li>module load cpu  (for cpu nodes)</li>
+<li>module load gpu  (for gpu nodes)     </li>
+<li>note: avoid loading both modules</li>
+</ul>
+</li>
+</ul>
+<p>[ <a href="#modules">Back to Modules</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="modules-popular-lmod-commands">Modules: Popular Lmod Commands<a name="module-commands"></a><a class="headerlink" href="#modules-popular-lmod-commands" title="Permanent link">&para;</a></h3>
+<p>Here are some common module commands and their descriptions:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Lmod Command</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">module purge</td>
+<td style="text-align: left;">Remove all modules that are currently loaded</td>
+</tr>
+<tr>
+<td style="text-align: left;">module list</td>
+<td style="text-align: left;">List the modules that are currently loaded</td>
+</tr>
+<tr>
+<td style="text-align: left;">module avail</td>
+<td style="text-align: left;">List the modules that are available in environment</td>
+</tr>
+<tr>
+<td style="text-align: left;">module spider</td>
+<td style="text-align: left;">List of the modules and extensions currently available</td>
+</tr>
+<tr>
+<td style="text-align: left;">module display <module_name></td>
+<td style="text-align: left;">Show the environment variables used by <module name> and how they are affected</td>
+</tr>
+<tr>
+<td style="text-align: left;">module unload <module name></td>
+<td style="text-align: left;">Remove <module name> from the environment</td>
+</tr>
+<tr>
+<td style="text-align: left;">module load <module name></td>
+<td style="text-align: left;">Load <module name> into the environment</td>
+</tr>
+<tr>
+<td style="text-align: left;">module swap <module one> <module two></td>
+<td style="text-align: left;">Replace <module one> with <module two> in the environment</td>
+</tr>
+<tr>
+<td style="text-align: left;">module  save <name></td>
+<td style="text-align: left;">Save the current list of modules to "name" collection.</td>
+</tr>
+<tr>
+<td style="text-align: left;">savelist</td>
+<td style="text-align: left;">List of saved module collections.</td>
+</tr>
+<tr>
+<td style="text-align: left;">describe  <name></td>
+<td style="text-align: left;">Describe the contents of a module collection.</td>
+</tr>
+<tr>
+<td style="text-align: left;">module help</td>
+<td style="text-align: left;">Get a list of all the commands that module knows about do:</td>
+</tr>
+</tbody>
+</table>
+<p>Lmod commands support <em>short-hand</em> notation, for example:</p>
+<pre><code>   ml foo == module load foo
+   ml -bar”  == module unload bar
+</code></pre>
+<p><em>SDSC Guidance:   <code>add module calls to your environment and batch scripts</code></em></p>
+<p><b> A few module command examples:</b></p>
+<ul>
+<li>Default environment for a new user/new login: <code>list</code>, <code>li</code></li>
+</ul>
+<pre><code>[username@login01] expanse-101]$ module list
+Currently Loaded Modules:
+1) shared   2) slurm/expanse/20.02.3   3) cpu/0.15.4   4) DefaultModules
+</code></pre>
+<ul>
+<li>List available modules:  <code>available</code>, <code>avail</code>, <code>av</code></li>
+</ul>
+<pre><code>$ module av
+[username@expanse-ln3:~] module av
+[username@login01] expanse-101]$ module available
+
+--------------- /cm/shared/apps/spack/cpu/lmod/linux-centos8-x86_64/Core ----------------
+   abaqus/2018     gaussian/16.C.01        gmp/6.1.2           mpfr/4.0.2
+   aocc/2.2.0      gcc/7.5.0               intel/19.1.1.217    openjdk/11.0.2
+   cmake/3.18.2    gcc/9.2.0               libtirpc/1.2.6      parallel/20200822
+   emboss/6.6.0    gcc/10.2.0       (D)    matlab/2020b        subversion/1.14.0
+
+--------------------------------- /cm/local/modulefiles ---------------------------------
+   cluster-tools-dell/9.0        gcc/9.2.0                    null
+   cluster-tools/9.0             gpu/1.0                      openldap
+   cmd                           ipmitool/1.8.18              python3
+   cmjob                         kubernetes/expanse/1.18.8    python37
+   cpu/1.0                (L)    lua/5.3.5                    shared                (L)
+   docker/19.03.5                luajit                       singularitypro/3.5
+   dot                           module-git                   slurm/expanse/20.02.3
+   freeipmi/1.6.4                module-info
+
+-------------------------------- /usr/share/modulefiles ---------------------------------
+   DefaultModules (L)    gct/6.2    globus/6.0
+
+-------------------------------- /cm/shared/modulefiles ---------------------------------
+   bonnie++/1.98                default-environment           netperf/2.7.0
+   cm-pmix3/3.1.4               gdb/8.3.1                     openblas/dynamic/0.3.7
+   cuda10.2/blas/10.2.89        hdf5/1.10.1                   openmpi/gcc/64/1.10.7
+   cuda10.2/fft/10.2.89         hdf5_18/1.8.21                sdsc/1.0
+   cuda10.2/nsight/10.2.89      hwloc/1.11.11                 ucx/1.6.1
+   cuda10.2/profiler/10.2.89    iozone/3_487
+   cuda10.2/toolkit/10.2.89     netcdf/gcc/64/gcc/64/4.7.3
+
+  Where:
+   L:  Module is loaded
+   D:  Default Module
+
+</code></pre>
+<p><em>Note:</em> Module defaults are chosen based on <em>Find First Rules</em> due to Name/Version/Version modules found in the module tree.
+See https://lmod.readthedocs.io/en/latest/060_locating.html for details.</p>
+<p>Use <code>module spider</code> to find all possible modules and extensions.</p>
+<pre><code>[username@login02 ~]$ module spider MPI
+[username@login01] hpctr-examples]$ module spider MPI
+
+----------------------------------------------------------------------------
+  intel-mpi: intel-mpi/2019.8.254
+----------------------------------------------------------------------------
+
+    You will need to load all module(s) on any one of the lines below before the &quot;intel-mpi/2019.8.254&quot; module is available to load.
+
+      cpu/0.15.4  gcc/10.2.0
+      cpu/0.15.4  gcc/9.2.0
+      cpu/0.15.4  intel/19.1.1.217
+      gpu/0.15.4
+      gpu/0.15.4  intel/17.0.7
+      gpu/0.15.4  intel/19.0.5.281
+      gpu/0.15.4  pgi/20.4
+
+    Help:
+      Intel MPI
+
+
+----------------------------------------------------------------------------
+  intel-mpi/2019.10.317:
+----------------------------------------------------------------------------
+     Versions:
+        intel-mpi/2019.10.317/ezrfjne
+        intel-mpi/2019.10.317/jhyxn2g
+        intel-mpi/2019.10.317/kdx4qap
+        intel-mpi/2019.10.317/uwgziob
+
+----------------------------------------------------------------------------
+  For detailed information about a specific &quot;intel-mpi/2019.10.317&quot; package (including how to load the modules) use the module's full name. Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider intel-mpi/2019.10.317/uwgziob
+----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
+  mpip: mpip/3.4.1
+----------------------------------------------------------------------------
+
+    You will need to load all module(s) on any one of the lines below before the &quot;mpip/3.4.1&quot; module is available to load.
+
+      cpu/0.15.4  gcc/10.2.0  openmpi/4.0.4
+      cpu/0.15.4  gcc/10.2.0  openmpi/4.0.4-openib
+
+    Help:
+      mpiP: Lightweight, Scalable MPI Profiling
+----------------------------------------------------------------------------
+  mpip/3.5:
+----------------------------------------------------------------------------
+     Versions:
+        mpip/3.5/aowedam
+        mpip/3.5/blkwu65
+        mpip/3.5/mjhw2bi
+        mpip/3.5/o2hhyev
+        mpip/3.5/owpz5hl
+        mpip/3.5/plw5vw6
+        mpip/3.5/useousx
+        mpip/3.5/w64qya2
+        mpip/3.5/x4p5f6i
+        mpip/3.5/3g6o4ug
+        mpip/3.5/7nngdrh
+
+----------------------------------------------------------------------------
+  For detailed information about a specific &quot;mpip/3.5&quot; package (including how to load the modules) use the module's full name. Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider mpip/3.5/7nngdrh
+----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
+  openmpi:
+----------------------------------------------------------------------------
+     Versions:
+        openmpi/3.1.6-cxx
+        openmpi/3.1.6-threads
+        openmpi/3.1.6
+        openmpi/4.0.4-nocuda
+        openmpi/4.0.4-openib
+        openmpi/4.0.4
+        openmpi/4.0.5
+        openmpi/4.1.1
+
+----------------------------------------------------------------------------
+  For detailed information about a specific &quot;openmpi&quot; package (including how to load the modules) use the module's full name. Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider openmpi/4.1.1
+----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
+  openmpi/4.1.1: openmpi/4.1.1/ygduf2r
+----------------------------------------------------------------------------
+
+    You will need to load all module(s) on any one of the lines below before the &quot;openmpi/4.1.1/ygduf2r&quot; module is available to load.
+
+      cpu/0.17.3b  gcc/10.2.0/npcyll4
+
+    Help:
+      An open source Message Passing Interface implementation. The Open MPI
+      Project is an open source Message Passing Interface implementation that
+      is developed and maintained by a consortium of academic, research, and
+      industry partners. Open MPI is therefore able to combine the expertise,
+      technologies, and resources from all across the High Performance
+      Computing community in order to build the best MPI library available.
+      Open MPI offers advantages for system and software vendors, application
+      developers and computer science researchers.
+  ----------------------------------------------------------------------------
+  openmpi/4.1.3:
+----------------------------------------------------------------------------
+     Versions:
+        openmpi/4.1.3/gzzscfu
+        openmpi/4.1.3/luhyajc
+        openmpi/4.1.3/oq3qvsv
+        openmpi/4.1.3/u2lt4pl
+        openmpi/4.1.3/v2ei3ge
+        openmpi/4.1.3/xigazqd
+
+----------------------------------------------------------------------------
+  For detailed information about a specific &quot;openmpi/4.1.3&quot; package (including how to load the modules) use the module's full name. Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider openmpi/4.1.3/xigazqd
+----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
+  openmpi/mlnx/gcc/64: openmpi/mlnx/gcc/64/4.1.5a1
+----------------------------------------------------------------------------
+
+    This module can be loaded directly: module load openmpi/mlnx/gcc/64/4.1.5a1
+
+    Help:
+        Adds OpenMPI to your environment variables,
+----------------------------------------------------------------------------
+  py-mpi4py: py-mpi4py/3.0.3
+----------------------------------------------------------------------------
+    You will need to load all module(s) on any one of the lines below before the &quot;py-mpi4py/3.0.3&quot; module is available to load.
+
+      cpu/0.15.4  gcc/10.2.0  mvapich2/2.3.6
+      cpu/0.15.4  gcc/10.2.0  openmpi/4.0.4
+      cpu/0.15.4  gcc/10.2.0  openmpi/4.0.4-openib
+      gpu/0.15.4  openmpi/4.0.4
+
+    Help:
+      This package provides Python bindings for the Message Passing Interface
+      (MPI) standard. It is implemented on top of the MPI-1/MPI-2
+      specification and exposes an API which grounds on the standard MPI-2 C++
+      bindings.
+----------------------------------------------------------------------------
+  py-mpi4py/3.1.2:
+----------------------------------------------------------------------------
+     Versions:
+        py-mpi4py/3.1.2/cllp7nt
+        py-mpi4py/3.1.2/kas2whp
+        py-mpi4py/3.1.2/silsqln
+        py-mpi4py/3.1.2/3lfjrdm
+        py-mpi4py/3.1.2/7ebfcgr
+----------------------------------------------------------------------------
+  For detailed information about a specific &quot;py-mpi4py/3.1.2&quot; package (including how to load the modules) use the module's full name. Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider py-mpi4py/3.1.2/7ebfcgr
+----------------------------------------------------------------------------     
+</code></pre>
+<p>[ <a href="#modules">Back to Modules</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="load-and-check-modules-and-environment"><a name="load-and-check-module-env"></a>Load and Check Modules and Environment<a class="headerlink" href="#load-and-check-modules-and-environment" title="Permanent link">&para;</a></h3>
+<p>In this example, we will add the Slurm library, and and verify that it is in your environment</p>
+<ul>
+<li>Check  module environment after logging on to the system</li>
+<li>Note: the module environment can change, depending on when different libraries are updated.</li>
+</ul>
+<pre><code>[username@login01] ~]$ module li
+
+Currently Loaded Modules:
+  1) shared            3) slurm/expanse/21.08.8   5) DefaultModules
+  2) cpu/0.17.3b (c)   4) sdsc/1.0
+
+  Where:
+   c:  built natively for AMD Rome
+</code></pre>
+<ul>
+<li>Note that MPI is not in the environment. Check environment looking for MPI commands</li>
+</ul>
+<pre><code>[username@login01] ~]$ which mpicc
+/usr/bin/which: no mpicc in (/cm/shared/apps/sdsc/1.0/bin:/cm/shared/apps/sdsc/1.0/sbin:/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
+</code></pre>
+<ul>
+<li>Since MPI commands do not appear in our environment, we need to load that module:</li>
+</ul>
+<pre><code>[username@login01] hpctr-examples]$ module spider openmpi/4.1.1
+
+----------------------------------------------------------------------------
+  openmpi/4.1.1: openmpi/4.1.1/ygduf2r
+----------------------------------------------------------------------------
+
+    You will need to load all module(s) on any one of the lines below before the &quot;openmpi/4.1.1/ygduf2r&quot; module is available to load.
+
+      cpu/0.17.3b  gcc/10.2.0/npcyll4
+
+    Help:
+      An open source Message Passing Interface implementation. The Open MPI
+      Project is an open source Message Passing Interface implementation that
+      is developed and maintained by a consortium of academic, research, and
+      industry partners. Open MPI is therefore able to combine the expertise,
+      technologies, and resources from all across the High Performance
+      Computing community in order to build the best MPI library available.
+      Open MPI offers advantages for system and software vendors, application
+      developers and computer science researchers.
+
+</code></pre>
+<ul>
+<li>load the modules above</li>
+</ul>
+<pre><code>[username@login01] hpctr-examples]$ module load cpu/0.17.3b  gcc/10.2.0/npcyll4
+[username@login01] hpctr-examples]$ module list
+
+Currently Loaded Modules:
+  1) shared                  3) sdsc/1.0         5) cpu/0.17.3b        (c)
+  2) slurm/expanse/21.08.8   4) DefaultModules   6) gcc/10.2.0/npcyll4
+
+  Where:
+   c:  built natively for AMD Rome
+
+
+
+[username@login01] hpctr-examples]$ which mpicc
+/usr/bin/which: no mpicc in (/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen/gcc-8.5.0/gcc-10.2.0-npcyll4gxjhf4tejksmdzlsl3d3usqpd/bin:/cm/shared/apps/sdsc/1.0/bin:/cm/shared/apps/sdsc/1.0/sbin:/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
+[username@login01] hpctr-examples]$ module load openmpi/4.1.1
+[username@login01] hpctr-examples]$ module list
+
+Currently Loaded Modules:
+  1) shared                  5) cpu/0.17.3b           (c)
+  2) slurm/expanse/21.08.8   6) gcc/10.2.0/npcyll4
+  3) sdsc/1.0                7) ucx/1.10.1/dnpjjuc
+  4) DefaultModules          8) openmpi/4.1.1/ygduf2r
+
+  Where:
+   c:  built natively for AMD Rome
+
+
+
+[username@login01] hpctr-examples]$ which mpicc
+/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpicc
+</code></pre>
+<ul>
+<li>Notice the long and complicated file path. Try listing the contents of the directory will give you 45 directories. This is the motivation for Modules:</li>
+</ul>
+<pre><code>[username@login01] hpctr-examples]$ ls -al /cm/shared/apps
+total 1
+drwxr-xr-x 43 root root 42 Apr 14 09:22 .
+drwxr-xr-x  8 root root  7 May  5  2022 ..
+drwxr-xr-x  4 root root  2 Aug 18  2022 access
+drwxr-xr-x  9 root root  8 Jun  1  2021 AMDuProf_3.4.475
+drwxr-xr-x  3 root root  1 Aug 26  2020 blacs
+drwxr-xr-x  3 root root  1 Aug 26  2020 blas
+[SNIP]
+drwxr-xr-x  3 root root  1 Jun 21  2022 uge
+drwxr-xr-x  3 root root  1 Jul 31  2021 vis
+drwxr-xr-x  5 root root  3 Oct 19  2020 xsede
+
+</code></pre>
+<ul>
+<li>Display loaded module details:</li>
+</ul>
+<pre><code>[username@login01] hpctr-examples]$ module display openmpi/4.1.1/ygduf2r
+----------------------------------------------------------------------------
+   /cm/shared/apps/spack/0.17.3/cpu/b/share/spack/lmod/linux-rocky8-x86_64/gcc/10.2.0/openmpi/4.1.1/ygduf2r.lua:
+----------------------------------------------------------------------------
+whatis(&quot;Name : openmpi&quot;)
+whatis(&quot;Version : 4.1.1&quot;)
+whatis(&quot;Target : zen2&quot;)
+whatis(&quot;Short description : An open source Message Passing Interface implementation.&quot;)
+[SNIP]
+Project is an open source Message Passing Interface implementation that
+is developed and maintained by a consortium of academic, research, and
+industry partners. Open MPI is therefore able to combine the expertise,
+technologies, and resources from all across the High Performance
+Computing community in order to build the best MPI library available.
+Open MPI offers advantages for system and software vendors, application
+developers and computer science researchers.]])
+family(&quot;mpi&quot;)
+prepend_path(&quot;MODULEPATH&quot;,&quot;/cm/shared/apps/spack/0.17.3/cpu/b/share/spack/lmod/linux-rocky8-x86_64/openmpi/4.1.1-ygduf2r/gcc/10.2.0&quot;)
+setenv(&quot;LMOD_MPI_NAME&quot;,&quot;openmpi&quot;)
+setenv(&quot;LMOD_MPI_VERSION&quot;,&quot;4.1.1-ygduf2r&quot;)
+prepend_path(&quot;LD_LIBRARY_PATH&quot;,&quot;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/lib&quot;)
+prepend_path(&quot;PATH&quot;,&quot;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin&quot;)
+prepend_path(&quot;MANPATH&quot;,&quot;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/share/man&quot;)
+prepend_path(&quot;PKG_CONFIG_PATH&quot;,&quot;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/lib/pkgconfig&quot;)
+prepend_path(&quot;CMAKE_PREFIX_PATH&quot;,&quot;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/&quot;)
+setenv(&quot;MPICC&quot;,&quot;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpicc&quot;)
+setenv(&quot;MPICXX&quot;,&quot;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpic++&quot;)
+setenv(&quot;MPIF77&quot;,&quot;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpif77&quot;)
+setenv(&quot;MPIF90&quot;,&quot;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpif90&quot;)
+setenv(&quot;OPENMPIHOME&quot;,&quot;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv&quot;)
+
+
+</code></pre>
+<p>Once you have loaded the modules, you can check the system variables that are available for you to use.</p>
+<ul>
+<li>To see all variables, run the <b><code>env</code></b> command. For the environment that we created, the command below produced 107 lines containing information such as your login name, shell, your home directory, and paths to the different libraries and modules that you have loaded:</li>
+</ul>
+<pre><code>[username@login01] hpctr-examples]$ env
+LS_COLORS=rs=0:di=38;5;33:ln=38;5;51:mh=00:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=01;05;37;41:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:[SNIP]
+__LMOD_REF_COUNT_PATH=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin:1;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/ucx-1.10.1-dnpjjucppo5hjn4wln4bbekczzk7covs/bin:1;/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen/gcc-8.5.0/gcc-10.2.0-npcyll4gxjhf4tejksmdzlsl3d3usqpd/bin:1;/cm/shared/apps/sdsc/1.0/bin:1;/cm/shared/apps/sdsc/1.0/sbin:1;/cm/shared/apps/slurm/current/sbin:1;/cm/shared/apps/slurm/current/bin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1
+[SNIP]
+MPICXX=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpic++
+[SNIP]
+PWD=/home/username/hpc-onboard/hpctr-examples
+ENABLE_LMOD=1
+HOME=/home/username
+[SNIP]
+__LMOD_REF_COUNT_LIBRARY_PATH=/cm/shared/apps/slurm/current/lib64/slurm:1;/cm/shared/apps/slurm/current/lib64:1
+OPENMPIHOME=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv
+LIBRARY_PATH=/cm/shared/apps/slurm/current/lib64/slurm:/cm/shared/apps/slurm/current/lib64
+[SNIP]
+MPIF77=/cm/shared/apps/spack/0.17.3/cpu/b/opt/spack/linux-rocky8-zen2/gcc-10.2.0/openmpi-4.1.1-ygduf2ryo2scwdtpl4wftbmlz2xubbrv/bin/mpif77
+SDSC_SBIN=/cm/shared/apps/sdsc/1.0/sbin
+
+[SNIP]
+LMOD_FAMILY_MPI=openmpi/4.1.1
+BASH_FUNC_which%%=() {  ( alias;
+ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+}
+BASH_FUNC_module%%=() {  eval $($LMOD_CMD bash &quot;$@&quot;) &amp;&amp; eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+BASH_FUNC_ml%%=() {  eval $($LMOD_DIR/ml_cmd &quot;$@&quot;)
+}
+_=/usr/bin/env
+[username@login01] hpctr-examples]$
+
+
+</code></pre>
+<p>To see the value for any of these variables, use the <code>echo</code> command. In this example we show how to activate your miniconda environment so you can run Jupyter Notebooks:</p>
+<pre><code>[username@login01] hpctr-examples]$ echo $LMOD_FAMILY_MPI
+openmpi/4.1.1
+</code></pre>
+<p>[ <a href="#modules">Back to Modules</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="loading-modules-at-login">Loading Modules at Login <a name="module-login-load"></a><a class="headerlink" href="#loading-modules-at-login" title="Permanent link">&para;</a></h3>
+<p>You can override, and add to the standard set of login modules in two ways.</p>
+<ol>
+<li>The first is adding module commands to your personal startup files.</li>
+<li>The second way is through the “module save” command.
+<em>Note: make sure that you always want the module loaded at login</em></li>
+</ol>
+<p>For Bash:  put the following block into your <code>~/.bash_profile</code> file:</p>
+<pre><code>if [ -f ~/.bashrc ]; then
+       . ~/.bashrc
+fi
+</code></pre>
+<p>Place the following in your <code>~/.bashrc</code> file:</p>
+<pre><code># Place  module commands here
+# module load hdf5
+
+</code></pre>
+<ul>
+<li>First edit your <code>.bashrc</code> and <code>.bash_profile</code> files:</li>
+</ul>
+<pre><code>[username@login02 ~]$ cat .bash_profile
+# .bash_profile
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+. ~/.bashrc
+fi
+[SNIP]
+[username@login01] ~]$
+[username@login02 ~]$ cat .bashrc
+# .bashrc
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+. /etc/bashrc
+fi
+
+# Place any module commands here
+module load hdf5
+
+[SNIP]
+</code></pre>
+<ul>
+<li>Next LOGOUT and LOG BACK IN:</li>
+</ul>
+<pre><code>[username@login02 ~]$ env | grep Slurm
+[snip]
+MANPATH=/cm/shared/apps/Slurm/current/man:/usr/share/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/cm/local/apps/environment-modules/current/share/man
+PATH=/cm/shared/apps/Slurm/current/sbin:/cm/shared/apps/Slurm/current/bin:/home/user/miniconda3/bin/conda:/home/user/miniconda3/bin:/home/user/miniconda3/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/home/user/.local/bin:/home/user/bin
+[snip]
+[username@login02 ~]$ which squeue
+/cm/shared/apps/Slurm/current/bin/squeue
+</code></pre>
+<p>[ <a href="#modules">Back to Modules</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="saving-module-schemes">Saving Module Schemes <a name="module-schemes"></a><a class="headerlink" href="#saving-module-schemes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Lmod allows a you to save a bundle of modules as a collection using module save <collection_name> and module restore <collection_name>.</li>
+<li>This enables you to quickly get the same list of modules loaded if you tend to use the same modules over and over.</li>
+<li>With a new module scheme comes a different system MODULEPATH.</li>
+</ul>
+<pre><code>[mthomas@login01 hpctr-examples]$ module save tutorial-openmpi-list
+Saved current collection of modules to: &quot;tutorial-openmpi-list&quot;
+</code></pre>
+<ul>
+<li>To see what is saved:</li>
+</ul>
+<pre><code>[mthomas@login01 hpctr-examples]$ module savelist
+Named collection list :
+  1) tutorial-openmpi-list
+</code></pre>
+<h3 id="troubleshooting">Troubleshooting <a name="module-troubleshoot"></a><a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h3>
+<h4 id="troubleshooting-lmod-warning-rebuild-your-saved-collection">Troubleshooting: Lmod warning “rebuild your saved collection”<a name="lmod-warn-rebuild"></a><a class="headerlink" href="#troubleshooting-lmod-warning-rebuild-your-saved-collection" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>With each new module scheme comes a different system MODULEPATH. For this reason, if you have some module collections saved, you may experience the following warning: “Lmod Warning: The system MODULEPATH has changed: please rebuild your saved collection.” To solve this you need to remove your old collections and create them again.</p>
+</li>
+<li>
+<p>Too see the list of module collections that you currently have:</p>
+</li>
+</ul>
+<pre><code>[mthomas@login01 hpctr-examples]$ module savelist
+Named collection list :
+  1) tutorial-openmpi-list
+
+</code></pre>
+<ul>
+<li>To remove or disable a saved collection:</li>
+</ul>
+<pre><code>[username@login02 ~]$ module disable tutorial-openmpi-list
+Disabling tutorial-openmpi-list collection by renaming with a &quot;~&quot;
+[username@login02 ~]$ module savelist
+No named collections.
+[username@login02 ~]$
+</code></pre>
+<h4 id="troubleshooting-module-error">Troubleshooting:  Module Error<a name="module-error"></a><a class="headerlink" href="#troubleshooting-module-error" title="Permanent link">&para;</a></h4>
+<p>Sometimes this error is encountered when switching from one shell to another or attempting to run the module command from within a shell script or batch job. The module command may not be inherited between the shells.  To keep this from happening, execute the following command:</p>
+<pre><code>[expanse-ln3:~]source /etc/profile.d/modules.sh
+</code></pre>
+<p>OR add this command to your shell script (including Slurm batch scripts)</p>
+<p>[ <a href="#modules">Back to Modules</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h2 id="managing-accounts-on-expanse"><a name="managing-accounts"></a>Managing Accounts on Expanse<a class="headerlink" href="#managing-accounts-on-expanse" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#manage-accts-client-script">Expanse Client Script</a></li>
+<li><a href="#manage-accts-batch-script">Using Accounts in Batch Jobs</a></li>
+<li><a href="#manage-accts-users">Managing Users on an Account</a></li>
+</ul>
+<h3 id="expanse-client-script"><a name="manage-accts-client-script"></a>Expanse-Client Script<a class="headerlink" href="#expanse-client-script" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The expanse-client script provides additional details regarding User and Project availability and usage located at:</li>
+</ul>
+<pre><code>/cm/shared/apps/sdsc/current/bin/expanse-client
+</code></pre>
+<ul>
+<li>Example of Script Usage:</li>
+</ul>
+<pre><code>[username@login01] ~]$ expanse-client -h
+Allows querying the user statistics.
+
+Usage:
+  expanse-client [command]
+
+  Available Commands:
+    completion  Generate the autocompletion script for the specified shell
+    help        Help about any command
+    project     Get project information
+    resource    Get resources
+    user        Get user information
+
+  Flags:
+    -a, --auth      authenticate the request
+    -h, --help      help for expanse-client
+    -p, --plain     plain no graphics output
+    -v, --verbose   verbose output
+
+Use &quot;expanse-client [command] --help&quot; for more information about a command.
+</code></pre>
+<ul>
+<li>Example of using the script shows that the user has allocations on 3 accounts, and SU's remaining:</li>
+</ul>
+<pre><code>[username@login01] ~]$ expanse-client user -p
+
+ Resource  sdsc_expanse
+
+ NAME     PROJECT  USED  AVAILABLE  USED BY PROJECT
+----------------------------------------------------
+ user  abc123     33      80000              180
+ user  srt456      0       5000               79
+ user  xyz789    318     500000          2905439
+</code></pre>
+<ul>
+<li>To see who is on an account:</li>
+</ul>
+<pre><code>[username@login01] hpctr-examples]$ expanse-client project abc123
+ Resource          expanse
+ Project           abc123
+ TG Project        xyz789  
+ Total allocation  50000
+ Total spent       1987
+ Expiration        April 16, 2023
+
+╭─────┬──────────────┬────────┬──────┬───────────┬─────────────────╮
+│     │ NAME         │ STATUS │ USED │ AVAILABLE │ USED BY PROJECT │
+├─────┼──────────────┼────────┼──────┼───────────┼─────────────────┤
+│   9 │ user100      │ allow  │  500 │       500 │            1987 │
+│  28 │ user101      │ allow  │   34 │       500 │            1987 │
+│  31 │ user102      │ uspent │  514 │       500 │            1987 │
+│  32 │ user103      │ allow  │  495 │       500 │            1987 │
+│  79 │ user104      │ allow  │   67 │       500 │            1987 │
+│  89 │ user105      │ allow  │   82 │       500 │            1987 │
+│ 114 │ user106      │ allow  │   31 │       500 │            1987 │
+│ 156 │ user107      │ allow  │   82 │       500 │            1987 │
+╰─────┴──────────────┴────────┴──────┴───────────┴─────────────────╯
+    (example is filtered)                                                               
+</code></pre>
+<h3 id="using-accounts-in-batch-jobs"><a name="manage-accts-batch-script"></a>Using Accounts in Batch Jobs<a class="headerlink" href="#using-accounts-in-batch-jobs" title="Permanent link">&para;</a></h3>
+<p>As with the case above, some users will have access to multiple accounts (e.g. an allocation for a research project and a separate allocation for classroom or educational use). Users should verify that the correct project is designated for all batch jobs. Awards are granted for a specific purposes and should not be used for other projects. Designate a project by replacing  &lt;&lt; project &gt;&gt; with a project listed as above in the SBATCH directive in your job script:</p>
+<pre><code>  #SBATCH -A &lt;&lt; project &gt;&gt;
+</code></pre>
+<h3 id="managing-users-on-an-account"><a name="manage-accts-users"></a>Managing Users on an Account<a class="headerlink" href="#managing-users-on-an-account" title="Permanent link">&para;</a></h3>
+<p>Only project PIs and co-PIs can add or remove users from an account. This can only be done
+via the ACCESS Allocations Management page at: https://allocations.access-ci.org/ web page (there is no command line interface for this).
+After logging in, go to the Manage User page for the account.</p>
+<p>[ <a href="#managing-accounts">Back to Managing Accounts</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h2 id="job-charging"><a name="job-charging"></a>Job Charging<a class="headerlink" href="#job-charging" title="Permanent link">&para;</a></h2>
+<p>The basic charge unit for all SDSC machines, including Expanse, is the Service Unit (SU). This corresponds to:
+* 1 CPU - use of one compute core utilizing less than or equal to 2G of data for one hour.
+* 1 GPU using less than 96G of data for 1 hour.
+* Shared resources - based on either the number of cores or the fraction of the memory requested, whichever is larger
+* Charges are based on  resources that are tied up by your job not how the resources are used. 
+* The minimum charge for any job is 1 SU.</p>
+<p>See the <a href="https://www.sdsc.edu/support/user_guides/expanse.html#charging">Expanse User Guide</a> for more details and factors that affect job charging.</p>
+<h2 id="compiling-linking-code">Compiling &amp; Linking Code<a name="compilers"></a><a class="headerlink" href="#compiling-linking-code" title="Permanent link">&para;</a></h2>
+<p>Expanse provides the Intel, Portland Group (PGI), and GNU compilers along with multiple MPI implementations (MVAPICH2, MPICH2, OpenMPI). Most applications will achieve the best performance on Expanse using the Intel compilers and MVAPICH2 and the majority of libraries installed on Expanse have been built using this combination. Having such a diverse set of compilers avaiable allows for our users to customize the software stack need for their application. However, there
+can be some complexity involved in sorting out the module dependencies needed for your applications. Often the set of modules being loaded depends on the application you are using and the compiler and libraries you may need. In many cases you will need to use the <code>module spider</code> command to sort out what modules your application will need. Additionally, it is possible the list will change if some of the dependent software changes.</p>
+<p>Other compilers and versions can be installed by Expanse staff on request. For more information, see the [Expanse User Guide.]
+(https://www.sdsc.edu/support/user_guides/expanse.html#compiling)</p>
+<p><a name="compilers-toc"> In this Section:
+* <a href="#compilers-supported&quot;">Supported Compilers</a>
+    * <a href="#compilers-amd">AMD Optimizing C/C++ Compiler (AOCC)</a>
+    * <a href="#compilers-intel">Intel Compilers</a>
+    * <a href="#compilers-gnu">GNU Compilers</a>
+    * <a href="#compilers-pgi">PGI Compilers</a></p>
+<p><a href="#top">Back to Top</a></p>
+<h3 id="cpugpu-compilers"><a name="compilers-supported"></a>CPU/GPU Compilers<a class="headerlink" href="#cpugpu-compilers" title="Permanent link">&para;</a></h3>
+<p>Expanse CPU and GPU nodes have different compiler libraries.</p>
+<h4 id="cpu-nodes">CPU Nodes<a class="headerlink" href="#cpu-nodes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>GNU, Intel, AOCC (AMD) compilers</li>
+<li>Multiple MPI implementations (OpenMPI, MVAPICH2, and IntelMPI).</li>
+<li>A majority of applications have been built using gcc/10.2.0 which features AMD Rome specific optimization flags (-march=znver2).</li>
+<li>Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2).</li>
+</ul>
+<p>Users should evaluate their application for best compiler and library selection. GNU, Intel, and AOCC compilers all have flags to support Advanced Vector Extensions 2 (AVX2). Using AVX2, up to eight floating point operations can be executed per cycle per core, potentially doubling the performance relative to non-AVX2 processors running at the same clock speed. Note that AVX2 support is not enabled by default and compiler flags must be set as described below.</p>
+<h4 id="gpu-nodes">GPU Nodes<a class="headerlink" href="#gpu-nodes" title="Permanent link">&para;</a></h4>
+<p>Expanse GPU nodes have GNU, Intel, and PGI compilers available along with multiple MPI implementations (OpenMPI, IntelMPI, and MVAPICH2). The gcc/10.2.0, Intel, and PGI compilers have specific flags for the Cascade Lake architecture. Users should evaluate their application for best compiler and library selections.</p>
+<p><em>Note that the login nodes are not the same as the GPU nodes, therefore all GPU codes must be compiled by requesting an interactive session on the GPU nodes.</em></p>
+<p>In this tutorial, we include several hands-on examples that cover many of the cases described below, or the <a href="#run-jobs">Running Jobs</a> section below.</p>
+<ul>
+<li>MPI</li>
+<li>OpenMP</li>
+<li>HYBRID</li>
+<li>GPU</li>
+<li>Local scratch</li>
+</ul>
+<p>[ <a href="#compilers-toc">Back to Compilers</a> ] [ <a href="#top">Back to Top</a></p>
+<hr>
+
+<h3 id="amd-optimizing-cc-compiler-aocc"><a name="compilers-amd"></a>AMD Optimizing C/C++ Compiler (AOCC)<a class="headerlink" href="#amd-optimizing-cc-compiler-aocc" title="Permanent link">&para;</a></h3>
+<p>The AMD Optimizing C/C++ Compiler (AOCC) is only available on CPU nodes. AMD compilers can be loaded by executing the following commands at the Linux prompt:</p>
+<pre><code>module load aocc
+</code></pre>
+<p>For more information on the AMD compilers run:</p>
+<pre><code>[flang | clang ] -help
+</code></pre>
+<p>Suggested Compilers to used based on programming model and languages:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Language</th>
+<th style="text-align: left;">Serial</th>
+<th style="text-align: left;">MPI</th>
+<th style="text-align: left;">OpenMP</th>
+<th style="text-align: left;">MPI + OpenMP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Fortran</td>
+<td style="text-align: left;">flang</td>
+<td style="text-align: left;">mpif90</td>
+<td style="text-align: left;">ifort -fopenmp</td>
+<td style="text-align: left;">mpif90 -fopenmp</td>
+</tr>
+<tr>
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">clang</td>
+<td style="text-align: left;">mpiclang</td>
+<td style="text-align: left;">icc -fopenmp</td>
+<td style="text-align: left;">mpicc -fopenmp</td>
+</tr>
+<tr>
+<td style="text-align: left;">C++</td>
+<td style="text-align: left;">clang++</td>
+<td style="text-align: left;">mpiclang</td>
+<td style="text-align: left;">icpc -fopenmp</td>
+<td style="text-align: left;">mpicxx -fopenmp</td>
+</tr>
+</tbody>
+</table>
+<h3 id="using-the-aocc-compilers">Using the AOCC Compilers<a class="headerlink" href="#using-the-aocc-compilers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>If you have modified your environment, you can reload by executing the module purge &amp; load commands at the Linux prompt, or placing the load command in your startup file (~/.cshrc or ~/.bashrc)</li>
+</ul>
+<p>In this example, we show how to reload your environment and how to use the <code>swap</code> command.</p>
+<pre><code>[username@login02 ~]$ module list
+Currently Loaded Modules:
+  1) shared   2) cpu/1.0   3) DefaultModules   4) hdf5/1.10.1   5) intel/ 19.1.1.217
+## need to change multiple modules
+[username@login02 ~]$ module purge
+[username@login02 ~]$ module list
+No modules loaded
+[username@login02 ~]$ module load slurm
+[username@login02 ~]$ module load cpu
+[username@login02 ~]$ module load gcc
+[username@login02 ~]$ module load openmpi/4.0.4
+[username@login02 ~]$ module list
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
+[username@login02 MPI]$ module swap gcc aocc
+Due to MODULEPATH changes, the following have been reloaded:
+  1) openmpi/4.0.4
+[username@login02 ~]$ module list
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) aocc/2.2.0   4) openmpi/4.0.4
+[username@login02 ~]$ 
+</code></pre>
+<p>[ <a href="#compilers-toc">Back to Compilers</a> ] [ <a href="#top">Back to Top</a></p>
+<hr>
+
+<h3 id="intel-compilers"><a name="compilers-intel"></a>Intel Compilers<a class="headerlink" href="#intel-compilers" title="Permanent link">&para;</a></h3>
+<p>The Intel compilers and the MVAPICH2 MPI implementation will be loaded by default. The MKL and related libraries may need several modulrs. If you have modified your environment, you can reload by executing the following commands such as those shown below at the Linux prompt or placing in your startup file (~/.cshrc or ~/.bashrc). Below is the list of modules created for the DGEMM MKL example described below  (on 01/25/21):</p>
+<pre><code>module purge
+module load slurm
+module load cpu
+module load intel mvapich2
+</code></pre>
+<p>Recall that the list of modules being loaded depends on the application you are using and the compiler and libraries you may need. In some cases you will need to use the <strong>module spider</strong> command to sort out what modules your application will need.  And, it is possible the list will change if some of the dependent software changes.</p>
+<p>For AVX2 support, compile with the -march=core-avx2 option. Note that this flag alone does not enable aggressive optimization, so compilation with -O3 is also suggested.</p>
+<p>Intel MKL libraries are available as part of the "intel" modules on Expanse. Once this module is loaded, the environment variable MKL_ROOT points to the location of the mkl libraries. The MKL link advisor can be used to ascertain the link line (change the MKL_ROOT aspect appropriately).</p>
+<p>In the example below, we are working with a serial MKL example that can be found in the examples/MKL/dgemm folder of the GitHub repository.
+This example based on an <a href="http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/">Intel MKL repo</a>
+computes the real matrix <code>C=alpha*A*B+beta*C</code> using Intel(R) MKL</p>
+<ul>
+<li>Repository contents:</li>
+</ul>
+<pre><code>[username@login01] hpctr-examples/mkl/mkl-mat-mul/dgemm_mat_mul]$ ll
+total 3758
+drwxr-xr-x 2 user abc123       8 Jan 29 00:45 .
+drwxr-xr-x 3 user abc123        3 Jan 29 00:25 ..
+-rw-r--r-- 1 user abc123     2997 Jan 29 00:25 dgemm_example.f
+-rw-r--r-- 1 user abc123      618 Jan 29 00:25 dgemm-Slurm.sb
+-rw-r--r-- 1 user abc123      363 Jan 29 00:32 README.txt
+</code></pre>
+<ul>
+<li>Code snippets:</li>
+</ul>
+<pre><code> PROGRAM   MAIN
+
+      IMPLICIT NONE
+
+      DOUBLE PRECISION ALPHA, BETA
+      INTEGER          M, P, N, I, J
+      PARAMETER        (M=2000, P=200, N=1000)
+      DOUBLE PRECISION A(M,P), B(P,N), C(M,N)
+[SNIP]
+      PRINT *, &quot;Computing matrix product using Intel(R) MKL DGEMM &quot;
+      CALL DGEMM('N','N',M,N,P,ALPHA,A,M,B,P,BETA,C,M)
+[SNIP]
+</code></pre>
+<ul>
+<li>README.txt contents:</li>
+</ul>
+<pre><code>[username@login01] dgemm]$ cat README.txt
+
+[1] Compile:
+
+module purge
+module load slurm gpu
+module load intel mvapich2 intel-mkl
+
+ifort -o dgemm_example  -mkl -static-intel dgemm_example.f
+
+[2] Run:
+
+sbatch dgemm-slurm.sb
+
+NOTE: for other compilers, replace &quot;gcc&quot;
+with the one you want to use.
+</code></pre>
+<ul>
+<li>Contents of the batch script:</li>
+</ul>
+<pre><code>[username@login01] dgemm]$ cat dgemm-Slurm.sb
+#!/bin/bash
+#SBATCH --job-name=&quot;dgemm_example&quot;
+#SBATCH --output=&quot;dgemm_example.%j.%N.out&quot;
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=128
+#SBATCH --mem=248G
+#SBATCH --account=sds173
+#SBATCH --export=ALL
+#SBATCH -t 00:30:00
+
+#This job runs with 1 nodes, 128 cores per node for a total of 256 cores.
+## Environment
+module purge
+module load slurm gpu
+module load intel mvapich2 intel-mkl
+
+## Use srun to run the job
+srun --mpi=pmi2 -n 128 --cpu-bind=rank dgemm_example
+</code></pre>
+<ul>
+<li>An example of the output:</li>
+</ul>
+<pre><code>Top left corner of matrix A:
+          1.           2.           3.           4.           5.           6.
+        201.         202.         203.         204.         205.         206.
+        401.         402.         403.         404.         405.         406.
+        601.         602.         603.         604.         605.         606.
+        801.         802.         803.         804.         805.         806.
+       1001.        1002.        1003.        1004.        1005.        1006.
+
+ Top left corner of matrix B:
+         -1.          -2.          -3.          -4.          -5.          -6.
+      -1001.       -1002.       -1003.       -1004.       -1005.       -1006.
+      -2001.       -2002.       -2003.       -2004.       -2005.       -2006.
+      -3001.       -3002.       -3003.       -3004.       -3005.       -3006.
+      -4001.       -4002.       -4003.       -4004.       -4005.       -4006.
+      -5001.       -5002.       -5003.       -5004.       -5005.       -5006.
+
+ Top left corner of matrix C:
+ -2.6666E+09  -2.6666E+09  -2.6667E+09  -2.6667E+09  -2.6667E+09  -2.6667E+09
+ -6.6467E+09  -6.6467E+09  -6.6468E+09  -6.6468E+09  -6.6469E+09  -6.6470E+09
+ -1.0627E+10  -1.0627E+10  -1.0627E+10  -1.0627E+10  -1.0627E+10  -1.0627E+10
+ -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10
+ -1.8587E+10  -1.8587E+10  -1.8587E+10  -1.8587E+10  -1.8588E+10  -1.8588E+10
+ -2.2567E+10  -2.2567E+10  -2.2567E+10  -2.2567E+10  -2.2568E+10  -2.2568E+10
+</code></pre>
+<p>For more information on the Intel compilers run: [ifort | icc | icpc] -help</p>
+<p>[ <a href="#compilers-toc">Back to Compilers</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="gnu-compilers"><a name="compilers-gnu"></a>GNU Compilers<a class="headerlink" href="#gnu-compilers" title="Permanent link">&para;</a></h3>
+<p>The GNU compilers can be loaded by executing the following commands at the Linux prompt or placing in your startup files (~/.cshrc or ~/.bashrc)</p>
+<pre><code>module purge
+module load gnu openmpi_ib
+</code></pre>
+<p>For AVX support, compile with -mavx. Note that AVX support is only available in version 4.7 or later, so it is necessary to explicitly load the gnu/4.9.2 module until such time that it becomes the default.</p>
+<p>For more information on the GNU compilers: man [gfortran | gcc | g++]</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Serial</th>
+<th>MPI</th>
+<th>OpenMP</th>
+<th>MPI+OpenMP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fortran</td>
+<td>gfortran</td>
+<td>mpif90</td>
+<td>gfortran -fopenmp</td>
+<td>mpif90 -fopenmp</td>
+</tr>
+<tr>
+<td>C</td>
+<td>gcc</td>
+<td>mpicc</td>
+<td>gcc -fopenmp</td>
+<td>mpicc -fopenmp</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>g++</td>
+<td>mpicxx</td>
+<td>g++ -fopenmp</td>
+<td>mpicxx -fopenmp</td>
+</tr>
+</tbody>
+</table>
+<p>[ <a href="#compilers">Back to Compilers</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="pgi-compilers"><a name="compilers-pgi"></a>PGI Compilers<a class="headerlink" href="#pgi-compilers" title="Permanent link">&para;</a></h3>
+<p>The PGI compilers can be loaded by executing the following commands at the Linux prompt or placing in your startup file (~/.cshrc or ~/.bashrc)</p>
+<pre><code>module purge
+module load pgi mvapich2_ib
+</code></pre>
+<p>For AVX support, compile with -fast</p>
+<p>For more information on the PGI compilers: </p>
+<pre><code>man [pgf90 | pgcc | pgCC]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Serial</th>
+<th>MPI</th>
+<th>OpenMP</th>
+<th>MPI+OpenMP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pgf90</td>
+<td>mpif90</td>
+<td>pgf90 -mp</td>
+<td>mpif90 -mp</td>
+<td></td>
+</tr>
+<tr>
+<td>C</td>
+<td>pgcc</td>
+<td>mpicc</td>
+<td>pgcc -mp</td>
+<td>mpicc -mp</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>pgCC</td>
+<td>mpicxx</td>
+<td>pgCC -mp</td>
+<td>mpicxx -mp</td>
+</tr>
+</tbody>
+</table>
+<p>[ <a href="#compilers">Back to Compilers</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h2 id="running-jobs-on-expanse">Running Jobs on Expanse <a name="run-jobs"></a><a class="headerlink" href="#running-jobs-on-expanse" title="Permanent link">&para;</a></h2>
+<p>In this Section:
+* <a href="#run-jobs-par-models">Parallel Models</a>
+* <a href="#run-jobs-methods">Methods for  Running Jobs on Expanse</a>
+   * <a href="#run-jobs-methods-batch">Batch Jobs</a>
+   * <a href="#run-jobs-methods-ineractive">Interactive Jobs</a>
+   * <a href="#run-jobs-cmdline">Command Line Jobs</a>
+* <a href="#run-jobs-slurm-partition">Slurm Partitions</a>
+   * <a href="#run-jobs-slurm-commands">Slurm Commands</a>
+   * <a href="#run-jobs-slurm-batch">Slurm Batch Script Example</a></p>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+
+<h3 id="parallel-models">Parallel Models <a name="run-jobs-par-models"></a><a class="headerlink" href="#parallel-models" title="Permanent link">&para;</a></h3>
+<h4 id="parallel-models-distributed-memory">Parallel Models: Distributed Memory<a class="headerlink" href="#parallel-models-distributed-memory" title="Permanent link">&para;</a></h4>
+<p><img src="images/distr-memory.png" alt="Distributed Memory architecture" width="300px" /></p>
+<ul>
+<li>Programs that run asynchronously, pass messages for communication and coordination between resources.</li>
+<li>Examples include: SOA-based systems, massively multiplayer online games, peer-to-peer apps.</li>
+<li>Different types of implementations for the message passing mechanism: HTTP, RPC-like connectors, message queues</li>
+<li>HPC historically uses the Message Passing Interface (MPI)</li>
+</ul>
+<h4 id="parallel-models-shared-memory">Parallel Models: Shared Memory<a class="headerlink" href="#parallel-models-shared-memory" title="Permanent link">&para;</a></h4>
+<p><img src="images/shared-memory.png" alt="Shared Memory architecture" width="300px" /></p>
+<ul>
+<li>CPUs all share same localized memory (SHMEM)</li>
+<li>Coordination and communication between tasks via interprocessor communication (IPC) or virtual memory mappings.</li>
+<li>May use: uniform or non-uniform memory access (UMA or NUMA); cache-only memory architecture (COMA).</li>
+<li>Most common HPC API’s for using SHMEM:</li>
+<li>Portable Operating System Interface (POSIX); Open Multi-Processing (OpenMP) designed for parallel computing – best for multi-core computing.</li>
+</ul>
+<p>[ <a href="#run-jobs">Back to Running Jobs</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="methods-for-running-jobs-on-expanse">Methods for  Running Jobs on Expanse <a name="run-jobs-methods"></a><a class="headerlink" href="#methods-for-running-jobs-on-expanse" title="Permanent link">&para;</a></h3>
+<h4 id="batch-jobs">Batch Jobs<a name="run-jobs-methods-batch"></a><a class="headerlink" href="#batch-jobs" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Batch Jobs are used to submit batch scripts to Slurm from the login nodes. You need to specify</li>
+<li>Partition (queue)</li>
+<li>Time limit for the run (maximum of 48 hours)</li>
+<li>Number of nodes, tasks per node; Memory requirements (if any)</li>
+<li>
+<p>Job name, output file location; Email info, configuration</p>
+</li>
+<li>
+<p>When you run in the batch mode, you submit jobs to be run on the compute nodes using the sbatch command. </p>
+</li>
+<li>Remember that computationally intensive jobs should be run only on the compute nodes and not the login nodes.</li>
+<li>Expanse places limits on the number of jobs queued and running on a per group (allocation) and partition basis.</li>
+<li>Please note that submitting a large number of jobs (especially very short ones) can impact the overall  scheduler response for all users.</li>
+</ul>
+<h4 id="interactive-jobs">Interactive Jobs<a name="run-jobs-methods-ineractive"></a><a class="headerlink" href="#interactive-jobs" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Interactive Jobs: Use the <em>srun</em> command to obtain nodes for ‘real-time, live’ command line access to a compute node.</li>
+</ul>
+<p><strong>CPU:</strong>
+* The following example will request one regular compute node, 4 cores,  in the debug partition for 30 minutes:</p>
+<pre><code>srun --partition=debug  --pty --account=&lt;&lt;project&gt;&gt; --nodes=1 --ntasks-per-node=4  --mem=8G -t 00:30:00 --wait=0 --export=ALL /bin/bash
+</code></pre>
+<ul>
+<li>Example output:</li>
+</ul>
+<pre><code>[username@login01] ~]$ module purge
+[username@login01] ~]$ module restore
+Resetting modules to system default. Reseting $MODULEPATH back to system default. All extra directories will be removed from $MODULEPATH.
+[username@login01] ~]$ srun   --pty --account=sds173  --nodes=1   --ntasks-per-node=1   --cpus-per-task=10   -p gpu-debug  --gpus=1 --mem=98 -t 00:10:00 /bin/bash
+srun: job 12629939 queued and waiting for resources
+srun: job 12629939 has been allocated resources
+[username@exp-9-55 ~]$
+
+</code></pre>
+<p>Note that evidence that you are on an interactive node is given by the fact that your node name has changed from <em>login01</em> to <em>exp-9-55</em>.</p>
+<p><strong>GPU:</strong>
+* The following example will request a GPU node, 10 cores, 1 GPU and 96G  in the debug partition for 30 minutes.<br />
+* To ensure the GPU environment is properly loaded, please be sure run both the module purge and module restore commands.</p>
+<pre><code>srun --partition=gpu-debug --pty --account=&lt;&lt;project&gt;&gt; --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+</code></pre>
+<ul>
+<li>Example output:</li>
+</ul>
+<pre><code>[username@login02 interactive.ex]$ module list
+Currently Loaded Modules:
+  1) slurm/expanse/21.08.8   2) gpu/0.15.4   3) pgi/20.4
+[username@login02 ~]$ srun --partition=gpu-debug --pty --account=&lt;&lt;project&gt;&gt; --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+srun: job 12630128 queued and waiting for resources
+srun: job 12630128 has been allocated resources
+[username@exp-7-59 ~]$
+</code></pre>
+<p>Note that evidence that you are on an interactive node is given by the fact that your node name has changed from <em>login01</em> to <em>exp-7-59</em>. To confirm that you are on a GPU node, you can run the <em>lspci</em> command (which not have any output unless you are on a GPU node):</p>
+<pre><code>[username@exp-7-59 mkl-mat-mul]$ lspci | grep -i nvidia
+18:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 32GB] (rev a1)
+3b:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 32GB] (rev a1)
+86:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 32GB] (rev a1)
+af:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 32GB] (rev a1)
+[username@exp-7-59 mkl-mat-mul]$
+</code></pre>
+<p>You can also run the <em>nvidia-smi</em> command:</p>
+<pre><code>Mon Apr 10 23:53:03 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 510.39.01    Driver Version: 510.39.01    CUDA Version: 11.6     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla V100-SXM2...  On   | 00000000:3B:00.0 Off |                    0 |
+| N/A   39C    P0    40W / 300W |      0MiB / 32768MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+</code></pre>
+<p>[ <a href="#run-jobs">Back to Running Jobs</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="command-line-jobs">Command Line Jobs <a name="run-jobs-cmdline"></a><a class="headerlink" href="#command-line-jobs" title="Permanent link">&para;</a></h4>
+<p>The login nodes are meant for compilation, file editing, simple data analysis, and other tasks that use minimal compute resources. <em>Do not run parallel or large jobs on the login nodes - even for simple tests</em>. Even if you could run a simple test on the command line on the login node, full tests should not be run on the login node because the performance will be adversely impacted by all the other tasks and login activities of the other users who are logged onto the same node. For example, at the moment that this note was written,  a <code>gzip</code> process was consuming 98% of the CPU time on the Comet HPC system:</p>
+<pre><code>```
+[username@comet-ln3 OPENMP]$ top
+...
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                      
+19937 XXXXX     20   0  4304  680  300 R 98.2  0.0   0:19.45 gzip
+```
+</code></pre>
+<p>Commands that you type into the terminal and run on the sytem are considered <em>jobs</em> and they consume resources.  <em>Computationally intensive jobs should be run only on the compute nodes and not the login nodes</em>.</p>
+<p>[ <a href="#run-jobs">Back to Running Jobs</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="slurm-resource-manager">Slurm Resource Manager <a name="run-jobs-slurm"></a><a class="headerlink" href="#slurm-resource-manager" title="Permanent link">&para;</a></h3>
+<p><strong>Sections:</strong></p>
+<ul>
+<li><a href="#run-jobs-slurm-partition">Slurm Partitions</a></li>
+<li><a href="#run-jobs-slurm-commands">Common Slurm Commands</a></li>
+<li><a href="#run-jobs-slurm-status">Slurm Job Status States</a></li>
+</ul>
+<p>Expanse uses the <em>Simple Linux Utility for Resource Management (Slurm)</em> resource manager. Slurm is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters  <a href="https://Slurm.schedmd.com/documentation.html">https://Slurm.schedmd.com/documentation.html</a>. Follow this link to the <a href="https://Slurm.schedmd.com/quickstart.html">Slurm Quick Start Guide</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">logging on to Expanse</th>
+<th style="text-align: left;">Slurm Architecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><img src="images/login-nodes-cluster-nodes.png" alt="Login nodes to cluster diagram" width="300px" /></td>
+<td style="text-align: left;"><img src="images/slurm-sched-arch.png" alt="Slurm Scheduler Architecture" width="400px" /></td>
+</tr>
+<tr>
+<td style="text-align: left;">User logs onto Expanse, and submits a batch script to the Slurm Controller daemon</td>
+<td style="text-align: left;">Slurm parses the batch script for correct syntax and then queues up the job until the requested resources are available</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Slurm is the "Glue" for parallel computer to schedule and execute jobs</li>
+<li>Role: Allocate resources within a cluster</li>
+<li>Nodes (unique IP address)</li>
+<li>Interconnect/switches</li>
+<li>Generic resources (e.g. GPUs)</li>
+<li>Launch and otherwise manage jobs</li>
+</ul>
+<p>[ <a href="#run-jobs">Back to Running Jobs</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="slurm-partitions">Slurm Partitions <a name="run-jobs-slurm-partition"></a><a class="headerlink" href="#slurm-partitions" title="Permanent link">&para;</a></h4>
+<p>About Partitions</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Partition Name</th>
+<th style="text-align: center;">Max Walltime</th>
+<th style="text-align: center;">Max Nodes/ Job</th>
+<th style="text-align: center;">Max Running Jobs</th>
+<th style="text-align: center;">Max Running + Queued Jobs</th>
+<th style="text-align: center;">Charge Factor</th>
+<th style="text-align: left;">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">compute</td>
+<td style="text-align: center;">48 hrs</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Exclusive access to regular compute nodes; limit applies per group</td>
+</tr>
+<tr>
+<td style="text-align: left;">ind-compute</td>
+<td style="text-align: center;">48 hrs</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Exclusive access to Industry compute nodes; limit applies per group</td>
+</tr>
+<tr>
+<td style="text-align: left;">shared</td>
+<td style="text-align: center;">48 hrs</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4096</td>
+<td style="text-align: center;">4096</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Single-node jobs using fewer than 128 cores</td>
+</tr>
+<tr>
+<td style="text-align: left;">ind-shared</td>
+<td style="text-align: center;">48 hrs</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Single-node Industry jobs using fewer than 128 cores</td>
+</tr>
+<tr>
+<td style="text-align: left;">gpu</td>
+<td style="text-align: center;">48 hrs</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8 (32 Tres GPU)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Used for exclusive access to the GPU nodes</td>
+</tr>
+<tr>
+<td style="text-align: left;">ind-gpu</td>
+<td style="text-align: center;">48 hrs</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8 (32 Tres GPU)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Exclusive access to the Industry GPU nodes</td>
+</tr>
+<tr>
+<td style="text-align: left;">gpu-shared</td>
+<td style="text-align: center;">48 hrs</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">24 (24 Tres GPU)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Single-node job using fewer than 4 GPUs</td>
+</tr>
+<tr>
+<td style="text-align: left;">ind-gpu-shared</td>
+<td style="text-align: center;">48 hrs</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">24 (24 Tres GPU)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Single-node job using fewer than 4 Industry GPUs</td>
+</tr>
+<tr>
+<td style="text-align: left;">large-shared</td>
+<td style="text-align: center;">48 hrs</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Single-node jobs using large memory up to 2 TB (minimum memory required 256G)</td>
+</tr>
+<tr>
+<td style="text-align: left;">debug</td>
+<td style="text-align: center;">30 min</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Priority access to shared nodes set aside for testing of jobs with short walltime and limited resources</td>
+</tr>
+<tr>
+<td style="text-align: left;">gpu-debug</td>
+<td style="text-align: center;">30 min</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Priority access to gpu-shared nodes set aside for testing of jobs with short walltime and limited resources; max two gpus per job</td>
+</tr>
+<tr>
+<td style="text-align: left;">preempt</td>
+<td style="text-align: center;">7 days</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">.8</td>
+<td style="text-align: left;">Non-refundable discounted jobs to run on free nodes that can be pre-empted by jobs submitted to any other queue</td>
+</tr>
+<tr>
+<td style="text-align: left;">gpu-preempt</td>
+<td style="text-align: center;">7 days</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">24 (24 Tres GPU)</td>
+<td style="text-align: center;">.8</td>
+<td style="text-align: left;">Non-refundable discounted jobs to run on unallocated nodes that can be pre-empted by higher priority queues</td>
+</tr>
+</tbody>
+</table>
+<p>[ <a href="#run-jobs">Back to Running Jobs</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="slurm-job-state-codes">Slurm Job  State Codes<a name="run-jobs-slurm-status"></a><a class="headerlink" href="#slurm-job-state-codes" title="Permanent link">&para;</a></h4>
+<p>Slurm has a large number of job states. The table below lists some
+of the most common states you will see. For full details, See
+the section on Slurm JOB STATE CODES, at the
+<a href="https://Slurm.schedmd.com/squeue.html">Slurm Squeue data page</a>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>STATE</strong></th>
+<th style="text-align: left;"><strong>LABEL</strong></th>
+<th style="text-align: left;"><strong>DESCRIPTION</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">CA</td>
+<td style="text-align: left;">CANCELLED</td>
+<td style="text-align: left;">Job was explicitly cancelled by the user or system administrator.</td>
+</tr>
+<tr>
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">COMPLETED</td>
+<td style="text-align: left;">job is Complete/Clearing</td>
+</tr>
+<tr>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">FAILED</td>
+<td style="text-align: left;">Job terminated with non-zero exit code or other failure condition.</td>
+</tr>
+<tr>
+<td style="text-align: left;">PD</td>
+<td style="text-align: left;">PENDING</td>
+<td style="text-align: left;">Job is awaiting resource allocation.</td>
+</tr>
+<tr>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">RUNNING</td>
+<td style="text-align: left;">Job currently has an allocation.</td>
+</tr>
+<tr>
+<td style="text-align: left;">ST</td>
+<td style="text-align: left;">STOPPED</td>
+<td style="text-align: left;">Job has an allocation, but execution has been stopped with SIGSTOP signal. CPUS have been retained by this job.</td>
+</tr>
+<tr>
+<td style="text-align: left;">TO</td>
+<td style="text-align: left;">TIMEOUT</td>
+<td style="text-align: left;">Job terminated upon reaching its time limit.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="common-slurm-commands">Common Slurm Commands <a name="run-jobs-slurm-commands"></a><a class="headerlink" href="#common-slurm-commands" title="Permanent link">&para;</a></h4>
+<p>Here are a few key Slurm commands. For more information, run the <code>man Slurm</code> or see this page:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>COMMAND</strong></th>
+<th style="text-align: left;"><strong>DESCRIPTION</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><em>scancel</em></td>
+<td style="text-align: left;">Used to signal or cancel jobs, job arrays or job steps.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>sbatch</em></td>
+<td style="text-align: left;">Submit a batch script to Slurm.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>sinfo</em></td>
+<td style="text-align: left;">View information about Slurm nodes and partitions.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>squeue</em></td>
+<td style="text-align: left;">Used to view job and job step information for jobs managed by Slurm.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>srun</em></td>
+<td style="text-align: left;">Run a parallel job on cluster managed by Slurm.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Submit jobs using the sbatch command:</li>
+</ul>
+<pre><code>$ sbatch mycode-slurm.sb 
+</code></pre>
+<ul>
+<li>Submitted batch job 8718049.
+Check job status using the squeue command.</li>
+</ul>
+<pre><code>$ squeue -u $USER
+             JOBID PARTITION     NAME     USER      ST       TIME  NODES  NODELIST(REASON)
+           8718049   compute       mycode user   PD       0:00       1               (Priority)
+</code></pre>
+<ul>
+<li>Once the job is running:</li>
+</ul>
+<pre><code>$ squeue -u $USER
+             JOBID PARTITION     NAME     USER    ST       TIME  NODES  NODELIST(REASON)
+           8718049     debug        mycode user   R         0:02      1           expanse-14-01
+</code></pre>
+<ul>
+<li>Cancel a running job:</li>
+</ul>
+<pre><code>$ scancel 8718049
+</code></pre>
+<p><a href="#run-jobs">Back to Running Jobs</a><br>
+<a href="#top">Back to Top</a></p>
+<hr>
+
+<h4 id="slurm-batch-script-example">Slurm Batch Script Example <a name="run-jobs-slurm-batch"></a><a class="headerlink" href="#slurm-batch-script-example" title="Permanent link">&para;</a></h4>
+<p>Below is an example of a batch script that prints our your environment on the compute node:</p>
+<pre><code>[username@login01] ENV_INFO]$ cat env-slurm.sb 
+#!/bin/bash
+#SBATCH --job-name=&quot;envinfo&quot;
+#SBATCH --output=&quot;envinfo.%j.%N.out&quot;Simple Hello (GPU-CUDA)
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --export=ALL
+#SBATCH --account=abc123
+#SBATCH -t 00:01:00
+
+## Environment
+module purge
+module load slurm
+module load cpu
+##  perform some basic unix commands
+echo &quot;----------------------------------&quot;
+echo &quot;hostname= &quot; `hostname` 
+echo &quot;date= &quot; `date` 
+echo &quot;whoami= &quot; `whoami` 
+echo &quot;pwd= &quot; `pwd` 
+echo &quot;module list= &quot; `module list` 
+echo &quot;----------------------------------&quot;
+echo &quot;env= &quot; `env` 
+echo &quot;----------------------------------&quot;
+</code></pre>
+<ul>
+<li>Portion of the output generated by this script:</li>
+</ul>
+<pre><code>[username@login01] ENV_INFO]$ cat envinfo.108867.exp-6-56.out 
+----------------------------------
+hostname=  exp-6-56
+date=  Wed Oct 7 23:45:43 PDT 2020
+whoami=  user
+pwd=  /home/user/DEMO/ENV_INFO
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) cpu/1.0
+----------------------------------
+env=  SLURM_MEM_PER_CPU=1024 LD_LIBRARY_PATH=/cm/shared/apps/Slurm/current/lib64/Slurm:/cm/shared/apps/Slurm/current/lib64 LS_COLORS=rs=0
+
+[SNIP]
+
+ MODULESHOME=/usr/share/lmod/lmod LMOD_SETTARG_FULL_SUPPORT=no HISTSIZE=5000 LMOD_PKG=/usr/share/lmod/lmod LMOD_CMD=/usr/share/lmod/lmod/libexec/lmod Slurm_LOCALID=0 LESSOPEN=||/usr/bin/lesspipe.sh %s LMOD_FULL_SETTARG_SUPPORT=no LMOD_DIR=/usr/share/lmod/lmod/libexec BASH_FUNC_module%%=() { eval $($LMOD_CMD bash &quot;$@&quot;) &amp;&amp; eval $(${LMOD_SETTARG_CMD:-:} -s sh) } BASH_FUNC_ml%%=() { eval $($LMOD_DIR/ml_cmd &quot;$@&quot;) } _=/usr/bin/env
+----------------------------------
+</code></pre>
+<p>[ <a href="#run-jobs">Back to Running Jobs</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h2 id="compiling-and-running-cpu-jobs">Compiling and Running CPU Jobs<a name="comp-and-run-cpu-jobs"></a><a class="headerlink" href="#compiling-and-running-cpu-jobs" title="Permanent link">&para;</a></h2>
+<p><strong>Sections:</strong></p>
+<ul>
+<li><a href="#check-env">Checking Your Environment</a></li>
+<li><a href="#hello-world-mpi">Hello World (MPI)</a></li>
+<li><a href="#hello-world-omp">Hello World (OpenMP)</a></li>
+<li><a href="#hybrid-mpi-omp">Hello World Hybrid (MPI + OpenMP)</a></li>
+</ul>
+<p>[ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="general-steps-compilingrunning-jobs">General Steps: Compiling/Running Jobs<a class="headerlink" href="#general-steps-compilingrunning-jobs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Change to a working directory (for example the expanse101 directory):</li>
+</ul>
+<pre><code>cd /home/$USER/expanse101/MPI
+</code></pre>
+<ul>
+<li>Verify that the correct modules loaded:</li>
+</ul>
+<pre><code>module list
+Currently Loaded Modulefiles:
+  1) slurm/expanse/20.02.3   2) cpu/1.0   3) gcc/10.2.0   4) openmpi/4.0.4
+</code></pre>
+<ul>
+<li>Compile the MPI hello world code:</li>
+</ul>
+<pre><code>mpif90 -o hello_mpi hello_mpi.f90
+</code></pre>
+<p>Verify executable has been created (check that date):</p>
+<pre><code>ls -lt hello_mpi
+-rwxr-xr-x 1 user sdsc 721912 Mar 25 14:53 hello_mpi
+</code></pre>
+<ul>
+<li>Submit job</li>
+</ul>
+<pre><code>sbatch hello_mpi_Slurm.sb
+</code></pre>
+<p>[ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="checking-your-environment">Checking Your Environment<a name="check-env"></a><a class="headerlink" href="#checking-your-environment" title="Permanent link">&para;</a></h3>
+<p>This simple batch script will show you how to check your user environment
+and to also verify that your Slurm environment is working.</p>
+<ul>
+<li>Script contents:</li>
+</ul>
+<pre><code>[username@login01] ENV_INFO]$ cat env-Slurm.sb
+#!/bin/bash
+#SBATCH --job-name=&quot;envinfo&quot;
+#SBATCH --output=&quot;envinfo.%j.%N.out&quot;
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --export=ALL
+#SBATCH -A sds173
+#SBATCH -t 00:1:00
+
+## Load module environment
+module purge
+module load slurm
+module load cpu
+module load sdsc
+
+##  perform some basic unix commands
+
+echo &quot;----------------------------------&quot;
+echo &quot;hostname= &quot; `hostname`
+echo &quot;date= &quot; `date`
+echo &quot;whoami= &quot; `whoami`
+echo &quot;pwd= &quot; `pwd`
+echo &quot;module list= &quot; `module list`
+echo &quot;----------------------------------&quot;
+echo &quot;env= &quot; `env`
+echo &quot;----------------------------------&quot;
+echo &quot;expanse-client user -p: &quot; `expanse-client user -p`
+echo &quot;----------------------------------&quot;
+
+</code></pre>
+<ul>
+<li>Note that you can also see some Slurm environment variables, such as the JOB_ID. See the Slurm page: https://www.glue.umd.edu/hpcc/help/slurmenv.html</li>
+<li>Submit the batch script and monitor until the job is allocated a node,
+and completes execution:</li>
+</ul>
+<pre><code>
+[username@login01] ENV_INFO]$ sbatch env-Slurm.sb
+Submitted batch job 1088090
+[username@login01] ENV_INFO]$ squeue -u user
+           1088090   compute  envinfo  user PD       0:00      1 (ReqNodeNotAvail,[SNIP]
+[...]
+[username@login01] ENV_INFO]$ squeue -u user
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1088090   compute  envinfo  user PD       0:00      1 (ReqNodeNotAvail, [SNIP]
+</code></pre>
+<p>[ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<h3 id="hello-world-mpi">Hello World (MPI) <a name="hello-world-mpi"></a><a class="headerlink" href="#hello-world-mpi" title="Permanent link">&para;</a></h3>
+<p><strong>Subsections:</strong></p>
+<ul>
+<li><a href="#hello-world-mpi-source">Hello World (MPI): Source Code</a></li>
+<li><a href="#hello-world-mpi-compile">Hello World (MPI): Compiling</a></li>
+<li><a href="#hello-world-mpi-batch-submit">Hello World (MPI): Batch Script Submission</a></li>
+<li><a href="#hello-world-mpi-batch-output">Hello World (MPI): Batch Script Output</a></li>
+<li><a href="#hello-world-mpi-interactive">Hello World (MPI): Interactive Jobs</a></li>
+</ul>
+<p>[ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-mpi-source-code">Hello World (MPI): Source Code <a name="hello-world-mpi-source"></a><a class="headerlink" href="#hello-world-mpi-source-code" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Change to the tutorial <code>MPI</code> examples directory:</li>
+<li>Source code with basic MPI elements:</li>
+<li>Source code in F90</li>
+</ul>
+<pre><code>[username@login01] MPI]$ cat hello_mpi.f90 
+!  Fortran example  
+   program hello
+   include 'mpif.h'
+   integer rank, size, ierror, tag, status(MPI_STATUS_SIZE)
+   
+   call MPI_INIT(ierror)
+   call MPI_COMM_SIZE(MPI_COMM_WORLD, size, ierror)
+   call MPI_COMM_RANK(MPI_COMM_WORLD, rank, ierror)
+   print*, 'node', rank, ': Hello world!'
+   call MPI_FINALIZE(ierror)
+   end
+[username@login01] MPI]$ 
+</code></pre>
+<ul>
+<li>Source Code in C:</li>
+</ul>
+<pre><code>[username@login01] MPI]$ cat hello_mpi.c
+#include &lt;mpi.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(int argc, char** argv) {
+    // Initialize the MPI environment
+    MPI_Init(NULL, NULL);
+
+    // Get the number of processes
+    int comm_world;
+    MPI_Comm_size(MPI_COMM_WORLD, &amp;comm_world);
+
+    // Get the rank of the process
+    int rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);
+
+    // Get the name of the processor
+    char proc_name[MPI_MAX_PROCESSOR_NAME];
+    int name_len;
+    MPI_Get_processor_name(proc_name, &amp;name_len);
+
+    printf(&quot;Hello world from processor %s, rank %d out of %d processors\n&quot;,
+           proc_name, rank, comm_world);
+
+    // Finalize the MPI environment.
+    MPI_Finalize();
+}
+</code></pre>
+<p>[ <a href="#hello-world-mpi">Back to Hello World MPI</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ]
+ [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-mpi-compiling">Hello World (MPI): Compiling <a name="hello-world-mpi-compile"></a><a class="headerlink" href="#hello-world-mpi-compiling" title="Permanent link">&para;</a></h4>
+<ul>
+<li>To compile, checkout the instructions in the <strong>README.txt</strong> file.</li>
+<li>Follow the instructions in the batch script provided for the compiler you want to test.</li>
+</ul>
+<pre><code>  [username@login01] MPI]$ cat README.txt 
+  [1] Compile:
+
+  #### MODULE ENV: updated 01/28/2020 (MPT)
+  module purge
+  module load slurm
+  module load cpu
+  module load gcc/10.2.0
+  module load openmpi/4.0.4
+
+  mpif90 -o hello_mpi hello_mpi.f90
+
+  [2a] Run using Slurm:
+
+  sbatch hellompi-Slurm.sb
+
+  [2b] Run using interactive node:
+
+  To run on an interactive node, you need to use the salloc command.
+  _salloc_ - Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the allocation when the command is finished.
+  For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html
+</code></pre>
+<ul>
+<li>Set your environment on the node:</li>
+</ul>
+<pre><code>[username@login02 mpi]$ module purge
+[username@login02 mpi]$ module load slurm
+[username@login02 mpi]$ module load cpu
+[username@login02 mpi]$ module load gcc/10.2.0
+[username@login02 mpi]$ module load openmpi/4.0.4
+</code></pre>
+<ul>
+<li>Follow the compile instructions for the compiler that you want to use:</li>
+</ul>
+<pre><code>module purge
+[username@login02 mpi]$ module load slurm
+[username@login02 mpi]$ module load cpu
+[username@login02 mpi]$ module load gcc/10.2.0
+[username@login02 mpi]$ module load openmpi/4.0.4
+[username@login02 MPI]$ module list
+Currently Loaded Modules:
+1) slurm/expanse/21.08.8   2) cpu/0.15.4   3) gcc/10.2.0   4) openmpi/4.0.4
+</code></pre>
+<ul>
+<li>Next, compile the code:</li>
+</ul>
+<pre><code>[username@login02 mpi]$  mpif90 -o hello_mpi_f90 hello_mpi.f90
+</code></pre>
+<p>[ <a href="#hello-world-mpi">Back to Hello World MPI</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-mpi-batch-script-submission">Hello World (MPI): Batch Script Submission <a name="hello-world-mpi-batch-submit"></a><a class="headerlink" href="#hello-world-mpi-batch-script-submission" title="Permanent link">&para;</a></h4>
+<ul>
+<li>The batch script contains the module commands needed to set the right environment
+in order to run the code. The contents of the default batch script are:</li>
+</ul>
+<pre><code>[username@login01] MPI]$ cat hellompi-Slurm.sb
+#!/bin/bash
+#SBATCH --job-name=&quot;hellompi&quot;
+#SBATCH --output=&quot;hellompi.%j.%N.out&quot;
+#SBATCH --partition=compute
+####SBATCH --partition=shared
+#SBATCH --nodes=3
+#SBATCH --ntasks-per-node=12
+#SBATCH --export=ALL
+#SBATCH -t 00:04:00
+#SBATCH -A abc123
+
+# This job runs with 3 nodes, and a total of 12 cores.
+## Environment
+### MODULE ENV: updated 01/28/2020 (MPT)
+ module purge
+ module load slurm
+ module load cpu
+ module load gcc/10.2.0
+ module load openmpi/4.0.4
+
+## Use srun to run the job
+srun --mpi=pmi2 -n 12 --cpu-bind=rank ./hello_mpi
+
+</code></pre>
+<ul>
+<li>In this batch script we are using the GNU compiler, and asking for 2 CPU compute nodes, with 128 tasks per node for a total of 256 tasks.</li>
+<li>
+<p>the name of job is set in line 2, while the name of the output file is set in line 3, where "%j" is the Slurm JOB_ID, and and "%N" is the compute node name. You can name your outupt file however you wish, but it helpful to keep track of the JOB_ID and node info in case something goes wrong.</p>
+</li>
+<li>
+<p>Submit the batch script Submission using the sbatch commmand and monitor the job status using the squeue command:</p>
+</li>
+</ul>
+<pre><code>JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+667424   compute hellompi  user PD       0:00      2 (Priority)
+[username@login01] MPI]$ squeue -u user -u user
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+667424   compute hellompi  user PD       0:00      2 (Priority)
+[username@login01] MPI]$ squeue -u user -u user
+^[[A             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+667424   compute hellompi  user CF       0:01      2 exp-2-[28-29]
+[username@login01] MPI]$ squeue -u user -u user
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+667424   compute hellompi  user  R       0:02      2 exp-2-[28-29]
+[username@login01] MPI]$ squeue -u user -u user
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+[username@login01] MPI]$ ll
+total 151
+drwxr-xr-x 2 user abc123    13 Dec 10 01:06 .
+drwxr-xr-x 8 user abc123     8 Oct  8 04:16 ..
+-rwxr-xr-x 1 user abc123 21576 Oct  8 03:12 hello_mpi
+-rw-r--r-- 1 user abc123  8448 Oct  8 03:32 hellompi.667424.exp-2-28.out
+[username@login01] MPI]$
+
+</code></pre>
+<p>[ <a href="#hello-world-mpi">Back to Hello World MPI</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-mpi-batch-script-output">Hello World (MPI): Batch Script Output <a name="hello-world-mpi-batch-output"></a><a class="headerlink" href="#hello-world-mpi-batch-script-output" title="Permanent link">&para;</a></h4>
+<p>Batch Script Output</p>
+<pre><code>
+[username@login01] MPI]$
+[username@login01] MPI]$ cat hellompi.667424.exp-2-28.out
+ node           1 : Hello world!
+ node           0 : Hello world!
+ [snip]
+ node         247 : Hello world!
+ node         254 : Hello world!
+ node         188 : Hello world!
+ node         246 : Hello world!
+
+</code></pre>
+<p>[ <a href="#hello-world-mpi">Back to Hello World MPI</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-mpi-interactive-jobs">Hello World (MPI): Interactive Jobs <a name="hello-world-mpi-interactive"></a><a class="headerlink" href="#hello-world-mpi-interactive-jobs" title="Permanent link">&para;</a></h4>
+<ul>
+<li>To run on an interactive node, you need to use the <em>salloc</em> command.</li>
+<li><em>salloc</em> - Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the allocation when the command is finished.</li>
+<li>For more information, see the Slurm page: https://slurm.schedmd.com/salloc.html</li>
+</ul>
+<pre><code>[username@login02 ~]$ salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G
+salloc --nodes=2 --ntasks-per-node=4 --cpus-per-task=2 -p debug --account=use300 -t 00:30:00 --mem=5G
+salloc: Pending job allocation 21592400
+salloc: job 21592400 queued and waiting for resources
+salloc: job 21592400 has been allocated resources
+salloc: Granted job allocation 21592400
+salloc: Waiting for resource configuration
+salloc: Nodes exp-9-[55-56] are ready for job
+[username@login02 ~]$
+</code></pre>
+<ul>
+<li>Note: You are now on an interactive node -- even though the node name on the unix prompt did not change.</li>
+<li>
+<p>Note: You may not be in the same directory</p>
+</li>
+<li>
+<p>Next, load the module environment on the compute node. Don't depend on the system to propagate the right modules to the compute node.</p>
+</li>
+</ul>
+<pre><code>[username@ exp-9-55 MPI]$ module purge
+[username@ exp-9-55 MPI]$ module load slurm
+[username@ exp-9-55 MPI]$ module load cpu
+[username@ exp-9-55 MPI]$ module load gcc/10.2.0
+[username@ exp-9-55 MPI]$ module load openmpi/4.0.4
+</code></pre>
+<ul>
+<li>Compile your code if needed:</li>
+</ul>
+<pre><code>[username@exp-9-55 MPI]$ mpif90 -o hello_mpi_f_gnu hello_mpi.f90 
+</code></pre>
+<ul>
+<li>You can now run your job from the command line using <em>mpirun</em> or <em>srun</em>:</li>
+</ul>
+<pre><code>[username@login02 mpi]$ mpirun -np 8 ./hello_mpi_f90
+ node           5 : Hello world! F90
+ node           6 : Hello world! F90
+ node           4 : Hello world! F90
+ node           1 : Hello world! F90
+ node           3 : Hello world! F90
+ node           2 : Hello world! F90
+ node           0 : Hello world! F90
+ node           7 : Hello world! F90
+
+[username@login02 mpi]$ srun --mpi=pmi2 -n 8 ./hello_mpi_f90
+ node           0 : Hello world! F90
+ node           3 : Hello world! F90
+ node           2 : Hello world! F90
+ node           1 : Hello world! F90
+ node           4 : Hello world! F90
+ node           7 : Hello world! F90
+ node           5 : Hello world! F90
+ node           6 : Hello world! F90
+
+</code></pre>
+<p>[ <a href="#hello-world-mpi">Back to Hello World MPI</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="hello-world-openmp">Hello World (OpenMP) <a name="hello-world-omp"></a><a class="headerlink" href="#hello-world-openmp" title="Permanent link">&para;</a></h3>
+<p><strong>Subsections:</strong></p>
+<ul>
+<li><a href="#hello-world-omp-source">Hello World (OpenMP): Source Code</a></li>
+<li><a href="#hello-world-omp-compile">Hello World (OpenMP): Compiling</a></li>
+<li><a href="#hello-world-omp-batch-submit">Hello World (OpenMP): Batch Script Submission</a></li>
+<li><a href="#hello-world-omp-batch-output">Hello World (OpenMP): Batch Script Output</a></li>
+</ul>
+<p>[ <a href="#hello-world-omp">Back to Hello World OpenMP</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-openmp-source-code">Hello World (OpenMP): Source Code  <a name="hello-world-omp-source"></a><a class="headerlink" href="#hello-world-openmp-source-code" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Source Code in F90:</li>
+</ul>
+<pre><code>      PROGRAM OMPHELLO
+      INTEGER TNUMBER
+      INTEGER OMP_GET_THREAD_NUM
+
+!$OMP PARALLEL DEFAULT(PRIVATE)
+      TNUMBER = OMP_GET_THREAD_NUM()
+      PRINT *, 'HELLO FROM THREAD NUMBER = ', TNUMBER
+!$OMP END PARALLEL
+
+      END
+
+</code></pre>
+<p>[ <a href="#hello-world-omp">Back to Hello World OpenMP</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ]
+ [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-openmp-compiling">Hello World (OpenMP): Compiling <a name="hello-world-omp-compile"></a><a class="headerlink" href="#hello-world-openmp-compiling" title="Permanent link">&para;</a></h4>
+<ul>
+<li>First, load the correct module environment:</li>
+</ul>
+<pre><code>module purge
+module load slurm
+module load cpu/0.15.4
+module load aocc
+module load openmpi/4.0.4
+
+
+
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) cpu/0.15.4   3) aocc/2.2.0
+
+</code></pre>
+<ul>
+<li>Next, compile the code:</li>
+</ul>
+<pre><code>flang -fopenmp -o hello_openmp hello_openmp.f90
+</code></pre>
+<p>[ <a href="#hello-world-omp">Back to Hello World OpenMP</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-openmp-batch-script-submission">Hello World (OpenMP): Batch Script Submission <a name="hello-world-omp-batch-submit"></a><a class="headerlink" href="#hello-world-openmp-batch-script-submission" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Batch Script contents:</li>
+</ul>
+<pre><code>
+#!/bin/bash
+## Example of OpenMP code running on a shared node
+#SBATCH --job-name=&quot;hell_openmp_shared&quot;
+#SBATCH --output=&quot;hello_openmp_shared.%j.%N.out&quot;
+#SBATCH --partition=shared
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
+#SBATCH --export=ALL
+#SBATCH --account=sds173
+#SBATCH -t 00:10:00
+
+# AOCC environment
+module purge
+module load slurm
+module load cpu/0.15.4
+module load aocc
+module load openmpi/4.0.4
+
+#SET the number of openmp threads
+export OMP_NUM_THREADS=16
+
+#Run the openmp job
+./hello_openmp
+
+</code></pre>
+<ul>
+<li>
+<p>Note that the script is loading the module stack, and setting the number of OMP threads.</p>
+</li>
+<li>
+<p>Submit the job to the batch queue, and monitor:</p>
+</li>
+</ul>
+<pre><code>[username@login02 OPENMP]$ sbatch openmp-Slurm-shared.sb ;  squeue -u user
+Submitted batch job 1088802
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1088802    shared hell_ope  user PD       0:00      1 (None)
+
+</code></pre>
+<p>[ <a href="#hello-world-omp">Back to Hello World OpenMP</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-openmp-batch-script-output">Hello World (OpenMP): Batch Script Output <a name="hello-world-omp-batch-output"></a><a class="headerlink" href="#hello-world-openmp-batch-script-output" title="Permanent link">&para;</a></h4>
+<p>Batch Script Output</p>
+<pre><code>[username@login02 OPENMP]$ cat hello_openmp_shared.1088802.exp-3-08.out
+ HELLO FROM THREAD NUMBER =            14
+ HELLO FROM THREAD NUMBER =            15
+ HELLO FROM THREAD NUMBER =            10
+ HELLO FROM THREAD NUMBER =             8
+ HELLO FROM THREAD NUMBER =            12
+ HELLO FROM THREAD NUMBER =             4
+ HELLO FROM THREAD NUMBER =             1
+ HELLO FROM THREAD NUMBER =             0
+ HELLO FROM THREAD NUMBER =             9
+ HELLO FROM THREAD NUMBER =             7
+ HELLO FROM THREAD NUMBER =            11
+ HELLO FROM THREAD NUMBER =             2
+ HELLO FROM THREAD NUMBER =             5
+ HELLO FROM THREAD NUMBER =            13
+ HELLO FROM THREAD NUMBER =             3
+ HELLO FROM THREAD NUMBER =             6
+[username@login02 OPENMP]$
+
+</code></pre>
+<ul>
+<li>Note the non-deterministic output of the thread numbers. This is normal for HPC systems.</li>
+</ul>
+<p>[ <a href="#hello-world-omp">Back to Hello World OpenMP</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="compiling-and-running-hybrid-mpi-openmp-jobs">Compiling and Running Hybrid (MPI + OpenMP) Jobs <a name="hybrid-mpi-omp"></a><a class="headerlink" href="#compiling-and-running-hybrid-mpi-openmp-jobs" title="Permanent link">&para;</a></h3>
+<p><strong>Subsections:</strong></p>
+<ul>
+<li><a href="#hybrid-mpi-omp-source">Hybrid (MPI + OpenMP): Source Code</a></li>
+<li><a href="#hybrid-mpi-omp-compile">Hybrid (MPI + OpenMP): Compiling</a></li>
+<li><a href="#hybrid-mpi-omp-batch-submit">Hybrid (MPI + OpenMP): Batch Script Submission</a></li>
+<li><a href="#hybrid-mpi-omp-batch-output">Hybrid (MPI + OpenMP): Batch Script Output</a></li>
+</ul>
+<p>[<a href="#hybrid-mpi-omp">Back to Hybrid (MPI+OpenMP)</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-hybrid-mpi-openmp-source-code">Hello World Hybrid (MPI + OpenMP): Source Code <a name="hybrid-mpi-omp-source"></a><a class="headerlink" href="#hello-world-hybrid-mpi-openmp-source-code" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Source Code: hybrid.c.</li>
+</ul>
+<pre><code>#include &lt;stdio.h&gt;
+#include &quot;mpi.h&quot;
+#include &lt;omp.h&gt;
+
+int main(int argc, char *argv[]) {
+  int numprocs, rank, namelen;
+  char processor_name[MPI_MAX_PROCESSOR_NAME];
+  int iam = 0, np = 1;
+
+  MPI_Init(&amp;argc, &amp;argv);
+  MPI_Comm_size(MPI_COMM_WORLD, &amp;numprocs);
+  MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);
+  MPI_Get_processor_name(processor_name, &amp;namelen);
+
+  #pragma omp parallel default(shared) private(iam, np)
+  {
+    np = omp_get_num_threads();
+    iam = omp_get_thread_num();
+    printf(&quot;Hello from thread %d out of %d from process %d out of %d on %s\n&quot;,
+           iam, np, rank, numprocs, processor_name);
+  }
+
+  MPI_Finalize();
+}
+
+</code></pre>
+<p>[<a href="#hybrid-mpi-omp">Back to Hybrid (MPI+OpenMP)</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-hybrid-mpi-openmp-compiling">Hello World Hybrid (MPI + OpenMP): Compiling <a name="hybrid-mpi-omp-compile"></a><a class="headerlink" href="#hello-world-hybrid-mpi-openmp-compiling" title="Permanent link">&para;</a></h4>
+<p>Compiling.</p>
+<ul>
+<li>Compile code, but remember to load the right modules (see README.txt)</li>
+</ul>
+<pre><code>[1] Compile:
+
+module purge
+module load slurm
+module load cpu
+module load intel
+module load intel-mpi
+
+export I_MPI_CC=icc
+mpicc -qopenmp -o hello_hybrid hello_hybrid.c
+
+[2] Run:
+
+sbatch hybrid-Slurm.sb
+
+</code></pre>
+<ul>
+<li>Compilation example:</li>
+</ul>
+<pre><code>[username@login01] HYBRID]$ module purge
+[username@login01] HYBRID]$ module load slurm
+[username@login01] HYBRID]$ module load cpu
+[username@login01] HYBRID]$ module load intel
+[username@login01] HYBRID]$ module load intel-mpi
+[username@login01] HYBRID]$ export I_MPI_CC=icc
+[username@login01] HYBRID]$ mpicc -qopenmp -o hello_hybrid hello_hybrid.c
+
+</code></pre>
+<p>[<a href="#hybrid-mpi-omp">Back to Hybrid (MPI+OpenMP)</a> ]  [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-hybrid-mpi-openmp-batch-script-submission">Hello World Hybrid (MPI + OpenMP): Batch Script Submission <a name="hybrid-mpi-omp-batch-submit"></a><a class="headerlink" href="#hello-world-hybrid-mpi-openmp-batch-script-submission" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Submit the batch script and monitor:</li>
+</ul>
+<pre><code>[username@login01] HYBRID]$ sbatch hybrid-Slurm.sb
+Submitted batch job 1089019
+    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+[username@login01] HYBRID]$ squeue -u user
+[username@login01] HYBRID]$ squeue -u user
+    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+
+</code></pre>
+<p>[ <a href="#hybrid-mpi-omp">Back to Hybrid (MPI+OpenMP)</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-hybrid-mpi-openmp-batch-script-output">Hello World Hybrid (MPI + OpenMP): Batch Script Output <a name="hybrid-mpi-omp-batch-output"></a><a class="headerlink" href="#hello-world-hybrid-mpi-openmp-batch-script-output" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Batch Script Output:</li>
+</ul>
+<pre><code>[username@login01] HYBRID]$ cat hellohybrid.1089019.exp-10-07.out
+Hello from thread 0 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 14 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 1 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 4 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 12 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 2 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 13 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 7 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 3 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 8 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 0 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 3 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 13 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 14 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 6 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 7 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 11 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 12 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 4 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 1 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 5 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 15 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 11 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 9 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 5 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 2 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 6 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 9 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 8 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 10 out of 16 from process 1 out of 2 on exp-10-07
+Hello from thread 10 out of 16 from process 0 out of 2 on exp-10-07
+Hello from thread 15 out of 16 from process 0 out of 2 on exp-10-07
+
+</code></pre>
+<p>[<a href="#hybrid-mpi-omp">Back to Hybrid (MPI+OpenMP)</a> ] [ <a href="#comp-run-cpu">Back to Compile and Run CPU</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h2 id="compiling-and-running-gpu-jobs">Compiling and Running GPU Jobs <a name="comp-run-gpu"></a><a class="headerlink" href="#compiling-and-running-gpu-jobs" title="Permanent link">&para;</a></h2>
+<p><strong>Sections</strong></p>
+<ul>
+<li><a href="#comp-run-gpu-nodes">Using Expanse GPU Nodes</a></li>
+<li><a href="#comp-run-gpu-interactive">Using Interactive GPU Nodes</a></li>
+<li><a href="#laplace2d-gpu">Laplace2D (GPU/OpenACC): Source Code</a></li>
+</ul>
+<p>[ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="using-expanse-gpu-nodes">Using Expanse GPU Nodes <a name="comp-run-gpu-nodes"></a><a class="headerlink" href="#using-expanse-gpu-nodes" title="Permanent link">&para;</a></h3>
+<h4 id="expanse-gpu-hardware">Expanse GPU Hardware<a class="headerlink" href="#expanse-gpu-hardware" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">GPU Type</th>
+<th style="text-align: left;">NVIDIA V100 SMX2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Nodes</td>
+<td style="text-align: left;">52</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPUs/node</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr>
+<td style="text-align: left;">CPU Type</td>
+<td style="text-align: left;">Xeon Gold 6248</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cores/socket</td>
+<td style="text-align: left;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sockets</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Clock speed</td>
+<td style="text-align: left;">2.5 GHz</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flop speed</td>
+<td style="text-align: left;">34.4 TFlop/s</td>
+</tr>
+<tr>
+<td style="text-align: left;">Memory capacity</td>
+<td style="text-align: left;">*384 GB DDR4 DRAM</td>
+</tr>
+<tr>
+<td style="text-align: left;">Local Storage</td>
+<td style="text-align: left;">1.6TB Samsung PM1745b NVMe PCIe SSD</td>
+</tr>
+<tr>
+<td style="text-align: left;">Max CPU Memory bandwidth</td>
+<td style="text-align: left;">281.6 GB/s</td>
+</tr>
+</tbody>
+</table>
+<h4 id="using-gpu-nodes">Using GPU Nodes<a class="headerlink" href="#using-gpu-nodes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>GPU nodes are allocated as a separate resource. The conversion rate is (TBD) Expanse Service Units (SUs) to 1 V100 GPU-hour. </li>
+<li>Login nodes are not the same as the GPU nodes:</li>
+<li><em>GPU codes must be compiled by requesting an interactive session on a GPU nodes</em></li>
+<li>Batch: GPU nodes can be accessed via either the "gpu" or the "gpu-shared" partitions.</li>
+<li><code>#SBATCH -p gpu</code></li>
+<li>or <code>#SBATCH -p gpu-shared</code></li>
+<li>Be sure to setup  your CUDA environment for the compiler that you want to use:   </li>
+<li>For CUDA codes, you will need the cuda Compiler. Expanse has several CUDA compiler libraries</li>
+</ul>
+<pre><code>#Environment for the CUDA Compiler
+module purge
+module load slurm
+module load gpu/0.15.4
+module load gcc/7.2.0
+module load cuda/11.0.2
+</code></pre>
+<ul>
+<li>Notes:</li>
+<li>NVIDIA compiler command is <em>nvcc</em></li>
+<li>The Portland/PGI compilier commabnd is "pgcc"</li>
+<li>Expanse has several CUDA compiler libraries, and you can see them by
+   running <em>module avail</em> (once you have loaded the gpu module)</li>
+</ul>
+<pre><code>------------------------------------ /cm/shared/modulefiles ------------------------------------
+  cuda10.2/blas/10.2.89      cuda10.2/profiler/10.2.89    sdsc/1.0
+  cuda10.2/fft/10.2.89       cuda10.2/toolkit/10.2.89     xsede/xdusage/2.1-1
+  cuda10.2/nsight/10.2.89    default-environment
+
+</code></pre>
+<ul>
+<li>For OpenACC codes, you will need the PGI Compiler:</li>
+</ul>
+<pre><code>#Environment for the PGI Compiler
+module purge
+module load slurm
+module load gpu/0.15.4
+module load pgi/20.4
+</code></pre>
+<p>[ <a href="#comp-run-gpu">Back to Compile and Run GPU Jobs</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="using-interactive-gpu-nodes">Using Interactive GPU Nodes  <a name="comp-run-gpu-interactive"></a><a class="headerlink" href="#using-interactive-gpu-nodes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Interactive GPU node:</li>
+</ul>
+<pre><code>[username@login01] OpenACC]$srun --partition=gpu-debug --pty --account=use300 --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+srun: job 1089081 queued and waiting for resources
+srun: job 1089081 has been allocated resources
+[username@exp-7-59 OpenACC]$
+
+</code></pre>
+<ul>
+<li>You can tell you are on an interactive compute node because the node name has changed from "login01" to "exp-7-59"</li>
+</ul>
+<h4 id="obtaining-gpucuda-node-information">Obtaining GPU/CUDA: Node Information<a class="headerlink" href="#obtaining-gpucuda-node-information" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Once you are on an interactive node, reload the module environment:</li>
+</ul>
+<pre><code>[username@exp-7-59 OpenACC]$
+[mthomas@exp-7-59 ~]$ module purge
+[mthomas@exp-7-59 ~]$ module load slurm
+[mthomas@exp-7-59 ~]$ module load gpu/0.15.4
+[mthomas@exp-7-59 ~]$ module load gcc/7.2.0
+[mthomas@exp-7-59 ~]$ module load cuda/11.0.2
+[mthomas@exp-7-59 ~]$ module list
+
+Currently Loaded Modules:
+  1) slurm/expanse/21.08.8   2) gpu/0.15.4 (g)   3) gcc/7.2.0   4) cuda/11.0.2
+
+  Where:
+   g:  built natively for Intel Skylake
+
+</code></pre>
+<ul>
+<li>You can also check node configuration using the nvidia-smi command:</li>
+</ul>
+<pre><code>
+[mthomas@exp-7-59 ~]$ nvidia-smi
+Wed Oct 11 04:10:33 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.85.12    Driver Version: 525.85.12    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla V100-SXM2...  On   | 00000000:18:00.0 Off |                    0 |
+| N/A   34C    P0    41W / 300W |      0MiB / 32768MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+
+</code></pre>
+<p>[ <a href="#comp-run-gpu">Back to Compile and Run GPU Jobs</a>] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="gpu-compiling">GPU Compiling:<a class="headerlink" href="#gpu-compiling" title="Permanent link">&para;</a></h4>
+<p>All Compiling for GPU codes must be done on an interactive node:
+Steps to compile the code:</p>
+<ol>
+<li>Obtain an interactive node</li>
+<li>Load the right Modules</li>
+<li>Compile the Source code</li>
+<li>Run code locally, or exit interactive node and submit the batch script</li>
+</ol>
+<h3 id="hello-world-gpu-cuda">Hello World (GPU-CUDA) <a name="hello-world-cuda-gpu"></a><a class="headerlink" href="#hello-world-gpu-cuda" title="Permanent link">&para;</a></h3>
+<p><strong>Subsections:</strong>
+* <a href="#hello-world-cuda-source">Hello World (GPU-CUDA): Source Code</a>
+* <a href="#hello-world-cuda-compile">Hello World (GPU-CUDA): Compiling</a>
+* <a href="#hello-world-execute">Hello World (GPU-CUDA): Execute</a>
+* <a href="#hello-world-cuda-batch-submit">Hello World (GPU-CUDA): Batch Script Submission</a>
+* <a href="#hello-world-cuda-batch-output">Hello World (GPU-CUDA): Batch Script Output</a></p>
+<p>[ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-gpu-cuda-source-code">Hello World (GPU-CUDA): Source Code <a name="hello-world-cuda-source"></a><a class="headerlink" href="#hello-world-gpu-cuda-source-code" title="Permanent link">&para;</a></h4>
+<p>Hello World (GPU-CUDA): Source Code:</p>
+<pre><code>/*
+* Copyright 1993-2010 NVIDIA Corporation. All rights reserved. *
+* NVIDIA Corporation and its licensors retain all intellectual property and
+*
+* Updated by Mary Thomas, April 2023, for simple cuda compile example
+*/
+#include &lt;stdio.h&gt;
+__global__ void kernel( void ) { }
+int main( void ) { kernel&lt;&lt;&lt;1,1&gt;&gt;&gt;();
+printf( &quot;Hello,  SDSC HPC Training World!\n&quot; ); return 0;
+}
+
+</code></pre>
+<!--
+Checkpoint: Aarush proofread till here 2/9/26
+-->
+
+<p><a href="#hello-world-cuda-gpu">[Back to Hello World GPU-CUDA]</a>
+<a href="#top">[Back to Top]</a></p>
+<hr>
+
+<h4 id="hello-world-gpu-cuda-compiling">Hello World (GPU-CUDA): Compiling <a name="hello-world-cuda-compile"></a><a class="headerlink" href="#hello-world-gpu-cuda-compiling" title="Permanent link">&para;</a></h4>
+<p>*Load the correct modules for the CUDA Compiler:</p>
+<pre><code>module purge
+module load slurm
+module load gpu/0.15.4
+module load gcc/7.2.0
+module load cuda/11.0.2
+</code></pre>
+<ul>
+<li>Purge the old environment:</li>
+</ul>
+<pre><code>[username@login01] cd ~/hpctr-examples/cuda/hello-world
+[username@login01] hello-world]$ module purge
+[username@login01] hello-world]$ module load slurm
+[username@login01] hello-world]$ module load gpu
+[username@login01] hello-world]$ module load cuda
+[username@login01] hello-world]$ module list
+
+Currently Loaded Modules:
+  1) slurm/expanse/21.08.8   2) gpu/0.15.4   3) cuda/11.0.2
+</code></pre>
+<ul>
+<li>Compile the code from the command line on the interactive node:</li>
+</ul>
+<pre><code>[username@login01] hello-world]$ nvcc -o hello_world hello_world.cu
+[username@login01] hello-world]$ ll hello_world*
+-rwxr-xr-x 1 username use300 668704 Apr 11 02:08 hello_world
+-rw-r--r-- 1 username use300    372 Apr 11 02:08 hello_world.cu
+</code></pre>
+<p>[ [Back to  Hello World (GPU-CUDA)](#hello-world-cuda-gpu]] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-gpu-cuda-execute">Hello World (GPU-CUDA): Execute<a name="hello-world-execute"></a><a class="headerlink" href="#hello-world-gpu-cuda-execute" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Execute the code from the command line on an interactive node:</li>
+</ul>
+<pre><code>[username@login01] hello-world]$ ./hello_world
+Hello,  SDSC HPC Training World!
+
+</code></pre>
+<p>[ [Back to  Hello World (GPU-CUDA)](#hello-world-cuda-gpu]] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-gpu-cuda-batch-script-submission">Hello World (GPU-CUDA): Batch Script Submission <a name="hello-world-cuda-batch-submit"></a><a class="headerlink" href="#hello-world-gpu-cuda-batch-script-submission" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Exit the interactive node.</li>
+<li>Submit the job using the <em>sbatch</em> command, and monitor it while it is running using the <em>squeue</em> command:</li>
+</ul>
+<p>Batch script contents:</p>
+<pre><code>[username@login01] hello-world]$ cat hello-world.sb
+#!/bin/bash
+#SBATCH --job-name=&quot;hello_world&quot;
+#SBATCH --output=&quot;hello_world.%j.%N.out&quot;
+#SBATCH --partition=gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --gpus=1
+#SBATCH --mem=377393M
+#SBATCH --account=use300
+#SBATCH --no-requeue
+#SBATCH -t 00:05:00
+
+# Load the GPU Environment:
+module purge
+module load slurm
+module load gpu/0.15.4
+module load gcc/7.2.0
+module load cuda/11.0.2
+
+</code></pre>
+<p>*Submit the job:</p>
+<pre><code>[username@login01] hello-world]$ sbatch hello-world.sb ; squeue -u username;
+Submitted batch job 21591890
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          21591890       gpu hello_wo  username PD       0:00      1 (Priority)
+[username@login01] hello-world]$ squeue -u username
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          21591890       gpu hello_wo  username  R       0:01      1 exp-2-60
+[username@login01] hello-world]$ squeue -u username
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+</code></pre>
+<p>[ [Back to  Hello World (GPU-CUDA)](#hello-world-cuda-gpu]] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="hello-world-gpu-cuda-batch-script-output">Hello World (GPU-CUDA): Batch Script Output <a name="hello-world-cuda-batch-output"><a class="headerlink" href="#hello-world-gpu-cuda-batch-script-output" title="Permanent link">&para;</a></h4>
+<pre><code>[username@login01] hello-world]$ ls -al *21591890*
+-rw-r--r-- 1 username use300 44 Apr 11 02:20 hello_world.21591890.exp-2-60.out
+[username@login01] hello-world]$ cat hello_world.21591890.exp-2-60.out
+= 21591890
+Hello,  SDSC HPC Training World!
+</code></pre>
+<p>[ [Back to  Hello World (GPU-CUDA)](#hello-world-cuda-gpu]] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="vector-addition-gpu-cuda">Vector Addition (GPU-CUDA) <a name="vec-add-cuda-gpu"><a class="headerlink" href="#vector-addition-gpu-cuda" title="Permanent link">&para;</a></h3>
+<p><strong>Subsections:</strong>
+* <a href="#vec-add-cuda-source">Vector Addition (GPU-CUDA): Source Code</a>
+* <a href="#vec-add-cuda-compile">Vector Addition (GPU-CUDA): Compiling &amp; Running</a>
+* <a href="#vec-add-cuda-batch-submit">Vector Addition (GPU-CUDA): Batch Script Submission</a>
+* <a href="#vec-add-cuda-batch-output">Vector Addition (GPU-CUDA): Batch Script Output</a></p>
+<p>[ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="vector-addition-gpu-cuda-source-code">Vector Addition (GPU-CUDA): Source Code <a name="vec-add-cuda-source"></a><a class="headerlink" href="#vector-addition-gpu-cuda-source-code" title="Permanent link">&para;</a></h4>
+<pre><code>[username@login01] addition]$ cat vector_add_gpu.cu
+// UCSD Phys244
+// Spring 2018
+// Andreas Goetz (agoetz@sdsc.edu)
+
+// CUDA program to add two vectors in parallel on the GPU
+// launch all kernels at once
+//
+
+#include&lt;stdio.h&gt;
+
+// define vector length and threads per block
+#define N (255*4096)
+#define TPB 512
+
+//
+// CUDA device function that adds two integer vectors
+//
+__global__ void add(int *a, int *b, int *c, int n){
+
+  int tid = threadIdx.x + blockIdx.x * blockDim.x;
+
+  if (tid &lt; n)
+    c[tid] = a[tid] + b[tid];
+
+}
+
+//
+// main program
+//
+int main(void){
+
+  int *h_a, *h_b, *h_c;
+  int *d_a, *d_b, *d_c;
+  int size = N * sizeof(int);
+  int i, nblock, err;
+
+  // allocate host memory
+  h_a = (int *) malloc(size);
+  h_b = (int *) malloc(size);
+  h_c = (int *) malloc(size);
+
+// allocate device memory
+  cudaMalloc((void **)&amp;d_a, size);
+  cudaMalloc((void **)&amp;d_b, size);
+  cudaMalloc((void **)&amp;d_c, size);
+
+  // initialize vectors
+  for (i=0; i&lt;N; i++){
+    h_a[i] = i+1;
+    h_b[i] = i+1;
+  }
+
+  // copy input data to device
+  cudaMemcpy(d_a, h_a, size, cudaMemcpyHostToDevice);
+  cudaMemcpy(d_b, h_b, size, cudaMemcpyHostToDevice);
+
+  // add vectors by launching a sufficient number of blocks of the add() kernel
+  nblock = (N+TPB-1)/TPB;
+  printf(&quot;\nLaunching vector addition kernel...\n&quot;);
+  printf(&quot;Vector length     = %d\n&quot;,N);
+  printf(&quot;Blocks            = %d\n&quot;,nblock);
+  printf(&quot;Threads per block = %d\n&quot;,TPB);
+  printf(&quot;Kernel copies     = %d\n&quot;,nblock*TPB);
+  add&lt;&lt;&lt;nblock,TPB&gt;&gt;&gt;(d_a, d_b, d_c, N);
+
+  // copy results back to host
+  cudaMemcpy(h_c, d_c, size, cudaMemcpyDeviceToHost);
+
+  // deallocate memory
+  cudaFree(d_a);
+  cudaFree(d_b);
+  cudaFree(d_c);
+
+  // check results
+  err = 0;
+  for (i=0; i&lt;N; i++){
+    if (h_c[i] != 2*(i+1)) err += 1;
+  }
+  if (err != 0){
+    printf(&quot;\n Error, %d elements do not match!\n\n&quot;, err);
+  } else {
+    printf(&quot;\n Success! All elements match.\n\n&quot;);
+  }
+
+  // deallocate host memory
+  free(h_a);
+  free(h_b);
+  free(h_c);
+
+  return err;
+
+}
+</code></pre>
+<p>[ <a href="#vec-add-cuda-gpu">Back to Vector Addition</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="vector-addition-gpu-cuda-compiling-running">Vector Addition (GPU-CUDA): Compiling &amp; Running <a name="vec-add-cuda-compile"></a><a class="headerlink" href="#vector-addition-gpu-cuda-compiling-running" title="Permanent link">&para;</a></h4>
+<pre><code>[username@exp-7-59 addition]$ module purge
+[username@exp-7-59 addition]$ module load slurm
+[username@exp-7-59 addition]$ module load gpu
+[username@exp-7-59 addition]$ module load cuda
+[username@exp-7-59 addition]$ nvcc -o vector_add_gpu vector_add_gpu.cu
+[username@exp-7-59 addition]$ exit
+</code></pre>
+<p>[ <a href="#vec-add-cuda-gpu">Back to Vector Addition</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="vector-addition-gpu-cuda-batch-script-submission">Vector Addition (GPU-CUDA): Batch Script Submission <a name="vec-add-cuda-batch-submit"></a><a class="headerlink" href="#vector-addition-gpu-cuda-batch-script-submission" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Once you are done compiling, exit the GPU node, and submit the batchscript:</li>
+</ul>
+<pre><code>[mthomas@login01 addition]$ sbatch vector_add_gpu.sb 
+Submitted batch job 25649417
+[mthomas@login01 addition]$ squeue -u mthomas
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          25649417 gpu-share vector_a  mthomas  R       0:00      1 exp-14-60
+
+
+
+[ [Back to Vector Addition](#vec-add-cuda-gpu) ] [ [Back to Top](#top) ]
+&lt;hr&gt;
+
+#### Vector Addition (GPU-CUDA): Batch Script Output &lt;a name=&quot;vec-add-cuda-batch-output&quot;&gt;&lt;/a&gt;
+
+
+  ```
+[mthomas@login01 addition]$ cat vector_add_gpu.25649417.exp-14-60.out
+
+Launching vector addition kernel...
+Vector length     = 1044480
+Blocks            = 2040
+Threads per block = 512
+Kernel copies     = 1044480
+
+ Success! All elements match.
+
+[mthomas@login01 addition]$ 
+</code></pre>
+<p>[ <a href="#vec-add-cuda-gpu">Back to Vector Addition</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h3 id="laplace2d-gpuopenacc">Laplace2D (GPU/OpenACC) <a name="laplace2d-gpu"></a><a class="headerlink" href="#laplace2d-gpuopenacc" title="Permanent link">&para;</a></h3>
+<p><strong>Subsections:</strong>
+* <a href="#laplace2d-gpu-source">Laplace2D (GPU/OpenACC): Source Code</a>
+* <a href="#laplace2d-gpu-compile">Laplace2D (GPU/OpenACC): Compiling</a>
+* <a href="#laplace2d-gpu-batch-submit">Laplace2D (GPU/OpenACC): Batch Script Submission</a>
+* <a href="#laplace2d-gpu-batch-output">Laplace2D (GPU/OpenACC): Batch Script Output</a></p>
+<h4 id="laplace2d-gpuopenacc-source-code">Laplace2D (GPU/OpenACC): Source Code  <a name="laplace2d-gpu-source"></a><a class="headerlink" href="#laplace2d-gpuopenacc-source-code" title="Permanent link">&para;</a></h4>
+<p>Source Code</p>
+<pre><code>[username@login01] OpenACC]$ !cat
+cat laplace2d.c
+/*
+ *  Copyright 2012 NVIDIA Corporation
+ *
+ *  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+#include &lt;math.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+#include &quot;timer.h&quot;
+
+#define NN 4096
+#define NM 4096
+
+double A[NN][NM];
+double Anew[NN][NM];
+
+int main(void)
+{
+    int laplace(void);
+    printf(&quot;main()\n&quot;);
+    laplace();
+}
+
+int laplace()
+{
+    const int n = NN;
+    const int m = NM;
+    const int iter_max = 1000;
+
+    const double tol = 1.0e-6;
+    double error     = 1.0;
+
+    memset(A, 0, n * m * sizeof(double));
+    memset(Anew, 0, n * m * sizeof(double));
+
+    for (int j = 0; j &lt; n; j++)
+    {
+        A[j][0]    = 1.0;
+        Anew[j][0] = 1.0;
+    }
+    printf(&quot;Jacobi relaxation Calculation: %d x %d mesh\n&quot;, n, m);
+    StartTimer();
+    int iter = 0;
+
+#pragma acc data copy(A), create(Anew)
+    while ( error &gt; tol &amp;&amp; iter &lt; iter_max )
+    {
+        error = 0.0;
+
+#pragma acc kernels
+        for( int j = 1; j &lt; n-1; j++)
+        {
+            for( int i = 1; i &lt; m-1; i++ )
+            {
+                Anew[j][i] = 0.25 * ( A[j][i+1] + A[j][i-1]
+                                    + A[j-1][i] + A[j+1][i]);
+                error = fmax( error, fabs(Anew[j][i] - A[j][i]));
+            }
+        }
+
+#pragma acc kernels
+        for( int j = 1; j &lt; n-1; j++)
+        {
+            for( int i = 1; i &lt; m-1; i++ )
+            {
+                A[j][i] = Anew[j][i];    
+            }
+        }
+
+        if(iter % 100 == 0) printf(&quot;%5d, %0.6f\n&quot;, iter, error);
+
+        iter++;
+    }
+    double runtime = GetTimer();
+    printf(&quot; total: %f s\n&quot;, runtime / 1000);
+}
+</code></pre>
+<p>[ <a href="#laplace2d-gpu">Back to Laplace2D (GPU/OpenACC)</a>] [ <a href="#comp-run-gpu">Back to Compile and Run GPU Jobs</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="laplace2d-gpuopenacc-compiling">Laplace2D (GPU/OpenACC): Compiling  <a name="laplace2d-gpu-compile"></a><a class="headerlink" href="#laplace2d-gpuopenacc-compiling" title="Permanent link">&para;</a></h4>
+<p>Compile the code:
+1. obtain an interactive node
+2. load the right Modules
+3. compile the Source code
+4. exit interactive node</p>
+<pre><code>[username@login01] ~]$ module load slurm
+[username@login01] ~]$ srun --pty --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 -p gpu-debug -A abc123 --gpus=1 -t 00:10:00 /bin/bash
+srun: job 667263 queued and waiting for resources
+srun: job 667263 has been allocated resources
+[username@exp-7-59 ~]$ module purge
+[username@exp-7-59 ~]$ module load slurm
+[username@exp-7-59 ~]$ module load gpu
+[username@exp-7-59 ~]$ module load pgi
+[username@exp-7-59 ~]$ module list
+
+Currently Loaded Modules:
+  1) slurm/expanse/20.02.3   2) gpu/1.0   3) pgi/20.4
+
+</code></pre>
+<ul>
+<li>Now you are set up to compile the code:</li>
+</ul>
+<pre><code>[username@exp-7-59 OpenACC]$ pgcc -o laplace2d.openacc.exe -fast -Minfo -acc -ta=tesla:cc70 laplace2d.c
+&quot;laplace2d.c&quot;, line 91: warning: missing return statement at end of non-void
+          function &quot;laplace&quot;
+  }
+  ^
+
+GetTimer:
+     20, include &quot;timer.h&quot;
+          61, FMA (fused multiply-add) instruction(s) generated
+laplace:
+     47, Loop not fused: function call before adjacent loop
+         Loop unrolled 8 times
+         FMA (fused multiply-add) instruction(s) generated
+     55, StartTimer inlined, size=2 (inline) file laplace2d.c (37)
+     59, Generating create(Anew[:][:]) [if not already present]
+         Generating copy(A[:][:]) [if not already present]
+         Loop not vectorized/parallelized: potential early exits
+     61, Generating implicit copy(error) [if not already present]
+     64, Loop is parallelizable
+     66, Loop is parallelizable
+         Generating Tesla code
+         64, #pragma acc loop gang, vector(4) /* blockIdx.y threadIdx.y */
+             Generating implicit reduction(max:error)
+         66, #pragma acc loop gang, vector(32) /* blockIdx.x threadIdx.x */
+     75, Loop is parallelizable
+     77, Loop is parallelizable
+         Generating Tesla code
+         75, #pragma acc loop gang, vector(4) /* blockIdx.y threadIdx.y */
+         77, #pragma acc loop gang, vector(32) /* blockIdx.x threadIdx.x */
+     88, GetTimer inlined, size=9 (inline) file laplace2d.c (54)
+[username@exp-7-59 OpenACC]$
+[username@exp-7-59 OpenACC]$ exit
+</code></pre>
+<p>[ <a href="#laplace2d-gpu">Back to Laplace2D (GPU/OpenACC)</a> ] [ <a href="#comp-run-gpu">Back to Compile and Run GPU Jobs</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="laplace2d-gpuopenacc-batch-script-submission">Laplace2D (GPU/OpenACC): Batch Script Submission  <a name="laplace2d-gpu-batch-submit"></a><a class="headerlink" href="#laplace2d-gpuopenacc-batch-script-submission" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Batch Script Contents</li>
+</ul>
+<pre><code>
+[username@exp-7-59 OpenACC]$ cat openacc-gpu-shared.sb
+#!/bin/bash
+#SBATCH --job-name=&quot;OpenACC&quot;
+#SBATCH --output=&quot;OpenACC.%j.%N.out&quot;
+#SBATCH --partition=gpu-shared
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --gpus=1
+#SBATCH --acount=abc123
+#SBATCH -t 01:00:00
+
+#Environment
+module purge
+module load slurm
+module load gpu
+module load pgi
+
+#Run the job
+./laplace2d.openacc.exe
+
+</code></pre>
+<ul>
+<li>Submit the batch script, and monitor queue status:</li>
+</ul>
+<pre><code>[username@login01] OpenACC]$ sbatch openacc-gpu-shared.sb
+Submitted batch job 1093002
+[username@login01] OpenACC]$ squeue -u username
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+[username@login01] OpenACC]$ ll
+total 106
+drwxr-xr-x  2 username use300     8 Jan 29 16:25 .
+drwxr-xr-x 10 username use300    10 Jan 29 03:28 ..
+-rw-r--r--  1 username use300  2136 Jan 29 03:27 laplace2d.c
+-rwxr-xr-x  1 username use300 52080 Jan 29 16:20 laplace2d.openacc.exe
+-rw-r--r--  1 username use300   234 Jan 29 16:25 OpenACC.1093002.exp-7-57.out
+-rw-r--r--  1 username use300   332 Jan 29 16:11 openacc-gpu-shared.sb
+-rw-r--r--  1 username use300  1634 Jan 29 03:27 README.txt
+-rw-r--r--  1 username use300  1572 Jan 29 03:27 timer.h
+
+</code></pre>
+<p>[ <a href="#laplace2d-gpu">Back to Laplace2D (GPU/OpenACC)</a> ] [ <a href="#comp-run-gpu">Back to Compile and Run GPU Jobs</a> ] [ <a href="#top">Back to Top</a> ]</p>
+<hr>
+
+<h4 id="laplace2d-gpuopenacc-batch-script-output">Laplace2D (GPU/OpenACC): Batch Script Output  <a name="laplace2d-gpu-batch-output"></a><a class="headerlink" href="#laplace2d-gpuopenacc-batch-script-output" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Batch Script Output:</li>
+</ul>
+<pre><code>[username@login01] OpenACC]$ cat OpenACC.1093002.exp-7-57.out
+main()
+Jacobi relaxation Calculation: 4096 x 4096 mesh
+    0, 0.250000
+  100, 0.002397
+  200, 0.001204
+  300, 0.000804
+  400, 0.000603
+  500, 0.000483
+  600, 0.000403
+  700, 0.000345
+  800, 0.000302
+  900, 0.000269
+ total: 1.029057 s
+[username@login01] OpenACC]$
+</code></pre>
+<p>[ <a href="#laplace2d-gpu">Back to Laplace2D (GPU/OpenACC)</a> ] 
+[ <a href="#comp-run-gpu">Back to Compile and Run GPU Jobs</a> ] 
+[ <a href="#top">Back to Top</a> ]</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="examples/" class="btn btn-neutral float-right" title="Examples">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="examples/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-06-11 05:21:43.972643+00:00
+-->

@@ -1,4 +1,4 @@
-## Expanse 101 Tutorial
+# Expanse 101 Tutorial
 
 [SDSC HPC Training](https://www.sdsc.edu/education_and_training/training_hpc.html)
 
@@ -1300,7 +1300,7 @@ Top left corner of matrix A:
  -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10  -1.4607E+10
  -1.8587E+10  -1.8587E+10  -1.8587E+10  -1.8587E+10  -1.8588E+10  -1.8588E+10
  -2.2567E+10  -2.2567E+10  -2.2567E+10  -2.2567E+10  -2.2568E+10  -2.2568E+10
- ```
+```
 
 
 For more information on the Intel compilers run: [ifort | icc | icpc] -help
@@ -1969,7 +1969,7 @@ Batch Script Output
  node         188 : Hello world!
  node         246 : Hello world!
 
- ```
+```
 
 [ [Back to Hello World MPI](#hello-world-mpi) ] [ [Back to Compile and Run CPU](#comp-run-cpu) ] [ [Back to Top](#top) ]
 <hr>
@@ -2733,12 +2733,13 @@ int main(void){
 
 * Once you are done compiling, exit the GPU node, and submit the batchscript:
 
+```
 [mthomas@login01 addition]$ sbatch vector_add_gpu.sb 
 Submitted batch job 25649417
 [mthomas@login01 addition]$ squeue -u mthomas
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
           25649417 gpu-share vector_a  mthomas  R       0:00      1 exp-14-60
-
+```
 
 
 [ [Back to Vector Addition](#vec-add-cuda-gpu) ] [ [Back to Top](#top) ]
@@ -2747,7 +2748,7 @@ Submitted batch job 25649417
 #### Vector Addition (GPU-CUDA): Batch Script Output <a name="vec-add-cuda-batch-output"></a>
 
 
-  ```
+```
 [mthomas@login01 addition]$ cat vector_add_gpu.25649417.exp-14-60.out
 
 Launching vector addition kernel...
